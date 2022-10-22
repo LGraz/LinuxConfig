@@ -1,0 +1,233 @@
+## for image preview : 
+# 1. ueberzug must be installed.
+# 2. The scope file (~/.config/lf/scope for me), must have a command similar to
+#    mine to generate ueberzug images.
+# 3. A `set cleaner` line as below is a cleaner script.
+# 4. lf should be started through a wrapper script (~/.local/bin/lfub for me)
+#    that creates the environment for ueberzug. This command can be be aliased
+#    in your shellrc (`alias lf="lfub") or if set to a binding, should be
+#    called directly instead of normal lf.
+
+# Basic vars
+set shellopts '-eu'
+set ifs "\n"
+set scrolloff 10
+set icons
+set period 1
+set hidden true
+set drawbox true
+# set hiddenfiles ".*"
+set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml:*.out:*.fls:*.fdb_latexmk:*.toc:*.synctex.gz"
+set cleaner '~/.config/lf/cleaner'
+set previewer '~/.config/lf/scope'
+set info size
+set incsearch true
+set incfilter true
+set findlen 0
+# original prompt: "\033[32;1m%u@%h\033[0m:\033[34;1m%d\033[0m\033[1m%f\033[0m"
+set promptfmt " \033[33;1m%d\033[0m\033[1m%f\033[0m"
+set timefmt '     15:04_2 Jan 2006'
+
+# cmds/functions
+# open
+cmd open ${{
+    case $(file --mime-type "$(readlink -f $f)" -b) in
+	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
+	image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) setsid -f zathura $fx >/dev/null 2>&1 ;;
+        text/*|application/json|inode/x-empty) $EDITOR $fx;;
+	image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
+	image/svg+xml) display -- $f ;;
+	image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|tif\|ico\)\(_large\)*$" |
+		setsid -f sxiv -aio 2>/dev/null | while read -r file; do
+			[ -z "$file" ] && continue
+			lf -remote "send select \"$file\""
+			lf -remote "send toggle"
+		done &
+		;;
+	audio/*) mpv --audio-display=no $f ;;
+	video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
+	application/pdf|application/vnd*|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
+	application/pgp-encrypted) $EDITOR $fx ;;
+        *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
+    esac
+}}
+
+cmd mkdir %echo "New dir: " ; read dirs ; mkdir $dirs && echo "Created: $dirs" 
+
+cmd extract ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "extract?[y/N]"
+	read ans
+	[ $ans = "y" ] && aunpack $fx
+}}  # Alternative: cmd extract ${{ \    set -f \    case $f in \        *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;; \        *.tar.gz|*.tgz) tar xzvf $f;; \        *.tar.xz|*.txz) tar xJvf $f;; \        *.zip) unzip $f;; \        *.rar) unrar x $f;; \        *.7z) 7z x $f;; \    esac \}} \
+
+cmd delete ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "delete?[y/N]"
+	read ans
+	[ $ans = "y" ] && rm -rf -- $fx
+}}
+
+cmd moveto ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	clear; echo "Move to where?"
+	dest="$(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf | sed 's|~|$HOME|')" &&
+	for x in $fx; do
+		eval mv -iv \"$x\" \"$dest\"
+	done &&
+	notify-send "🚚 File(s) moved." "File(s) moved to $dest."
+}}
+
+cmd copyto ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	clear; echo "Copy to where?"
+	dest="$(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf | sed 's|~|$HOME|')" &&
+	for x in $fx; do
+		eval cp -ivr \"$x\" \"$dest\"
+	done &&
+	notify-send "📋 File(s) copied." "File(s) copies to $dest."
+}}
+
+cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
+
+
+
+# trash   -- moves files to ~/.trash 
+#			to restore execute commands in ~/.trash.log
+cmd trash ${{ 
+	touch ~/.trash.log
+	echo "# `date --iso-8601=s` --------------" >> ~/.trash.log 
+	for xxx in $fs ; do 
+		echo "mv ~/.trash/`basename $xxx` $xxx" >> ~/.trash.log 
+	 done
+    mkdir -p ~/.trash
+    if [ -z "$fs" ]; then
+        mv "$f" ~/.trash
+    else
+        IFS="`printf '\n\t'`"; mv $fs ~/.trash
+    fi
+	echo "# END --------------------------------------------------------" >> ~/.trash.log
+}}
+
+# tar.gz / zip
+# cmd tar ${{
+#     set -f
+#     mkdir $1
+#     cp -r $fx $1
+#     tar czf $1.tar.gz $1
+#     rm -rf $1
+# }}
+# cmd zip ${{
+#     set -f
+# 	echo $1
+#     mkdir $1
+#     cp -r $fx $1
+#     zip -r $1.zip $1
+#     rm -rf $1
+# }}
+cmd zip %echo "Archive Name: " ; read name ; zip -r "${name}" "$fx"
+cmd tar %echo "Archive Name: " ; read name ; mkdir $name && mv $fx $name && tar -czvf ${name}.tar.gz $name && rm -rf $name
+
+##################################
+### Bindings
+# map Y $printf "%s" "$fx" | xclip -selection clipboard
+map H
+map M
+map L
+map v
+map d
+map c
+map y
+map a
+map e
+map E 
+map F
+map <c-f>
+map <c-n>
+map w
+map gg
+map gh
+map G
+map p
+map u
+map i
+map [
+map ]
+# map m # dont unmap m, since it is used for chdir
+map O
+map o
+
+map O $mimeopen --ask $f
+map o &mimeopen $f
+
+map <a-D> trash
+# map D delete
+
+map E extract
+map Z zip
+map T tar
+
+map <f-2> push :rename<space>
+
+map <c-n> mkdir
+map v paste
+map r invert
+map c copy
+map x cut
+map <esc> clear
+map <esc> unselect
+map <enter> open
+
+map as calcdirsize --info=size
+
+map C $code $f #edit current file
+
+map <c-f> filter
+map F $fzf -e
+
+map . set hidden!
+
+map i jump-next
+map u jump-prev
+
+
+######################
+##### Directories
+## System
+cmd Home cd ~/
+cmd Documents cd ~/Documents
+cmd Downloads cd ~/Downloads
+cmd Desktop cd ~/Desktop
+cmd Pictures cd ~/Pictures
+cmd Videos cd ~/Videos
+cmd .config cd ~/.config
+cmd ArchTitus cd ~/ArchTitus
+cmd Mounted cd /run/media/lukas
+
+
+map gh Home
+map gdc  Documents
+map gdw  Downloads
+map gds  Desktop
+map gp  Pictures
+map gv  Videos
+map gc  .config
+map ga  ArchTitus
+map gm  Mounted
+
+# quit
+	# if use lfcd we map:
+	# q : quit without cd $PWD
+	# alt+q : quit with cd $PWD
+		# marks the inital directory with - key, 
+		push m-
+		# assigns Q key to load - mark first before quitting.
+		map <a-q> quit
+		map q
+		map q push '-<a-q>

@@ -1,0 +1,141 @@
+# dunst config
+[global]
+  monitor 			= 0
+  follow			= mouse
+  width				= 300
+  height			= 300
+  origin			= top-right
+  offset			= 42x42
+  scale				= 0
+  notification_limit		= 0
+  progress_bar			= true
+  progress_bar_height		= 4
+  progress_bar_frame_width	= 1
+  progress_bar_min_width	= 150
+  progress_bar_max_width	= 300
+  indicate_hidden		= yes
+  separator_height		= 2
+  padding			= 8
+  horizontal_padding		= 8
+  text_icon_padding		= 0
+  frame_width			= 3
+  frame_color			= "#202828"
+  separator_color		= auto
+  sort				= yes
+  font				= Iosevka Curly Slab
+  line_height			= 0
+  format 			= "<b>%a</b> \n<b>%s</b> \n%b"
+  alignment 			= left
+  vertical_alignment		= center
+  show_age_threshold		= 60
+  ellipsize			= middle
+  ignore_newline		= no
+  stack_duplicates		= true
+  hide_duplicate_count		= false
+  show_indicators		= yes
+  icon_position			= left
+  min_icon_size			= 0
+  max_icon_size			= 32
+  icon_path			=
+  history_length		= 20
+  title				= Dunst
+  class				= Dunst
+  corner_radius			= 3
+  ignore_dbusclose		= false
+  force_xwayland		= false
+
+  mouse_middle_click		= do_action, close_current
+  mouse_right_click		= close_all
+
+[experimental]
+  per_monitor_dpi		= false
+
+[urgency_low]
+  background 			= "#101818"
+  foreground			= "#C0C8C8"
+  timeout			= 4
+  frame_color			= "#182020"
+
+[urgency_normal]
+  background			= "#101818"
+  foreground			= "#A0A8A8"
+  timeout			= 8
+  frame_color			= "#182020"
+
+[urgency_critical]
+  background			= "#101818"
+  foreground			= "#A0A8A8"
+  timeout			= 10
+  frame_color			= "#182020"
+
+#
+# SCRIPTING
+# you can specify a script that gets run when the rule matches by setting
+# the 'script' option.
+# The script will be called as follows:
+# script appname summary body icon urgency
+# where urgency can be "LOW", "NORMAL" or "CRITICAL".
+#
+# NOTE: if you don't want a notification to be displayed, set the format to ""
+# NOTE: It might be helpful to run dunst -print in a terminal in order to find
+# fitting options for rules.
+
+#[espeak]
+#    summary = "*"
+#    script = dunst_espeak.sh
+
+#[script-test]
+#    summary = "*script*"
+#    script = dunst_test.sh
+
+#[ignore]
+## This notification will not be displayed
+#    summary = "foobar"
+#    format = ""
+
+#[signed_on]
+#    appname = Pidgin
+#    summary = "*signed on*"
+#    urgency = low
+#
+#[signed_off]
+#    appname = Pidgin
+#    summary = *signed off*
+#    urgency = low
+#
+#[says]
+#    appname = Pidgin
+#    summary = *says*
+#    urgency = critical
+#
+#[twitter]
+#    appname = Pidgin
+#    summary = *twitter.com*
+#    urgency = normal
+#
+#[scrot]
+#summary = scrot
+#format = "<b>  %s</b>\n%b"
+#
+#[mocp]
+#summary = mocp
+#appname = notify-send
+#urgency = low
+#format = "<b>  %s</b>\n%b"
+
+[usb]
+summary = Automount
+format = "<b> %s</b>\n%b"
+#
+#[slack]
+#summary = Slack Notification
+#format = "<b> %s</b>\n%b"
+#
+#[Thunderbird]
+#appname = thunderbird
+#format = "<b>  %s</b>\n%b"
+
+[Spotify]
+    appname=Spotify
+    format=""  # this mutes spotify-notifications
+

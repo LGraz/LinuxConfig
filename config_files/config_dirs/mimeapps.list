@@ -1,0 +1,9 @@
+[Added Associations]
+application/pdf=visual-studio-code.desktop;
+
+[Removed Associations]
+application/pdf=net.sourceforge.gscan2pdf.desktop;
+
+[Default Applications]
+inode/directory=org.gnome.Nautilus.desktop;
+

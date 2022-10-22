@@ -1,0 +1,7 @@
+# timestamp | duration | file | instruction | dir | modtime | etag | size | fileId | status | errorString | http result code | other size | other modtime | X-Request-ID 
+#=#=#=# Syncrun started  2022-08-01T12:17:56Z 
+#=#=#=#=# Propagation starts 2022-08-01T12:17:56Z (last step: 212 msec , total: 212 msec) 
+2022-08-01T12:17:48Z | 20220617000924_SCREEN.png | SyncInstruction(CSYNC_INSTRUCTION_NEW) | OCC::SyncFileItem::Up | | 1658059341 | 1d09fed8aee70e67018ea7c07da99aee | 464787 | 2947221823508fc14d93fa7 | OCC::SyncFileItem::Success |  | 201 | 0 | 0 | bd71e149-309b-4ac6-a2ae-caf4d54bc01b | 
+2022-08-01T12:17:48Z | 20220617000716_SCREEN.png | SyncInstruction(CSYNC_INSTRUCTION_NEW) | OCC::SyncFileItem::Up | | 1658059341 | 78da47207580c653f1500a1f0d42fbf9 | 590420 | 2947221835508fc14d93fa7 | OCC::SyncFileItem::Success |  | 201 | 0 | 0 | 89d57c27-52a5-4e13-bec3-408ee05cf7c5 | 
+2022-08-01T12:17:48Z | 20220617001012_SCREEN.png | SyncInstruction(CSYNC_INSTRUCTION_NEW) | OCC::SyncFileItem::Up | | 1658059341 | d67f51647a098fc4db66324d16e244b5 | 860363 | 2947221862508fc14d93fa7 | OCC::SyncFileItem::Success |  | 201 | 0 | 0 | d7e05ef2-c86f-4e21-87e5-7d180c0eb748 | 
+#=#=#=# Syncrun finished 2022-08-01T12:18:01Z (last step: 4879 msec , total: 5091 msec) 

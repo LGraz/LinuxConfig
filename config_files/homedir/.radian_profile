@@ -1,0 +1,35 @@
+# auto indentation for new line and curly braces
+options(radian.auto_indentation = TRUE)
+options(radian.tab_size = 2)
+
+options(radian.highlight_matching_bracket = TRUE)
+
+# add spaces around equals in function argument completion
+options(radian.completion_adding_spaces_around_equals = FALSE)
+
+
+# allows user defined shortcuts, these keys should be escaped when send through the terminal.
+# In the following example, `esc` + `-` sends `<-` and `esc` + `m` sends `%>%`.
+# Note that in some terminals, you could mark `alt` as `escape` so you could use `alt` + `-` instead.
+options(radian.escape_key_map = list(
+    list(key = "-", value = " <- "),
+    list(key = "m", value = " %>% ")
+))
+
+
+options(radian.insert_new_line = FALSE)
+
+
+## AFFECTS SPACE BELOW
+options(radian.complete_while_typing = TRUE) ## default=TRUE
+
+
+# see https://help.farbox.com/pygments.html
+# for a list of supported color schemes, default scheme is "native"
+options(radian.color_scheme = "monokai")
+# light mode: manni (emacs)
+# dark  mode:
+
+# get yellow prompt     "\033[38;5;11m" describes yellow
+options(radian.prompt = "\033[38;5;11m>\033[0m ")
+# options(radian.shell_prompt = "\033[38;5;11m#!>\033[0m ")

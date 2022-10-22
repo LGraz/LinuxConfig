@@ -1,0 +1,141 @@
+{
+    "update.mode": "none",
+    "editor.fontSize": 18,
+    "r.rpath.linux": "/bin/R",
+    "terminal.integrated.fontSize": 18,
+    "r.bracketedPaste": true,
+    "editor.formatOnPaste": true,
+    "code-runner.clearPreviousOutput": true,
+    "code-runner.saveAllFilesBeforeRun": true,
+    "code-runner.saveFileBeforeRun": true,
+    ///////////////////////////////////////////////////////
+    // this puts all aux.files into a sepereate directory "out"
+    // ---------------------------
+    // "latex-workshop.latex.outDir": "out",
+    // "latex-workshop.latex.recipes": [
+    //     {
+    //         "name": "pdflatex",
+    //         "tools": [
+    //             "pdflatex"
+    //         ]
+    //     }
+    // ],
+    // "latex-workshop.latex.tools": [
+    //     {
+    //         "name": "latexmk",
+    //         "command": "latexmk",
+    //         "args": [
+    //             "-synctex=1",
+    //             "-interaction=nonstopmode",
+    //             "-file-line-error",
+    //             "-pdf",
+    //             "-aux-directory=out",
+    //             "-output-directory=out",
+    //             "%DOC%"
+    //         ]
+    //     },
+    //     {
+    //         "name": "pdflatex",
+    //         "command": "pdflatex",
+    //         "args": [
+    //             "-synctex=1",
+    //             "-interaction=nonstopmode",
+    //             "-file-line-error",
+    //             "-output-directory=out",
+    //             "%DOC%"
+    //         ]
+    //     }
+    // ],
+    ////////////////////////////////////////////////////////
+    "explorer.confirmDelete": false,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "explorer.confirmDragAndDrop": false,
+    "git.confirmSync": false,
+    "editor.largeFileOptimizations": false,
+    "jupyter.askForKernelRestart": false,
+    "r.workspaceViewer.showObjectSize": true,
+    "interactiveWindow.collapseCellInputCode": "never",
+    "[markdown, latex, tex]": {
+        "editor.formatOnSave": true,
+        "editor.wordWrap": "on",
+        "editor.renderWhitespace": "all"
+    },
+    // "workbench.colorCustomizations": {
+    //     // highlight tab
+    //     "tab.activeBorder": "#f01bff",
+    //     "tab.unfocusedActiveBorder": "#6e0775"
+    // },
+    "window.menuBarVisibility": "hidden",
+    "latex-workshop.message.error.show": false,
+    "git.autofetch": true,
+    "workbench.editorAssociations": {
+        "*.pdf": "latex-workshop-pdf-hook"
+    },
+    "editor.cursorSurroundingLines": 3,
+    "window.enableMenuBarMnemonics": false,
+    "latex-workshop.view.pdf.trim": 1,
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.currentLine.enabled": false,
+    "gitlens.codeLens.enabled": false,
+    "gitlens.statusBar.enabled": false,
+    "gitlens.views.branches.branches.layout": "list",
+    "workbench.panel.defaultLocation": "right",
+    "editor.minimap.enabled": false,
+    "breadcrumbs.enabled": false,
+    "workbench.iconTheme": "sweet-vscode-icons",
+    "editor.cursorStyle": "block",
+    "editor.cursorBlinking": "solid",
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.scrollback": 2000,
+    "workbench.startupEditor": "none",
+    "git.enableSmartCommit": true, // bar with directory
+    // "debug.console.fontFamily": "Cascadia Code Light",
+    "debug.console.fontSize": 16,
+    "debug.console.lineHeight": 22,
+    "workbench.colorTheme": "LukasLeight",
+    "markdown.preview.fontSize": 16,
+    "r.session.viewers.viewColumn": {
+        "browser": "Disable",
+        "viewer": "Two",
+        "pageViewer": "Disable",
+        "view": "Two",
+        "helpPanel": "Disable",
+        "plot": "Disable"
+    },
+    "latex-workshop.view.pdf.color.dark.backgroundColor": "#000000",
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "notebook.output.textLineLimit": 50,
+    "notebook.outputFontSize": 16,
+    "notebook.outputLineHeight": 1.1,
+    "terminal.integrated.fontFamily": "MesloLGS Nerd Font Mono",
+    // Language specific settings
+    "[latex]": {
+        "editor.wordWrap": "on"
+    },
+    "[tex]": {
+        "editor.wordWrap": "on"
+    },
+    "[markdown]": {
+        "editor.wordWrap": "on"
+    },
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.quickSuggestionsDelay": 50,
+    "editor.suggest.localityBonus": true,
+    "files.insertFinalNewline": true,
+    "editor.lineDecorationsWidth": 0,
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "[python]": {
+        "editor.formatOnPaste": false
+    },
+    "r.rterm.linux": "/home/lukas/.local/bin/radian",
+    "r.plot.useHttpgd": true,
+    "path-intellisense.autoTriggerNextSuggestion": true,
+    "path-intellisense.showHiddenFiles": true,
+    "path-intellisense.mappings": {
+        "./": "${workspaceRoot}",
+    },
+    "path-intellisense.autoSlashAfterDirectory": true,
+    "workbench.activityBar.visible": false,
+    "editor.insertSpaces": false,
+    "window.zoomLevel": 1
+}

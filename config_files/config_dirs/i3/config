@@ -1,0 +1,371 @@
+#! /bin/bash  # <-- to trick vs code
+
+exec --no-startup-id albert &
+
+##### KEYBINDS ######
+##
+##
+	# Super in Mod4 and Alt is Mod1
+	set $alt Mod1
+	set $move Mod1
+	set $shift Mod1
+	set $super Mod4
+
+##### NAVIGATION ######
+##
+##
+	# within a workspace:
+		# Move your focus around
+			bindsym $super+Left focus left
+			bindsym $super+h focus left
+			bindsym $super+Down focus down
+			bindsym $super+j focus down
+			bindsym $super+Up focus up
+			bindsym $super+k focus up
+			bindsym $super+Right focus right
+			bindsym $super+l focus right
+		# Move the focused window with the same, but add $move
+			bindsym $super+$move+Left move left
+			bindsym $super+$move+h move left
+			bindsym $super+$move+Down move down
+			bindsym $super+$move+j move down
+			bindsym $super+$move+Up move up
+			bindsym $super+$move+k move up
+			bindsym $super+$move+Right move right
+			bindsym $super+$move+l move right
+	# between workspaces
+			bindsym $super+b workspace back_and_forth
+			bindsym $super+BackSpace workspace back_and_forth
+			bindsym $super+$move+b move workspace back_and_forth; workspace back_and_forth
+			bindsym $super+$move+BackSpace move workspace back_and_forth; workspace back_and_forth
+			bindsym $alt+Tab exec rofi -show "window" &
+		# next
+			bindsym $super+i workspace next
+			bindsym $super+$move+i move workspace next, workspace next
+		# previous
+			bindsym $super+u workspace prev
+			bindsym $super+$move+u move workspace prev; workspace prev
+		# new
+			bindsym $super+n exec ~/.config/i3/new_workspace.py
+			bindsym $super+$move+n exec ~/.config/i3/new_workspace.py --move_focused
+		
+		# set workspace names & variables
+		set $ws0 "0"
+		set $ws1 "1"
+		set $ws2 "2"
+		set $ws3 "3"
+		set $ws4 "4"
+		set $ws5 "5"
+		set $ws6 "6"
+		set $ws7 "7"
+		set $ws8 "8"
+		set $ws9 "9"
+		set $ws10 "10"
+		set $ws11 "11"
+		set $ws12 "12"
+		set $ws13 "13"
+		# switch to workspace
+		# bindsym $super+1 workspace number $ws1
+		# bindsym $super+2 workspace number $ws2
+		# bindsym $super+3 workspace number $ws3
+		# bindsym $super+4 workspace number $ws4
+		# bindsym $super+5 workspace number $ws5
+		# bindsym $super+6 workspace number $ws6
+		# bindsym $super+7 workspace number $ws7
+		# bindsym $super+8 workspace number $ws8
+		# bindsym $super+9 workspace number $ws9
+		# bindsym $super+0 workspace number $ws10
+		bindsym $super+e exec ~/.config/i3/empty_workspace_launcher.sh 0 ~/.config/i3/super_menu.sh &
+		bindsym $super+f exec ~/.config/i3/empty_workspace_launcher.sh 1 /usr/bin/firefox &
+		bindsym $super+1 exec ~/.config/i3/empty_workspace_launcher.sh 1 ~/.config/i3/super_menu.sh &
+		bindsym $super+2 exec ~/.config/i3/empty_workspace_launcher.sh 2 ~/.config/i3/super_menu.sh &
+		bindsym $super+3 exec ~/.config/i3/empty_workspace_launcher.sh 3 ~/.config/i3/super_menu.sh &
+		bindsym $super+4 exec ~/.config/i3/empty_workspace_launcher.sh 4 ~/.config/i3/super_menu.sh &
+		bindsym $super+5 exec ~/.config/i3/empty_workspace_launcher.sh 5 ~/.config/i3/super_menu.sh &
+		bindsym $super+6 exec ~/.config/i3/empty_workspace_launcher.sh 6 ~/.config/i3/super_menu.sh &
+		bindsym $super+7 exec ~/.config/i3/empty_workspace_launcher.sh 7 ~/.config/i3/super_menu.sh &
+		bindsym $super+8 exec ~/.config/i3/empty_workspace_launcher.sh 8 ~/.config/i3/super_menu.sh &
+		bindsym $super+9 exec ~/.config/i3/empty_workspace_launcher.sh 9 ~/.config/i3/super_menu.sh &
+		bindsym $super+0 exec ~/.config/i3/empty_workspace_launcher.sh 10 ~/.config/i3/super_menu.sh &
+		bindsym $super+t exec ~/.config/i3/empty_workspace_launcher.sh 11 "GTK_THEME=Arc /bin/thunderbird" &
+		bindsym $super+p exec ~/.config/i3/empty_workspace_launcher.sh 12 /usr/bin/rambox &
+		bindsym $super+m exec ~/.config/i3/empty_workspace_launcher.sh 13 /usr/bin/spotify &
+		# move focused container to workspace
+		bindsym $super+$move+e move container to workspace number $ws0; workspace $ws0
+		bindsym $super+$move+1 move container to workspace number $ws1; workspace $ws1
+		bindsym $super+$move+2 move container to workspace number $ws2; workspace $ws2
+		bindsym $super+$move+3 move container to workspace number $ws3; workspace $ws3
+		bindsym $super+$move+4 move container to workspace number $ws4; workspace $ws4
+		bindsym $super+$move+5 move container to workspace number $ws5; workspace $ws5
+		bindsym $super+$move+6 move container to workspace number $ws6; workspace $ws6
+		bindsym $super+$move+7 move container to workspace number $ws7; workspace $ws7
+		bindsym $super+$move+8 move container to workspace number $ws8; workspace $ws8
+		bindsym $super+$move+9 move container to workspace number $ws9; workspace $ws9
+		bindsym $super+$move+0 move container to workspace number $ws10; workspace $ws10
+		bindsym $super+$move+t move container to workspace number $ws11; workspace $ws11
+		bindsym $super+$move+p move container to workspace number $ws12; workspace $ws12
+		bindsym $super+$move+m move container to workspace number $ws13; workspace $ws13
+		# Move focus to the parent container
+		# bindsym $super+d focus child
+		# bindsym $super+a focus parent  
+
+
+	# Kill focused window
+	bindsym $super+$shift+q kill
+	bindsym $alt+F4 kill
+
+	# Drag floating windows with modifier pressed
+	floating_modifier $alt
+
+	# Reload configuration
+	bindsym $super+$shift+r exec i3-msg restart && source ~/.xsession
+	bindsym $super+Control+r restart
+
+
+	# Tiling
+		# bindsym $super+s layout stacking
+		bindsym $super+Ctrl+t layout tabbed
+		bindsym $super+Ctrl+e layout toggle split
+		bindsym $super+Ctrl+Shift+v splith
+		bindsym $super+Ctrl+v splitv
+		bindsym $super+Ctrl+F11 fullscreen
+		# bindsym $F11 fullscreen
+
+	# Floating
+		bindsym $super+$shift+space floating toggle
+		# Swap focus between the tiling area and the floating area
+		bindsym $super+space focus mode_toggle
+
+
+	# Resize windows	
+		bindsym $super+Ctrl+Left resize shrink width 100px
+		bindsym $super+Ctrl+h resize shrink width 100px
+		bindsym $super+Ctrl+Down resize grow height 100px
+		bindsym $super+Ctrl+j resize grow height 100px
+		bindsym $super+Ctrl+Up resize shrink height 100px
+		bindsym $super+Ctrl+k resize shrink height 100px
+		bindsym $super+Ctrl+Right resize grow width 100px
+		bindsym $super+Ctrl+l resize grow width 100px
+
+###### Screenshot directory ######
+##
+##
+	exec --no-startup-id mkdir -p $HOME/Pictures/Screenshots &
+
+###### THEME ######
+##
+##
+
+	# Font controls window titles
+	font pango:Iosevka Extended Bold 0
+
+
+	title_align center
+	focus_follows_mouse false
+
+	# Borders
+		default_floating_border pixel 1
+		default_border pixel 1
+		hide_edge_borders smart # no borders if only one window on workspace
+
+	# Colors
+		# class                 border  bground text    indicator child_border
+		client.focused          #FF00FF #000000 #FFFFFF #FF00FF   #EF11FF
+		# client.focused_inactive #FF00FF #000000 #FFFFFF #FF00FF   #EF11FF
+		client.focused_inactive #660066 #000000 #FFFFFF #484E50   #333333
+		client.unfocused        #222222 #000000 #888888 #292D2E   #222222
+		client.urgent           #C50ED2 #EF11FF #FFFFFF #EF11FF   #EF11FF
+		client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+		client.background       #FFFFFF
+
+###### Load Xresources file ######
+##
+##
+	# exec --no-startup-id $HOME/.config/scripts/actions/load_x_prop.sh
+
+
+
+
+###### STATUSBAR ######
+##
+##
+	bar {
+		position top
+		font pango:FontAwesome  14
+
+		# Bumblebee status bar
+			# When the status_command prints a new line to stdout, swaybar updates.
+			# The default just shows the current date and time.
+			status_command /usr/share/bumblebee-status/bumblebee-status -m \
+			progress \
+			spotify \
+			disk:root \
+			cpu \
+			memory \
+			pasink \
+			date \
+			time \
+			battery \
+			-p root.path=/ time.format="%H:%M" date.format="%a, %d %b %Y" \
+			cpu.warning=70 cpu.critical=90 cpu.format="{:.1f}" disk.format="{left}" \
+			disk.warning=85 disk.critical=95 memory.warning=85 memory.critical:95 \
+			memory.format="{percent:.01f}%" \
+			battery.warning=99 battery.critical=20 battery.showpowerconsumption="false" \
+			spotify.format="{title}" traffic.showname="False" traffic.format="{:.1f}" \
+			traffic.graphlen=8 progress.placeholder="" thunderbird.home=~/.thunderbird \
+			thunderbird.inboxes=mail.ethz.ch/INBOX.msf,imap.gmail.com/INBOX.msf  \
+			-t night-powerline  \
+			--autohide battery  
+			# network_traffic \
+			# thunderbird \
+			# brightness \
+			# traffic \
+			## thunderbird list mailboxes command:>>  find ~/.thunderbird -name '*.msf' | awk -F '/' '{print $(NF-1)"/"$(NF)}'
+			## pip install psutil  # python -cpu warning
+			## pacman -S progress
+
+		colors {
+			background #000000
+			statusline #FFFFFF
+			separator  #666666
+			# 07d7c1 nice green
+			# focused_workspace  #C50ED2 #C50ED2 #FFFFFF
+			focused_workspace  #C50ED2 #111111 #C50ED2
+			active_workspace   #C50ED2 #222222 #FFFFFF
+			inactive_workspace #7d7c13 #111111 #DDDDDD
+			urgent_workspace   #FF435E #FF435E #FFFFFF
+			binding_mode       #FF435E #FF435E #FFFFFF
+		}
+	}
+
+
+	# hide/unhide i3status bar
+	# bindsym $super+m bar mode toggle
+
+
+
+###### SHORTCUTS ######
+##
+##
+	# Terminal
+	bindsym $super+Return exec --no-startup-id i3-sensible-terminal &
+	# Thunderbird
+	# bindsym $super+t exec GTK_THEME=Arc /bin/thunderbird &
+
+	# File manager
+	# bindsym $super+Shift+f exec --no-startup-id xst -e ranger &
+
+	# Brightness
+	bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/scripts/notify/light_down.sh # && pkill -RTMIN+20 i3blocks
+	bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/scripts/notify/light_up.sh # && pkill -RTMIN+20 i3blocks
+	
+	# Audio
+	exec --no-startup-id pamixer --set-volume 40 -m # this mutes sound on startup and sets sound to 40
+	exec --no-startup-id pasystray & # volumeicon
+	bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/scripts/notify/volume_plus.sh # && pkill -RTMIN+30 i3blocks
+	bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/scripts/notify/volume_minus.sh # && pkill -RTMIN+30 i3blocks
+	bindsym XF86AudioMute exec --no-startup-id ~/.config/scripts/notify/volume_mute.sh # && pkill -RTMIN+30 i3blocks
+	# bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+ unmute
+	# bindsym XF86AudioLowerVolume  exec amixer -q sset Master 5%- unmute
+	# bindsym XF86AudioMute exec amixer -q sset Master togglebindsym $super+= exec amixer -q sset Master 5%+ unmute
+	# bindsym $super+- exec amixer -q sset Master 5%- unmutebindsym $super+x [urgent=latest] focus# num lock activated
+	# Media player controls
+	# bindsym XF86AudioPlay exec playerctl play-pause
+	# bindsym XF86AudioPause exec playerctl play-pause
+	bindsym XF86AudioPlay exec playerctl play-pause
+	bindsym XF86AudioNext exec playerctl next
+	bindsym XF86AudioPrev exec playerctl previous
+
+	# Screenshot
+	bindsym --release Print exec --no-startup-id ~/.config/scripts/screenshot/i3_screen.sh &
+	bindsym --release Ctrl+Print exec --no-startup-id ~/.config/scripts/screenshot/i3_active.sh &
+	bindsym --release $super+Print exec ~/.config/scripts/screenshot/i3_select.sh &
+	
+	# redshift (nightlight)
+	exec redshift &
+
+	# Launcher
+		# bindysm $mod+d albert toggle
+		exec_always --no-startup-id ~/.config/albert/i3_hide_albert_on_focus_out.sh &
+		# bindsym --release Hyper_L exec --no-startup-id ~/.config/i3/super_menu.sh &
+		bindsym $super+d exec --no-startup-id ~/.config/i3/super_menu.sh &
+		# bindsym $F11 exec --no-startup-id ~/.config/i3/super_menu.sh &
+		bindsym $super+Shift+d exec "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#EF11FF' -sf '#000000' -fn 'monospace-16' -p 'run: '"
+		# bindsym $super+d exec "rofi -modi drun,run -show drun"
+		bindsym $super+$alt+d exec rofi -no-lazy-grab -show drun -icon-theme "Sweet-Teal" -kb-cancel "Hyper_L"
+
+	# Screen (b)lock
+	set $locker ~/.config/scripts/actions/i3lock.sh
+	bindsym $super+s exec --no-startup-id ~/.config/scripts/actions/i3lock.sh &
+	# bindsym $super+Shift+l exec --no-startup-id ~/.config/scripts/actions/i3lock_sleep.sh &  # sleep&hibernation not working on my pc
+
+
+##### INPUT #####
+##
+##
+	exec --no-startup-id $HOME/.config/scripts/actions/configureXorgTouchpad.sh &
+
+
+
+###### AUTOSTART APPLICATIONS ######
+##
+##
+		exec_always ~/.config/i3/i3scripts/autoname_workspaces.py &
+		exec --no-startup-id dunst & # notification manager
+		# exec firefox &
+		exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/firefox' &
+		exec --no-startup-id autorandr --change & # for automatic display (profile) detection
+		# exec code &
+		exec --no-startup-id nm-applet & # networkmanager
+		exec --no-startup-id picom -CGb
+		exec_always --no-startup-id ( sleep 1 && feh --bg-scale ~/.wallpaper.jpg ) &
+		# exec guake &
+		exec --no-startup-id udiskie -s  & # mounting utility
+
+# autoconfigure apps 
+	# for_window [class = "^Code"] move to workspace number 0, layout tabbed
+	for_window [class="code-oss"] move to workspace number 0, layout tabbed
+	for_window [class="Spotify"] move to workspace number 13
+	for_window [class="rambox"] move to workspace number 12
+	for_window [class="Mail"] move to workspace number 11
+	for_window [class="thunderbird"] move to workspace number 11
+	for_window [title="R Graphics"] floating enable move absolute position 0 ppt 70 ppt; resize set height 32 ppt ; resize set width 40 ppt
+	
+	# fix obsidian focus-border
+	for_window [class="obsidian"] border pixel 1 
+
+	# Use Mouse+$super to drag floating windows to their wanted position
+	for_window [window_role="pop-up"] floating enable
+	for_window [window_role="task_dialog"] floating enable # Key bind for Alsa sound
+
+
+# clipboard
+	bindsym $super+c exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+	bindsym $super+$shift+c exec greenclip clear
+	exec greenclip daemon # clipboard manager
+
+	# color-picker
+	bindsym --release $super+$shift+p exec temp=`xcolor` && echo ${temp//$'\n'/} | xclip -selection clipboard
+
+ 
+# Restart or shutdown or suspend by using WinKey+Pause key with meny to select option
+	set $mode_system System (l) lock, (e) logout, (Shift+s) suspend, (h) hibernate, (r) reboot, (s) shutdown
+	mode "$mode_system" {
+		bindsym l exec --no-startup-id $Locker, mode "default"
+		bindsym e exec --no-startup-id i3-msg exit, mode "default"
+		# bindsym Shift+s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+		# bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+		bindsym r exec --no-startup-id systemctl reboot, mode "default"
+		bindsym s exec --no-startup-id systemctl poweroff -i, mode "default" # back to normal: Enter or Escape
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+	}
+	bindsym $super+Pause mode "$mode_system" 
+
+# App Icons   (requires `i3/util.py` file)
+	exec_always --no-startup-id ~/.config/i3/restart.sh &
+
+# auto-tiling / dynamic tiling
+	# exec --no-startup-id ~/.config/i3/i3-auto-layout # not working
+	exec_always killall alternating_layouts ; ~/.config/i3/alternating_layouts.py & 
+	

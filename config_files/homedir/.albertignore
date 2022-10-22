@@ -1,0 +1,50 @@
+# Albert ignore file
+
+# *.sample
+# *.aux
+# *.sty
+# *.pyc
+# *.cpython-310
+# *.pyi
+# *.hpp
+# *.cpython-39
+# *.svg
+# *.ts
+# *.file
+# *.map
+# *.code
+# *.html
+# *.so
+# 
+# **/.cache
+# **/.gnupg
+# **/.icons
+# **/.local
+# **/.mozilla
+# **/.npm
+# **/.npm-global
+# **/.pki
+**/R
+# **/.sane
+# **/.ssh
+# **/Templates
+# **/.thunderbird
+# **/.trash
+# **/.vscode
+# **/.vscode-R
+# **/.zoom
+# **/.zotero
+# **/.dmrc
+# **/.fehbg
+# **/.lesshst
+# **/.lyxauth
+# **/nano.164615.save
+# **/.wget-hsts
+# 
+# **/git
+# **/.git
+# **/env
+# **/venv
+# **/.env
+# **/.venv
+# 

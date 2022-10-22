@@ -1,0 +1,8 @@
+env/
+venv/
+.env/
+.venv/
+
+MASTER_THESIS/code/data/computation_results/
+MASTER_THESIS/code/data/computation_results_bak/
+MASTER_THESIS/code/data/yieldmapping_data/

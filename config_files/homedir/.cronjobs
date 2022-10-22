@@ -1,0 +1,2 @@
+# sync ~/Documents with gdrive:AcerDacer/
+0 */2 * * * ~/.rclone_gdrive > /dev/null
