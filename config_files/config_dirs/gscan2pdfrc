@@ -30,7 +30,13 @@
          "y" : 279
       },
       "myA4" : {
-         "l" : -6,
+         "l" : 6,
+         "t" : 0,
+         "x" : 216,
+         "y" : 297
+      },
+      "myA5" : {
+         "l" : 6,
          "t" : 0,
          "x" : 216,
          "y" : 297
@@ -58,9 +64,9 @@
    "cycle sane handle" : "",
    "datetime offset" : [
       -4,
-      -1,
-      -59,
-      -52
+      -14,
+      -53,
+      -54
    ],
    "default filename" : "%Da %DY-%Dm-%Dd.%De",
    "default profile" : null,
@@ -70,17 +76,20 @@
             "source" : "ADF"
          },
          {
-            "br-x" : 215.899993896484
+            "tl-x" : 6
          },
          {
             "br-y" : 297
          },
          {
-            "tl-x" : 6
+            "brightness" : 5
+         },
+         {
+            "contrast" : 10
          }
       ],
       "frontend" : {
-         "num_pages" : 0
+         "num_pages" : 1
       }
    },
    "device" : "airscan:w0:EPSON ET-4800 Series",
@@ -94,14 +103,21 @@
          "vendor" : "Noname"
       },
       {
+         "label" : "Epson PID",
+         "model" : "PID",
+         "name" : "epson2:net:192.168.1.24",
+         "type" : "flatbed scanner",
+         "vendor" : "Epson"
+      },
+      {
          "label" : "WSD EPSON ET-4800 Series",
          "model" : "EPSON ET-4800 Series",
          "name" : "airscan:w0:EPSON ET-4800 Series",
-         "type" : "ip=192.168.1.78",
+         "type" : "ip=192.168.1.24",
          "vendor" : "WSD"
       }
    ],
-   "downsample" : 0,
+   "downsample" : 1,
    "downsample dpi" : 150,
    "frontend" : "libimage-sane-perl",
    "ignore-duplex-capabilities" : "",
@@ -111,6 +127,18 @@
    "keywords-suggestions" : [],
    "libimage-sane-perl version" : "5",
    "message" : {
+      "Detected %%d diacritics" : {
+         "response" : "ok"
+      },
+      "Empty page!!" : {
+         "response" : "ok"
+      },
+      "Error in boxClipToRectangle: box outside rectangle\nError in pixScanForForeground: invalid box" : {
+         "response" : "ok"
+      },
+      "Error in boxClipToRectangle: box outside rectangle\nError in pixScanForForeground: invalid box\nDetected %%d diacritics" : {
+         "response" : "ok"
+      },
       "Some pages have not been saved.\nDo you really want to clear all pages?" : {
          "response" : "ok"
       },
@@ -123,7 +151,7 @@
    "ocr engine" : "tesseract",
    "ocr language" : "deu",
    "pdf compression" : "auto",
-   "pdf font" : "/usr/share/fonts/nerd-fonts-complete/TTF/Noto Serif ExtraCondensed Italic Nerd Font Complete.ttf",
+   "pdf font" : "/usr/share/fonts/nerd-fonts-complete/TTF/Fira Code Light Nerd Font Complete.ttf",
    "post_save_hook" : "",
    "profile" : {},
    "ps_backend" : "pdftops",
@@ -138,17 +166,26 @@
    "selection" : {
       "height" : 0,
       "width" : 0,
-      "x" : 0,
-      "y" : 1141.51736851262
+      "x" : 1816,
+      "y" : 1396
    },
    "set_timestamp" : 1,
    "subject" : "",
    "subject-suggestions" : [],
    "text_position" : "behind",
    "threshold tool" : 80,
-   "threshold-before-ocr" : 1,
+   "threshold-before-ocr" : "",
    "thumb panel" : 100,
    "tiff compression" : null,
+   "timezone offset" : [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+   ],
    "title" : "",
    "title-suggestions" : [],
    "to_png" : 1,
@@ -195,9 +232,9 @@
       "x" : 1,
       "y" : 1
    },
-   "window_height" : 1055,
+   "window_height" : 1413,
    "window_maximize" : 1,
-   "window_width" : 1920,
+   "window_width" : 1278,
    "window_x" : 0,
    "window_y" : 25
 }

@@ -7,7 +7,7 @@ alias uninstall="sudo pacman -Rns"
 alias remove="sudo pacman -Rns"
 alias thunderbird="GTK_THEME=Arc /bin/thunderbird"
 
-alias hamartia="ssh andrapodon@194.56.189.204"
+alias hamartia="ssh andrapodon@hamartia.cloud"
 
 
 install() {
@@ -20,7 +20,7 @@ install() {
 alias perlupdate='perl -MCPAN -e "upgrade /(.\*)/"'
 
 # Use lf to switch directories and bind it to ctrl-o
-alias lf=~/ArchTitus/configs/config_files/config_dirs/lf/lfub
+alias lf=~/LinuxConfig/config_files/config_dirs/lf/lfub
 lfcd () {
     tmp="$(mktemp -uq)"
     trap 'rm -f $tmp >/dev/null 2>&1' HUP INT QUIT TERM PWR EXIT

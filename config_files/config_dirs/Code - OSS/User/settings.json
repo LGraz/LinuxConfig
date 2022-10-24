@@ -65,7 +65,7 @@
     //     "tab.activeBorder": "#f01bff",
     //     "tab.unfocusedActiveBorder": "#6e0775"
     // },
-    "window.menuBarVisibility": "hidden",
+    "window.menu^Visibility": "hidden",
     "latex-workshop.message.error.show": false,
     "git.autofetch": true,
     "workbench.editorAssociations": {
@@ -82,7 +82,7 @@
     "workbench.panel.defaultLocation": "right",
     "editor.minimap.enabled": false,
     "breadcrumbs.enabled": false,
-    "workbench.iconTheme": "sweet-vscode-icons",
+    // "workbench.iconTheme": "sweet-vscode-icons",
     "editor.cursorStyle": "block",
     "editor.cursorBlinking": "solid",
     "terminal.integrated.copyOnSelection": true,
@@ -107,7 +107,6 @@
     "notebook.output.textLineLimit": 50,
     "notebook.outputFontSize": 16,
     "notebook.outputLineHeight": 1.1,
-    "terminal.integrated.fontFamily": "MesloLGS Nerd Font Mono",
     // Language specific settings
     "[latex]": {
         "editor.wordWrap": "on"
@@ -135,7 +134,8 @@
         "./": "${workspaceRoot}",
     },
     "path-intellisense.autoSlashAfterDirectory": true,
-    "workbench.activityBar.visible": false,
     "editor.insertSpaces": false,
-    "window.zoomLevel": 1
+    "terminal.integrated.fontFamily": "monospace",
+    "window.zoomLevel": 1,
+    "window.menuBarVisibility": "toggle"
 }
