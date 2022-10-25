@@ -1,0 +1,41 @@
+#albert
+**/albert/core.db
+
+
+**/config_dirs/obsidian/
+
+# CODE
+**/Code\ -\ OSS/Backups
+**/Code\ -\ OSS/Service Worker
+**/Code\ -\ OSS/blob_storage
+**/Code\ -\ OSS/Session Storage
+**/Code\ -\ OSS/Cache
+**/Code\ -\ OSS/CachedData
+**/Code\ -\ OSS/code.lock
+**/Code\ -\ OSS/CachedExtensions
+**/Code\ -\ OSS/Cookies
+**/Code\ -\ OSS/CachedExtensionVSIXs
+**/Code\ -\ OSS/Cookies-journal
+**/Code\ -\ OSS/Code Cache
+**/Code\ -\ OSS/languagepacks.json
+**/Code\ -\ OSS/Crashpad
+**/Code\ -\ OSS/machineid
+**/Code\ -\ OSS/databases
+**/Code\ -\ OSS/Network Persistent State
+**/Code\ -\ OSS/Dictionaries
+**/Code\ -\ OSS/Preferences
+**/Code\ -\ OSS/GPUCache
+**/Code\ -\ OSS/QuotaManager
+**/Code\ -\ OSS/Local Storage
+**/Code\ -\ OSS/QuotaManager-journal
+**/Code\ -\ OSS/logs
+**/Code\ -\ OSS/TransportSecurity
+**/Code\ -\ OSS/User/globalStorage
+# **/Code\ -\ OSS/User/snippets
+# **/Code\ -\ OSS/User/keybindings.json
+**/Code\ -\ OSS/User/History
+**/Code\ -\ OSS/User/workspaceStorage
+# **/Code\ -\ OSS/User/settings.json
+
+*.log
+

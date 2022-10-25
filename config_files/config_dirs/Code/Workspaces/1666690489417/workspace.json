@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"uri": "vscode-remote://ssh-remote+hamartia/home/andrapodon"
+		},
+		{
+			"uri": "vscode-remote://ssh-remote+hamartia/etc"
+		}
+	],
+	"remoteAuthority": "ssh-remote+hamartia",
+	"settings": {}
+}

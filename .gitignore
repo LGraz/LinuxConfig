@@ -5,34 +5,34 @@
 **/config_dirs/obsidian/
 
 # CODE
-**/Code\ -\ OSS/Backups
-**/Code\ -\ OSS/Service Worker
-**/Code\ -\ OSS/blob_storage
-**/Code\ -\ OSS/Session Storage
-**/Code\ -\ OSS/Cache
-**/Code\ -\ OSS/CachedData
-**/Code\ -\ OSS/code.lock
-**/Code\ -\ OSS/CachedExtensions
-**/Code\ -\ OSS/Cookies
-**/Code\ -\ OSS/CachedExtensionVSIXs
-**/Code\ -\ OSS/Cookies-journal
-**/Code\ -\ OSS/Code Cache
-**/Code\ -\ OSS/languagepacks.json
-**/Code\ -\ OSS/Crashpad
-**/Code\ -\ OSS/machineid
-**/Code\ -\ OSS/databases
-**/Code\ -\ OSS/Network Persistent State
-**/Code\ -\ OSS/Dictionaries
-**/Code\ -\ OSS/Preferences
-**/Code\ -\ OSS/GPUCache
-**/Code\ -\ OSS/QuotaManager
-**/Code\ -\ OSS/Local Storage
-**/Code\ -\ OSS/QuotaManager-journal
-**/Code\ -\ OSS/logs
-**/Code\ -\ OSS/TransportSecurity
-**/Code\ -\ OSS/User/globalStorage
-# **/Code\ -\ OSS/User/snippets
-# **/Code\ -\ OSS/User/keybindings.json
-**/Code\ -\ OSS/User/History
-**/Code\ -\ OSS/User/workspaceStorage
-# **/Code\ -\ OSS/User/settings.json
+**/Code/Backups
+**/Code/Service Worker
+**/Code/blob_storage
+**/Code/Session Storage
+**/Code/Cache
+**/Code/CachedData
+**/Code/code.lock
+**/Code/CachedExtensions
+**/Code/Cookies
+**/Code/CachedExtensionVSIXs
+**/Code/Cookies-journal
+**/Code/Code Cache
+**/Code/languagepacks.json
+**/Code/Crashpad
+**/Code/machineid
+**/Code/databases
+**/Code/Network Persistent State
+**/Code/Dictionaries
+**/Code/Preferences
+**/Code/GPUCache
+**/Code/QuotaManager
+**/Code/Local Storage
+**/Code/QuotaManager-journal
+**/Code/logs
+**/Code/TransportSecurity
+**/Code/User/globalStorage
+# **/Code/User/snippets
+# **/Code/User/keybindings.json
+**/Code/User/History
+**/Code/User/workspaceStorage
+# **/Code/User/settings.json

@@ -75,9 +75,6 @@
     "window.enableMenuBarMnemonics": false,
     "latex-workshop.view.pdf.trim": 1,
     "gitlens.hovers.currentLine.over": "line",
-    "gitlens.currentLine.enabled": false,
-    "gitlens.codeLens.enabled": false,
-    "gitlens.statusBar.enabled": false,
     "gitlens.views.branches.branches.layout": "list",
     "workbench.panel.defaultLocation": "right",
     "editor.minimap.enabled": false,
@@ -136,6 +133,10 @@
     "path-intellisense.autoSlashAfterDirectory": true,
     "editor.insertSpaces": false,
     "terminal.integrated.fontFamily": "monospace",
-    "window.zoomLevel": 1,
-    "window.menuBarVisibility": "toggle"
+    "window.menuBarVisibility": "toggle",
+    "gitlens.currentLine.enabled": false,
+    "gitlens.codeLens.enabled": false,
+    // "window.titleBarStyle": "custom",
+    "window.customMenuBarAltFocus": false
+
 }

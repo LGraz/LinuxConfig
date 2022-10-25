@@ -18,6 +18,7 @@ ttf-dejavu
 ttf-liberation
 terminus-font
 --END OF MINIMAL INSTALL--
+code
 obs-studio
 qgis
 translate-shell
