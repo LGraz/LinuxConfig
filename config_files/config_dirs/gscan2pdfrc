@@ -3,7 +3,7 @@
    "Dark threshold" : 0.12,
    "OCR on scan" : 1,
    "OCR output" : "replace",
-   "Page range" : "all",
+   "Page range" : "selected",
    "Paper" : {
       "A3" : {
          "l" : 0,
@@ -60,13 +60,13 @@
    "convert whitespace to underscores" : "",
    "current_psh" : null,
    "current_udt" : "gimp %i",
-   "cwd" : "/home/lukas/Downloads",
+   "cwd" : "/home/lukas/Documents/Inbox",
    "cycle sane handle" : "",
    "datetime offset" : [
       -4,
-      -14,
-      -53,
-      -54
+      -17,
+      -52,
+      -8
    ],
    "default filename" : "%Da %DY-%Dm-%Dd.%De",
    "default profile" : null,
@@ -89,7 +89,7 @@
          }
       ],
       "frontend" : {
-         "num_pages" : 1
+         "num_pages" : 0
       }
    },
    "device" : "airscan:w0:EPSON ET-4800 Series",
@@ -166,8 +166,8 @@
    "selection" : {
       "height" : 0,
       "width" : 0,
-      "x" : 1816,
-      "y" : 1396
+      "x" : 0,
+      "y" : 1339
    },
    "set_timestamp" : 1,
    "subject" : "",
@@ -232,9 +232,9 @@
       "x" : 1,
       "y" : 1
    },
-   "window_height" : 1413,
+   "window_height" : 1415,
    "window_maximize" : 1,
-   "window_width" : 1278,
+   "window_width" : 2560,
    "window_x" : 0,
    "window_y" : 25
 }
