@@ -54,3 +54,4 @@ obsidian
 pinta
 translate-shell
 android-file-transfer
+xdotool

@@ -74,6 +74,7 @@ WINDOW_ICONS = {
     "evince": fa.icons["file-pdf"],
     "evolution": fa.icons["envelope"],
     "feh": fa.icons["image"],
+    "ferdium": fa.icons["whatsapp"],
     "file-roller": fa.icons["compress"],
     "filezilla": fa.icons["server"],
     "firefox-esr": fa.icons["firefox"],

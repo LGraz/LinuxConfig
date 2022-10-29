@@ -138,7 +138,6 @@
     "gitlens.codeLens.enabled": false,
     // "window.titleBarStyle": "custom",
     "window.customMenuBarAltFocus": false,
-    "r.alwaysUseActiveTerminal": true,
-    "window.zoomLevel": 1
+    "r.alwaysUseActiveTerminal": true
 
 }
