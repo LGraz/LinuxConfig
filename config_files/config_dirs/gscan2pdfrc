@@ -3,7 +3,7 @@
    "Dark threshold" : 0.12,
    "OCR on scan" : 1,
    "OCR output" : "replace",
-   "Page range" : "selected",
+   "Page range" : "all",
    "Paper" : {
       "A3" : {
          "l" : 0,
@@ -60,12 +60,12 @@
    "convert whitespace to underscores" : "",
    "current_psh" : null,
    "current_udt" : "gimp %i",
-   "cwd" : "/home/lukas/Documents/Inbox",
+   "cwd" : "/home/lukas/Documents/Verwaltung/Gesundheit/Krankenversicherung",
    "cycle sane handle" : "",
    "datetime offset" : [
       -4,
-      -17,
-      -52,
+      -21,
+      -29,
       -8
    ],
    "default filename" : "%Da %DY-%Dm-%Dd.%De",
@@ -201,7 +201,7 @@
    "user_defined_tools" : [
       "gimp %i"
    ],
-   "version" : "2.12.6",
+   "version" : "2.13.0",
    "view files toggle" : 1,
    "viewer_tools" : 100,
    "visible-scan-options" : {
