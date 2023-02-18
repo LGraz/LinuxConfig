@@ -1,6 +1,8 @@
 #albert
 **/albert/core.db
 
+*.log
+*.db
 
 **/config_dirs/obsidian/
 
@@ -36,3 +38,4 @@
 **/Code/User/History
 **/Code/User/workspaceStorage
 # **/Code/User/settings.json
+

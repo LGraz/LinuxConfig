@@ -1,2 +1,3 @@
 # sync ~/Documents with gdrive:AcerDacer/
 # 0 */2 * * * ~/.rclone_gdrive > /dev/null
+0 */4 * * * ~/paperless-ngx/setup/backup.sh

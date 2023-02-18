@@ -3,7 +3,6 @@
     "editor.fontSize": 18,
     "r.rpath.linux": "/bin/R",
     "terminal.integrated.fontSize": 18,
-    "r.bracketedPaste": true,
     "editor.formatOnPaste": true,
     "code-runner.clearPreviousOutput": true,
     "code-runner.saveAllFilesBeforeRun": true,
@@ -138,6 +137,7 @@
     "gitlens.codeLens.enabled": false,
     // "window.titleBarStyle": "custom",
     "window.customMenuBarAltFocus": false,
-    "r.alwaysUseActiveTerminal": true
+    "r.bracketedPaste": true,
+    "window.zoomLevel": 1
 
 }

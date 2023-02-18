@@ -56,6 +56,11 @@
     localectl set-x11-keymap de acer_laptop nodeadkeys
     sudo localectl set-x11-keymap de acer_laptop nodeadkeys
 
+    # localectl set-x11-keymap ch acer_laptop de_nodeadkeys
+    # sudo localectl set-x11-keymap ch acer_laptop de_nodeadkeys
+    localectl set-x11-keymap ch acer_laptop 
+    sudo localectl set-x11-keymap ch acer_laptop 
+
 # Acer - disable sleep
     sudo rm /etc/systemd/sleep.conf
     sudo ln -s ~/ArchTitus/configs/etc/systemd/sleep.conf /etc/systemd

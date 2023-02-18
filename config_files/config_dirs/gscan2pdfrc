@@ -42,7 +42,7 @@
          "y" : 297
       }
    },
-   "SANE version" : "1.1.1",
+   "SANE version" : "1.2.1",
    "TMPDIR" : null,
    "adf-defaults-scan-all-pages" : 1,
    "allow-batch-flatbed" : "",
@@ -60,13 +60,13 @@
    "convert whitespace to underscores" : "",
    "current_psh" : null,
    "current_udt" : "gimp %i",
-   "cwd" : "/home/lukas/Documents/Verwaltung/Gesundheit/Krankenversicherung",
+   "cwd" : "/home/lukas/Downloads",
    "cycle sane handle" : "",
    "datetime offset" : [
-      -4,
-      -21,
-      -29,
-      -8
+      -6,
+      -18,
+      -34,
+      -13
    ],
    "default filename" : "%Da %DY-%Dm-%Dd.%De",
    "default profile" : null,
@@ -80,12 +80,6 @@
          },
          {
             "br-y" : 297
-         },
-         {
-            "brightness" : 5
-         },
-         {
-            "contrast" : 10
          }
       ],
       "frontend" : {
@@ -105,7 +99,7 @@
       {
          "label" : "Epson PID",
          "model" : "PID",
-         "name" : "epson2:net:192.168.1.24",
+         "name" : "epson2:net:192.168.1.64",
          "type" : "flatbed scanner",
          "vendor" : "Epson"
       },
@@ -113,11 +107,11 @@
          "label" : "WSD EPSON ET-4800 Series",
          "model" : "EPSON ET-4800 Series",
          "name" : "airscan:w0:EPSON ET-4800 Series",
-         "type" : "ip=192.168.1.24",
+         "type" : "ip=192.168.1.64",
          "vendor" : "WSD"
       }
    ],
-   "downsample" : 1,
+   "downsample" : 0,
    "downsample dpi" : 150,
    "frontend" : "libimage-sane-perl",
    "ignore-duplex-capabilities" : "",
@@ -137,6 +131,9 @@
          "response" : "ok"
       },
       "Error in boxClipToRectangle: box outside rectangle\nError in pixScanForForeground: invalid box\nDetected %%d diacritics" : {
+         "response" : "ok"
+      },
+      "Error in boxClipToRectangle: box outside rectangle\nError in pixScanForForeground: invalid box\nError in boxClipToRectangle: box outside rectangle\nError in pixScanForForeground: invalid box\nDetected %%d diacritics" : {
          "response" : "ok"
       },
       "Some pages have not been saved.\nDo you really want to clear all pages?" : {
@@ -166,8 +163,8 @@
    "selection" : {
       "height" : 0,
       "width" : 0,
-      "x" : 0,
-      "y" : 1339
+      "x" : 1660,
+      "y" : 1814
    },
    "set_timestamp" : 1,
    "subject" : "",
@@ -201,7 +198,7 @@
    "user_defined_tools" : [
       "gimp %i"
    ],
-   "version" : "2.13.0",
+   "version" : "2.13.2",
    "view files toggle" : 1,
    "viewer_tools" : 100,
    "visible-scan-options" : {
@@ -232,9 +229,9 @@
       "x" : 1,
       "y" : 1
    },
-   "window_height" : 1415,
+   "window_height" : 1413,
    "window_maximize" : 1,
-   "window_width" : 2560,
+   "window_width" : 1278,
    "window_x" : 0,
    "window_y" : 25
 }

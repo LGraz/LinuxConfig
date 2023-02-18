@@ -321,6 +321,7 @@ exec --no-startup-id albert &
 		exec_always --no-startup-id ( sleep 1 && feh --bg-scale ~/.wallpaper.jpg ) &
 		# exec guake &
 		exec --no-startup-id udiskie -s  & # mounting utility
+		exec owncloud &
 
 # autoconfigure apps 
 	# for_window [class = "^Code"] move to workspace number 0, layout tabbed
