@@ -7,35 +7,6 @@
 **/config_dirs/obsidian/
 
 # CODE
-**/Code/Backups
-**/Code/Service Worker
-**/Code/blob_storage
-**/Code/Session Storage
-**/Code/Cache
-**/Code/CachedData
-**/Code/code.lock
-**/Code/CachedExtensions
-**/Code/Cookies
-**/Code/CachedExtensionVSIXs
-**/Code/Cookies-journal
-**/Code/Code Cache
-**/Code/languagepacks.json
-**/Code/Crashpad
-**/Code/machineid
-**/Code/databases
-**/Code/Network Persistent State
-**/Code/Dictionaries
-**/Code/Preferences
-**/Code/GPUCache
-**/Code/QuotaManager
-**/Code/Local Storage
-**/Code/QuotaManager-journal
-**/Code/logs
-**/Code/TransportSecurity
-**/Code/User/globalStorage
-# **/Code/User/snippets
-# **/Code/User/keybindings.json
-**/Code/User/History
-**/Code/User/workspaceStorage
-# **/Code/User/settings.json
-
+**/Code/
+!**/Code/User/keybindings.json
+!**/Code/User/settings.json

@@ -5,5 +5,5 @@ application/pdf=visual-studio-code.desktop;
 application/pdf=net.sourceforge.gscan2pdf.desktop;
 
 [Default Applications]
-inode/directory=org.gnome.Nautilus.desktop;
+inode/directory=visual-studio-code.desktop;
 
