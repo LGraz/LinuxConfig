@@ -138,7 +138,6 @@
     // "window.titleBarStyle": "custom",
     "window.customMenuBarAltFocus": false,
     "r.bracketedPaste": true,
-    "window.zoomLevel": 1,
     "extensions.ignoreRecommendations": true,
     "workbench.iconTheme": "sweet-vscode-icons"
 
