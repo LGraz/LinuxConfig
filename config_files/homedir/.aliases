@@ -7,8 +7,7 @@ alias uninstall="sudo pacman -Rns"
 alias remove="sudo pacman -Rns"
 alias thunderbird="GTK_THEME=Arc /bin/thunderbird"
 
-alias hamartia="ssh andrapodon@hamartia.cloud"
-
+alias f=ranger
 
 install() {
     echo "installing: $1  -----------------------------------"

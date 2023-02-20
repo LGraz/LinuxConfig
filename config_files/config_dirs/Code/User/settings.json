@@ -139,6 +139,7 @@
     "window.customMenuBarAltFocus": false,
     "r.bracketedPaste": true,
     "extensions.ignoreRecommendations": true,
-    "workbench.iconTheme": "sweet-vscode-icons"
+    "workbench.iconTheme": "sweet-vscode-icons",
+    "window.zoomLevel": 1
 
 }
