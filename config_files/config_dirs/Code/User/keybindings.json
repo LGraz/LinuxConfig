@@ -12,12 +12,12 @@
     ///////////////////////////////
     // EDITOR
     ///////////////////////////////
-    // Comments
-    {
-        "key": "ctrl+[Backslash]",
-        "command": "editor.action.commentLine",
-        "when": "editorTextFocus && !editorReadonly"
-    },
+    // // Comments
+    // {
+    //     "key": "ctrl+[Backslash]",
+    //     "command": "editor.action.commentLine",
+    //     "when": "editorTextFocus && !editorReadonly"
+    // },
     ///////////////////////////////
     // TERMINAL 
     ///////////////////////////////
@@ -445,4 +445,23 @@
         "key": "alt+e",
         "command": "editor.toggleFold"
     },
+    {
+        "key": "ctrl+shift+k",
+        "command": "r.knitRmdToPdf",
+        "when": "editorTextFocus && editorLangId == 'rmd'"
+    },
+    {
+        "key": "ctrl+shift+k",
+        "command": "-r.knitRmd",
+        "when": "editorTextFocus && editorLangId == 'rmd'"
+    },
+    {
+        "key": "ctrl+7",
+        "command": "-workbench.action.focusSeventhEditorGroup"
+    },
+    {
+        "key": "ctrl+7",
+        "command": "editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    }
 ]
