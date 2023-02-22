@@ -21,37 +21,37 @@
     ///////////////////////////////
     // TERMINAL 
     ///////////////////////////////
-    // verschieben
-    {
-        "key": "ctrl+shift+right",
-        "command": "-workbench.action.terminal.resizePaneRight",
-        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
-    },
-    {
-        "key": "ctrl+alt+l",
-        "command": "workbench.action.terminal.resizePaneRight",
-        //"when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
-    },
-    {
-        "key": "ctrl+alt+h",
-        "command": "workbench.action.terminal.resizePaneLeft",
-        //"when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
-    },
-    {
-        "key": "ctrl+alt+k",
-        "command": "workbench.action.terminal.resizePaneUp",
-        //"when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
-    },
-    {
-        "key": "ctrl+alt+j",
-        "command": "workbench.action.terminal.resizePaneDown",
-        //"when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
-    },
-    {
-        "key": "ctrl+shift+left",
-        "command": "-workbench.action.terminal.resizePaneLeft",
-        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
-    },
+    // resize terminal
+        {
+            "key": "ctrl+shift+right",
+            "command": "-workbench.action.terminal.resizePaneRight",
+            "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+        },
+        {
+            "key": "ctrl+alt+l",
+            "command": "workbench.action.terminal.resizePaneRight",
+            //"when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+        },
+        {
+            "key": "ctrl+alt+h",
+            "command": "workbench.action.terminal.resizePaneLeft",
+            //"when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+        },
+        {
+            "key": "ctrl+alt+k",
+            "command": "workbench.action.terminal.resizePaneUp",
+            //"when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+        },
+        {
+            "key": "ctrl+alt+j",
+            "command": "workbench.action.terminal.resizePaneDown",
+            //"when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+        },
+        {
+            "key": "ctrl+shift+left",
+            "command": "-workbench.action.terminal.resizePaneLeft",
+            "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+        },
     // Change focus between terminals
     {
         "key": "alt+j",

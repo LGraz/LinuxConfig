@@ -296,7 +296,7 @@ exec --no-startup-id albert &
 
 	# Screen (b)lock
 	set $locker ~/.config/scripts/actions/i3lock.sh
-	bindsym $super+s exec --no-startup-id ~/.config/scripts/actions/i3lock.sh &
+	bindsym $super+$alt+s exec --no-startup-id ~/.config/scripts/actions/i3lock.sh &
 	# bindsym $super+Shift+l exec --no-startup-id ~/.config/scripts/actions/i3lock_sleep.sh &  # sleep&hibernation not working on my pc
 
 
@@ -326,6 +326,7 @@ exec --no-startup-id albert &
 # autoconfigure apps 
 	# for_window [class = "^Code"] move to workspace number 0, layout tabbed
 	for_window [class="code-oss"] move to workspace number 0, layout tabbed
+	for_window [class="code"] move to workspace number 0, layout tabbed
 	for_window [class="Spotify"] move to workspace number 13
 	for_window [class="rambox"] move to workspace number 12
 	for_window [class="Mail"] move to workspace number 11
