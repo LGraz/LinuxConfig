@@ -2,13 +2,13 @@
     ///////////////////////////////
     // Custom
     ///////////////////////////////
-    { // git: stage commit push
-        "key": "alt+g",
-        "command": "workbench.action.terminal.sendSequence",
-        "args": {
-            "text": "git add . ; git commit -m '.' ; git push origin \n"
-        }
-    },
+    // { // git: stage commit push
+    //     "key": "alt+g",
+    //     "command": "workbench.action.terminal.sendSequence",
+    //     "args": {
+    //         "text": "git add . ; git commit -m '.' ; git push origin \n"
+    //     }
+    // },
     ///////////////////////////////
     // EDITOR
     ///////////////////////////////
@@ -18,10 +18,113 @@
     //     "command": "editor.action.commentLine",
     //     "when": "editorTextFocus && !editorReadonly"
     // },
-    ///////////////////////////////
-    // TERMINAL 
-    ///////////////////////////////
-    // resize terminal
+
+    ////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////
+    ////           VIM-NAVIGATION  +  TABS              ////
+    ////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////
+        // remove blocking keys
+            {"key": "alt+k", "command": "-keybindings.editor.recordSearchKeys", "when": "inKeybindings && inKeybindingsSearch"},
+            {"key": "alt+l", "command": "-toggleFindInSelection", "when": "editorFocus"},
+            {"key": "alt+l", "command": "-toggleSearchEditorContextLines", "when": "inSearchEditor"},
+            {"key": "shift+alt+h", "command": "-references-view.showCallHierarchy", "when": "editorHasCallHierarchyProvider"},
+            {"key": "shift+alt+h", "command": "-editor.showCallHierarchy", "when": "editorHasCallHierarchyProvider && editorTextFocus && !inReferenceSearchEditor"},
+            {"key": "shift+alt+h", "command": "-editor.showIncomingCalls", "when": "callHierarchyVisible && callHierarchyDirection == 'outgoingCalls'"},
+            {"key": "shift+alt+h", "command": "-editor.showOutgoingCalls", "when": "callHierarchyVisible && callHierarchyDirection == 'incomingCalls'"},
+            {"key": "shift+alt+h", "command": "-editor.showSubtypes", "when": "typeHierarchyVisible && typeHierarchyDirection == 'supertypes'"},
+            {"key": "shift+alt+h", "command": "-editor.showSupertypes", "when": "typeHierarchyVisible && typeHierarchyDirection == 'subtypes'"},
+            {"key": "alt+h", "command": "-testing.toggleTestingPeekHistory", "when": "testing.isPeekVisible"},
+            {"key": "ctrl+alt+j", "command": "-latex-workshop.synctex",
+                "when": "editorTextFocus && !config.latex-workshop.bind.altKeymap.enabled && !virtualWorkspace editorLangId == 'latex'"}, 
+            {"key": "ctrl+alt+j", "command": "-code-runner.runByLanguage"},
+    //----------------------------------------------------
+    //  between editor groups
+    //----------------------------------------------------
+    // move
+        {
+            "key": "shift+alt+k",
+            "command": "workbench.action.moveEditorToAboveGroup"
+        },
+        {
+            "key": "shift+alt+j",
+            "command": "workbench.action.moveEditorToBelowGroup"
+        },
+        {
+            "key": "shift+alt+h",
+            "command": "workbench.action.moveEditorToLeftGroup"
+        },
+        {
+            "key": "shift+alt+l",
+            "command": "workbench.action.moveEditorToRightGroup"
+        },
+    // focus editor-groups
+        {
+            "key": "alt+k",
+            "command": "workbench.action.focusAboveGroup",
+            "when": "!panelFocus"
+        },
+        {
+            "key": "alt+j",
+            "command": "workbench.action.focusBelowGroup",
+            "when": "!panelFocus"
+        },
+        {
+            "key": "alt+h",
+            "command": "workbench.action.focusLeftGroup",
+            "when": "!panelFocus"
+        },
+        {
+            "key": "alt+l",
+            "command": "workbench.action.focusRightGroup",
+            "when": "!panelFocus"
+        },
+    // between sidebar and editgroup1
+        {
+            "key": "alt+l",
+            "command": "workbench.action.openEditorAtIndex1",
+            "when": "sideBarFocus"
+        },
+        {
+            "key": "alt+h",
+            "command": "workbench.action.focusSideBar",
+            "when": "activeEditorGroupIndex == '1'"
+        },
+    // between editorgroup and terminal
+        {
+            "key": "alt+l",
+            "command": "workbench.action.terminal.focus",
+            "when": "editorFocus && activeEditorGroupLast && panelVisible"
+        },
+        {
+            "key": "alt+h",
+            "command": "workbench.action.focusLastEditorGroup",
+            "when": "panelFocus"
+        },
+    //----------------------------------------------------
+    // within SidePanel: (up/down=terminal_list; left/right=terminal_splits)
+    //----------------------------------------------------
+        {
+            "key": "alt+j",
+            "command": "workbench.action.terminal.focusNextPane",
+            "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+        },
+        {
+            "key": "alt+k",
+            "command": "workbench.action.terminal.focusPreviousPane",
+            "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+        },
+        // {
+        //     "key": "alt+h",
+        //     "command": "workbench.action.terminal.focusPrevious",
+        //     "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+        // },
+        {
+            "key": "alt+l",
+            "command": "workbench.action.terminal.focusNext",
+            "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+        },
+    // resize Panel
         {
             "key": "ctrl+shift+right",
             "command": "-workbench.action.terminal.resizePaneRight",
@@ -29,190 +132,148 @@
         },
         {
             "key": "ctrl+alt+l",
-            "command": "workbench.action.terminal.resizePaneRight",
-            //"when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+            "command": "workbench.action.terminal.resizePaneRight"
         },
         {
             "key": "ctrl+alt+h",
-            "command": "workbench.action.terminal.resizePaneLeft",
-            //"when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+            "command": "workbench.action.terminal.resizePaneLeft"
         },
         {
             "key": "ctrl+alt+k",
-            "command": "workbench.action.terminal.resizePaneUp",
-            //"when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+            "command": "workbench.action.terminal.resizePaneUp"
         },
         {
             "key": "ctrl+alt+j",
-            "command": "workbench.action.terminal.resizePaneDown",
-            //"when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+            "command": "workbench.action.terminal.resizePaneDown"
         },
         {
             "key": "ctrl+shift+left",
             "command": "-workbench.action.terminal.resizePaneLeft",
             "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
         },
-    // Change focus between terminals
-    {
-        "key": "alt+j",
-        "command": "workbench.action.terminal.focusNextPane",
-        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
-    },
-    {
-        "key": "alt+k",
-        "command": "workbench.action.terminal.focusPreviousPane",
-        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
-    },
-    // Focus & Hide
-    {
-        "key": "alt+enter",
-        "command": "workbench.action.terminal.focus"
-    },
-    {
-        "key": "alt+enter",
-        "command": "workbench.action.terminal.splitInActiveWorkspace",
-        "when": "terminalFocus"
-    },
-    {
-        "key": "shift+alt+enter",
-        "command": "workbench.action.terminal.new"
-    },
-    {
-        "key": "alt+f",
-        "command": "workbench.action.focusPanel"
-    },
-    {
-        "key": "alt+f",
-        "command": "workbench.action.focusActiveEditorGroup",
-        "when": "panelFocus"
-    },
-    {
-        "key": "alt+escape",
-        "command": "workbench.action.togglePanel",
-        // "when": "!terminalFocus"
-    },
-    ////////////////////////////
-    //  Panel
-    ////////////////////////////
-    {
-        "key": "alt+l",
-        "command": "workbench.action.nextPanelView",
-        "when": "panelFocus"
-    },
-    {
-        "key": "alt+right",
-        "command": "workbench.action.nextPanelView",
-        "when": "panelFocus"
-    },
-    {
-        "key": "alt+h",
-        "command": "workbench.action.previousPanelView",
-        "when": "panelFocus"
-    },
-    {
-        "key": "alt+left",
-        "command": "workbench.action.previousPanelView",
-        "when": "panelFocus"
-    },
+    // Focus Terminal
+        {
+            "key": "alt+enter",
+            "command": "workbench.action.terminal.focus"
+        },
+        {
+            "key": "alt+f",
+            "command": "workbench.action.focusPanel"
+        },
+        {
+            "key": "alt+f",
+            "command": "workbench.action.focusActiveEditorGroup",
+            "when": "panelFocus"
+        },
+        {
+            "key": "alt+space",
+            "command": "workbench.action.focusPanel"
+        },
+        {
+            "key": "alt+space",
+            "command": "workbench.action.focusActiveEditorGroup",
+            "when": "panelFocus"
+        },
+        {
+            "key": "alt+space",
+            "command": "-workbench.action.terminal.sendSequence",
+            "when": "terminalFocus && terminalShellIntegrationEnabled && !accessibilityModeEnabled && terminalShellType == 'pwsh'"
+        },
+    // Create Terminals
+        {
+            "key": "alt+enter",
+            "command": "workbench.action.terminal.splitInActiveWorkspace",
+            "when": "terminalFocus"
+        },
+        {
+            "key": "shift+alt+enter",
+            "command": "workbench.action.terminal.new"
+        },
     // toggle fullscreen
-    {
-        "key": "alt+f11",
-        "command": "workbench.action.toggleMaximizedPanel"
-    },
-    // END TERMINAL
-    //
-    /////////////////////////////
-    //  navigate Editors
-    ////////////////////////////
-    // move
-    {
-        "key": "shift+alt+k",
-        "command": "workbench.action.moveEditorToAboveGroup"
-    },
-    {
-        "key": "shift+alt+j",
-        "command": "workbench.action.moveEditorToBelowGroup"
-    },
-    {
-        "key": "shift+alt+h",
-        "command": "workbench.action.moveEditorToLeftGroup"
-    },
-    {
-        "key": "shift+alt+l",
-        "command": "workbench.action.moveEditorToRightGroup"
-    },
-    // focus editor-groups
-    {
-        "key": "alt+k",
-        "command": "workbench.action.focusAboveGroup"
-    },
-    {
-        "key": "alt+j",
-        "command": "workbench.action.focusBelowGroup"
-    },
-    {
-        "key": "alt+h",
-        "command": "workbench.action.focusLeftGroup"
-    },
-    {
-        "key": "alt+l",
-        "command": "workbench.action.focusRightGroup"
-    },
-    // focus tabs
-    {
-        "key": "alt+u",
-        "command": "workbench.action.previousEditorInGroup"
-    },
-    {
-        "key": "alt+i",
-        "command": "workbench.action.nextEditorInGroup"
-    },
-    // END Navigation --------------
-    //
+        {
+            "key": "alt+f11",
+            "command": "workbench.action.toggleMaximizedPanel"
+        },
+    //----------------------------------------------------
+    // Tabs:
+    //----------------------------------------------------
+    // Editor
+        {
+            "key": "alt+u",
+            "command": "workbench.action.previousEditorInGroup",
+            "when": "!panelFocus && !sideBarFocus"
+        },
+        {
+            "key": "alt+i",
+            "command": "workbench.action.nextEditorInGroup",
+            "when": "!panelFocus && !sideBarFocus"
+        },
+    // Panel
+        {
+            "key": "alt+i",
+            "command": "workbench.action.nextPanelView",
+            "when": "panelFocus"
+        },
+        {
+            "key": "alt+u",
+            "command": "workbench.action.previousPanelView",
+            "when": "panelFocus"
+        },
+    // Side Bar (left)
+        {
+            "key": "alt+i",
+            "command": "workbench.action.nextSideBarView",
+            "when": "sideBarFocus"
+        },
+        {
+            "key": "alt+u",
+            "command": "workbench.action.previousSideBarView",
+            "when": "sideBarFocus"
+        },
     /////////////////////////////////
     // R
     /////////////////////////////////
-    {
-        "key": "alt+-",
-        "command": "type",
-        "when": "editorLangId == r && editorTextFocus || editorLangId == rmd && editorTextFocus",
-        "args": {
-            "text": " <- "
-        }
-    },
-    {
-        "key": "ctrl+shift+m",
-        "command": "type",
-        "when": "editorLangId == r && editorTextFocus || editorLangId == rmd && editorTextFocus",
-        "args": {
-            "text": " %>% "
-        }
-    },
-    {
-        "key": "ctrl+shift+m",
-        "command": "-workbench.actions.view.problems"
-    },
-    // input indicative of r markdown code chunk
-    {
-        "key": "ctrl+shift+i",
-        "command": "editor.action.insertSnippet",
-        "when": "editorTextFocus && editorLangId == 'rmd'",
-        "args": {
-            "snippet": "```{r}\n${TM_SELECTED_TEXT}$0\n```"
+        {
+            "key": "alt+-",
+            "command": "type",
+            "when": "editorLangId == r && editorTextFocus || editorLangId == rmd && editorTextFocus",
+            "args": {
+                "text": " <- "
+            }
         },
-        "label": "input indicative of r markdown code chunk"
-    },
-    // you can also input indicative of code chunk in `r` file by inserting "# %% ":
-    // specifics in `https://github.com/REditorSupport/vscode-R/pull/662`
-    {
-        "key": "ctrl+shift+i",
-        "command": "editor.action.insertSnippet",
-        "when": "editorTextFocus && editorLangId == 'r'",
-        "args": {
-            "snippet": "$LINE_COMMENT %% "
+        {
+            "key": "ctrl+shift+m",
+            "command": "type",
+            "when": "editorLangId == r && editorTextFocus || editorLangId == rmd && editorTextFocus",
+            "args": {
+                "text": " %>% "
+            }
         },
-        "label": "input indicative of code chunk"
-    },
+        {
+            "key": "ctrl+shift+m",
+            "command": "-workbench.actions.view.problems"
+        },
+        // input indicative of r markdown code chunk
+        {
+            "key": "ctrl+shift+i",
+            "command": "editor.action.insertSnippet",
+            "when": "editorTextFocus && editorLangId == 'rmd'",
+            "args": {
+                "snippet": "```{r}\n${TM_SELECTED_TEXT}$0\n```"
+            },
+            "label": "input indicative of r markdown code chunk"
+        },
+        // you can also input indicative of code chunk in `r` file by inserting "# %% ":
+        // specifics in `https://github.com/REditorSupport/vscode-R/pull/662`
+        {
+            "key": "ctrl+shift+i",
+            "command": "editor.action.insertSnippet",
+            "when": "editorTextFocus && editorLangId == 'r'",
+            "args": {
+                "snippet": "$LINE_COMMENT %% "
+            },
+            "label": "input indicative of code chunk"
+        },
     // END R ------------------------------------------------
     /////////////////////////////////
     //  Garbage  (deactivate defaults)
@@ -244,105 +305,6 @@
     {
         "key": "f1",
         "command": "-workbench.action.showCommands"
-    },
-    {
-        "key": "ctrl+k ctrl+l",
-        "command": "-editor.toggleFold",
-        "when": "editorTextFocus && foldingEnabled"
-    },
-    {
-        "key": "ctrl+k ctrl+i",
-        "command": "-editor.action.showHover",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "ctrl+k ctrl+i",
-        "command": "-editor.debug.action.showDebugHover",
-        "when": "editorTextFocus && inDebugMode"
-    },
-    {
-        "key": "ctrl+k ctrl+i",
-        "command": "-workbench.action.showTreeHover",
-        "when": "customTreeView && listFocus && !inputFocus"
-    },
-    {
-        "key": "ctrl+i",
-        "command": "-toggleSuggestionDetails",
-        "when": "suggestWidgetVisible && textInputFocus"
-    },
-    {
-        "key": "ctrl+i",
-        "command": "-editor.action.triggerSuggest",
-        "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
-    },
-    {
-        "key": "alt+k",
-        "command": "-keybindings.editor.recordSearchKeys",
-        "when": "inKeybindings && inKeybindingsSearch"
-    },
-    {
-        "key": "alt+l",
-        "command": "-toggleFindInSelection",
-        "when": "editorFocus"
-    },
-    {
-        "key": "alt+l",
-        "command": "-toggleSearchEditorContextLines",
-        "when": "inSearchEditor"
-    },
-    {
-        "key": "shift+alt+h",
-        "command": "-references-view.showCallHierarchy",
-        "when": "editorHasCallHierarchyProvider"
-    },
-    {
-        "key": "shift+alt+h",
-        "command": "-editor.showCallHierarchy",
-        "when": "editorHasCallHierarchyProvider && editorTextFocus && !inReferenceSearchEditor"
-    },
-    {
-        "key": "shift+alt+h",
-        "command": "-editor.showIncomingCalls",
-        "when": "callHierarchyVisible && callHierarchyDirection == 'outgoingCalls'"
-    },
-    {
-        "key": "shift+alt+h",
-        "command": "-editor.showOutgoingCalls",
-        "when": "callHierarchyVisible && callHierarchyDirection == 'incomingCalls'"
-    },
-    {
-        "key": "shift+alt+h",
-        "command": "-editor.showSubtypes",
-        "when": "typeHierarchyVisible && typeHierarchyDirection == 'supertypes'"
-    },
-    {
-        "key": "shift+alt+h",
-        "command": "-editor.showSupertypes",
-        "when": "typeHierarchyVisible && typeHierarchyDirection == 'subtypes'"
-    },
-    {
-        "key": "alt+h",
-        "command": "-testing.toggleTestingPeekHistory",
-        "when": "testing.isPeekVisible"
-    },
-    {
-        "key": "alt+meta+j",
-        "command": "-notebook.cell.joinBelow",
-        "when": "notebookEditorFocused"
-    },
-    {
-        "key": "ctrl+alt+j",
-        "command": "-latex-workshop.synctex",
-        "when": "editorTextFocus && !config.latex-workshop.bind.altKeymap.enabled && !virtualWorkspace && editorLangId == 'latex'"
-    },
-    {
-        "key": "ctrl+alt+j",
-        "command": "-code-runner.runByLanguage"
-    },
-    {
-        "key": "shift+alt+meta+j",
-        "command": "-notebook.cell.joinAbove",
-        "when": "notebookEditorFocused"
     },
     {
         "key": "ctrl+l alt+j",
@@ -416,10 +378,6 @@
         "when": "searchViewletFocus"
     },
     {
-        "key": "alt+b",
-        "command": "workbench.action.toggleSidebarVisibility"
-    },
-    {
         "key": "alt+left",
         "command": "workbench.action.navigateBack",
         "when": "editorTextFocus || editorFocus"
@@ -463,5 +421,21 @@
         "key": "ctrl+7",
         "command": "editor.action.commentLine",
         "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+b",
+        "command": "editor.action.jumpToBracket"
+    },
+    {
+        "key": "alt+p",
+        "command": "editor.gotoParentFold"
+    },
+    {
+        "key": "alt+n",
+        "command": "editor.gotoNextFold"
+    },
+    {
+        "key": "shift+alt+n",
+        "command": "editor.gotoPreviousFold"
     }
 ]

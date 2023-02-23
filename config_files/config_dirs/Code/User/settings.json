@@ -154,5 +154,9 @@
     "window.menuBarVisibility": "hidden",
     "breadcrumbs.filePath": "off",
     "breadcrumbs.enabled": false,
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 2,
+    "terminal.integrated.commandsToSkipShell": [
+                    // Ensure the toggle sidebar visibility keybinding skips the shell
+                    "workbench.action.toggleSidebarVisibility"
+                ]
 }
