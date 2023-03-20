@@ -92,8 +92,6 @@
     "debug.console.lineHeight": 22,
     "markdown.preview.fontSize": 16,
     "r.session.viewers.viewColumn": {
-        "plot": "Disable",
-        "browser": "Disable",
         "viewer": "Two",
         "view": "Two"
     },
@@ -152,7 +150,11 @@
     "window.menuBarVisibility": "hidden",
     "breadcrumbs.filePath": "off",
     "breadcrumbs.enabled": false,
+    "terminal.integrated.commandsToSkipShell": [
+        // Ensure the toggle sidebar visibility keybinding skips the shell
+        "workbench.action.toggleSidebarVisibility"
+    ],
     "git.openRepositoryInParentFolders": "always",
     "workbench.colorTheme": "LukasLeight",
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 2
 }
