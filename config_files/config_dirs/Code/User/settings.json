@@ -90,15 +90,12 @@
     // "debug.console.fontFamily": "Cascadia Code Light",
     "debug.console.fontSize": 16,
     "debug.console.lineHeight": 22,
-    "workbench.colorTheme": "LukasLeight",
     "markdown.preview.fontSize": 16,
     "r.session.viewers.viewColumn": {
+        "plot": "Disable",
         "browser": "Disable",
         "viewer": "Two",
-        "pageViewer": "Disable",
-        "view": "Two",
-        "helpPanel": "Disable",
-        "plot": "Disable"
+        "view": "Two"
     },
     "latex-workshop.view.pdf.color.dark.backgroundColor": "#000000",
     // "terminal.integrated.defaultProfile.linux": "zsh",
@@ -117,7 +114,8 @@
     },
     "[r]": {
         "editor.tabSize": 2,
-        "editor.formatOnPaste": false
+        "editor.formatOnPaste": false,
+        "editor.wordSeparators": "`~!@#%$^&*()-=+[{]}\\|;:'\",<>/?"
     },
     "[rsweave]": {
         "editor.tabSize": 2,
@@ -134,7 +132,7 @@
         "editor.formatOnPaste": false,
         "editor.formatOnType": true
     },
-    "r.rterm.linux": "/home/lukas/.local/bin/radian",
+    "r.rterm.linux": "/scratch/users/lgraz/.local/bin/radian",
     "path-intellisense.autoTriggerNextSuggestion": true,
     "path-intellisense.showHiddenFiles": true,
     "path-intellisense.mappings": {
@@ -154,5 +152,7 @@
     "window.menuBarVisibility": "hidden",
     "breadcrumbs.filePath": "off",
     "breadcrumbs.enabled": false,
+    "git.openRepositoryInParentFolders": "always",
+    "workbench.colorTheme": "LukasLeight",
     "window.zoomLevel": 1,
 }
