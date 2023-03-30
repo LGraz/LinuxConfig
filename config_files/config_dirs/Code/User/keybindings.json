@@ -231,6 +231,26 @@
             "when": "sideBarFocus"
         },
     /////////////////////////////////
+    // Editing
+    /////////////////////////////////
+    // go to's
+        {
+            "key": "alt+b",
+            "command": "editor.action.jumpToBracket"
+        },
+        {
+            "key": "alt+p",
+            "command": "editor.gotoParentFold"
+        },
+        {
+            "key": "alt+n",
+            "command": "editor.gotoNextFold"
+        },
+        {
+            "key": "shift+alt+n",
+            "command": "editor.gotoPreviousFold"
+        },
+    /////////////////////////////////
     // R
     /////////////////////////////////
         {
@@ -422,20 +442,4 @@
         "command": "editor.action.commentLine",
         "when": "editorTextFocus && !editorReadonly"
     },
-    {
-        "key": "alt+b",
-        "command": "editor.action.jumpToBracket"
-    },
-    {
-        "key": "alt+p",
-        "command": "editor.gotoParentFold"
-    },
-    {
-        "key": "alt+n",
-        "command": "editor.gotoNextFold"
-    },
-    {
-        "key": "shift+alt+n",
-        "command": "editor.gotoPreviousFold"
-    }
 ]

@@ -14,3 +14,8 @@ setxkbmap -option lv3:lwin_switch
 
 source ~/.env_vars
 source ~/.aliases
+
+# disable screensaver
+xset s off
+xset -dpms
+# xset s noblank

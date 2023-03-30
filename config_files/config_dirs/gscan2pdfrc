@@ -174,15 +174,6 @@
    "threshold-before-ocr" : "",
    "thumb panel" : 100,
    "tiff compression" : null,
-   "timezone offset" : [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-   ],
    "title" : "",
    "title-suggestions" : [],
    "to_png" : 1,
@@ -229,9 +220,9 @@
       "x" : 1,
       "y" : 1
    },
-   "window_height" : 1413,
+   "window_height" : 706,
    "window_maximize" : 1,
-   "window_width" : 1278,
-   "window_x" : 0,
-   "window_y" : 25
+   "window_width" : 638,
+   "window_x" : 1280,
+   "window_y" : 732
 }

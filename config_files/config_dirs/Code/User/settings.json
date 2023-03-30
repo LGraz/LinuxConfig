@@ -2,7 +2,7 @@
     "r.debugger.checkVersion":"required",
     "update.mode": "none",
     "editor.fontSize": 18,
-    "r.rpath.linux": "/bin/R",
+    "r.rpath.linux": "/usr/bin/R",
     "terminal.integrated.fontSize": 18,
     "r.bracketedPaste": true,
     "editor.formatOnPaste": true,
@@ -154,9 +154,9 @@
     "window.menuBarVisibility": "hidden",
     "breadcrumbs.filePath": "off",
     "breadcrumbs.enabled": false,
-    "window.zoomLevel": 2,
     "terminal.integrated.commandsToSkipShell": [
                     // Ensure the toggle sidebar visibility keybinding skips the shell
                     "workbench.action.toggleSidebarVisibility"
-                ]
+                ],
+                "window.zoomLevel": 1
 }
