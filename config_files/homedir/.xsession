@@ -5,6 +5,7 @@ xset r rate 250 45
 
 # let caps be 3rd level modifier
 
+setxkbmap -option
 xmodmap -e "remove lock = Caps_Lock"
 setxkbmap -option
 setxkbmap -option caps:hyper

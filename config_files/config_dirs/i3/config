@@ -164,8 +164,8 @@ exec --no-startup-id albert &
 	focus_follows_mouse false
 
 	# Borders
-		default_floating_border pixel 1
-		default_border pixel 1
+		default_floating_border pixel 2
+		default_border pixel 2
 		hide_edge_borders smart # no borders if only one window on workspace
 
 	# Colors
@@ -371,3 +371,10 @@ exec --no-startup-id albert &
 	# exec --no-startup-id ~/.config/i3/i3-auto-layout # not working
 	exec_always killall alternating_layouts ; ~/.config/i3/alternating_layouts.py & 
 	
+
+
+# Inner gaps for all windows: space between two adjacent windows (or split containers).
+gaps inner 4px
+# Outer gaps for all windows: space along the screen edges.
+gaps outer -4px
+smart_gaps on
