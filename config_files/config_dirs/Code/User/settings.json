@@ -54,7 +54,6 @@
     "git.confirmSync": false,
     "editor.largeFileOptimizations": false,
     "jupyter.askForKernelRestart": false,
-    "r.workspaceViewer.showObjectSize": true,
     "interactiveWindow.collapseCellInputCode": "never",
     "[markdown, latex, tex]": {
         "editor.formatOnSave": true,
@@ -91,10 +90,10 @@
     "debug.console.fontSize": 16,
     "debug.console.lineHeight": 22,
     "markdown.preview.fontSize": 16,
-    "r.session.viewers.viewColumn": {
-        "viewer": "Two",
-        "view": "Two"
-    },
+        "r.session.viewers.viewColumn": {
+            "viewer": "Two",
+            "view": "Two"
+        },
     "latex-workshop.view.pdf.color.dark.backgroundColor": "#000000",
     // "terminal.integrated.defaultProfile.linux": "zsh",
     "notebook.output.textLineLimit": 50,
@@ -130,7 +129,7 @@
         "editor.formatOnPaste": false,
         "editor.formatOnType": true
     },
-    "r.rterm.linux": "/scratch/users/lgraz/.local/bin/radian",
+    "r.rterm.linux": "/home/lukas/.local/bin//radian",
     "path-intellisense.autoTriggerNextSuggestion": true,
     "path-intellisense.showHiddenFiles": true,
     "path-intellisense.mappings": {
@@ -156,5 +155,5 @@
     ],
     "git.openRepositoryInParentFolders": "always",
     "workbench.colorTheme": "LukasLeight",
-    "window.zoomLevel": 2
+    "aws.telemetry": false
 }

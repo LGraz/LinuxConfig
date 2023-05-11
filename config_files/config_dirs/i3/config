@@ -93,6 +93,7 @@ exec --no-startup-id albert &
 		# move focused container to workspace
 		bindsym $super+$move+e move container to workspace number $ws0; workspace $ws0
 		bindsym $super+$move+1 move container to workspace number $ws1; workspace $ws1
+		bindsym $super+$move+f move container to workspace number $ws1; workspace $ws1
 		bindsym $super+$move+2 move container to workspace number $ws2; workspace $ws2
 		bindsym $super+$move+3 move container to workspace number $ws3; workspace $ws3
 		bindsym $super+$move+4 move container to workspace number $ws4; workspace $ws4
