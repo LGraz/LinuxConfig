@@ -93,6 +93,7 @@ exec --no-startup-id albert &
 		# move focused container to workspace
 		bindsym $super+$move+e move container to workspace number $ws0; workspace $ws0
 		bindsym $super+$move+1 move container to workspace number $ws1; workspace $ws1
+		bindsym $super+$move+f move container to workspace number $ws1; workspace $ws1
 		bindsym $super+$move+2 move container to workspace number $ws2; workspace $ws2
 		bindsym $super+$move+3 move container to workspace number $ws3; workspace $ws3
 		bindsym $super+$move+4 move container to workspace number $ws4; workspace $ws4
@@ -164,8 +165,8 @@ exec --no-startup-id albert &
 	focus_follows_mouse false
 
 	# Borders
-		default_floating_border pixel 1
-		default_border pixel 1
+		default_floating_border pixel 2
+		default_border pixel 2
 		hide_edge_borders smart # no borders if only one window on workspace
 
 	# Colors
@@ -253,14 +254,14 @@ exec --no-startup-id albert &
 	# bindsym $super+t exec GTK_THEME=Arc /bin/thunderbird &
 
 	# File manager
-	# bindsym $super+Shift+f exec --no-startup-id xst -e ranger &
+	bindsym $super+g exec --no-startup-id terminator -e ranger &
 
 	# Brightness
 	bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/scripts/notify/light_down.sh # && pkill -RTMIN+20 i3blocks
 	bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/scripts/notify/light_up.sh # && pkill -RTMIN+20 i3blocks
 	
 	# Audio
-	exec --no-startup-id pamixer --set-volume 40 -m # this mutes sound on startup and sets sound to 40
+	# exec --no-startup-id pamixer --set-volume 40 -m # this mutes sound on startup and sets sound to 40
 	exec --no-startup-id pasystray & # volumeicon
 	bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/scripts/notify/volume_plus.sh # && pkill -RTMIN+30 i3blocks
 	bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/scripts/notify/volume_minus.sh # && pkill -RTMIN+30 i3blocks
@@ -310,7 +311,7 @@ exec --no-startup-id albert &
 ###### AUTOSTART APPLICATIONS ######
 ##
 ##
-		exec_always ~/.config/i3/i3scripts/autoname_workspaces.py &
+		exec_always ~/.config/i3/autoname_workspaces.py &
 		exec --no-startup-id dunst & # notification manager
 		# exec firefox &
 		exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/firefox' &
@@ -326,7 +327,7 @@ exec --no-startup-id albert &
 # autoconfigure apps 
 	# for_window [class = "^Code"] move to workspace number 0, layout tabbed
 	for_window [class="code-oss"] move to workspace number 0, layout tabbed
-	for_window [class="code"] move to workspace number 0, layout tabbed
+	for_window [class="Code"] move to workspace number 0, layout tabbed
 	for_window [class="Spotify"] move to workspace number 13
 	for_window [class="rambox"] move to workspace number 12
 	for_window [class="Mail"] move to workspace number 11
@@ -342,8 +343,8 @@ exec --no-startup-id albert &
 
 
 # clipboard
-	bindsym $super+c exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
-	bindsym $super+$shift+c exec greenclip clear
+	bindsym $super+y exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+	bindsym $super+$shift+y exec greenclip clear
 	exec greenclip daemon # clipboard manager
 
 	# color-picker
@@ -371,3 +372,10 @@ exec --no-startup-id albert &
 	# exec --no-startup-id ~/.config/i3/i3-auto-layout # not working
 	exec_always killall alternating_layouts ; ~/.config/i3/alternating_layouts.py & 
 	
+
+
+# Inner gaps for all windows: space between two adjacent windows (or split containers).
+gaps inner 4px
+# Outer gaps for all windows: space along the screen edges.
+gaps outer -4px
+smart_gaps on

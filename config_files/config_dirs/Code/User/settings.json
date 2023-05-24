@@ -2,7 +2,7 @@
     "r.debugger.checkVersion": "required",
     "update.mode": "none",
     "editor.fontSize": 18,
-    "r.rpath.linux": "/bin/R",
+    "r.rpath.linux": "/usr/bin/R",
     "terminal.integrated.fontSize": 18,
     "r.bracketedPaste": true,
     "editor.formatOnPaste": true,
@@ -54,7 +54,6 @@
     "git.confirmSync": false,
     "editor.largeFileOptimizations": false,
     "jupyter.askForKernelRestart": false,
-    "r.workspaceViewer.showObjectSize": true,
     "interactiveWindow.collapseCellInputCode": "never",
     "[markdown, latex, tex]": {
         "editor.formatOnSave": true,
@@ -91,10 +90,10 @@
     "debug.console.fontSize": 16,
     "debug.console.lineHeight": 22,
     "markdown.preview.fontSize": 16,
-    "r.session.viewers.viewColumn": {
-        "viewer": "Two",
-        "view": "Two"
-    },
+        "r.session.viewers.viewColumn": {
+            "viewer": "Two",
+            "view": "Two"
+        },
     "latex-workshop.view.pdf.color.dark.backgroundColor": "#000000",
     // "terminal.integrated.defaultProfile.linux": "zsh",
     "notebook.output.textLineLimit": 50,
@@ -133,7 +132,7 @@
         "editor.formatOnPaste": false,
         "editor.formatOnType": true
     },
-    "r.rterm.linux": "/scratch/users/lgraz/.local/bin/radian",
+    "r.rterm.linux": "/home/lukas/.local/bin//radian",
     "path-intellisense.autoTriggerNextSuggestion": true,
     "path-intellisense.showHiddenFiles": true,
     "path-intellisense.mappings": {
@@ -215,5 +214,6 @@
     },
     "notebook.output.lineHeight": 1.1,
     "notebook.output.fontSize": 16,
-    "window.zoomLevel": 1
+    "window.zoomLevel": 1,
+    "aws.telemetry": false
 }
