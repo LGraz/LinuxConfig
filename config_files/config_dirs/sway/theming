@@ -1,0 +1,53 @@
+# # Font controls window titles
+font pango:Iosevka Extended Bold 0
+titlebar_padding 1
+titlebar_border_thickness 0
+
+title_align center
+focus_follows_mouse no
+
+# Borders
+    default_floating_border pixel 2
+    default_border pixel 2
+    hide_edge_borders smart # no borders if only one window on workspace
+
+# Colors
+    # class                 border  bground text    indicator child_border
+    client.focused          #FF00FF #000000 #FFFFFF #FF00FF   #EF11FF
+    # client.focused_inactive #FF00FF #000000 #FFFFFF #FF00FF   #EF11FF
+    client.focused_inactive #660066 #000000 #FFFFFF #484E50   #333333
+    client.unfocused        #222222 #000000 #888888 #292D2E   #222222
+    client.urgent           #C50ED2 #EF11FF #FFFFFF #EF11FF   #EF11FF
+    client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+    client.background       #FFFFFF
+
+gaps inner 4px
+# Outer gaps for all windows: space along the screen edges.
+gaps outer -4px
+# smart_gaps on
+
+	
+bar swaybar_command waybar
+# {
+	
+#     # position top
+#     # font pangou:FontAwesome  12
+
+
+#     # When the status_command prints a new line to stdout, swaybar updates.
+#     # The default just shows the current date and time.
+#     # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+
+#     # colors {
+# 	# 		background #000000
+# 	# 		statusline #FFFFFF
+# 	# 		separator  #666666
+# 	# 		# 07d7c1 nice green
+# 	# 		# focused_workspace  #C50ED2 #C50ED2 #FFFFFF
+# 	# 		focused_workspace  #C50ED2 #111111 #C50ED2
+# 	# 		active_workspace   #C50ED2 #222222 #FFFFFF
+# 	# 		inactive_workspace #7d7c13 #111111 #DDDDDD
+# 	# 		urgent_workspace   #FF435E #FF435E #FFFFFF
+# 	# 		binding_mode       #FF435E #FF435E #FFFFFF
+# 	# 	}
+# }

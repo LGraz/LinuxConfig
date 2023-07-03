@@ -4,7 +4,6 @@
     "editor.fontSize": 18,
     "r.rpath.linux": "/usr/bin/R",
     "terminal.integrated.fontSize": 18,
-    "r.bracketedPaste": true,
     "editor.formatOnPaste": true,
     "code-runner.clearPreviousOutput": true,
     "code-runner.saveAllFilesBeforeRun": true,
@@ -132,7 +131,6 @@
         "editor.formatOnPaste": false,
         "editor.formatOnType": true
     },
-    "r.rterm.linux": "/home/lukas/.local/bin//radian",
     "path-intellisense.autoTriggerNextSuggestion": true,
     "path-intellisense.showHiddenFiles": true,
     "path-intellisense.mappings": {
@@ -151,7 +149,6 @@
     // "window.menuBarVisibility": "toggle",
     "window.menuBarVisibility": "hidden",
     "breadcrumbs.filePath": "off",
-    "breadcrumbs.enabled": false,
     "terminal.integrated.commandsToSkipShell": [
         // Ensure the toggle sidebar visibility keybinding skips the shell
         "workbench.action.toggleSidebarVisibility"
@@ -186,7 +183,7 @@
             {
                 "command": "workbench.action.terminal.sendSequence",
                 "args": {
-                    "text": "if(is.function(${selectedText})) methods(${selectedText}) else methods(class=class(${selectedText}))\u000D"
+                    "text": "if (grepl(paste0('^\\\\s*', r_obj_regex, '\\\\s*\\\\(\\\\s*', r_obj_regex), '${selectedText}')) what_method_is_called('${selectedText}') else if(is.function(get('${selectedText}'))) methods('${selectedText}') else methods(class=class(get('${selectedText}')))\u000D"
                 }
             },
             "cancelSelection"
@@ -214,6 +211,7 @@
     },
     "notebook.output.lineHeight": 1.1,
     "notebook.output.fontSize": 16,
-    "window.zoomLevel": 1,
-    "aws.telemetry": false
+    "aws.telemetry": false,
+    "r.rterm.linux": "/scratch/users/lgraz/.local/bin/radian",
+    "r.bracketedPaste": true
 }

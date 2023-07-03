@@ -1,0 +1,130 @@
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $super Mod4
+set $move Mod1
+set $alt Mod1
+set $shift Mod1
+
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+include window_management
+include theming
+
+set $term terminator
+
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+# set $menu dmenu_path | wmenu | xargs swaymsg exec --
+exec albert
+bindsym $super+d exec albert toggle
+bindsym $super+Shift+d exec "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#EF11FF' -sf '#000000' -fn 'monospace-16' -p 'run: '"
+
+### Output configuration
+#
+# wallpaper
+output * bg ~/Git/LinuxConfig/config_files/homedir/.wallpaper.jpg fill
+#
+# Example configuration:
+#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+
+### Idle configuration
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'playerctl pause'
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+
+### Key bindings
+#
+# Basics:
+#
+    # terminal
+    bindsym $super+Return exec $term
+
+    # Kill
+    bindsym $super+$alt+q kill
+
+    # Lock
+    bindsym $super+$alt+s exec 'swaylock -f -c 000000'
+
+    # Drag floating windows by holding down $super and left mouse button.
+    # Resize them with right mouse button + $super.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $super normal
+
+    # Reload the configuration file
+    bindsym $super+$alt+r reload
+
+    # Exit sway (logs you out of your Wayland session)
+    bindsym $super+ctrl+s exec swaymsg exit
+
+
+    # xkb_layout "ch(de_nodeadkeys)"
+input * {
+    repeat_delay 250
+    repeat_rate 45
+    xkb_layout "ch"
+    xkb_options "caps:super"
+}
+input type:touchpad {
+    tap enabled
+    natural_scroll enabled
+}
+
+bindsym $super+g exec --no-startup-id terminator -e ranger
+
+bindsym XF86MonBrightnessDown exec light -T 0.6
+bindsym XF86MonBrightnessUp   exec light -T 1.6
+
+exec --no-startup-id mkdir -p $HOME/Pictures/Screenshots &
+
+exec_always pkill kanshi; exec kanshi &
+exec_always /usr/bin/firefox
+exec_always ~/.config/sway/autotiling -w 1 2 3 4 5 6 7 8 9 10 11 12 13
+exec nm-applet --indicator
+exec owncloud
+exec evolution
+exec flatpak run org.ferdium.Ferdium
+exec flatpak run im.riot.Riot
+exec ~/Applications/activitywatch/aw-qt
+exec wl-paste -t text --watch clipman store --no-persist
+
+
+bindsym $super+c exec clipman pick -t dmenu --tool-args="-nf '#BBBBBB' -nb '#222222' -sb '#EF11FF' -sf '#000000' -fn 'monospace-16'"
+bindsym $super+$alt+c clipman clear --all
+
+	for_window [class="firefox"] move to workspace number 99
+	
+    for_window [class="code-oss"] move to workspace number 0, layout tabbed
+	for_window [class="Code"] move to workspace number 0, layout tabbed
+	for_window [title="R Graphics"] floating enable move absolute position 0 ppt 70 ppt; resize set height 32 ppt ; resize set width 40 ppt
+	
+    for_window [class="Spotify"] move to workspace number 13
+	
+    for_window [class="rambox"] move to workspace number 12
+	for_window [class="element"] move to workspace number 12
+	for_window [class="riot"] move to workspace number 12
+
+	for_window [class="Mail"] move to workspace number 11
+	for_window [class="thunderbird"] move to workspace number 11
+	for_window [class="evolution"] move to workspace number 11
+	

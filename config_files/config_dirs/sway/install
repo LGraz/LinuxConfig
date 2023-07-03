@@ -1,0 +1,12 @@
+# Arander for wayland
+dnf install wdisplays   # set screensettings
+dnf install kanshi  # autorandr equivalent
+mkdir -p ~/.config/kanshi && touch ~/.config/kanshi/config
+kanshi
+swaymsg -t get_outputs
+
+dnf install waybar
+dnf install xbacklight
+
+pip3 install i3ipc --user
+dnf install clipman
