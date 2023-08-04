@@ -148,7 +148,6 @@
     "window.enableMenuBarMnemonics": false,
     // "window.menuBarVisibility": "toggle",
     "window.menuBarVisibility": "hidden",
-    "breadcrumbs.filePath": "off",
     "terminal.integrated.commandsToSkipShell": [
         // Ensure the toggle sidebar visibility keybinding skips the shell
         "workbench.action.toggleSidebarVisibility"
@@ -213,5 +212,7 @@
     "notebook.output.fontSize": 16,
     "aws.telemetry": false,
     "r.rterm.linux": "/scratch/users/lgraz/.local/bin/radian",
-    "r.bracketedPaste": true
+    "r.bracketedPaste": true,
+    "breadcrumbs.filePath": "off",
+    "window.zoomLevel": 1
 }

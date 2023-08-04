@@ -1,15 +1,19 @@
 # # Font controls window titles
 font pango:Iosevka Extended Bold 0
-titlebar_padding 1
-titlebar_border_thickness 0
+titlebar_padding 3
+titlebar_border_thickness 2
 
 title_align center
 focus_follows_mouse no
 
 # Borders
+smart_gaps on
+# Outer gaps for all windows: space along the screen edges.
+gaps outer -4px
+gaps inner 4px
     default_floating_border pixel 2
     default_border pixel 2
-    hide_edge_borders smart # no borders if only one window on workspace
+    hide_edge_borders smart --i3 # no borders if only one window on workspace
 
 # Colors
     # class                 border  bground text    indicator child_border
@@ -21,12 +25,9 @@ focus_follows_mouse no
     client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
     client.background       #FFFFFF
 
-gaps inner 4px
-# Outer gaps for all windows: space along the screen edges.
-gaps outer -4px
-# smart_gaps on
+# hide_edge_borders smart --hide-lone-tab
+# hide_lone_tab on
 
-	
 bar swaybar_command waybar
 # {
 	

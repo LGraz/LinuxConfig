@@ -283,6 +283,16 @@
         },
         "label": "input indicative of r markdown code chunk"
     },
+    // split indicative of r markdown code chunk
+    {
+        "key": "ctrl+shift+j",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus && editorLangId == 'rmd'",
+        "args": {
+            "snippet": "```\n\n${TM_SELECTED_TEXT}$0\n```{r}"
+        },
+        "label": "input indicative of r markdown code chunk"
+    },
     // you can also input indicative of code chunk in `r` file by inserting "# %% ":
     // specifics in `https://github.com/REditorSupport/vscode-R/pull/662`
     // {

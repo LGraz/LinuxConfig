@@ -1,0 +1,143 @@
+* {
+    font-family: "Fira Sans SemiBold";
+    font-size: 14px;
+    min-height: 16px;
+}
+
+window#waybar {
+    background: rgba(0, 0, 0, 0.87);
+    border-width: 0px 0px 1px 0px;
+    border-color: #5f27cd;
+    border-style: solid;
+    border-radius: 0px;
+}
+
+button.focused {
+    background-color: #5f27cd;
+}
+
+#workspaces {
+    border-radius: 0px 0px 0px 6px;
+    margin-left: -9px;
+}
+
+#workspaces button:nth-child(1) .visible {
+    border-radius: 0px 0px 0px 6px;
+}
+
+#workspaces button {
+    padding: 5px 15px 5px 10px;
+    color: #dfe4ec;
+    margin: 1px 0;
+}
+
+
+button:hover,
+#workspaces button:hover {
+    background: #4d0843;
+}
+
+button {
+    border: 0px;
+    margin: 0px 0;
+}
+
+button:hover {
+    border-radius: 0;
+    box-shadow: none;
+    border-width: 0px;
+}
+
+#workspaces button.visible {
+    color: #ced3dd;
+    background-color: #2b125d;
+    border-radius: 0;
+    box-shadow: none;
+    border-width: 0px;
+}
+
+#workspaces button.focused.current_output {
+    color: #ffffff;
+    background-color: #dd00dd;
+    border-radius: 0px;
+}
+
+#workspaces button.urgent {
+    color: #ec3169;
+    background-color: #7bc275;
+    border-radius: 0px;
+}
+
+#workspaces button.focused:hover {
+    color: white;
+    background-color: #2b125d;
+}
+
+
+#clock,
+#backlight,
+#battery,
+#cpu,
+#custom-cpu_speed,
+#custom-mail,
+#custom-media,
+#custom-powermenu,
+#custom-spotify,
+#custom-storage,
+#custom-weather,
+#idle_inhibitor,
+#language,
+#memory,
+#mode,
+#network,
+#pulseaudio,
+#temperature,
+#tray,
+#window,
+#workspaces {
+    padding: 0px 10px;
+}
+
+#clock {
+    color: #eeeeee;
+}
+
+#battery {
+    color: #eeeeee;
+}
+
+#battery.charging {
+    color: #c0f3bc;
+}
+
+#battery.warning:not(.charging) {
+    background-color: #2a2e38;
+    color: #FCCE7B;
+}
+
+#custom-cpu_speed {
+    color: #C57BDB;
+    border-radius: 0px 0px 0px 0px;
+}
+
+#pulseaudio {
+    color: #b6b6b6;
+}
+
+#custom-recorder {
+    font-size: 18px;
+    margin: 2px 7px 0px 7px;
+    color: #c9545d;
+}
+
+#custom-powermenu {
+    color: lightcoral;
+}
+
+#temperature {
+    color: lightpink;
+}
+
+#temperature.critical {
+    background: #eb4d4b;
+}

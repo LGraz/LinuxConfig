@@ -43,8 +43,8 @@ output * bg ~/Git/LinuxConfig/config_files/homedir/.wallpaper.jpg fill
 
 ### Idle configuration
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         timeout 900 'swaylock -f -c 001800' \
+         timeout 1800 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
          before-sleep 'playerctl pause'
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -62,7 +62,7 @@ exec swayidle -w \
     bindsym $super+$alt+q kill
 
     # Lock
-    bindsym $super+$alt+s exec 'swaylock -f -c 000000'
+    bindsym $super+$alt+s exec 'swaylock -f -c 001800'
 
     # Drag floating windows by holding down $super and left mouse button.
     # Resize them with right mouse button + $super.
@@ -82,49 +82,82 @@ exec swayidle -w \
 input * {
     repeat_delay 250
     repeat_rate 45
-    xkb_layout "ch"
+    xkb_layout "ch(de_nodeadkeys)"
     xkb_options "caps:super"
 }
+# German Umlaute: Ö Ü Ä
+bindsym egrave exec xdotool key Udiaeresis
+bindsym eacute exec xdotool key Odiaeresis
+bindsym agrave exec xdotool key Adiaeresis
+
 input type:touchpad {
     tap enabled
     natural_scroll enabled
 }
 
-bindsym $super+g exec --no-startup-id terminator -e ranger
+bindsym $super+g exec terminator -e ranger
 
 bindsym XF86MonBrightnessDown exec light -T 0.6
 bindsym XF86MonBrightnessUp   exec light -T 1.6
 
-exec --no-startup-id mkdir -p $HOME/Pictures/Screenshots &
 
-exec_always pkill kanshi; exec kanshi &
-exec_always /usr/bin/firefox
-exec_always ~/.config/sway/autotiling -w 1 2 3 4 5 6 7 8 9 10 11 12 13
-exec nm-applet --indicator
-exec owncloud
-exec evolution
-exec flatpak run org.ferdium.Ferdium
-exec flatpak run im.riot.Riot
-exec ~/Applications/activitywatch/aw-qt
-exec wl-paste -t text --watch clipman store --no-persist
 
 
 bindsym $super+c exec clipman pick -t dmenu --tool-args="-nf '#BBBBBB' -nb '#222222' -sb '#EF11FF' -sf '#000000' -fn 'monospace-16'"
 bindsym $super+$alt+c clipman clear --all
 
-	for_window [class="firefox"] move to workspace number 99
-	
-    for_window [class="code-oss"] move to workspace number 0, layout tabbed
-	for_window [class="Code"] move to workspace number 0, layout tabbed
-	for_window [title="R Graphics"] floating enable move absolute position 0 ppt 70 ppt; resize set height 32 ppt ; resize set width 40 ppt
-	
-    for_window [class="Spotify"] move to workspace number 13
-	
-    for_window [class="rambox"] move to workspace number 12
-	for_window [class="element"] move to workspace number 12
-	for_window [class="riot"] move to workspace number 12
+for_window [class="firefox"] move to workspace number 99
+for_window [app_id="firefox" title="Pushbullet"] floating enable
+for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
+for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
+for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
+for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
 
-	for_window [class="Mail"] move to workspace number 11
-	for_window [class="thunderbird"] move to workspace number 11
-	for_window [class="evolution"] move to workspace number 11
-	
+
+for_window [class="code-oss"] move to workspace number 0, layout tabbed
+for_window [class="Code"] move to workspace number 0, layout tabbed
+for_window [title="R Graphics"] floating enable move absolute position 0 ppt 70 ppt; resize set height 32 ppt ; resize set width 40 ppt
+
+for_window [class="Spotify"] move to workspace number 13
+
+for_window [class="rambox"] move to workspace number 12
+for_window [class="element"] move to workspace number 12
+for_window [class="riot"] move to workspace number 12
+
+for_window [class="Mail"] move to workspace number 11
+for_window [class="thunderbird"] move to workspace number 11
+for_window [class="evolution"] move to workspace number 11
+
+for_window [class="okular"] move to workspace number 98, layout tabbed
+for_window [class="evince"] move to workspace number 98, layout tabbed
+
+
+# Screenshots:
+    # # Current display to clipboard
+    # bindsym Print exec grimshot --notify copy output
+    # # Current display to file
+    # bindsym $mod+Print exec grimshot --notify save output
+    # # All displays to file
+    # bindsym ctrl+alt+Print exec grimshot --notify save
+    # # Current window to clipboard
+    # bindsym alt+Print exec grimshot --notify copy active
+    # # Current window to file
+    # bindsym $mod+alt+Print exec grimshot --notify save active
+    # # Region-select-screenshot to clipboard
+    bindsym $super+Print exec grimshot --notify copy area
+    # # Region-select-screenshot to file
+    # bindsym $mod+ctrl+Print exec grimshot --notify save area
+
+exec_always pkill kanshi; exec kanshi &
+exec_always ~/.config/sway/autotiling -w 1 2 3 4 5 6 7 8 9 10 11 12 13
+exec nm-applet --indicator
+exec owncloud
+exec wl-paste -t text --watch clipman store --no-persist
+exec mkdir -p $HOME/Pictures/Screenshots &
+
+exec swaymsg "workspace 99; exec /usr/bin/firefox"
+exec swaymsg "workspace 11; exec evolution"
+exec swaymsg "workspace 12; exec flatpak run org.ferdium.Ferdium"
+# exec swaymsg "workspace 12; exec flatpak run im.riot.Riot"
+
+exec swaymsg "exec sleep 2 && ~/Applications/activitywatch/aw-qt" &

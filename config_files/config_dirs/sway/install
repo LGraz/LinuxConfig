@@ -10,3 +10,5 @@ dnf install xbacklight
 
 pip3 install i3ipc --user
 dnf install clipman
+dnf install grimshot
+dnf install fontawesome5-fonts-all
