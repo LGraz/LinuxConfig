@@ -77,7 +77,7 @@
         {
             "key": "alt+l",
             "command": "workbench.action.focusRightGroup",
-            "when": "!panelFocus"
+            "when": "!panelFocus && !activeEditorGroupLast"
         },
     // between sidebar and editgroup1
         {
@@ -94,7 +94,7 @@
         {
             "key": "alt+l",
             "command": "workbench.action.terminal.focus",
-            "when": "editorFocus && activeEditorGroupLast && panelVisible"
+            "when": "!sideBarFocus && activeEditorGroupLast && panelVisible"
         },
         {
             "key": "alt+h",
@@ -283,6 +283,16 @@
         },
         "label": "input indicative of r markdown code chunk"
     },
+    // split indicative of r markdown code chunk
+    {
+        "key": "ctrl+shift+j",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus && editorLangId == 'rmd'",
+        "args": {
+            "snippet": "```\n\n${TM_SELECTED_TEXT}$0\n```{r}"
+        },
+        "label": "input indicative of r markdown code chunk"
+    },
     // you can also input indicative of code chunk in `r` file by inserting "# %% ":
     // specifics in `https://github.com/REditorSupport/vscode-R/pull/662`
     // {
@@ -442,4 +452,93 @@
         "command": "editor.action.commentLine",
         "when": "editorTextFocus && !editorReadonly"
     },
+    {
+        "key": "alt+d",
+        "command": "editor.action.jumpToBracket"
+    },
+    {
+        "key": "alt+p",
+        "command": "editor.gotoParentFold"
+    },
+    {
+        "key": "alt+n",
+        "command": "editor.gotoNextFold"
+    },
+    {
+        "key": "shift+alt+n",
+        "command": "editor.gotoPreviousFold"
+    },
+    {
+        "key": "alt+[Minus]",
+        "command": "r.helpPanel.openForSelection"
+    },
+    {
+        "key": "alt+left",
+        "command": "r.helpPanel.back",
+        "when": "r.helpPanel.active"
+    },
+    {
+        "key": "alt+right",
+        "command": "r.helpPanel.forward",
+        "when": "r.helpPanel.active"
+    },
+    {
+        "key": "alt+right",
+        "command": "r.plot.nextPlot",
+        "when": "r.plot.active"
+    },
+    {
+        "key": "alt+left",
+        "command": "r.plot.prevPlot",
+        "when": "r.plot.active"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "r.plot.exportPlot",
+        "when": "r.plot.active"
+    },
+    {
+        "key": "alt+home",
+        "command": "r.plot.firstPlot",
+        "when": "r.plot.active"
+    },
+    {
+        "key": "alt+end",
+        "command": "r.plot.lastPlot",
+        "when": "r.plot.active"
+    },
+    {
+        "key": "ctrl+f11",
+        "command": "r.plot.toggleFullWindow",
+        "when": "r.plot.active && r.plot"
+    },
+    {
+        "key": "ctrl+alt+[Minus]",
+        "command": "r.helpPanel.showQuickPick",
+        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave'"
+    },
+    {
+        "key": "alt+s",
+        "command": "macros.r_get_str",
+        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave'"
+    },
+    {
+        "key": "shift+alt+s",
+        "command": "macros.r_get_summary",
+        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave'"
+    },
+    {
+        "key": "alt+m",
+        "command": "macros.r_get_methods",
+        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave'"
+    },
+    {
+        "key": "alt+v",
+        "command": "macros.r_view",
+        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave'"
+    },
+    {
+        "key": "alt+b",
+        "command": "workbench.action.toggleSidebarVisibility"
+    }
 ]

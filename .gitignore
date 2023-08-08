@@ -10,3 +10,5 @@
 **/Code/
 !**/Code/User/keybindings.json
 !**/Code/User/settings.json
+
+**/__pycache__/

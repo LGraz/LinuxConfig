@@ -11,16 +11,23 @@
 # $PROGRAM can take arguments as if it was starting from a regular terminal alone.
  
 # Checks if workspace exists, if it doesn't start $PROGRAM on new workspace.
-if ! i3-msg -t get_workspaces | grep \"num\":$1; then
+STR=`i3-msg -t get_workspaces`
+SUB="\"num\": ${1},"
+
+if [[ $STR =~ $SUB ]]; then
+ 
+# Only switch workspace if it already exists
+    i3-msg workspace number $1
+ 
+else
     i3-msg workspace number $1
     # Using i3-msg to ensure new program starts on new workspace.
     IFS=';' read -ra ADDR <<< "${@:2}"
     for i in "${ADDR[@]}"; do
         i3-msg exec "$i"
     done
- 
- 
-# Only switch workspace if it already exists
-else
-    i3-msg workspace number $1
 fi
+
+
+touch ~/.log
+echo $SUB >> .log

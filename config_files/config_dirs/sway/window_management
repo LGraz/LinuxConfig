@@ -1,0 +1,207 @@
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym $super+$left focus left
+    bindsym $super+$down focus down
+    bindsym $super+$up focus up
+    bindsym $super+$right focus right
+    # Or use $super+[up|down|left|right]
+    bindsym $super+Left focus left
+    bindsym $super+Down focus down
+    bindsym $super+Up focus up
+    bindsym $super+Right focus right
+
+    # Move the focused window with the same, but add $alt
+    bindsym $super+$alt+$left move left
+    bindsym $super+$alt+$down move down
+    bindsym $super+$alt+$up move up
+    bindsym $super+$alt+$right move right
+    # Ditto, with arrow keys
+    bindsym $super+$alt+Left move left
+    bindsym $super+$alt+Down move down
+    bindsym $super+$alt+Up move up
+    bindsym $super+$alt+Right move right
+#
+# Workspaces:
+#
+# set workspace names & variables
+bindsym $super+e exec ~/.config/i3/empty_workspace_launcher.sh 0 ~/.config/i3/super_menu.sh &
+bindsym $super+1 exec ~/.config/i3/empty_workspace_launcher.sh 1 ~/.config/i3/super_menu.sh &
+bindsym $super+2 exec ~/.config/i3/empty_workspace_launcher.sh 2 ~/.config/i3/super_menu.sh &
+bindsym $super+3 exec ~/.config/i3/empty_workspace_launcher.sh 3 ~/.config/i3/super_menu.sh &
+bindsym $super+4 exec ~/.config/i3/empty_workspace_launcher.sh 4 ~/.config/i3/super_menu.sh &
+bindsym $super+5 exec ~/.config/i3/empty_workspace_launcher.sh 5 ~/.config/i3/super_menu.sh &
+bindsym $super+6 exec ~/.config/i3/empty_workspace_launcher.sh 6 ~/.config/i3/super_menu.sh &
+bindsym $super+7 exec ~/.config/i3/empty_workspace_launcher.sh 7 ~/.config/i3/super_menu.sh &
+bindsym $super+8 exec ~/.config/i3/empty_workspace_launcher.sh 8 ~/.config/i3/super_menu.sh &
+bindsym $super+9 exec ~/.config/i3/empty_workspace_launcher.sh 9 ~/.config/i3/super_menu.sh &
+bindsym $super+f exec ~/.config/i3/empty_workspace_launcher.sh 99 /usr/bin/firefox &
+bindsym $super+o exec ~/.config/i3/empty_workspace_launcher.sh 98 /usr/bin/okular &
+bindsym $super+t exec ~/.config/i3/empty_workspace_launcher.sh 11 ~/.config/i3/super_menu.sh &
+bindsym $super+p exec ~/.config/i3/empty_workspace_launcher.sh 12 ~/.config/i3/super_menu.sh &
+bindsym $super+m exec ~/.config/i3/empty_workspace_launcher.sh 13 flatpak run com.spotify.Client &
+# move focused container to workspace
+bindsym $super+$move+e move container to workspace number 0; workspace 0
+bindsym $super+$move+1 move container to workspace number 1; workspace 1
+bindsym $super+$move+2 move container to workspace number 2; workspace 2
+bindsym $super+$move+3 move container to workspace number 3; workspace 3
+bindsym $super+$move+4 move container to workspace number 4; workspace 4
+bindsym $super+$move+5 move container to workspace number 5; workspace 5
+bindsym $super+$move+6 move container to workspace number 6; workspace 6
+bindsym $super+$move+7 move container to workspace number 7; workspace 7
+bindsym $super+$move+8 move container to workspace number 8; workspace 8
+bindsym $super+$move+9 move container to workspace number 9; workspace 9
+bindsym $super+$move+f move container to workspace number 99; workspace 99
+bindsym $super+$move+o move container to workspace number 98; workspace 98
+bindsym $super+$move+t move container to workspace number 11; workspace 11
+bindsym $super+$move+p move container to workspace number 12; workspace 12
+bindsym $super+$move+m move container to workspace number 13; workspace 13
+
+# move workspace to other monitor:
+bindsym $super+Shift+$right move workspace to output right
+bindsym $super+Shift+$left move workspace to output left
+bindsym $super+Shift+$down move workspace to output down
+bindsym $super+Shift+$up move workspace to output up
+
+    # # Switch to workspace
+    # bindsym $super+1 workspace number 1
+    # bindsym $super+2 workspace number 2
+    # bindsym $super+3 workspace number 3
+    # bindsym $super+4 workspace number 4
+    # bindsym $super+5 workspace number 5
+    # bindsym $super+6 workspace number 6
+    # bindsym $super+7 workspace number 7
+    # bindsym $super+8 workspace number 8
+    # bindsym $super+9 workspace number 9
+    # bindsym $super+0 workspace number 10
+    # # Move focused container to workspace
+    # bindsym $super+$alt+1 move container to workspace number 1
+    # bindsym $super+$alt+2 move container to workspace number 2
+    # bindsym $super+$alt+3 move container to workspace number 3
+    # bindsym $super+$alt+4 move container to workspace number 4
+    # bindsym $super+$alt+5 move container to workspace number 5
+    # bindsym $super+$alt+6 move container to workspace number 6
+    # bindsym $super+$alt+7 move container to workspace number 7
+    # bindsym $super+$alt+8 move container to workspace number 8
+    # bindsym $super+$alt+9 move container to workspace number 9
+    # bindsym $super+$alt+f move container to workspace number 10
+    # # Note: workspaces can have any name you want, not just numbers.
+    # # We just use 1-10 as the default.
+
+
+			bindsym $super+b workspace back_and_forth
+			bindsym $super+BackSpace workspace back_and_forth
+			bindsym $super+$move+b move workspace back_and_forth; workspace back_and_forth
+			bindsym $super+$move+BackSpace move workspace back_and_forth; workspace back_and_forth
+
+        # next
+			bindsym $super+i workspace next
+			bindsym $super+$move+i move workspace next, workspace next
+		# previous
+			bindsym $super+u workspace prev
+			bindsym $super+$move+u move workspace prev; workspace prev
+        # new
+			bindsym $super+n exec ~/.config/i3/new_workspace.py
+			bindsym $super+$move+n exec ~/.config/i3/new_workspace.py --move_focused
+		
+
+	# Resize windows	
+		bindsym $super+Ctrl+Left resize shrink width 100px
+		bindsym $super+Ctrl+h resize shrink width 100px
+		bindsym $super+Ctrl+Down resize grow height 100px
+		bindsym $super+Ctrl+j resize grow height 100px
+		bindsym $super+Ctrl+Up resize shrink height 100px
+		bindsym $super+Ctrl+k resize shrink height 100px
+		bindsym $super+Ctrl+Right resize grow width 100px
+		bindsym $super+Ctrl+l resize grow width 100px
+
+	# Drag floating windows with modifier pressed
+	floating_modifier $alt
+
+	# Floating
+		bindsym $super+$shift+space floating toggle
+		# Swap focus between the tiling area and the floating area
+		bindsym $super+space focus mode_toggle
+
+
+ 	# Tiling
+		# bindsym $super+s layout stacking
+		bindsym $super+Ctrl+t layout tabbed
+		bindsym $super+Ctrl+e layout toggle split
+		bindsym $super+Ctrl+Shift+v splith
+		bindsym $super+Ctrl+v splitv
+		bindsym $super+Ctrl+F11 fullscreen
+		# bindsym $F11 fullscreen
+
+# #
+# # Layout stuff:
+# #
+#     # You can "split" the current object of your focus with
+#     # $super+b or $super+v, for horizontal and vertical splits
+#     # respectively.
+#     # bindsym $super+b splith
+#     bindsym $super+v splitv
+
+#     # Switch the current container between different layout styles
+#     bindsym $super+s layout stacking
+#     bindsym $super+w layout tabbed
+#     bindsym $super+e layout toggle split
+
+#     # Make the current focus fullscreen
+#     bindsym $super+f fullscreen
+
+#     # Toggle the current focus between tiling and floating mode
+#     bindsym $super+Shift+space floating toggle
+
+#     # Swap focus between the tiling area and the floating area
+#     bindsym $super+space focus mode_toggle
+
+#     # Move focus to the parent container
+#     bindsym $super+a focus parent
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $super+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $super+minus scratchpad show
+# #
+# # Resizing containers:
+# #
+# mode "resize" {
+#     # left will shrink the containers width
+#     # right will grow the containers width
+#     # up will shrink the containers height
+#     # down will grow the containers height
+#     bindsym $left resize shrink width 10px
+#     bindsym $down resize grow height 10px
+#     bindsym $up resize shrink height 10px
+#     bindsym $right resize grow width 10px
+
+#     # Ditto, with arrow keys
+#     bindsym Left resize shrink width 10px
+#     bindsym Down resize grow height 10px
+#     bindsym Up resize shrink height 10px
+#     bindsym Right resize grow width 10px
+
+#     # Return to default mode
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+# }
+# bindsym $super+r mode "resize"
+
+workspace 1 output DP-1
+workspace 2 output DP-1
+workspace 3 output DP-1
+workspace 4 output DP-1
+workspace 5 output DP-1
+# workspace 6 output DP-1
+# workspace 7 output DP-1
+# workspace 8 output DP-1
+# workspace 9 output DP-1

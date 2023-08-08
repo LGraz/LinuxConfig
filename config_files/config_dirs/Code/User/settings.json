@@ -1,10 +1,9 @@
 {
-    "r.debugger.checkVersion":"required",
+    "r.debugger.checkVersion": "required",
     "update.mode": "none",
     "editor.fontSize": 18,
     "r.rpath.linux": "/usr/bin/R",
     "terminal.integrated.fontSize": 18,
-    "r.bracketedPaste": true,
     "editor.formatOnPaste": true,
     "code-runner.clearPreviousOutput": true,
     "code-runner.saveAllFilesBeforeRun": true,
@@ -97,8 +96,6 @@
     "latex-workshop.view.pdf.color.dark.backgroundColor": "#000000",
     // "terminal.integrated.defaultProfile.linux": "zsh",
     "notebook.output.textLineLimit": 50,
-    "notebook.outputFontSize": 16,
-    "notebook.outputLineHeight": 1.1,
     // Language specific settings
     "[latex]": {
         "editor.wordWrap": "on"
@@ -110,6 +107,11 @@
         "editor.wordWrap": "on"
     },
     "[r]": {
+        "editor.tabSize": 2,
+        "editor.formatOnPaste": false,
+        "editor.wordSeparators": "`~!@#%$^&*()-=+[{]}\\|;:'\",<>/?"
+    },
+    "[rmd]": {
         "editor.tabSize": 2,
         "editor.formatOnPaste": false,
         "editor.wordSeparators": "`~!@#%$^&*()-=+[{]}\\|;:'\",<>/?"
@@ -129,7 +131,6 @@
         "editor.formatOnPaste": false,
         "editor.formatOnType": true
     },
-    "r.rterm.linux": "/home/lukas/.local/bin//radian",
     "path-intellisense.autoTriggerNextSuggestion": true,
     "path-intellisense.showHiddenFiles": true,
     "path-intellisense.mappings": {
@@ -147,13 +148,71 @@
     "window.enableMenuBarMnemonics": false,
     // "window.menuBarVisibility": "toggle",
     "window.menuBarVisibility": "hidden",
-    "breadcrumbs.filePath": "off",
-    "breadcrumbs.enabled": false,
     "terminal.integrated.commandsToSkipShell": [
         // Ensure the toggle sidebar visibility keybinding skips the shell
         "workbench.action.toggleSidebarVisibility"
     ],
     "git.openRepositoryInParentFolders": "always",
     "workbench.colorTheme": "LukasLeight",
-    "aws.telemetry": false
+    "application.shellEnvironmentResolutionTimeout": 1,
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "macros": {
+        "r_get_str": [
+            "editor.action.addSelectionToNextFindMatch",
+            {
+                "command": "workbench.action.terminal.sendSequence",
+                "args": {
+                    "text": "str(${selectedText})\u000D"
+                }
+            },
+            "cancelSelection"
+        ],
+        "r_get_summary": [
+            "editor.action.addSelectionToNextFindMatch",
+            {
+                "command": "workbench.action.terminal.sendSequence",
+                "args": {
+                    "text": "summary(${selectedText})\u000D"
+                }
+            },
+            "cancelSelection"
+        ],
+        "r_get_methods": [
+            "editor.action.addSelectionToNextFindMatch",
+            {
+                "command": "workbench.action.terminal.sendSequence",
+                "args": {
+                    "text": "if (grepl(paste0('^\\\\s*', r_obj_regex, '\\\\s*\\\\(\\\\s*', r_obj_regex), '${selectedText}')) what_method_is_called('${selectedText}') else if(is.function(get('${selectedText}'))) methods('${selectedText}') else methods(class=class(get('${selectedText}')))\u000D"
+                }
+            },
+            "cancelSelection"
+        ],
+        "r_get_class": [
+            "editor.action.addSelectionToNextFindMatch",
+            {
+                "command": "workbench.action.terminal.sendSequence",
+                "args": {
+                    "text": "class(${selectedText})\u000D"
+                }
+            },
+            "cancelSelection"
+        ],
+        "r_view": [
+            "editor.action.addSelectionToNextFindMatch",
+            {
+                "command": "workbench.action.terminal.sendSequence",
+                "args": {
+                    "text": "utils::View(${selectedText})\u000D"
+                }
+            },
+            "cancelSelection"
+        ],
+    },
+    "notebook.output.lineHeight": 1.1,
+    "notebook.output.fontSize": 16,
+    "aws.telemetry": false,
+    "r.rterm.linux": "/scratch/users/lgraz/.local/bin/radian",
+    "r.bracketedPaste": true,
+    "breadcrumbs.filePath": "off",
+    "window.zoomLevel": 1
 }
