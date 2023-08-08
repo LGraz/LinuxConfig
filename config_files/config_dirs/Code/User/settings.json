@@ -213,6 +213,5 @@
     "aws.telemetry": false,
     "r.rterm.linux": "/scratch/users/lgraz/.local/bin/radian",
     "r.bracketedPaste": true,
-    "breadcrumbs.filePath": "off",
-    "window.zoomLevel": 1
+    "breadcrumbs.filePath": "off"
 }
