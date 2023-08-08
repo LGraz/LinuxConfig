@@ -10,7 +10,7 @@ options(help_type = "text")
 options(digits = 5)
 options(max.print = 200)
 # get pink prompt:
-options(prompt="\033[0;35m\033[1m> \033[0m")
+options(prompt="\033[0;35m\033[1m> \033[0m", continue ="\033[0;35m\033[1m+ \033[0m")
 
 # syler
 # options(languageserver.formatting_style = function(options) {
