@@ -211,8 +211,11 @@
     "notebook.output.lineHeight": 1.1,
     "notebook.output.fontSize": 16,
     "aws.telemetry": false,
-    "r.rterm.linux": "/scratch/users/lgraz/.local/bin/radian",
+    "r.rterm.linux": "/usr/bin/R",
     "r.bracketedPaste": true,
     "breadcrumbs.filePath": "off",
-    "window.zoomLevel": 1
+    "window.zoomLevel": 1,
+    "aws.suppressPrompts": {
+        "codeWhispererConnectionExpired": true
+    }
 }
