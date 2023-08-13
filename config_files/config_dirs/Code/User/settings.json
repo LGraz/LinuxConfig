@@ -206,7 +206,7 @@
                 }
             },
             "cancelSelection"
-        ],
+        ]
     },
     "notebook.output.lineHeight": 1.1,
     "notebook.output.fontSize": 16,
