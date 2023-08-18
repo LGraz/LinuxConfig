@@ -540,5 +540,9 @@
     {
         "key": "alt+b",
         "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+[Backslash]",
+        "command": "workbench.action.terminal.runSelectedText"
     }
 ]
