@@ -6,14 +6,18 @@ local({
 })
 
 # help page in terminal
+options(setWidthOnResize = TRUE)
 options(help_type = "text")
 options(digits = 5)
 options(max.print = 200)
 options("formatR.args.newline" = TRUE)
 options("formatR.indent" = 2)
 options("vsc.rstudioapi" = TRUE)
-# get pink prompt:
-options(prompt="\033[0;35m\033[1m> \033[0m", continue ="\033[0;35m\033[1m+ \033[0m")
+# options(warnPartialMatchArgs = TRUE)
+# options(warnPartialMatchAttr = TRUE)
+options(warnPartialMatchDollar = TRUE)
+# # get pink prompt:
+options(prompt="\033[0;35m\033[1m>\033[0m ")
 
 # some utility function
 # `%grep%` <- function(x, pattern, ...) grep(pattern, x, value = TRUE, ...)
@@ -30,14 +34,11 @@ options(languageserver.formatting_style = function(options) {
 })
 
 # Ncores --- with 'parallel::detectCores' and checks if aviable
-options(Ncpus =
-  if (any(rownames(utils::installed.packages()) == "parallel")) {
-    max(as.integer(parallel::detectCores() - 2), 1L)
-  } else {
-    1L
-  }
-)
-
+Ncores <- as.integer(parallel::detectCores() - 2) 
+if (!(Ncores %in% 1:256)) 
+  Ncores <-  1L
+options(Ncpus = Ncores)
+options(mc.cores = Ncores)
 
 installed <- function(pattern, which = c("Package", "Version"), ...) {
   installed <- installed.packages(...)
@@ -45,6 +46,14 @@ installed <- function(pattern, which = c("Package", "Version"), ...) {
   installed[ind, which]
 }
 
+# colored output:
+# remotes::install_github("https://github.com/jalvesaq/colorout")
+if (require(colorout, quietly = TRUE)) setOutputColors(normal = 153, negnum = 153, zero = 189,
+                                       number = 153, date = 153, string = 153,
+                                       const = 141, false = 153, true = 153,
+                                       infinite = 141, index = 30, stderror = 214,
+                                       warn = 160, error = c(1, 16, 196),
+                                       verbose = FALSE, zero.limit = 1e-7)
 
 findMethod <- function(generic, ...) {
   ch <- deparse(substitute(generic))

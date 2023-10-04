@@ -256,7 +256,7 @@
     {
         "key": "alt+-",
         "command": "type",
-        "when": "editorLangId == r && editorTextFocus || editorLangId == rmd && editorTextFocus",
+        "when": "(editorLangId == r || editorLangId == rmd || editorLangId == quarto) && editorTextFocus",
         "args": {
             "text": " <- "
         }
@@ -264,7 +264,7 @@
     {
         "key": "ctrl+shift+m",
         "command": "type",
-        "when": "editorLangId == r && editorTextFocus || editorLangId == rmd && editorTextFocus",
+        "when": "(editorLangId == r || editorLangId == rmd || editorLangId == quarto) && editorTextFocus",
         "args": {
             "text": " %>% "
         }
@@ -277,7 +277,7 @@
     {
         "key": "ctrl+shift+i",
         "command": "editor.action.insertSnippet",
-        "when": "editorTextFocus && editorLangId == 'rmd'",
+        "when": "editorTextFocus && (editorLangId == 'rmd' || editorLangId == 'quarto' || editorLangId == 'r')",
         "args": {
             "snippet": "```{r}\n${TM_SELECTED_TEXT}$0\n```"
         },
@@ -287,7 +287,7 @@
     {
         "key": "ctrl+shift+j",
         "command": "editor.action.insertSnippet",
-        "when": "editorTextFocus && editorLangId == 'rmd'",
+        "when": "editorTextFocus && (editorLangId == 'rmd' || editorLangId == 'quarto' || editorLangId == 'r')",
         "args": {
             "snippet": "```\n\n${TM_SELECTED_TEXT}$0\n```{r}"
         },
@@ -515,30 +515,49 @@
     {
         "key": "ctrl+alt+[Minus]",
         "command": "r.helpPanel.showQuickPick",
-        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave'"
+        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave' || editorLangId == 'quarto'"
     },
     {
         "key": "alt+s",
         "command": "macros.r_get_str",
-        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave'"
+        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave' || editorLangId == 'quarto'"
     },
     {
         "key": "shift+alt+s",
         "command": "macros.r_get_summary",
-        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave'"
+        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave' || editorLangId == 'quarto'"
     },
     {
         "key": "alt+m",
         "command": "macros.r_get_methods",
-        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave'"
+        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave' || editorLangId == 'quarto'"
     },
     {
         "key": "alt+v",
         "command": "macros.r_view",
-        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave'"
+        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave' || editorLangId == 'quarto'"
     },
     {
         "key": "alt+b",
         "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+k ctrl+b",
+        "command": "markdown.extension.editing.toggleBold",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "-markdown.extension.editing.toggleBold",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+    },
+    {
+        "key": "ctrl+q",
+        "command": "-workbench.action.quit"
+    },
+    {
+        "key": "alt+s",
+        "command": "-markdown.extension.editing.toggleStrikethrough",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
     }
 ]
