@@ -559,5 +559,9 @@
         "key": "alt+s",
         "command": "-markdown.extension.editing.toggleStrikethrough",
         "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+    },
+    {
+        "key": "ctrl+[Backslash]",
+        "command": "workbench.action.terminal.runSelectedText"
     }
 ]

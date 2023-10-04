@@ -12,7 +12,7 @@
  
 # Checks if workspace exists, if it doesn't start $PROGRAM on new workspace.
 STR=`i3-msg -t get_workspaces`
-SUB="\"num\": ${1},"
+SUB="\"num\":${1},"
 
 if [[ $STR =~ $SUB ]]; then
  

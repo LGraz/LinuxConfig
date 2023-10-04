@@ -287,7 +287,7 @@ exec --no-startup-id albert &
 
 	# Launcher
 		# bindysm $mod+d albert toggle
-		exec_always --no-startup-id ~/.config/albert/i3_hide_albert_on_focus_out.sh &
+		# exec_always --no-startup-id ~/.config/albert/i3_hide_albert_on_focus_out.sh &
 		# bindsym --release Hyper_L exec --no-startup-id ~/.config/i3/super_menu.sh &
 		bindsym $super+d exec --no-startup-id ~/.config/i3/super_menu.sh &
 		# bindsym $F11 exec --no-startup-id ~/.config/i3/super_menu.sh &
