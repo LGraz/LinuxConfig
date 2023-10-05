@@ -13,7 +13,7 @@ options("formatR.args.newline" = TRUE)
 options("formatR.indent" = 2)
 options("vsc.rstudioapi" = TRUE)
 # get pink prompt:
-options(prompt="\033[0;35m\033[1m> \033[0m", continue ="\033[0;35m\033[1m+ \033[0m")
+options(prompt = "\033[0;35m\033[1m> \033[0m", continue = "\033[0;35m\033[1m+ \033[0m")
 
 # some utility function
 # `%grep%` <- function(x, pattern, ...) grep(pattern, x, value = TRUE, ...)
@@ -21,7 +21,7 @@ options(prompt="\033[0;35m\033[1m> \033[0m", continue ="\033[0;35m\033[1m+ \033[
 # syler
 options(languageserver.formatting_style = function(options) {
   style <- styler::tidyverse_style(
-    strict = FALSE,
+    strict = TRUE,
     indent_by = 2,
     scope = "tokens" # I(c("line_breaks", "tokens", "spaces", "indentation"))
   )
@@ -53,9 +53,9 @@ findMethod <- function(generic, ...) {
   X(...)
 }
 
-# usage in combination with macros: 
+# usage in combination with macros:
 r_obj_regex <- "((([[:alpha:]]|[.][._[:alpha:]])[._[:alnum:]]*)|[.])"
-what_method_is_called <- function(selected){
+what_method_is_called <- function(selected) {
   # use like: findMethhod("plot", mynumbers)
   findMethod <- function(generic, ...) {
     f <- X <- function(x, ...) UseMethod("X")
@@ -65,7 +65,7 @@ what_method_is_called <- function(selected){
   gsub("\\s", "", selected) # remove whitespace
   f_obj_name <- strsplit(selected, "\\(")[[1]]
   full.name <- findMethod(f_obj_name[1], get(f_obj_name[2]))
-  cat(" ",paste0(rep("-",times=nchar(full.name)), collapse = ""), "\n ", full.name, "\n ", paste0(rep("-",times=nchar(full.name)), collapse = ""), "\n")
+  cat(" ", paste0(rep("-", times = nchar(full.name)), collapse = ""), "\n ", full.name, "\n ", paste0(rep("-", times = nchar(full.name)), collapse = ""), "\n")
   aa <- getAnywhere(full.name)
   print(aa$where)
   cat("\nwith args:\n")

@@ -1,3 +1,5 @@
 # sync ~/Documents with gdrive:AcerDacer/
 # 0 */2 * * * ~/.rclone_gdrive > /dev/null
 0 */4 * * * ~/paperless-ngx/setup/backup.sh
+*/5 * * * * ~/duckdns/duck.sh >/dev/null 2>&1
+0 * * * * ~/.ip_fetcher.py

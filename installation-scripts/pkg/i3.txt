@@ -1,0 +1,32 @@
+# get i3 package group
+i3-wm i3lock
+# login-screen
+lightdm lightdm-gtk-greeter
+# for media keybindings
+playerctl pamixer
+rofi
+# networkmanager gui
+network-manager-applet
+# wallpaper
+feh
+# monitors
+arandr autorandr 
+# notifications:
+libnotify dunst
+# screenshot
+scrot
+# file manager
+ranger
+numlockx
+# terminal
+terminator
+# volumeicon
+pasystray
+# themes
+arc-gtk-theme
+picom
+--END OF MINIMAL INSTALL--
+# gnome disk utilities
+baobab gnome-disk-utility
+nautilus
+qt5ct #for_albert_icons

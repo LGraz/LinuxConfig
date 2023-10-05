@@ -1,5 +1,6 @@
 # this wants to be sourced by bashrc ...
 
+alias mc=micro
 alias ls='ls -Gh --color=auto --group-directories-first'
 alias r="radian"
 alias R='R --no-save --no-restore-data'

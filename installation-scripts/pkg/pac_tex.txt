@@ -1,0 +1,13 @@
+# TEXLIVE-MOST-------
+texlive-bibtexextra
+texlive-core
+texlive-latexextra
+texlive-science
+#texlive-fontsextra
+#texlive-formatsextra
+#texlive-games
+#texlive-humanities
+#texlive-music
+#texlive-pictures
+#texlive-pstricks
+#texlive-publishers

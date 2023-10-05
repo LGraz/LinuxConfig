@@ -1,5 +1,5 @@
 ﻿###
-###  vlc 3.0.17.4
+###  vlc 3.0.18
 ###
 
 ###
@@ -1405,7 +1405,7 @@
 #sout-avi-subject=
 
 # Encoder (string)
-#sout-avi-encoder=VLC Media Player - 3.0.17.4 Vetinari
+#sout-avi-encoder=VLC Media Player - 3.0.18 Vetinari
 
 # Keywords (string)
 #sout-avi-keywords=
@@ -1647,6 +1647,47 @@ qt-privacy-ask=0
 # Frames per Second (float)
 #vc1-fps=25.000000
 
+[ts] # MPEG Transport Stream demuxer
+
+# Digital TV Standard (string)
+#ts-standard=auto
+
+# Extra PMT (string)
+#ts-extra-pmt=
+
+# Trust in-stream PCR (boolean)
+#ts-trust-pcr=1
+
+# Set id of ES to PID (boolean)
+#ts-es-id-pid=1
+
+# CSA Key (string)
+#ts-csa-ck=
+
+# Second CSA Key (string)
+#ts-csa2-ck=
+
+# Packet size in bytes to decrypt (integer)
+#ts-csa-pkt=188
+
+# Separate sub-streams (boolean)
+#ts-split-es=1
+
+# Seek based on percent not time (boolean)
+#ts-seek-percent=0
+
+# Check packets continuity counter (boolean)
+#ts-cc-check=1
+
+# Only create ES on program sending data (boolean)
+#ts-pmtfix-waitdata=1
+
+# Try to generate PAT/PMT if missing (boolean)
+#ts-patfix=1
+
+# Try to fix too early PCR (or late DTS) (boolean)
+#ts-pcr-offsetfix=1
+
 [subtitle] # Text subtitle parser
 
 # Frames per Second (float)
@@ -1831,6 +1872,23 @@ qt-privacy-ask=0
 
 # Force index creation (integer)
 #avi-index=0
+
+[avformat] # Avformat demuxer
+
+# Format name (string)
+#avformat-format=
+
+# Advanced options (string)
+#avformat-options=
+
+# Avformat mux (string)
+#sout-avformat-mux=
+
+# Advanced options (string)
+#sout-avformat-options=
+
+# Reset timestamps (boolean)
+#sout-avformat-reset-ts=0
 
 [adaptive] # Unified adaptive streaming for DASH/HLS
 
@@ -2372,6 +2430,20 @@ qt-privacy-ask=0
 # CBR encoding (boolean)
 #sout-vorbis-cbr=0
 
+[twolame] # Libtwolame audio encoder
+
+# Encoding quality (float)
+#sout-twolame-quality=0.000000
+
+# Stereo mode (integer)
+#sout-twolame-mode=0
+
+# VBR mode (boolean)
+#sout-twolame-vbr=0
+
+# Psycho-acoustic model (integer)
+#sout-twolame-psy=3
+
 [ttml] # TTML subtitles decoder
 
 # Subtitle justification (integer)
@@ -2692,6 +2764,14 @@ qt-privacy-ask=0
 # Advanced options (string)
 #sout-avcodec-options=
 
+[aribsub] # ARIB subtitles decoder
+
+# Ignore ruby (furigana) (boolean)
+#aribsub-ignore-ruby=0
+
+# Use Core Text renderer (boolean)
+#aribsub-use-coretext=0
+
 [a52] # ATSC A/52 (AC-3) audio decoder
 
 # A/52 dynamic range compression (boolean)
@@ -3011,6 +3091,61 @@ qt-privacy-ask=0
 # Group packets (integer)
 #sout-udp-group=1
 
+[access_output_srt] # SRT stream output
+
+# Return poll wait after timeout milliseconds (-1 = infinite) (integer)
+#poll-timeout=-1
+
+# SRT latency (ms) (integer)
+#latency=120
+
+# Password for stream encryption (string)
+#passphrase=
+
+# SRT maximum payload size (bytes) (integer)
+#payload-size=1316
+
+# SRT maximum bandwidth ceiling (bytes) (integer)
+#bandwidth-overhead-limit=25
+
+# Crypto key length in bytes (integer)
+#key-length=16
+
+#  SRT Stream ID (string)
+#streamid=
+
+[access_output_shout] # IceCAST output
+
+# Stream name (string)
+#sout-shout-name=VLC media player - Live stream
+
+# Stream description (string)
+#sout-shout-description=Live stream from VLC media player
+
+# Stream MP3 (boolean)
+#sout-shout-mp3=0
+
+# Genre description (string)
+#sout-shout-genre=Alternative
+
+# URL description (string)
+#sout-shout-url=http://www.videolan.org/vlc
+
+# Bitrate (string)
+#sout-shout-bitrate=
+
+# Samplerate (string)
+#sout-shout-samplerate=
+
+# Number of channels (string)
+#sout-shout-channels=
+
+# Ogg Vorbis Quality (string)
+#sout-shout-quality=
+
+# Stream public (boolean)
+#sout-shout-public=0
+
 [access_output_rist] # RIST stream output
 
 # RIST target packet size (bytes) (integer)
@@ -3179,37 +3314,10 @@ qt-privacy-ask=0
 # Do not check for a valid rtcp message from the encoder (boolean)
 #mcast-blind-nacks=0
 
-[live555] # RTP/RTSP/SDP demuxer (using Live555)
+[nfs] # NFS input
 
-# Use RTP over RTSP (TCP) (boolean)
-#rtsp-tcp=0
-
-# Client port (integer)
-#rtp-client-port=-1
-
-# Force multicast RTP via RTSP (boolean)
-#rtsp-mcast=0
-
-# Tunnel RTSP and RTP over HTTP (boolean)
-#rtsp-http=0
-
-# HTTP tunnel port (integer)
-#rtsp-http-port=80
-
-# Kasenna RTSP dialect (boolean)
-#rtsp-kasenna=0
-
-# WMServer RTSP dialect (boolean)
-#rtsp-wmserver=0
-
-# Username (string)
-#rtsp-user=
-
-# Password (string)
-#rtsp-pwd=
-
-# RTSP frame buffer size (integer)
-#rtsp-frame-buffer-size=250000
+# Set NFS uid/guid automatically (boolean)
+#nfs-auto-guid=1
 
 [linsys_hdsdi] # HD-SDI Input
 
@@ -3261,6 +3369,11 @@ qt-privacy-ask=0
 
 # List special files (boolean)
 #list-special-files=0
+
+[dvdread] # DVDRead Input (no menu support)
+
+# DVD angle (integer)
+#dvdread-angle=1
 
 [dvb] # DVB input with v4l2 support
 
@@ -3406,11 +3519,30 @@ qt-privacy-ask=0
 # Musicbrainz Server (string)
 #musicbrainz-server=musicbrainz.org
 
-# CDDB Server (string)
-#cddb-server=freedb.videolan.org
+[avio] # libavformat AVIO access
 
-# CDDB port (integer)
-#cddb-port=80
+# Advanced options (string)
+#avio-options=
+
+# Advanced options (string)
+#sout-avio-options=
+
+[access_srt] # SRT input
+
+# Return poll wait after timeout milliseconds (-1 = infinite) (integer)
+#poll-timeout=-1
+
+# SRT latency (ms) (integer)
+#latency=120
+
+# Password for stream encryption (string)
+#passphrase=
+
+# Crypto key length in bytes (integer)
+#key-length=16
+
+#  SRT Stream ID (string)
+#streamid=
 
 [access_mms] # Microsoft Media Server (MMS) input
 
@@ -4085,13 +4217,13 @@ metadata-network-access=1
 #global-key-faster=
 
 # Faster (string)
-#key-faster=+
+key-faster=.
 
 # Slower (string)
 #global-key-slower=
 
 # Slower (string)
-#key-slower=-
+key-slower=,
 
 # Normal rate (string)
 #global-key-rate-normal=
@@ -4103,13 +4235,13 @@ metadata-network-access=1
 #global-key-rate-faster-fine=
 
 # Faster (fine) (string)
-#key-rate-faster-fine=]
+key-rate-faster-fine=Shift+:
 
 # Slower (fine) (string)
 #global-key-rate-slower-fine=
 
 # Slower (fine) (string)
-#key-rate-slower-fine=[
+key-rate-slower-fine=Shift+;
 
 # Next (string)
 #global-key-next=

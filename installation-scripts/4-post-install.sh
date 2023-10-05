@@ -30,6 +30,7 @@
 
 # fix touchpad
     sudo cp ~/ArchTitus/configs/etc/X11/xorg.conf.d/70-synaptics.conf /etc/X11/xorg.conf.d/70-synaptics.conf
+    # wayland does not use the above
 
 # fix ETH-vpn issues  (disable ipv6)
     sudo cp ~/ArchTitus/configs/etc/sysctl.d/40-ipv6.conf /etc/sysctl.d/40-ipv6.conf

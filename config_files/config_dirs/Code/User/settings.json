@@ -107,6 +107,7 @@
         "editor.wordWrap": "on"
     },
     "[r]": {
+        "editor.defaultFormatter": "REditorSupport.r",
         "editor.tabSize": 2,
         "editor.formatOnPaste": false,
         "editor.wordSeparators": "`~!@#%$^&*()-=+[{]}\\|;:'\",<>/?"
@@ -212,10 +213,15 @@
     "notebook.output.fontSize": 16,
     "aws.telemetry": false,
     "r.rterm.linux": "/usr/bin/R",
-    "r.bracketedPaste": true,
     "breadcrumbs.filePath": "off",
-    "window.zoomLevel": 1,
     "aws.suppressPrompts": {
         "codeWhispererConnectionExpired": true
-    }
+    },
+    "task.allowAutomaticTasks": "on",
+    "r.rterm.option": [
+        "--no-save",
+        "--no-restore",
+        "--quiet"
+    ],
+    "editor.formatOnSave": true
 }
