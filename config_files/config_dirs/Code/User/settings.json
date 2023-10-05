@@ -2,7 +2,6 @@
     "r.debugger.checkVersion": "required",
     "update.mode": "none",
     "editor.fontSize": 18,
-    "r.rpath.linux": "/usr/bin/R",
     "terminal.integrated.fontSize": 18,
     "editor.formatOnPaste": true,
     "code-runner.clearPreviousOutput": true,
@@ -59,11 +58,15 @@
         "editor.wordWrap": "on",
         "editor.renderWhitespace": "all"
     },
-    // "workbench.colorCustomizations": {
-    //     // highlight tab
-    //     "tab.activeBorder": "#f01bff",
-    //     "tab.unfocusedActiveBorder": "#6e0775"
-    // },
+    "workbench.colorCustomizations": {
+        // highlight tab
+        "tab.activeBorder": "#f01bff",
+        "tab.unfocusedActiveBorder": "#6e0775",
+        // "editor.selectionBackground": "#ffa2004b",
+        // "editor.selectionForeground": "#00000000",
+        // "terminal.selectionBackground": "#ffa2004b",
+        // "terminal.selectionForeground": "#00000000"
+    },
     "window.menu^Visibility": "hidden",
     "latex-workshop.message.error.show": false,
     "git.autofetch": true,
@@ -89,10 +92,10 @@
     "debug.console.fontSize": 16,
     "debug.console.lineHeight": 22,
     "markdown.preview.fontSize": 16,
-        "r.session.viewers.viewColumn": {
-            "viewer": "Two",
-            "view": "Two"
-        },
+    "r.session.viewers.viewColumn": {
+        "viewer": "Two",
+        "view": "Two"
+    },
     "latex-workshop.view.pdf.color.dark.backgroundColor": "#000000",
     // "terminal.integrated.defaultProfile.linux": "zsh",
     "notebook.output.textLineLimit": 50,
@@ -143,7 +146,6 @@
     "vscode-office.openOutline": false,
     "terminal.integrated.enableMultiLinePasteWarning": false,
     "latex-workshop.view.pdf.color.light.backgroundColor": "#000000",
-    "r.plot.useHttpgd": true,
     "window.customMenuBarAltFocus": false,
     // "window.enableMenuBarMnemonics": true
     "window.enableMenuBarMnemonics": false,
@@ -223,5 +225,20 @@
         "--no-restore",
         "--quiet"
     ],
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "r.helpPanel.cacheIndexFiles": "Global",
+    "r.lsp.debug": true,
+    "r.lsp.use_stdio": true,
+    "r.removeLeadingComments": true,
+    // "r.rpath.linux": "/scratch/users/lgraz/Git/R-4.3.1/bin/R",
+    "r.rmarkdown.knit.openOutputFile": true,
+    "quarto.path": "/scratch/users/lgraz/Applications/quarto/bin/quarto",
+    "r.plot.defaults.plotPreviewLayout": "scroll",
+    "r.rmarkdown.chunkBackgroundColor": "rgba(128, 128, 128, 0.2)",
+    "r.rmarkdown.codeLensCommands": [
+        "r.runCurrentChunk",
+        "r.runAboveChunks",
+        "r.runCurrentAndBelowChunks"
+    ],
+    "r.plot.useHttpgd": true
 }

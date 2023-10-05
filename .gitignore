@@ -12,3 +12,6 @@
 !**/Code/User/settings.json
 
 **/__pycache__/
+
+**/micro/backups
+**/micro/buffers

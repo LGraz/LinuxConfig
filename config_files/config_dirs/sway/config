@@ -154,6 +154,7 @@ exec nm-applet --indicator
 exec owncloud
 exec wl-paste -t text --watch clipman store --no-persist
 exec mkdir -p $HOME/Pictures/Screenshots &
+exec dunst &
 
 exec swaymsg "workspace 99; exec /usr/bin/firefox"
 exec swaymsg "workspace 11; exec evolution"
@@ -161,3 +162,9 @@ exec swaymsg "workspace 12; exec flatpak run org.ferdium.Ferdium"
 # exec swaymsg "workspace 12; exec flatpak run im.riot.Riot"
 
 exec swaymsg "exec sleep 2 && ~/Applications/activitywatch/aw-qt" &
+exec ~/.top_logger
+
+# autostart scratchpad
+exec_always terminator -e "micro ~/todo.md" --title Scratchpad
+for_window [title="Scratchpad"] move scratchpad
+bindsym $super+$move scratchpad show
