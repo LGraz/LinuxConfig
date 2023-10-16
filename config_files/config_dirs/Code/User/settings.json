@@ -240,5 +240,8 @@
         "r.runAboveChunks",
         "r.runCurrentAndBelowChunks"
     ],
-    "r.plot.useHttpgd": true
+    "r.plot.useHttpgd": true,
+    "r.session.levelOfObjectDetail": "Detailed",
+    "window.zoomLevel": 1,
+    "update.showReleaseNotes": false
 }

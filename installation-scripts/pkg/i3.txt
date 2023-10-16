@@ -25,7 +25,7 @@ pasystray
 # themes
 arc-gtk-theme
 picom
---END OF MINIMAL INSTALL--
+## --END OF MINIMAL INSTALL--
 # gnome disk utilities
 baobab gnome-disk-utility
 nautilus

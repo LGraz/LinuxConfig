@@ -3,7 +3,7 @@
 alias mc=micro
 alias ls='ls -Gh --color=auto --group-directories-first'
 alias r="radian"
-alias R='R --no-save --no-restore-data'
+alias R='R --no-save --no-restore-data --quiet'
 alias installed="pacman -Q | grep "
 alias uninstall="sudo pacman -Rns"
 alias remove="sudo pacman -Rns"
@@ -13,26 +13,14 @@ alias f=ranger
 
 install() {
     echo "installing: $1  -----------------------------------"
-    sudo pacman -S $1 || yay -S $1 || yay $1
+    sudo pacman -S $1 --needed || yay -S $1 || yay $1
 }
 
 
 # update all perlmodules
 alias perlupdate='perl -MCPAN -e "upgrade /(.\*)/"'
 
-# Use lf to switch directories and bind it to ctrl-o
-alias lf=~/LinuxConfig/config_files/config_dirs/lf/lfub
-lfcd () {
-    tmp="$(mktemp -uq)"
-    trap 'rm -f $tmp >/dev/null 2>&1' HUP INT QUIT TERM PWR EXIT
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
-}
-alias lf=lfcd
-bindkey -s '^o' '^ulfcd\n'
+# bindkey -s '^o' '^ulfcd\n'  # some zsh stuff, ctrl+o simulates keypress of ^ulfcd\n
 
 # get sorted list of programs and their ram usage
 ram="ps -e -o pid,vsz,comm= | sort -n -k 2"

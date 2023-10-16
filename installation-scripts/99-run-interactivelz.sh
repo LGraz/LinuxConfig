@@ -17,7 +17,7 @@
 
 # R setup
     touch ~/.profile
-    sudo pacman -S --noconfirm --needed gcc-fortran r # to compile pacages
+    sudo pacman -S --noconfirm --needed gcc r # to compile pacages
     # sudo chmod -R 777 /usr/lib/R/library # make library free for alls
     # temp="`R --version`" && temp=${temp:10:3}
     # echo "export R_LIBS_USER=/home/lukas/R/x86_64-pc-linux-gnu-library/$temp" >> ~/.profile
@@ -50,9 +50,6 @@
     # setup cron-job
     # ...
 
-# remove log-files
-    rm -f 0-preinstall.log  1-setup.log  2-user.log  3-post-setup.log  startup.log
-
 # create swapfile (run line by line)
     ## remove if necessary:
         # swapoff /swapfile
@@ -69,6 +66,5 @@
     exit
 
 
-# polybox setup
-    install owncloud-client
+# polybox setup -> sudo pacman -S owncloud-client --needed
     # set server as: https://polybox.ethz.ch

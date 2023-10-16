@@ -1,7 +1,9 @@
 sudo
+# editors
 nano
-micro
+micro # better than nano
 wget
+light
 openssh
 dhcpcd
 networkmanager
@@ -9,6 +11,7 @@ network-manager-applet
 alsa-utils
 alsa-plugins
 pipewire 
+wireplumber
 pipewire-jack 
 pipewire-alsa 
 pipewire-pulse
@@ -59,8 +62,8 @@ networkmanager
 networkmanager-openconnect
 networkmanager-openvpn
 netctl
-
-
+ncdu # disk usage
+gcc-fortran
 
 ##########################################
 ###   MY PACKAGES
@@ -73,7 +76,7 @@ android-file-transfer
 # ttf-dejavu
 # ttf-liberation
 # terminus-font
---END OF MINIMAL INSTALL--
+## --END OF MINIMAL INSTALL--
 
 
 # scanning - OCR - GUI
@@ -92,3 +95,10 @@ pinta
 firefox
 code
 obs-studio
+
+texlive # consider AUR alternative: texlive-full
+ranger
+owncloud-client
+thunderbird
+w3m
+digikam

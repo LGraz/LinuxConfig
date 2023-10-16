@@ -1,6 +1,6 @@
 # sudoers changes
     sudo sed -i -e '$aDefaults env_keep += PYTHONPATH' /etc/sudoers
-    sudo sed -i -e '$aDefaults editor=/usr/bin/nano' /etc/sudoers
+    sudo sed -i -e '$aDefaults editor=/usr/bin/micro' /etc/sudoers
 
 
 # remove bell-beeb
@@ -29,11 +29,11 @@
    sudo systemctl enable fstrim.timer
 
 # fix touchpad
-    sudo cp ~/ArchTitus/configs/etc/X11/xorg.conf.d/70-synaptics.conf /etc/X11/xorg.conf.d/70-synaptics.conf
+    sudo cp ~/LinuxConfig/etc/X11/xorg.conf.d/70-synaptics.conf /etc/X11/xorg.conf.d/70-synaptics.conf
     # wayland does not use the above
 
 # fix ETH-vpn issues  (disable ipv6)
-    sudo cp ~/ArchTitus/configs/etc/sysctl.d/40-ipv6.conf /etc/sysctl.d/40-ipv6.conf
+    sudo cp ~/LinuxConfig/etc/sysctl.d/40-ipv6.conf /etc/sysctl.d/40-ipv6.conf
 
 # # bluetooth
 #     rfkill unblock all #unblock bluetooth is soft-blocked
@@ -83,5 +83,3 @@
         # add to *end* of zshrc: "source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 
 
 
-# enable cronie
-    sudo systemctl enable --now cronie.service

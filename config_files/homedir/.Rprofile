@@ -13,11 +13,11 @@ options(max.print = 200)
 options("formatR.args.newline" = TRUE)
 options("formatR.indent" = 2)
 options("vsc.rstudioapi" = TRUE)
-# options(warnPartialMatchArgs = TRUE)
-# options(warnPartialMatchAttr = TRUE)
+options(warnPartialMatchArgs = TRUE)
+options(warnPartialMatchAttr = TRUE)
 options(warnPartialMatchDollar = TRUE)
 # # get pink prompt:
-options(prompt = "\033[0;35m\033[1m>\033[0m ")
+options(prompt = "\001\033[0;35m\002>\001\033[0m\002 ")
 
 # some utility function
 # `%grep%` <- function(x, pattern, ...) grep(pattern, x, value = TRUE, ...)
@@ -25,7 +25,7 @@ options(prompt = "\033[0;35m\033[1m>\033[0m ")
 # syler
 options(languageserver.formatting_style = function(options) {
   style <- styler::tidyverse_style(
-    strict = TRUE,
+    strict = FALSE,
     indent_by = 2,
     scope = "tokens" # I(c("line_breaks", "tokens", "spaces", "indentation"))
   )

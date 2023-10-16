@@ -9,6 +9,7 @@ fi
 HISTFILE=~/.zsh_hist
 HISTSIZE=2000
 SAVEHIST=2000
+set -k # ignore comments in zsh (thing beginning with "#")
 setopt autocd extendedglob nomatch
 unsetopt beep
 # End of lines configured by zsh-newuser-install

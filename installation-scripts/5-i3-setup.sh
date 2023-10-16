@@ -34,20 +34,14 @@
     # greenclip clear
 
 
-
-sudo pacman -S ncdu #(disk analyzer)
-sudo pacman -S light
-sudo pacman -S ttc-iosevka # font
-sudo pacman -S otf-font-awesome #font
-
 ~/ArchTitus/link_config.sh
 
 
 
 # Theming
 # sudo pacman -S papirus-icon-theme
-sudo pacman -S lxappearance
-yay -S sweet-gtk-theme
+# sudo pacman -S lxappearance
+# yay -S sweet-gtk-theme
 
 
 ####### somehow not working :(
@@ -77,10 +71,6 @@ yay -S sweet-gtk-theme
     chmod +x ~/ArchTitus/configs/config_files/config_dirs/i3/alternating_layouts.py 
 
 # albert
-    yay -S albert-bin
-    # sweet theme
-    sudo cp ~/ArchTitus/configs/albert_sweet.qss /usr/share/albert/org.albert.frontend.widgetboxmodel/themes/
-
     # let albert open with vs-code
     # xdg-mime default visual-studio-code.desktop inode/directory
     xdg-mime default code-oss.desktop inode/directory
@@ -101,16 +91,6 @@ yay -S sweet-gtk-theme
     xdg-mime default pinta.desktop image/gif=pinta.desktop
     xdg-mime default pinta.desktop image/x-portable-bitmap=pinta.desktop
     xdg-mime default pinta.desktop image/x-xbitmap=pinta.desktop
-
-# file explorer
-    # lf
-    yay -S lf-bin
-    install ueberzug
-    mkdir -p ~/.trash
-    perl-file-mimeinfo
-    # dependencies for viewr:
-        sudo pacman -S  ueberzug lynx bat atool mediainfo ffmpegthumbnailer odt2txt
-    # rofi-mount : https://github.com/carvalhudo/usb-rofi
 
 
 # bumblebee

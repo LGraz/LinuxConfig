@@ -76,8 +76,11 @@ localectl set-x11-keymap de acer_laptop nodeadkeys
 # sed -i 's/^%wheel ALL=(ALL) NOPASSWD: ALL/# %wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
 # sed -i 's/^%wheel ALL=(ALL:ALL) NOPASSWD: ALL/# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
 
+## pacman:
 #Add parallel downloading
 sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
+#Add color
+sed -i 's/^#Color/Color/' /etc/pacman.conf
 
 
 # skip grub menu
@@ -91,16 +94,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 
 
-echo -ne "
--------------------------------------------------------------------------
-                    Enabling Essential Services
--------------------------------------------------------------------------
-"
-systemctl enable cups.service
-systemctl enable bluetooth
-systemctl enable sshd
-systemctl enable dhcpcd
-systemctl enable NetworkManager
+
 
 
 
@@ -117,9 +111,6 @@ cd ~/$AUR_HELPER
 makepkg -si --noconfirm
 cd ~
 rm -rf $AUR_HELPER
-
-
-$AUR_HELPER -S --noconfirm --needed __AUR_PACKAGES__
 
 # # echo -ne "
 # # -------------------------------------------------------------------------
@@ -156,3 +147,30 @@ $AUR_HELPER -S --noconfirm --needed __AUR_PACKAGES__
 # fi
 
 
+
+# BASE PACKAGES
+# generate space-seperated string with package names:
+BASE_PAC=`grep -vE "^\s*#|^\s*$" ~/LinuxConfig/installation-scripts/pkg/pac_base.txt | sed 's/#.*//' | tr '\n' ' '`
+# install them:
+sudo pacman -Syu $BASE_PAC --needed
+
+# AUR
+# generate space-seperated string with package names:
+AUR_PAC=`grep -vE "^\s*#|^\s*$" ~/LinuxConfig/installation-scripts/pkg/aur-pkgs.txt | sed 's/#.*//' | tr '\n' ' '`
+# install them:
+yay -Syu $AUR_PAC --needed
+
+
+
+echo -ne "
+-------------------------------------------------------------------------
+                    Enabling Essential Services
+-------------------------------------------------------------------------
+"
+systemctl enable cups.service
+systemctl enable bluetooth
+systemctl enable sshd
+systemctl enable dhcpcd
+systemctl enable NetworkManager
+systemctl enable cronie.service
+systemctl enable NetworkManager.service
