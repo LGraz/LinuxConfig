@@ -5,6 +5,10 @@ profile ETH_G13{
 	exec swaymsg workspace 99, move workspace to DP-2
 }
 
+profile DELL{
+	output eDP-1 disable
+	output HDMI-A-1 enable
+}
 
 profile laptoponly{
 	output eDP-1 enable

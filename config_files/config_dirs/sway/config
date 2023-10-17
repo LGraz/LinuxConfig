@@ -165,3 +165,6 @@ exec ~/.top_logger
 exec terminator -e "micro ~/todo.md" --title Scratchpad
 for_window [title="Scratchpad"] move scratchpad
 bindsym $super+$move scratchpad show
+
+
+exec 'dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK'
