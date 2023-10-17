@@ -13,3 +13,6 @@ swaymsg -t get_outputs
 
 pip3 install i3ipc --user
 install python-i3ipc
+
+
+remove xdg-desktop-portal-gnome
