@@ -1,7 +1,3 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
 # Read `man 5 sway` for a complete reference.
 
 ### Variables
@@ -29,12 +25,12 @@ set $term terminator
 # set $menu dmenu_path | wmenu | xargs swaymsg exec --
 exec albert
 bindsym $super+d exec albert toggle
-bindsym $super+Shift+d exec "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#EF11FF' -sf '#000000' -fn 'monospace-16' -p 'run: '"
+bindsym $super+$alt+d exec "dmenu_run -b -nf '#BBBBBB' -nb '#222222' -sb '#EF11FF' -sf '#000000' -fn 'monospace-16' -p 'run: '"
 
-### Output configuration
+### Output configurationd
 #
 # wallpaper
-output * bg ~/Git/LinuxConfig/config_files/homedir/.wallpaper.jpg fill
+output * bg ~/LinuxConfig/config_files/homedir/.wallpaper.jpg fill
 #
 # Example configuration:
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
@@ -113,6 +109,7 @@ for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
 for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
 for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
 
+for_window [app_id="albert"] floating enable
 
 for_window [class="code-oss"] move to workspace number 0, layout tabbed
 for_window [class="Code"] move to workspace number 0, layout tabbed
@@ -156,15 +153,15 @@ exec wl-paste -t text --watch clipman store --no-persist
 exec mkdir -p $HOME/Pictures/Screenshots &
 exec dunst &
 
-exec swaymsg "workspace 99; exec /usr/bin/firefox"
-exec swaymsg "workspace 11; exec evolution"
-exec swaymsg "workspace 12; exec flatpak run org.ferdium.Ferdium"
+exec swaymsg "workspace 99; exec firefox"
+exec swaymsg "workspace 11; exec thunderbird"
+exec swaymsg "workspace 12; exec ferdium"
 # exec swaymsg "workspace 12; exec flatpak run im.riot.Riot"
 
 exec swaymsg "exec sleep 2 && ~/Applications/activitywatch/aw-qt" &
 exec ~/.top_logger
 
 # autostart scratchpad
-exec_always terminator -e "micro ~/todo.md" --title Scratchpad
+exec terminator -e "micro ~/todo.md" --title Scratchpad
 for_window [title="Scratchpad"] move scratchpad
 bindsym $super+$move scratchpad show

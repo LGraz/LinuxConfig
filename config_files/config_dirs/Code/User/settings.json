@@ -156,7 +156,6 @@
         "workbench.action.toggleSidebarVisibility"
     ],
     "git.openRepositoryInParentFolders": "always",
-    "workbench.colorTheme": "LukasLeight",
     "application.shellEnvironmentResolutionTimeout": 1,
     "terminal.integrated.defaultProfile.linux": "zsh",
     "macros": {
@@ -243,5 +242,6 @@
     "r.plot.useHttpgd": true,
     "r.session.levelOfObjectDetail": "Detailed",
     "window.zoomLevel": 1,
-    "update.showReleaseNotes": false
+    "update.showReleaseNotes": false,
+    "diffEditor.hideUnchangedRegions.enabled": true
 }

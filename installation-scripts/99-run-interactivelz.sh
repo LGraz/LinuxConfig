@@ -21,9 +21,11 @@
     # sudo chmod -R 777 /usr/lib/R/library # make library free for alls
     # temp="`R --version`" && temp=${temp:10:3}
     # echo "export R_LIBS_USER=/home/lukas/R/x86_64-pc-linux-gnu-library/$temp" >> ~/.profile
-    # install.packages("languageserver") # for vscode linting
-    Rscript -e 'packages <- c("BiocManager", "Rcpp", "devtools", "jsonlite", "knitr", "languageserver", "rstudioapi", "R6", "vscDebugger", "rmarkdown");   new <- packages[!(packages %in% installed.packages()[,"Package"])];   if(length(new)) install.packages(new, Ncpus=7)' 
-    Rscript -e 'packages <- c("parallel", "Matrix", "MASS", "car", "caret", "DEoptimR", "earth", "ellipsis", "forcats", "glmnet", "lme4", "mgcv", "multcomp", "pbkrtest", "randomForest", "readxl", "robustbase" , "tidyverse", "lattice", "mgcv", "nlme", "nnet");   new <- packages[!(packages %in% installed.packages()[,"Package"])];   if(length(new)) install.packages(new, Ncpus=7)' 
+    mkdir ~/R
+    # non-stats packages
+    Rscript -e 'install.packages(c("BiocManager", "Rcpp", "devtools", "jsonlite", "knitr", "languageserver", "rstudioapi", "R6", "vscDebugger", "rmarkdown", "httpgd", "parallel", "Matrix"))' 
+    # stats packages
+    Rscript -e 'install.packages(c("MASS", "car", "caret", "DEoptimR", "earth", "ellipsis", "forcats", "glmnet", "lme4", "mgcv", "multcomp", "pbkrtest", "randomForest", "readxl", "robustbase" , "tidyverse", "lattice", "mgcv", "nlme", "nnet"))' 
     
     
 

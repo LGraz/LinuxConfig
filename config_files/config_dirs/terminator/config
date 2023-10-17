@@ -41,7 +41,7 @@
     icon_bell = False
     background_darkness = 0.8
     background_type = transparent
-    font = DroidSansMono Nerd Font Mono 16
+    font = SauceCodePro Nerd Font Medium 14
     foreground_color = "#ffffff"
     show_titlebar = False
     scrollbar_position = hidden

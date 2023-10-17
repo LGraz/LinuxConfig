@@ -157,10 +157,10 @@ sudo pacman -Syu $BASE_PAC --needed
 # AUR
 # generate space-seperated string with package names:
 AUR_PAC=`grep -vE "^\s*#|^\s*$" ~/LinuxConfig/installation-scripts/pkg/aur-pkgs.txt | sed 's/#.*//' | tr '\n' ' '`
-# install them:
-yay -Syu $AUR_PAC --needed
-
-
+for package in $AUR_PAC; do
+    echo "install $package"
+    yay -S --needed $package
+done
 
 echo -ne "
 -------------------------------------------------------------------------

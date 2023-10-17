@@ -102,3 +102,6 @@ owncloud-client
 thunderbird
 w3m
 digikam
+terminator
+nerd-fonts
+qt6-wayland

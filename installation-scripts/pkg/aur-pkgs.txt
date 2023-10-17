@@ -26,3 +26,5 @@ code-marketplace
 code-features-insiders
 albert
 ferdium-bin
+wev
+wlprop

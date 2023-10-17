@@ -47,6 +47,12 @@ installed <- function(pattern, which = c("Package", "Version"), ...) {
   installed[ind, which]
 }
 
+install.packages <- function(pkgs, ...){
+  pkgs_not_installed <- pkgs[!(pkgs %in% installed.packages()[,"Package"])]
+  message(paste("NOW INSTALL: ", pkgs_not_installed))
+  utils::install.packages(pkgs_not_installed, ...)
+}
+
 # colored output:
 # remotes::install_github("https://github.com/jalvesaq/colorout")
 if (require(colorout, quietly = TRUE)) {

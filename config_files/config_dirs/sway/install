@@ -1,15 +1,15 @@
-# Arander for wayland
-dnf install wdisplays   # set screensettings
-dnf install kanshi  # autorandr equivalent
+install xbacklight
+install waybar
+install clipman
+install grimshot # screenshot helper
+install fontawesome5-fonts-all
+install dunst
+install wdisplays  # Arander for wayland !!! set screensettings  !!!
+install kanshi  # autorandr equivalent
 mkdir -p ~/.config/kanshi && touch ~/.config/kanshi/config
 kanshi
 swaymsg -t get_outputs
 
-dnf install waybar
-dnf install xbacklight
 
 pip3 install i3ipc --user
-dnf install clipman
-dnf install grimshot
-dnf install fontawesome5-fonts-all
-dnf install dunst
+install python-i3ipc

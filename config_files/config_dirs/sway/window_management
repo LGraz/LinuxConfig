@@ -26,21 +26,21 @@
 # Workspaces:
 #
 # set workspace names & variables
-bindsym $super+e exec ~/.config/i3/empty_workspace_launcher.sh 0 ~/.config/i3/super_menu.sh &
-bindsym $super+1 exec ~/.config/i3/empty_workspace_launcher.sh 1 ~/.config/i3/super_menu.sh &
-bindsym $super+2 exec ~/.config/i3/empty_workspace_launcher.sh 2 ~/.config/i3/super_menu.sh &
-bindsym $super+3 exec ~/.config/i3/empty_workspace_launcher.sh 3 ~/.config/i3/super_menu.sh &
-bindsym $super+4 exec ~/.config/i3/empty_workspace_launcher.sh 4 ~/.config/i3/super_menu.sh &
-bindsym $super+5 exec ~/.config/i3/empty_workspace_launcher.sh 5 ~/.config/i3/super_menu.sh &
-bindsym $super+6 exec ~/.config/i3/empty_workspace_launcher.sh 6 ~/.config/i3/super_menu.sh &
-bindsym $super+7 exec ~/.config/i3/empty_workspace_launcher.sh 7 ~/.config/i3/super_menu.sh &
-bindsym $super+8 exec ~/.config/i3/empty_workspace_launcher.sh 8 ~/.config/i3/super_menu.sh &
-bindsym $super+9 exec ~/.config/i3/empty_workspace_launcher.sh 9 ~/.config/i3/super_menu.sh &
-bindsym $super+f exec ~/.config/i3/empty_workspace_launcher.sh 99 /usr/bin/firefox &
-bindsym $super+o exec ~/.config/i3/empty_workspace_launcher.sh 98 /usr/bin/okular &
-bindsym $super+t exec ~/.config/i3/empty_workspace_launcher.sh 11 ~/.config/i3/super_menu.sh &
-bindsym $super+p exec ~/.config/i3/empty_workspace_launcher.sh 12 ~/.config/i3/super_menu.sh &
-bindsym $super+m exec ~/.config/i3/empty_workspace_launcher.sh 13 flatpak run com.spotify.Client &
+bindsym $super+e exec ~/.config/sway/empty_workspace_launcher.r 0  ~/.config/i3/super_menu.sh &
+bindsym $super+1 exec ~/.config/sway/empty_workspace_launcher.r 1  ~/.config/i3/super_menu.sh &
+bindsym $super+2 exec ~/.config/sway/empty_workspace_launcher.r 2  ~/.config/i3/super_menu.sh &
+bindsym $super+3 exec ~/.config/sway/empty_workspace_launcher.r 3  ~/.config/i3/super_menu.sh &
+bindsym $super+4 exec ~/.config/sway/empty_workspace_launcher.r 4  ~/.config/i3/super_menu.sh &
+bindsym $super+5 exec ~/.config/sway/empty_workspace_launcher.r 5  ~/.config/i3/super_menu.sh &
+bindsym $super+6 exec ~/.config/sway/empty_workspace_launcher.r 6  ~/.config/i3/super_menu.sh &
+bindsym $super+7 exec ~/.config/sway/empty_workspace_launcher.r 7  ~/.config/i3/super_menu.sh &
+bindsym $super+8 exec ~/.config/sway/empty_workspace_launcher.r 8  ~/.config/i3/super_menu.sh &
+bindsym $super+9 exec ~/.config/sway/empty_workspace_launcher.r 9  ~/.config/i3/super_menu.sh &
+bindsym $super+f exec ~/.config/sway/empty_workspace_launcher.r 99  firefox &
+bindsym $super+o exec ~/.config/sway/empty_workspace_launcher.r 98  okular &
+bindsym $super+t exec ~/.config/sway/empty_workspace_launcher.r 11  ~/.config/i3/super_menu.sh &
+bindsym $super+p exec ~/.config/sway/empty_workspace_launcher.r 12  ~/.config/i3/super_menu.sh &
+bindsym $super+m exec ~/.config/sway/empty_workspace_launcher.r 13  spotify &
 # move focused container to workspace
 bindsym $super+$move+e move container to workspace number 0; workspace 0
 bindsym $super+$move+1 move container to workspace number 1; workspace 1

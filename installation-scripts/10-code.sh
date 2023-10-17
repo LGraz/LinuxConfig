@@ -8,3 +8,4 @@ code --install-extension eamodio.gitlens
 code --install-extension christian-kohler.path-intellisense
 code --install-extension james-yu.latex-workshop
 code --install-extension mechatroner.rainbow-csv
+code --install-extension geddski.macros
