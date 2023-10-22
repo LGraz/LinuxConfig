@@ -229,7 +229,7 @@
     "r.lsp.debug": true,
     "r.lsp.use_stdio": true,
     "r.removeLeadingComments": true,
-    // "r.rpath.linux": "/scratch/users/lgraz/Git/R-4.3.1/bin/R",
+    "r.rpath.linux": "/scratch/users/lgraz/Git/R-4.3.1/bin/R",
     "r.rmarkdown.knit.openOutputFile": true,
     "quarto.path": "/scratch/users/lgraz/Applications/quarto/bin/quarto",
     "r.plot.defaults.plotPreviewLayout": "scroll",
@@ -242,10 +242,5 @@
     "r.plot.useHttpgd": true,
     "r.session.levelOfObjectDetail": "Detailed",
     "update.showReleaseNotes": false,
-    "diffEditor.hideUnchangedRegions.enabled": true,
-    "r.rpath.linux": "/scratch/users/lgraz/Git/R-4.3.1/bin/R",
-    "github.copilot.enable": {
-        "quarto": false,
-        "*": true
-    }
+    "diffEditor.hideUnchangedRegions.enabled": true
 }
