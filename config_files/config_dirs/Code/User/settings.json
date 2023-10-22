@@ -213,7 +213,7 @@
     "notebook.output.lineHeight": 1.1,
     "notebook.output.fontSize": 16,
     "aws.telemetry": false,
-    "r.rterm.linux": "/usr/bin/R",
+    "r.rterm.linux": "/scratch/users/lgraz/Git/R-4.3.1/bin/R",
     "breadcrumbs.filePath": "off",
     "aws.suppressPrompts": {
         "codeWhispererConnectionExpired": true
@@ -241,7 +241,11 @@
     ],
     "r.plot.useHttpgd": true,
     "r.session.levelOfObjectDetail": "Detailed",
-    "window.zoomLevel": 1,
     "update.showReleaseNotes": false,
-    "diffEditor.hideUnchangedRegions.enabled": true
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "r.rpath.linux": "/scratch/users/lgraz/Git/R-4.3.1/bin/R",
+    "github.copilot.enable": {
+        "quarto": false,
+        "*": true
+    }
 }

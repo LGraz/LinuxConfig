@@ -5,13 +5,15 @@ alias R="~/Git/R-4.3.1/bin/R -q --no-save --no-restore-data"
 alias ranger="python ~/Applications/ranger/ranger.py"
 alias f="python ~/Applications/ranger/ranger.py"
 alias ls='/usr/bin/ls -Gh --color=auto --group-directories-first'
-alias spotify="flatpak run com.spotify.Client"
-alias ferdium="flatpak run org.ferdium.Ferdium"
 
 # Envs
 export PATH=~/Git/R-4.3.1/bin:$PATH:~/.local/bin:~/.cargo/bin
 export EDITOR=/usr/bin/micro
 
+
+alias spotify="flatpak run com.spotify.Client"
+alias ferdium="flatpak run org.ferdium.Ferdium"
+alias thunderbird="flatpak run org.mozilla.Thunderbird"
 
 
 # export R_LIBS="/scratch/users/lgraz/Git/R-4.3.1/library"
