@@ -105,3 +105,7 @@ digikam
 terminator
 nerd-fonts
 qt6-wayland
+jdk-openjdk
+atool
+docker
+docker-compose

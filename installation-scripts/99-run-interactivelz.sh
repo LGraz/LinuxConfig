@@ -26,8 +26,10 @@
     Rscript -e 'install.packages(c("BiocManager", "Rcpp", "devtools", "jsonlite", "knitr", "languageserver", "rstudioapi", "R6", "vscDebugger", "rmarkdown", "httpgd", "parallel", "Matrix"))' 
     # stats packages
     Rscript -e 'install.packages(c("MASS", "car", "caret", "DEoptimR", "earth", "ellipsis", "forcats", "glmnet", "lme4", "mgcv", "multcomp", "pbkrtest", "randomForest", "readxl", "robustbase" , "tidyverse", "lattice", "mgcv", "nlme", "nnet"))' 
-    
-    
+    # colorout:
+    git clone https://github.com/jalvesaq/colorout.git
+    R CMD INSTALL colorout
+    rm -rf colorout
 
 
 
@@ -41,7 +43,7 @@
     rclone config  
     # answer with:
         # n
-        # gdrive
+        # gdrive / lpldrive
         # drive
         # 449832985581-n8rqi12a5c4d7r0buhrfh727rf3ngdfc.apps.googleusercontent.com
         # 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
@@ -51,6 +53,7 @@
     rclone copy gdrive:AcerDacer ~/Documents
     # setup cron-job
     # ...
+
 
 # create swapfile (run line by line)
     ## remove if necessary:
@@ -70,3 +73,21 @@
 
 # polybox setup -> sudo pacman -S owncloud-client --needed
     # set server as: https://polybox.ethz.ch
+
+# paperless
+    sudo systemctl enable docker.service --now
+    # download install_script
+    curl -L https://raw.githubusercontent.com/paperless-ngx/paperless-ngx/main/install-paperless-ngx.sh > ~/install_paperless
+
+    # add option to edit docker-compose.yml befor pulling:
+    sed -i '/${DOCKER_COMPOSE_CMD} pull/i /usr/bin/bash' ~/install_paperless
+    # execute script
+    ## !!! edit postgres version to 13: !!!
+    ## !!! check directory paths !!!
+    bash -c "$(cat ~/install_paperless)"
+    # clean up
+    rm ~/install_paperless
+
+    # run soming like:
+    # mv lukas_paperless_export ~/paperless-ngx/export
+    # docker compose exec -T webserver document_importer ../export/lukas_paperless_export
