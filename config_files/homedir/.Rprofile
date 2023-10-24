@@ -13,9 +13,9 @@ options(max.print = 200)
 options("formatR.args.newline" = TRUE)
 options("formatR.indent" = 2)
 options("vsc.rstudioapi" = TRUE)
-options(warnPartialMatchArgs = TRUE)
-options(warnPartialMatchAttr = TRUE)
-options(warnPartialMatchDollar = TRUE)
+# options(warnPartialMatchArgs = TRUE)
+# options(warnPartialMatchAttr = TRUE)
+# options(warnPartialMatchDollar = TRUE)
 # # get pink prompt:
 options(prompt = "\001\033[0;35m\002>\001\033[0m\002 ")
 
@@ -47,8 +47,8 @@ installed <- function(pattern, which = c("Package", "Version"), ...) {
   installed[ind, which]
 }
 
-install.packages <- function(pkgs, ...){
-  pkgs_not_installed <- pkgs[!(pkgs %in% installed.packages()[,"Package"])]
+install.packages <- function(pkgs, ...) {
+  pkgs_not_installed <- pkgs[!(pkgs %in% installed.packages()[, "Package"])]
   message(paste("NOW INSTALL: ", pkgs_not_installed))
   utils::install.packages(pkgs_not_installed, ...)
 }
