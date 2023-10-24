@@ -28,27 +28,30 @@ gaps inner 4px
 # hide_edge_borders smart --hide-lone-tab
 # hide_lone_tab on
 
-bar swaybar_command waybar
-# {
+bar {
 	
-#     # position top
-#     # font pangou:FontAwesome  12
+    position top
+    font pangou:FontAwesome  12
 
 
-#     # When the status_command prints a new line to stdout, swaybar updates.
-#     # The default just shows the current date and time.
-#     # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    status_command while ~/.config/sway/status.sh; do sleep 1; done
+    # date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
 
-#     # colors {
-# 	# 		background #000000
-# 	# 		statusline #FFFFFF
-# 	# 		separator  #666666
-# 	# 		# 07d7c1 nice green
-# 	# 		# focused_workspace  #C50ED2 #C50ED2 #FFFFFF
-# 	# 		focused_workspace  #C50ED2 #111111 #C50ED2
-# 	# 		active_workspace   #C50ED2 #222222 #FFFFFF
-# 	# 		inactive_workspace #7d7c13 #111111 #DDDDDD
-# 	# 		urgent_workspace   #FF435E #FF435E #FFFFFF
-# 	# 		binding_mode       #FF435E #FF435E #FFFFFF
-# 	# 	}
-# }
+    strip_workspace_numbers yes
+    strip_workspace_name no
+
+    colors {
+			background #000000
+			statusline #FFFFFF
+			separator  #666666
+			# 07d7c1 nice green
+			focused_workspace  #FF00FF #FF00FF #000000
+			# focused_workspace  #C50ED2 #111111 #C50ED2
+			active_workspace   #C50ED2 #222222 #FFFFFF
+			inactive_workspace #7d7c13 #111111 #DDDDDD
+			urgent_workspace   #FF435E #FF435E #FFFFFF
+			binding_mode       #FF435E #FF435E #FFFFFF
+		}
+}
