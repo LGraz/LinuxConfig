@@ -38,10 +38,10 @@ output * bg ~/LinuxConfig/config_files/homedir/.wallpaper.jpg fill
 
 
 ### Idle configuration
-exec swayidle -w \
-         timeout 900 'swaylock -f -c 001800' \
-         timeout 1800 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'playerctl pause'
+# exec swayidle -w \
+#          timeout 900 'swaylock -f -c 001800' \
+#          timeout 1800 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+#          before-sleep 'playerctl pause'
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.

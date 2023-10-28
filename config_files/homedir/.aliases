@@ -13,9 +13,8 @@ alias f=ranger
 
 install() {
     echo "installing: $1  -----------------------------------"
-    sudo pacman -S $1 --needed || yay -S $1 || yay $1
+    sudo pacman -S $1 --needed && { echo $1 >> ~/LinuxConfig/installation-scripts/pkg/installed.txt } || yay -S $1 || yay $1
 }
-
 
 # update all perlmodules
 alias perlupdate='perl -MCPAN -e "upgrade /(.\*)/"'

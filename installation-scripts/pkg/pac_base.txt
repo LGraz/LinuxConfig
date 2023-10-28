@@ -109,3 +109,4 @@ jdk-openjdk
 atool
 docker
 docker-compose
+dosfstools
