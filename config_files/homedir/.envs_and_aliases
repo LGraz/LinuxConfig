@@ -11,10 +11,11 @@ export PATH=~/Git/R-4.3.1/bin:$PATH:~/.local/bin:~/.cargo/bin
 export EDITOR=/usr/bin/micro
 
 
-alias spotify="flatpak run com.spotify.Client"
-alias ferdium="flatpak run org.ferdium.Ferdium"
-alias thunderbird="flatpak run org.mozilla.Thunderbird"
+# alias spotify="flatpak run com.spotify.Client"
+# alias ferdium="flatpak run org.ferdium.Ferdium"
+# alias thunderbird="flatpak run org.mozilla.Thunderbird"
 
+alias textidote="java -jar ~/Applications/textidote.jar"
 
 # export R_LIBS="/scratch/users/lgraz/Git/R-4.3.1/library"
 # export R_HOME="/scratch/users/lgraz/Git/R-4.3.1"
