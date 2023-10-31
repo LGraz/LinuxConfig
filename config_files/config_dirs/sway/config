@@ -82,9 +82,22 @@ input * {
     xkb_options "caps:super"
 }
 # German Umlaute: Ö Ü Ä
-bindsym egrave exec xdotool key Udiaeresis
-bindsym eacute exec xdotool key Odiaeresis
-bindsym agrave exec xdotool key Adiaeresis
+# bindsym egrave exec xdotool key Udiaeresis
+# bindsym eacute exec xdotool key Odiaeresis
+# bindsym agrave exec xdotool key Adiaeresis
+
+# bindsym $super+diaeresis exec xdotool key ctrl+Prior 
+# bindsym $super+udiaeresis exec xdotool key ctrl+Next 
+# bindsym ctrl+diaeresis exec xdotool key ctrl+Prior 
+# bindsym ctrl+udiaeresis exec xdotool key ctrl+Next 
+
+bindsym egrave exec wtype Ü
+bindsym eacute exec wtype Ö
+bindsym agrave exec wtype Ä
+
+bindsym $alt+u exec wtype -M ctrl -P Page_Up
+bindsym $alt+i exec wtype -M ctrl -P Page_Down
+
 
 input type:touchpad {
     tap enabled
@@ -128,6 +141,8 @@ for_window [class="evolution"] move to workspace number 11
 for_window [class="okular"] move to workspace number 98, layout tabbed
 for_window [class="evince"] move to workspace number 98, layout tabbed
 
+# disable chrome shortcuts
+# for_window [app_id="^chrome-.*"] shortcuts_inhibitor disable
 
 # Screenshots:
     # # Current display to clipboard

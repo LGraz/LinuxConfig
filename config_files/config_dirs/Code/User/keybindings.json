@@ -242,38 +242,38 @@
     // Tabs:
     //----------------------------------------------------
     // Editor
-    {
-        "key": "alt+u",
-        "command": "workbench.action.previousEditorInGroup",
-        "when": "!panelFocus && !sideBarFocus"
-    },
-    {
-        "key": "alt+i",
-        "command": "workbench.action.nextEditorInGroup",
-        "when": "!panelFocus && !sideBarFocus"
-    },
-    // Panel
-    {
-        "key": "alt+i",
-        "command": "workbench.action.nextPanelView",
-        "when": "panelFocus"
-    },
-    {
-        "key": "alt+u",
-        "command": "workbench.action.previousPanelView",
-        "when": "panelFocus"
-    },
-    // Side Bar (left)
-    {
-        "key": "alt+i",
-        "command": "workbench.action.nextSideBarView",
-        "when": "sideBarFocus"
-    },
-    {
-        "key": "alt+u",
-        "command": "workbench.action.previousSideBarView",
-        "when": "sideBarFocus"
-    },
+    // {
+    //     "key": "alt+u",
+    //     "command": "workbench.action.previousEditorInGroup",
+    //     "when": "!panelFocus && !sideBarFocus"
+    // },
+    // {
+    //     "key": "alt+i",
+    //     "command": "workbench.action.nextEditorInGroup",
+    //     "when": "!panelFocus && !sideBarFocus"
+    // },
+    // // Panel
+    // {
+    //     "key": "alt+i",
+    //     "command": "workbench.action.nextPanelView",
+    //     "when": "panelFocus"
+    // },
+    // {
+    //     "key": "alt+u",
+    //     "command": "workbench.action.previousPanelView",
+    //     "when": "panelFocus"
+    // },
+    // // Side Bar (left)
+    // {
+    //     "key": "alt+i",
+    //     "command": "workbench.action.nextSideBarView",
+    //     "when": "sideBarFocus"
+    // },
+    // {
+    //     "key": "alt+u",
+    //     "command": "workbench.action.previousSideBarView",
+    //     "when": "sideBarFocus"
+    // },
     /////////////////////////////////
     // Editing
     /////////////////////////////////

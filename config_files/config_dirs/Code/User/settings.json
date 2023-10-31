@@ -242,5 +242,6 @@
     "r.plot.useHttpgd": true,
     "r.session.levelOfObjectDetail": "Detailed",
     "update.showReleaseNotes": false,
-    "diffEditor.hideUnchangedRegions.enabled": true
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "window.zoomLevel": 1
 }
