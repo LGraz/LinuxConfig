@@ -22,10 +22,6 @@
     # temp="`R --version`" && temp=${temp:10:3}
     # echo "export R_LIBS_USER=/home/lukas/R/x86_64-pc-linux-gnu-library/$temp" >> ~/.profile
     mkdir ~/R
-    # non-stats packages
-    Rscript -e 'install.packages(c("BiocManager", "Rcpp", "devtools", "jsonlite", "knitr", "languageserver", "rstudioapi", "R6", "vscDebugger", "rmarkdown", "httpgd", "parallel", "Matrix"))' 
-    # stats packages
-    Rscript -e 'install.packages(c("MASS", "car", "caret", "DEoptimR", "earth", "ellipsis", "forcats", "glmnet", "lme4", "mgcv", "multcomp", "pbkrtest", "randomForest", "readxl", "robustbase" , "tidyverse", "lattice", "mgcv", "nlme", "nnet"))' 
     # colorout:
     git clone https://github.com/jalvesaq/colorout.git
     R CMD INSTALL colorout
