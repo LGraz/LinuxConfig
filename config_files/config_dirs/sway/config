@@ -160,7 +160,7 @@ for_window [class="evince"] move to workspace number 98, layout tabbed
     # # Region-select-screenshot to file
     # bindsym $mod+ctrl+Print exec grimshot --notify save area
 
-exec_always pkill kanshi; exec kanshi &
+exec_always pkill kanshi; sleep 1; exec kanshi &
 exec_always ~/.config/sway/autotiling -w 1 2 3 4 5 6 7 8 9 10 11 12 13
 exec nm-applet --indicator
 exec owncloud
