@@ -1,0 +1,37 @@
+# non-stats packages
+BiocManager
+Rcpp
+devtools
+jsonlite
+knitr
+languageserver
+rstudioapi
+R6
+vscDebugger
+rmarkdown
+httpgd
+parallel
+Matrix
+# stats packages
+MASS
+car
+caret
+DEoptimR
+earth
+ellipsis
+forcats
+glmnet
+lme4
+mgcv
+multcomp
+pbkrtest
+randomForest
+readxl
+robustbase 
+tidyverse
+lattice
+mgcv
+nlme
+nnet
+lavaan
+semPlot
