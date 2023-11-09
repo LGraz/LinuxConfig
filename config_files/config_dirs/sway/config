@@ -109,7 +109,8 @@ bindsym $super+g exec terminator -e ranger
 bindsym XF86MonBrightnessDown exec light -T 0.6
 bindsym XF86MonBrightnessUp   exec light -T 1.6
 
-
+# execute script $HOME/LinuxConfig/user_scripts/dmenu.sh
+bindsym $super+less exec $HOME/LinuxConfig/user_scripts/dmenu.sh
 
 
 bindsym $super+c exec clipman pick -t dmenu --tool-args="-nf '#BBBBBB' -nb '#222222' -sb '#EF11FF' -sf '#000000' -fn 'monospace-16'"
@@ -177,7 +178,7 @@ exec swaymsg "exec sleep 2 && ~/Applications/activitywatch/aw-qt" &
 exec ~/.top_logger
 
 # autostart scratchpad
-exec simplenote --in-process-gpu --title Scratchpad 
+exec 'bash -c "simplenote || /scratch/users/lgraz/Applications/Simplenote-linux-2.21.0-x86_64.AppImage --no-sandbox"'
 for_window [title="simplenote"] move scratchpad
 bindsym $super+$move scratchpad show
 

@@ -1,0 +1,179 @@
+{
+    "layer": "top",
+    "position": "top",
+    "modules-left": ["sway/workspaces", "wlr/taskbar", "sway/mode", "sway/window"],
+    "modules-center": ["clock"],
+    // "modules-right": ["custom/recorder","sway/language", "tray", "idle_inhibitor", "pulseaudio", "temperature", "custom/cpu_speed", "battery", "custom/powermenu"],
+    "modules-right": ["custom/recorder", "custom/media", "tray", "idle_inhibitor", "pulseaudio", "network", "battery"],
+    "sway/mode": {
+        "format": " {}"
+    },
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "disable-markup": false,
+        "format": "{icon}",
+        "format-icons": { //https://fontawesome.com/v4/cheatsheet/
+            "99": "F<span font='Font Awesome 5 Free 11'> </span>",
+            "98": "O<span font='Font Awesome 5 Free 11'> </span>",
+            // "2": "2 <span font='Font Awesome 5 Free 11'> </span>",
+            "0": "E<span font='Font Awesome 5 Free 11'> </span>",
+            // "5": "5 <span font='Font Awesome 5 Free 11'> </span>",
+            // "6": "6 <span font='Font Awesome 5 Free 11'> </span>"
+            "11": "T<span font='Font Awesome 5 Free 11'> </span>",
+            "12": "P<span font='Font Awesome 5 Free 11'> </span>",
+            "13": "M<span font='Font Awesome 5 Free 11'> </span>"
+        }
+    },
+    "sway/window": {
+        "max-length": 60,
+        "tooltip": false
+    },
+    "clock": {
+        "format": "{:%a %d %b - %H:%M}",
+        "on-click": "gnome-calendar"
+    },
+    "hyprland/window": {
+        "format": "👉 {}",
+        "separate-outputs": true
+    },
+    "custom/cpu_speed": {
+        "interval": 10,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/cpu_speed.sh",
+        "format": "<span font='Font Awesome 5 Free 11'>{icon}</span>  {}",
+        "format-icons": [""],
+        "escape": true,
+        "on-click": "terminator -e htop"
+    },
+    "sway/language": {
+        "format": "<span font='Font Awesome 5 Free 9'>🏳️</span> {}",
+        "tooltip-format": "{long}",
+        "on-click": "swaymsg input 'type:keyboard' xkb_switch_layout next"
+    },
+    "custom/powermenu": {
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/powermenu.sh",
+        "format": "<span font='Font Awesome 5 Free 9'>{icon}</span>  {}",
+        "format-icons": [""],
+        "interval": 3600,
+        "escape": true,
+        "on-click": "~/sway/scripts/powermenu"
+    },
+    "custom/recorder": {
+		"format": "",
+		"return-type": "json",
+		"interval": 4,
+		"exec": "echo '{\"class\": \"recording\"}'",
+		"exec-if": "pgrep wf-recorder"
+	},
+    "battery": {
+        "format": "<span font='Font Awesome 5 Free 11'>{icon}</span>  {capacity}% - {time}",
+        "format-icons": ["", "", "", "", ""],
+        "format-time": "{H}h{M}m",
+        "format-charging": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  {capacity}% - {time}",
+        "format-full": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  Charged",
+        "interval": 30,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip": false,
+        "on-click": "gnome-power-statistics"
+    },
+    "network": {
+        "format": "{icon}",
+        "format-alt": "{ipaddr}/{cidr} {icon}",
+        "format-alt-click": "click-right",
+        "format-wifi": "<span font='Font Awesome 5 Free 10'></span>  {essid} ({signalStrength}%)",
+        "format-ethernet": " {ifname}",
+        "format-disconnected": "⚠ Disconnected",
+        // "on-click": "terminator -e ~/sway/scripts/network-manager",
+        "on-click": "gnome-control-center wifi",
+        "tooltip": false
+    },
+    "pulseaudio": {
+        // "format": "<span font='Font Awesome 5 Free 11'>{icon:2}</span> {volume:4}% - {desc}",
+        "format": "<span font='Font Awesome 5 Free 11'>{icon:2}</span> {volume:4}% ",
+        // "format-bluetooth": "<span font='Font Awesome 5 Free 11'> {icon:2}</span> {volume:4}% - {desc}",
+        "format-bluetooth": "<span font='Font Awesome 5 Free 11'> {icon:2}</span> {volume:4}% ",
+        "format-alt": "<span font='Font Awesome 5 Free 11'>{icon:2}</span> {volume:4}%",
+        "format-alt-click": "click-right",
+        "format-muted": "<span font='Font Awesome 5 Free 11'></span>",
+        "format-icons": {
+            "headphone": [" ", " ", " ", " "],
+            "default": ["", "", "", ""]
+        },
+        "max-volume": 140,
+        "max-length:": 10,
+        "scroll-step": 5,
+        "on-click": "pavucontrol",
+        "tooltip": false
+    },
+    "custom/storage": {
+        "format": "{} ",
+        "format-alt": "{percentage}% ",
+        "format-alt-click": "click-right",
+        "return-type": "json",
+        "interval": 60,
+        "exec": "~/.config/waybar/modules/storage.sh"
+    },
+    "backlight": {
+        "format": "{icon}",
+        "format-alt": "{percent}% {icon}",
+        "format-alt-click": "click-right",
+        "format-icons": ["", ""],
+        "on-scroll-down": "light -A 1",
+        "on-scroll-up": "light -U 1"
+    },
+    "temperature": {
+        "format": "<span font='Font Awesome 5 Free 9'></span> {temperatureC:3}°C",
+        "hwmon-path": "/sys/class/thermal/thermal_zone11/temp",
+        "on-click": "terminator -e 'watch -n1 sensors'"
+    },
+    "custom/weather": {
+        "format": "{}",
+        "format-alt": "{alt}: {}",
+        "format-alt-click": "click-right",
+        "interval": 1800,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/weather.sh",
+        "exec-if": "ping wttr.in -c1",
+        // "on-click": "terminator -p Small -e 'bash -c \"curl -s https://en.wttr.in; read line\"'"
+        "on-click": "gnome-weather"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-alt": "{icon} idle {status}",
+        "format-alt-click": "click-right",
+        "format-icons": {
+            "activated": "<span font='Font Awesome 5 Free 9'></span>",
+            "deactivated": "<span font='Font Awesome 5 Free 9'></span>"
+        },
+        "tooltip": false
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 18
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 14,
+        "icon-theme": "Flat-Remix-Violet-Dark",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close"
+    },
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    }
+}

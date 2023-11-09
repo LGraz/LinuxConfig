@@ -5,7 +5,7 @@ alias R="~/Git/R-4.3.1/bin/R -q --no-save --no-restore-data"
 alias ranger="python ~/Applications/ranger/ranger.py"
 alias f="python ~/Applications/ranger/ranger.py"
 alias ls='/usr/bin/ls -Gh --color=auto --group-directories-first'
-alias simplenote="$HOME/Applications/Simplenote-linux-2.21.0-x86_64.AppImage"
+alias simplenote="$HOME/Applications/Simplenote-linux-2.21.0-x86_64.AppImage --no-sandbox"
 
 # Envs
 export PATH=~/Git/R-4.3.1/bin:$PATH:~/.local/bin:~/.cargo/bin

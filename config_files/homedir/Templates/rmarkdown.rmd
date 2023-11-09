@@ -1,0 +1,34 @@
+---
+title: '`r base::gsub("_", " ", base::gsub("\\.[rq]md", "", knitr::current_input(), ignore.case = TRUE)) |> stringr::str_to_title()`'
+author: Lukas Graz
+date: '`r Sys.Date()`'
+output:
+  pdf_document:
+    df_print: default
+    toc: false
+    toc_depth: 2
+    number_sections: false
+    fig_width: 6.5
+    fig_height: 4.5
+    fig_caption: true
+    keep_tex: false
+    keep_md: false
+---
+```{r setup, cache=FALSE, echo=FALSE} 
+# knitr::opts_chunk[['set']](cache = TRUE, autodep = TRUE)
+``` 
+```{r appendix, echo=FALSE}
+
+```
+
+
+
+```{r main}
+
+```
+
+
+
+# Appendix
+```{r ref.label='appendix', eval=FALSE}
+```

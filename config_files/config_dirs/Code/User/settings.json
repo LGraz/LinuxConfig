@@ -224,7 +224,6 @@
         "--no-restore",
         "--quiet"
     ],
-    "editor.formatOnSave": true,
     "r.helpPanel.cacheIndexFiles": "Global",
     "r.lsp.debug": true,
     "r.lsp.use_stdio": true,
@@ -243,5 +242,9 @@
     "r.session.levelOfObjectDetail": "Detailed",
     "update.showReleaseNotes": false,
     "diffEditor.hideUnchangedRegions.enabled": true,
-    "window.zoomLevel": 1
+    "r.lsp.diagnostics": false,
+    "github.copilot.enable": {
+        "quarto": false,
+        "*": true
+    }
 }
