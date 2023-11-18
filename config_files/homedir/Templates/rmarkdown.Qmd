@@ -2,8 +2,10 @@
 title: '`r base::gsub("_", " ", base::gsub("\\.[rq]md", "", knitr::current_input(), ignore.case = TRUE)) |> stringr::str_to_title()`'
 author: Lukas Graz
 date: '`r Sys.Date()`'
-output:
-  pdf_document:
+format:
+  gfm:
+    keep-yaml: true
+  pdf:
     df_print: default
     toc: false
     toc_depth: 2
@@ -17,6 +19,11 @@ output:
 ```{r setup, cache=FALSE, echo=FALSE} 
 # knitr::opts_chunk[['set']](cache = TRUE, autodep = TRUE)
 ``` 
+```{r load_packages}
+#| message = False, warning = False, error = False
+library(ggplot2)
+```
+
 ```{r appendix, echo=FALSE}
 
 ```
