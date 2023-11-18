@@ -107,7 +107,9 @@ input type:touchpad {
 bindsym $super+g exec terminator -e ranger
 
 bindsym XF86MonBrightnessDown exec light -T 0.6
+bindsym $super+F5             exec light -T 0.6
 bindsym XF86MonBrightnessUp   exec light -T 1.6
+bindsym $super+F6             exec light -T 1.6
 
 # execute script $HOME/LinuxConfig/user_scripts/dmenu.sh
 bindsym $super+less exec $HOME/LinuxConfig/user_scripts/dmenu.sh
@@ -161,6 +163,23 @@ for_window [class="evince"] move to workspace number 98, layout tabbed
     # # Region-select-screenshot to file
     # bindsym $mod+ctrl+Print exec grimshot --notify save area
 
+# Audio:
+    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym $super+F10    exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym $super+F12           exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    bindsym $super+F11           exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+    # Media player controls
+    bindsym XF86AudioPlay  exec playerctl play-pause
+    bindsym XF86AudioPause exec playerctl play-pause
+    bindsym $super+F8     exec playerctl play-pause
+    bindsym XF86AudioNext exec playerctl next
+    bindsym $super+F9     exec playerctl next
+    bindsym XF86AudioPrev exec playerctl previous
+    bindsym $super+F7     exec playerctl previous
+
 exec_always pkill kanshi; sleep 1; exec kanshi &
 exec_always ~/.config/sway/autotiling -w 1 2 3 4 5 6 7 8 9 10 11 12 13
 exec nm-applet --indicator
@@ -178,10 +197,35 @@ exec swaymsg "exec sleep 2 && ~/Applications/activitywatch/aw-qt" &
 exec ~/.top_logger
 
 # autostart scratchpad
-exec 'bash -c "simplenote || /scratch/users/lgraz/Applications/Simplenote-linux-2.21.0-x86_64.AppImage --no-sandbox"'
+exec 'bash -c "simplenote --in-process-gpu || /scratch/users/lgraz/Applications/Simplenote-linux-2.21.0-x86_64.AppImage --no-sandbox"'
 for_window [title="simplenote"] move scratchpad
 bindsym $super+$move scratchpad show
 
 exec udiskie -s
 
 exec 'dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK'
+
+
+exec waybar
+# bar waybar # {
+#     position top
+#     font pangou:FontAwesome  12
+#     # When the status_command prints a new line to stdout, swaybar updates.
+#     # The default just shows the current date and time.
+#     status_command while ~/.config/sway/status.sh; do sleep 1; done
+#     # date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+#     strip_workspace_numbers yes
+#     strip_workspace_name no
+#     colors {
+# 			background #000000
+# 			statusline #FFFFFF
+# 			separator  #666666
+# 			# 07d7c1 nice green
+# 			focused_workspace  #FF00FF #FF00FF #000000
+# 			# focused_workspace  #C50ED2 #111111 #C50ED2
+# 			active_workspace   #C50ED2 #222222 #FFFFFF
+# 			inactive_workspace #7d7c13 #111111 #DDDDDD
+# 			urgent_workspace   #FF435E #FF435E #FFFFFF
+# 			binding_mode       #FF435E #FF435E #FFFFFF
+# 		}
+# }
