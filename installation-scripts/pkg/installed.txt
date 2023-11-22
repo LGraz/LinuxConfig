@@ -1,2 +1,7 @@
 wtype
 btop
+ruby
+discord
+gnome-tweaks
+bind # network-dns-utility
+okular

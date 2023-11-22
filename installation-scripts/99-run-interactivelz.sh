@@ -87,3 +87,17 @@
     # run soming like:
     # mv lukas_paperless_export ~/paperless-ngx/export
     # docker compose exec -T webserver document_importer ../export/lukas_paperless_export
+
+
+
+# setup jekyll website
+    # install ruby
+    sudo pacman -S --noconfirm --needed ruby
+    # install jekyll
+    gem install jekyll bundler jekyll-paginate jekyll-sitemap jekyll-gist jekyll-feed jemoji jekyll-include-cache jekyll-algolia minimal-mistakes-jekyll github-pages tzinfo-data wdm --user-install
+    # install theme
+    git clone
+
+    # https://github.com/mmistakes/mm-github-pages-starter
+    # --> setup github if not already done
+
