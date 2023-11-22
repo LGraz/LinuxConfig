@@ -16,8 +16,6 @@ options("vsc.rstudioapi" = TRUE)
 # options(warnPartialMatchArgs = TRUE)
 # options(warnPartialMatchAttr = TRUE)
 # options(warnPartialMatchDollar = TRUE)
-options(prompt = "\001\033[0;35m\033[1m\002>\001\033[0m\002 ") # get pink prompt:
-options(prompt = "\001\033[0;35m\002>\001\033[0m\002 ") # get pink prompt:
 
 # syler
 options(languageserver.formatting_style = function(options) {
@@ -83,17 +81,25 @@ what_method_is_called <- function(selected) {
 }
 
 if (interactive()) {
-  # colored output: --------------------------------------
-  # remotes::install_github("https://github.com/jalvesaq/colorout")
-  if (require(colorout, quietly = TRUE)) {
-    setOutputColors(
-      normal = 153, negnum = 153, zero = 189,
-      number = 153, date = 153, string = 153,
-      const = 141, false = 153, true = 153,
-      infinite = 141, index = 30, stderror = 214,
-      warn = 160, error = c(1, 16, 196),
-      verbose = FALSE, zero.limit = 1e-7
-    )
+
+  # if not using rstudio:
+  if (!(Sys.getenv("RSTUDIO") == "1")){
+    options(prompt = "\001\033[0;35m\033[1m\002>\001\033[0m\002 ") # get pink prompt:
+    options(prompt = "\001\033[0;35m\002>\001\033[0m\002 ") # get pink prompt:
+
+    # colored output: --------------------------------------
+    # remotes::install_github("https://github.com/jalvesaq/colorout")
+    if (require(colorout, quietly = TRUE)) {
+      setOutputColors(
+        normal = 153, negnum = 153, zero = 189,
+        number = 153, date = 153, string = 153,
+        const = 141, false = 153, true = 153,
+        infinite = 141, index = 30, stderror = 214,
+        warn = 160, error = c(1, 16, 196),
+        verbose = FALSE, zero.limit = 1e-7
+      )
+    }
+
   }
 
 
