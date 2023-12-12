@@ -180,7 +180,7 @@ for_window [class="evince"] move to workspace number 98, layout tabbed
     bindsym XF86AudioPrev exec playerctl previous
     bindsym $super+F7     exec playerctl previous
 
-exec_always pkill kanshi; sleep 1; exec kanshi &
+exec_always bash -c "pkill kanshi; sleep 2; exec kanshi" &
 exec_always ~/.config/sway/autotiling -w 1 2 3 4 5 6 7 8 9 10 11 12 13
 exec nm-applet --indicator
 exec owncloud
@@ -198,7 +198,7 @@ exec ~/.top_logger
 
 # autostart scratchpad
 exec 'bash -c "simplenote --in-process-gpu || /scratch/users/lgraz/Applications/Simplenote-linux-2.21.0-x86_64.AppImage --no-sandbox"'
-for_window [title="simplenote"] move scratchpad
+for_window [class="simplenote"] move scratchpad
 bindsym $super+$move scratchpad show
 
 exec udiskie -s
