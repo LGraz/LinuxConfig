@@ -277,6 +277,16 @@
                 }
             },
             "cancelSelection"
+        ],
+        "r_eval_expr_to_clipboard": [
+            "editor.action.addSelectionToNextFindMatch",
+            {
+                "command": "workbench.action.terminal.sendSequence",
+                "args": {
+                    "text": "eval_to_clipboard(${selectedText})\u000D"
+                }
+            },
+            "cancelSelection"
         ]
     },
     "notebook.output.lineHeight": 1.1,

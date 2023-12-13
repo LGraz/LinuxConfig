@@ -582,6 +582,11 @@
         "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave' || editorLangId == 'quarto'"
     },
     {
+        "key": "alt+o",
+        "command": "macros.r_eval_expr_to_clipboard",
+        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave' || editorLangId == 'quarto'"
+    },
+    {
         "key": "alt+b",
         "command": "workbench.action.toggleSidebarVisibility"
     },
