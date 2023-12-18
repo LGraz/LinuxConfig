@@ -70,7 +70,7 @@
 		"tooltip": false
 	},
 	"clock#3": {
-		"format": "{:%m-%d}",
+		"format": "{:%d %b}",
 		"tooltip": false
 	},
 
