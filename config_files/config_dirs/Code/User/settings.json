@@ -189,6 +189,11 @@
         "editor.formatOnPaste": false,
         "editor.wordSeparators": "`~!@#%$^&*()-=+[{]}\\|;:'\",<>/?"
     },
+    "[quarto]": {
+        "editor.tabSize": 2,
+        "editor.formatOnPaste": false,
+        "editor.wordSeparators": "`~!@#%$^&*()-=+[{]}\\|;:'\",<>/?"
+    },
     "[rsweave]": {
         "editor.tabSize": 2,
         "editor.formatOnPaste": false,
