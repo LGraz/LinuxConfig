@@ -100,9 +100,25 @@ if (interactive()) {
       )
     }
 
+    # evaluate and copy to clipboard
+    eval_to_clipboard <- function(..., prefix="#> ", print_to_console=TRUE) {
+      s <- capture.output(...)
+      prefixed_s <- paste(prefix, s, sep = "", collapse = "\n")
+      
+      if(.Platform$OS.type == "windows")
+        writeClipboard(prefixed_s)
+      else
+        # use the system() function to put the prefixed_s string into the clipboard using xclip (escaping all quotes)
+        system(paste("echo '", gsub("'", "", prefixed_s), "' | xclip -selection clipboard", sep = ""))
+
+      cat("------------  Copied to clipboard:  ------------------\n\n")
+      if(print_to_console) 
+        cat(s, sep = "\n")
+    }
+
   }
 
-
+  
   # LIBRARY COMMAND -------------------------------------
   # trys to load, if fails, prompt to install -----------
   library <- require <- function(package) {

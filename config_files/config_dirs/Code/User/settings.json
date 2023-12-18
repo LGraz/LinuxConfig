@@ -189,6 +189,11 @@
         "editor.formatOnPaste": false,
         "editor.wordSeparators": "`~!@#%$^&*()-=+[{]}\\|;:'\",<>/?"
     },
+    "[quarto]": {
+        "editor.tabSize": 2,
+        "editor.formatOnPaste": false,
+        "editor.wordSeparators": "`~!@#%$^&*()-=+[{]}\\|;:'\",<>/?"
+    },
     "[rsweave]": {
         "editor.tabSize": 2,
         "editor.formatOnPaste": false,
@@ -274,6 +279,16 @@
                 "command": "workbench.action.terminal.sendSequence",
                 "args": {
                     "text": "utils::View(${selectedText})\u000D"
+                }
+            },
+            "cancelSelection"
+        ],
+        "r_eval_expr_to_clipboard": [
+            "editor.action.addSelectionToNextFindMatch",
+            {
+                "command": "workbench.action.terminal.sendSequence",
+                "args": {
+                    "text": "eval_to_clipboard(${selectedText})\u000D"
                 }
             },
             "cancelSelection"
