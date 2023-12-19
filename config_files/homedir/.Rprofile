@@ -124,7 +124,7 @@ if (interactive()) {
   library <- require <- function(package) {
     package <- as.character(substitute(package))
     # e <- base::require(package, quietly=TRUE)
-    e <- base::require(package, character.only = TRUE)
+    e <- base::require(package, character.only = TRUE, quietly = TRUE)
     if (!e) {
       message(paste0(package, " not installed "))
       r <- readline(prompt = "Install package? (Y/n): ")

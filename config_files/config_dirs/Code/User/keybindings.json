@@ -561,30 +561,35 @@
         "command": "r.helpPanel.showQuickPick",
         "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave' || editorLangId == 'quarto'"
     },
-    {
+    {//str
         "key": "alt+s",
-        "command": "macros.r_get_str",
-        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave' || editorLangId == 'quarto'"
+        "command": "r.runCommandWithSelectionOrWord",
+        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave' || editorLangId == 'quarto'",
+        "args": "str($$)"
     },
-    {
+    {//summary
         "key": "shift+alt+s",
-        "command": "macros.r_get_summary",
-        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave' || editorLangId == 'quarto'"
+        "command": "r.runCommandWithSelectionOrWord",
+        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave' || editorLangId == 'quarto'",
+        "args": "summary($$)"
     },
-    {
+    {//r_get_methods
         "key": "alt+m",
-        "command": "macros.r_get_methods",
-        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave' || editorLangId == 'quarto'"
+        "command": "r.runCommandWithSelectionOrWord",
+        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave' || editorLangId == 'quarto'",
+        "args": "if (grepl(paste0('^\\\\s*', r_obj_regex, '\\\\s*\\\\(\\\\s*', r_obj_regex), '$$')) what_method_is_called('$$') else if(is.function(get('$$'))) methods('$$') else methods(class=class(get('$$')))" 
     },
-    {
+    {//r_view
         "key": "alt+v",
-        "command": "macros.r_view",
-        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave' || editorLangId == 'quarto'"
+        "command": "r.runCommandWithSelectionOrWord",
+        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave' || editorLangId == 'quarto'",
+        "args": "View($$)" 
     },
-    {
+    {//eval_to_clipboard
         "key": "alt+o",
-        "command": "macros.r_eval_expr_to_clipboard",
-        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave' || editorLangId == 'quarto'"
+        "command": "r.runCommandWithSelectionOrWord",
+        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave' || editorLangId == 'quarto'",
+        "args": "eval_to_clipboard($$)" //r_eval_expr_to_clipboard
     },
     {
         "key": "alt+b",
@@ -612,5 +617,12 @@
     {
         "key": "ctrl+[Backslash]",
         "command": "workbench.action.terminal.runSelectedText"
+    },
+    {//LTEX: accept suggestions
+        "key": "ctrl+alt+p",
+        "command": "editor.action.codeAction",
+        "args": {
+            "kind": "quickfix.ltex.acceptSuggestions"
+        }
     }
 ]

@@ -26,16 +26,16 @@
     git clone https://github.com/jalvesaq/colorout.git
     R CMD INSTALL colorout
     rm -rf colorout
-
-
-
+    # renv for VSCode
+    Rscript -e "renv::init(project = '~/R/vscode-R'); renv::install(c('languageserver'))"
+    # save the following output to vsconfig "r.libPaths" 
+    Rscript -e "renv::paths[['library']]()"
 
 # rclone (execute by hand)
     # go here: https://console.cloud.google.com/apis/credentials?project=psyched-circuit-342100
     # to get:
         # clienet id: 449832985581-n8rqi12a5c4d7r0buhrfh727rf3ngdfc.apps.googleusercontent.com
         # client secret: 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
-
     rclone config  
     # answer with:
         # n
@@ -45,7 +45,6 @@
         # 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
         # 1
         # <accept all defaults from here>  &  <confirm in browser>
-
     rclone copy gdrive:AcerDacer ~/Documents
     # setup cron-job
     # ...

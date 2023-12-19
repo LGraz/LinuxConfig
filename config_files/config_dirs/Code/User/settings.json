@@ -232,68 +232,68 @@
     "git.openRepositoryInParentFolders": "always",
     "application.shellEnvironmentResolutionTimeout": 1,
     "terminal.integrated.defaultProfile.linux": "zsh",
-    "macros": {
-        "r_get_str": [
-            "editor.action.addSelectionToNextFindMatch",
-            {
-                "command": "workbench.action.terminal.sendSequence",
-                "args": {
-                    "text": "str(${selectedText})\u000D"
-                }
-            },
-            "cancelSelection"
-        ],
-        "r_get_summary": [
-            "editor.action.addSelectionToNextFindMatch",
-            {
-                "command": "workbench.action.terminal.sendSequence",
-                "args": {
-                    "text": "summary(${selectedText})\u000D"
-                }
-            },
-            "cancelSelection"
-        ],
-        "r_get_methods": [
-            "editor.action.addSelectionToNextFindMatch",
-            {
-                "command": "workbench.action.terminal.sendSequence",
-                "args": {
-                    "text": "if (grepl(paste0('^\\\\s*', r_obj_regex, '\\\\s*\\\\(\\\\s*', r_obj_regex), '${selectedText}')) what_method_is_called('${selectedText}') else if(is.function(get('${selectedText}'))) methods('${selectedText}') else methods(class=class(get('${selectedText}')))\u000D"
-                }
-            },
-            "cancelSelection"
-        ],
-        "r_get_class": [
-            "editor.action.addSelectionToNextFindMatch",
-            {
-                "command": "workbench.action.terminal.sendSequence",
-                "args": {
-                    "text": "class(${selectedText})\u000D"
-                }
-            },
-            "cancelSelection"
-        ],
-        "r_view": [
-            "editor.action.addSelectionToNextFindMatch",
-            {
-                "command": "workbench.action.terminal.sendSequence",
-                "args": {
-                    "text": "utils::View(${selectedText})\u000D"
-                }
-            },
-            "cancelSelection"
-        ],
-        "r_eval_expr_to_clipboard": [
-            "editor.action.addSelectionToNextFindMatch",
-            {
-                "command": "workbench.action.terminal.sendSequence",
-                "args": {
-                    "text": "eval_to_clipboard(${selectedText})\u000D"
-                }
-            },
-            "cancelSelection"
-        ]
-    },
+    // "macros": {
+    //     "r_get_str": [
+    //         "editor.action.addSelectionToNextFindMatch",
+    //         {
+    //             "command": "workbench.action.terminal.sendSequence",
+    //             "args": {
+    //                 "text": "str(${selectedText})\u000D"
+    //             }
+    //         },
+    //         "cancelSelection"
+    //     ],
+    //     "r_get_summary": [
+    //         "editor.action.addSelectionToNextFindMatch",
+    //         {
+    //             "command": "workbench.action.terminal.sendSequence",
+    //             "args": {
+    //                 "text": "summary(${selectedText})\u000D"
+    //             }
+    //         },
+    //         "cancelSelection"
+    //     ],
+    //     "r_get_methods": [
+    //         "editor.action.addSelectionToNextFindMatch",
+    //         {
+    //             "command": "workbench.action.terminal.sendSequence",
+    //             "args": {
+    //                 "text": "if (grepl(paste0('^\\\\s*', r_obj_regex, '\\\\s*\\\\(\\\\s*', r_obj_regex), '${selectedText}')) what_method_is_called('${selectedText}') else if(is.function(get('${selectedText}'))) methods('${selectedText}') else methods(class=class(get('${selectedText}')))\u000D"
+    //             }
+    //         },
+    //         "cancelSelection"
+    //     ],
+    //     "r_get_class": [
+    //         "editor.action.addSelectionToNextFindMatch",
+    //         {
+    //             "command": "workbench.action.terminal.sendSequence",
+    //             "args": {
+    //                 "text": "class(${selectedText})\u000D"
+    //             }
+    //         },
+    //         "cancelSelection"
+    //     ],
+    //     "r_view": [
+    //         "editor.action.addSelectionToNextFindMatch",
+    //         {
+    //             "command": "workbench.action.terminal.sendSequence",
+    //             "args": {
+    //                 "text": "utils::View(${selectedText})\u000D"
+    //             }
+    //         },
+    //         "cancelSelection"
+    //     ],
+    //     "r_eval_expr_to_clipboard": [
+    //         "editor.action.addSelectionToNextFindMatch",
+    //         {
+    //             "command": "workbench.action.terminal.sendSequence",
+    //             "args": {
+    //                 "text": "eval_to_clipboard(${selectedText})\u000D"
+    //             }
+    //         },
+    //         "cancelSelection"
+    //     ]
+    // },
     "notebook.output.lineHeight": 1.1,
     "notebook.output.fontSize": 16,
     "aws.telemetry": false,
@@ -328,7 +328,25 @@
     "diffEditor.hideUnchangedRegions.enabled": true,
     "r.lsp.diagnostics": false,
     "github.copilot.enable": {
-        "quarto": false,
+        "quarto": true,
         "*": true
-    }
+    },
+    "ltex.additionalRules.enablePickyRules": true,
+    "ltex.completionEnabled": true,
+    "extends": "~/Documents/IT/secrets/vsc-config.json",
+    "languageToolLinter.serviceType": "public",
+    // "languageToolLinter.external.apiKey": "pit-Ukj9BauVSKON",
+    // "languageToolLinter.external.username": "gasfunken@googlemail.com",
+    // "languageToolLinter.languageTool.language": "en-US",
+    // "languageToolLinter.languageTool.motherTongue": "de-DE",
+    // "languageToolLinter.languageTool.preferredVariants": "en-US,de-DE",
+    "languageToolLinter.plainText.languageIds": [
+        "plaintext",
+        "quarto",
+        "rmd",
+        "qmd"
+    ],
+    "languageToolLinter.languageTool.ignoredWordsGlobal": [
+        "operatorname"
+    ]
 }
