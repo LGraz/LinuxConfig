@@ -131,6 +131,7 @@ if (interactive()) {
       if (grepl("^y$|^\\s*$", r, ignore.case = TRUE)) {
         message(paste("Installing", package))
         install.packages(package)
+        base::require(package, character.only = TRUE, quietly = TRUE)
       } else {
         message("Aborting installation.")
       }

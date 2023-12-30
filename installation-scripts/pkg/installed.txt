@@ -5,3 +5,8 @@ discord
 gnome-tweaks
 bind # network-dns-utility
 okular
+ruby
+android-tools
+linux-zen
+ufw
+ufw
