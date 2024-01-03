@@ -8,6 +8,7 @@ alias installed="pacman -Q | grep "
 alias uninstall="sudo pacman -Rns"
 alias remove="sudo pacman -Rns"
 alias thunderbird="GTK_THEME=Arc /bin/thunderbird"
+alias yay="/usr/bin/yay --nocleanmenu --nodiffmenu --noeditmenu --noremovemake"
 
 alias f=ranger
 

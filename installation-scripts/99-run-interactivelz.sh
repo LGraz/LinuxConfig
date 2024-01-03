@@ -99,3 +99,32 @@
     # https://github.com/mmistakes/mm-github-pages-starter
     # --> setup github if not already done
 
+# firewall
+    sudo pacman -S --noconfirm --needed ufw
+    sudo systemctl enable ufw --now
+    ufw default deny
+    ufw allow from 192.168.0.0/24
+    ufw allow Deluge
+    ufw limit ssh
+    ufw enable
+
+
+# Waydroid
+    # make Zen-kernel default
+    yay -S python-pyclip
+    yay -S waydroid
+    sudo systemctl start waydroid-container.service
+    # sudo systemctl enable waydroid-container.service
+    # init
+    sudo waydroid init -s GAPPS
+    # firewall
+    ufw allow 67 # install if neccecarry
+    ufw allow 53
+    ufw default allow FORWARD
+
+    # google play certifications
+    sudo waydroid shell
+    # INSIDE SHELL RUN:
+    #SHELL: ANDROID_RUNTIME_ROOT=/apex/com.android.runtime ANDROID_DATA=/data ANDROID_TZDATA_ROOT=/apex/com.android.tzdata ANDROID_I18N_ROOT=/apex/com.android.i18n sqlite3 /data/data/com.google.android.gsf/databases/gservices.db "select * from main where name = \"android_id\";"
+    # paste to: https://www.google.com/android/uncertified
+
