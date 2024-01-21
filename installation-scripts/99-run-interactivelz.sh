@@ -27,9 +27,8 @@
     R CMD INSTALL colorout
     rm -rf colorout
     # renv for VSCode
-    Rscript -e "renv::init(project = '~/R/vscode-R'); renv::install(c('languageserver'))"
-    # save the following output to vsconfig "r.libPaths" 
-    Rscript -e "renv::paths[['library']]()"
+    Rscript -e "renv::init(project = '~/R/vscode-R'); renv::install(c('languageserver')); renv::paths[['library']]()"
+    # save the above output to vsconfig "r.libPaths"   #c.f. https://github.com/REditorSupport/vscode-R/wiki/Working-with-renv-enabled-projects
 
 # rclone (execute by hand)
     # go here: https://console.cloud.google.com/apis/credentials?project=psyched-circuit-342100
