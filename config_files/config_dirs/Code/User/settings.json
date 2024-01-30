@@ -314,7 +314,6 @@
     "r.removeLeadingComments": true,
     "r.rpath.linux": "/usr/bin/R",
     "r.rmarkdown.knit.openOutputFile": true,
-    "quarto.path": "/scratch/users/lgraz/Applications/quarto/bin/quarto",
     "r.plot.defaults.plotPreviewLayout": "scroll",
     "r.rmarkdown.chunkBackgroundColor": "rgba(128, 128, 128, 0.2)",
     "r.rmarkdown.codeLensCommands": [

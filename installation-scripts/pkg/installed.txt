@@ -10,3 +10,5 @@ android-tools
 linux-zen
 ufw
 ufw
+wiki-tui
+spotify-launcher
