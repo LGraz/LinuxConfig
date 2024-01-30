@@ -1,7 +1,7 @@
 # ALIASES
 alias dnf="sudo /usr/bin/dnf"
 alias r=~/.local/bin/radian
-alias R="~/Git/R-4.3.1/bin/R -q --no-save --no-restore-data"
+alias R="/usr/bin/R -q --no-save --no-restore-data"
 alias ranger="python ~/Applications/ranger/ranger.py"
 alias f="python ~/Applications/ranger/ranger.py"
 alias ls='/usr/bin/ls -Gh --color=auto --group-directories-first'
