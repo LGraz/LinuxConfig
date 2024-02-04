@@ -12,3 +12,4 @@ ufw
 ufw
 wiki-tui
 spotify-launcher
+

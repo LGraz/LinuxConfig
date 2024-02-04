@@ -279,10 +279,6 @@
     /////////////////////////////////
     // go to's
     {
-        "key": "alt+b",
-        "command": "editor.action.jumpToBracket"
-    },
-    {
         "key": "alt+p",
         "command": "editor.gotoParentFold"
     },
@@ -433,10 +429,6 @@
         "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
     },
     {
-        "key": "alt+d",
-        "command": "jupyter.debugcurrentcell.palette"
-    },
-    {
         "key": "alt+p",
         "command": "-keybindings.editor.toggleSortByPrecedence",
         "when": "inKeybindings"
@@ -495,10 +487,6 @@
         "key": "ctrl+7",
         "command": "editor.action.commentLine",
         "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "alt+d",
-        "command": "editor.action.jumpToBracket"
     },
     {
         "key": "alt+p",
