@@ -296,7 +296,7 @@
     "notebook.output.lineHeight": 1.1,
     "notebook.output.fontSize": 16,
     "aws.telemetry": false,
-    "r.rterm.linux": "/scratch/users/lgraz/Git/R-4.3.1/bin/R",
+    "r.rterm.linux": "/usr/bin/R",
     "breadcrumbs.filePath": "off",
     "aws.suppressPrompts": {
         "codeWhispererConnectionExpired": true
@@ -311,7 +311,7 @@
     "r.lsp.debug": true,
     "r.lsp.use_stdio": true,
     "r.removeLeadingComments": true,
-    "r.rpath.linux": "/scratch/users/lgraz/Git/R-4.3.1/bin/R",
+    "r.rpath.linux": "/usr/bin/R",
     "r.rmarkdown.knit.openOutputFile": true,
     "r.plot.defaults.plotPreviewLayout": "scroll",
     "r.rmarkdown.chunkBackgroundColor": "rgba(128, 128, 128, 0.2)",
@@ -353,5 +353,7 @@
     ],
     "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${profileName}${separator}VSCODE",
     "workbench.startupEditor": "readme",
-    "telemetry.telemetryLevel": "off"
+    "telemetry.telemetryLevel": "off",
+    "security.promptForLocalFileProtocolHandling": false,
+    "window.zoomLevel": 1
 }
