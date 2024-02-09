@@ -624,5 +624,15 @@
         "args": {
             "kind": "quickfix.ltex.acceptSuggestions"
         }
-    }
+    },
+    // FOAM ------------------------------
+    {
+        "key": "alt+-",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus && (editorLangId == 'rmd' || editorLangId == 'quarto' || editorLangId == 'markdown')",
+        "args": {
+            "snippet": "- [ ] $0: "
+        },
+        "label": "checkbox"
+    },
 ]

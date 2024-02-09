@@ -41,7 +41,8 @@ bindsym $super+o exec ~/.config/sway/empty_workspace_launcher.r 98  okular &
 bindsym $super+t exec ~/.config/sway/empty_workspace_launcher.r 11  thunderbird &
 bindsym $super+p exec ~/.config/sway/empty_workspace_launcher.r 12  ferdium &
 bindsym $super+m exec ~/.config/sway/empty_workspace_launcher.r 13  spotify &
-bindsym $super+comma exec ~/.config/sway/empty_workspace_launcher.r 10  "code ~/Git/Foam" &
+bindsym $super+comma exec ~/.config/sway/empty_workspace_launcher.r 20  "code ~/Git/Foam-Privat" &
+bindsym $super+period exec ~/.config/sway/empty_workspace_launcher.r 21  "code ~/Git/Foam-Work" &
 # move focused container to workspace
 bindsym $super+$move+e move container to workspace number 0; workspace 0
 bindsym $super+$move+1 move container to workspace number 1; workspace 1
@@ -58,7 +59,8 @@ bindsym $super+$move+o move container to workspace number 98; workspace 98
 bindsym $super+$move+t move container to workspace number 11; workspace 11
 bindsym $super+$move+p move container to workspace number 12; workspace 12
 bindsym $super+$move+m move container to workspace number 13; workspace 13
-bindsym $super+$move+comma move container to workspace number 10; workspace 10
+bindsym $super+$move+comma move container to workspace number 20; workspace 20
+bindsym $super+$move+period move container to workspace number 21; workspace 21
 
 # move workspace to other monitor:
 bindsym $super+Shift+$right move workspace to output right

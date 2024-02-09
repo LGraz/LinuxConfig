@@ -352,5 +352,6 @@
         "/scratch/users/lgraz/R/vscode-R/renv/library/R-4.3/x86_64-pc-linux-gnu"
     ],
     "security.promptForLocalFileProtocolHandling": false,
-    "window.zoomLevel": 1
+    "window.zoomLevel": -1,
+    "todo-tree.highlights.enabled": false
 }
