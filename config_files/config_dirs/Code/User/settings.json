@@ -355,5 +355,6 @@
     "workbench.startupEditor": "readme",
     "telemetry.telemetryLevel": "off",
     "security.promptForLocalFileProtocolHandling": false,
-    "window.zoomLevel": 1
+    "window.zoomLevel": -1,
+    "todo-tree.highlights.enabled": false
 }

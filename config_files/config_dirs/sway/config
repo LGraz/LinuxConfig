@@ -128,7 +128,8 @@ for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
 for_window [app_id="albert"] floating enable
 
 # for_window [class="code-oss"] move to workspace number 0, layout tabbed
-for_window [title="(^Foam$)"] move workspace number 10
+for_window [title="(^Foam-Privat$)"] move workspace number 20
+for_window [title="(^Foam-Work$)"] move workspace number 21
 for_window [title="(VSCODE$)"] move to workspace number 0, layout tabbed
 for_window [title="(R Graphics)"] floating enable move absolute position 0 ppt 70 ppt; resize set height 32 ppt ; resize set width 40 ppt
 
@@ -182,7 +183,7 @@ for_window [class="evince"] move to workspace number 98, layout tabbed
     bindsym $super+F7     exec playerctl previous
 
 exec_always bash -c "pkill kanshi; sleep 2; exec kanshi" &
-exec_always ~/.config/sway/autotiling -w 1 2 3 4 5 6 7 8 9 10 11 12 13
+exec_always ~/.config/sway/autotiling -w 1 2 3 4 5 6 7 8 9 10 11 12 13 20 21
 exec nm-applet --indicator
 exec owncloud
 exec wl-paste -t text --watch clipman store --no-persist
