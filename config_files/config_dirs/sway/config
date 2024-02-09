@@ -128,7 +128,8 @@ for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
 for_window [app_id="albert"] floating enable
 
 # for_window [class="code-oss"] move to workspace number 0, layout tabbed
-for_window [title="(^Foam$)"] move workspace number 10
+for_window [title="(^Foam-Privat$)"] move workspace number 20
+for_window [title="(^Foam-Work$)"] move workspace number 21
 for_window [title="(VSCODE$)"] move to workspace number 0, layout tabbed
 for_window [title="(R Graphics)"] floating enable move absolute position 0 ppt 70 ppt; resize set height 32 ppt ; resize set width 40 ppt
 
