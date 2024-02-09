@@ -18,10 +18,16 @@ cat("Workspace empty:", is_empty_workspace, "\n")
 if (is_empty_workspace) {
   if (!is.na(flatpak_list_line)) {
     flatpak_name <- strsplit(flatpak_list_line, "\\t")[[1]][2]
-    command <- paste0("flatpak run ", flatpak_name)
+    #spotify
+    if (grepl("(spotify)", flatpak_name, ignore.case = TRUE)){
+      command <- paste0("flatpak run ", flatpak_name, " --username=$SPOTIFY_USERNAME --password=$SPOTIFY_PASSWORD ")
+    } else {
+      command <- paste0("flatpak run ", flatpak_name)
+    }
   } else {
     command <- args[2]
   }
   print(paste("Execute:", command))
   system(command)
 }
+q()

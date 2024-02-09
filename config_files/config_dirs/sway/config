@@ -118,7 +118,7 @@ bindsym $super+less exec $HOME/LinuxConfig/user_scripts/dmenu.sh
 bindsym $super+c exec clipman pick -t dmenu --tool-args="-nf '#BBBBBB' -nb '#222222' -sb '#EF11FF' -sf '#000000' -fn 'monospace-16'"
 bindsym $super+$alt+c clipman clear --all
 
-for_window [class="firefox"] move to workspace number 99
+for_window [app_id="firefox"] move to workspace number 99
 for_window [app_id="firefox" title="Pushbullet"] floating enable
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
 for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
@@ -127,10 +127,10 @@ for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
 
 for_window [app_id="albert"] floating enable
 
-for_window [class="code-oss"] move to workspace number 0, layout tabbed
-for_window [title="Foam"] move workspace number 10
-for_window [class="Code"] move to workspace number 0, layout tabbed
-for_window [title="R Graphics"] floating enable move absolute position 0 ppt 70 ppt; resize set height 32 ppt ; resize set width 40 ppt
+# for_window [class="code-oss"] move to workspace number 0, layout tabbed
+for_window [title="(^Foam$)"] move workspace number 10
+for_window [title="(VSCODE$)"] move to workspace number 0, layout tabbed
+for_window [title="(R Graphics)"] floating enable move absolute position 0 ppt 70 ppt; resize set height 32 ppt ; resize set width 40 ppt
 
 for_window [class="Spotify"] move to workspace number 13
 
@@ -190,7 +190,7 @@ exec mkdir -p $HOME/Pictures/Screenshots &
 exec dunst &
 
 exec swaymsg "workspace 99; exec firefox"
-exec swaymsg "workspace 11; exec thunderbird"
+# exec swaymsg "workspace 11; exec thunderbird"
 exec swaymsg "workspace 12; exec ferdium"
 # exec swaymsg "workspace 12; exec flatpak run im.riot.Riot"
 

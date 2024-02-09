@@ -1,3 +1,6 @@
+
+source ~/Documents/IT/secrets/env-vars.sh
+
 # ALIASES
 alias dnf="sudo /usr/bin/dnf"
 alias r=~/.local/bin/radian

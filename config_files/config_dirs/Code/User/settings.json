@@ -155,7 +155,6 @@
     "editor.cursorBlinking": "solid",
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.scrollback": 2000,
-    "workbench.startupEditor": "none",
     "git.enableSmartCommit": true, // bar with directory
     // "debug.console.fontFamily": "Cascadia Code Light",
     "debug.console.fontSize": 16,
@@ -328,7 +327,8 @@
     "r.lsp.diagnostics": false,
     "github.copilot.enable": {
         "quarto": true,
-        "*": true
+        "markdown": false,
+        "*": false
     },
     "ltex.additionalRules.enablePickyRules": true,
     "ltex.completionEnabled": true,
@@ -351,6 +351,9 @@
     "r.libPaths": [
         "/scratch/users/lgraz/R/vscode-R/renv/library/R-4.3/x86_64-pc-linux-gnu"
     ],
+    "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${profileName}${separator}VSCODE",
+    "workbench.startupEditor": "readme",
+    "telemetry.telemetryLevel": "off",
     "security.promptForLocalFileProtocolHandling": false,
     "window.zoomLevel": -1,
     "todo-tree.highlights.enabled": false
