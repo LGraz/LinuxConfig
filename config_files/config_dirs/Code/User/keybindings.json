@@ -619,7 +619,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && (editorLangId == 'rmd' || editorLangId == 'quarto' || editorLangId == 'markdown')",
         "args": {
-            "snippet": "- [ ] $0: "
+            "snippet": "- [ ] $1: $0"
         },
         "label": "checkbox"
     },
