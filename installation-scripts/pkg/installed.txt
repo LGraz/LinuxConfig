@@ -13,3 +13,6 @@ ufw
 wiki-tui
 spotify-launcher
 
+xorg-xauth
+xdg-desktop-portal-wlr
+xdg-desktop-portal-gtk

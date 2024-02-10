@@ -40,7 +40,7 @@ bindsym $super+f exec ~/.config/sway/empty_workspace_launcher.r 99  firefox &
 bindsym $super+o exec ~/.config/sway/empty_workspace_launcher.r 98  okular &
 bindsym $super+t exec ~/.config/sway/empty_workspace_launcher.r 11  thunderbird &
 bindsym $super+p exec ~/.config/sway/empty_workspace_launcher.r 12  ferdium &
-bindsym $super+m exec ~/.config/sway/empty_workspace_launcher.r 13  spotify &
+bindsym $super+m exec ~/.config/sway/empty_workspace_launcher.r 13  'bash -c "source ~/Documents/IT/secrets/env-vars.sh && flatpak run com.spotify.Client/x86_64/stable  --username=$SPOTIFY_USERNAME --password=$SPOTIFY_PASSWORD"' &
 bindsym $super+comma exec ~/.config/sway/empty_workspace_launcher.r 20  "code ~/Git/Foam-Privat" &
 bindsym $super+period exec ~/.config/sway/empty_workspace_launcher.r 21  "code ~/Git/Foam-Work" &
 # move focused container to workspace
