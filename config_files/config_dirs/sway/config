@@ -55,7 +55,8 @@ output * bg ~/LinuxConfig/config_files/homedir/.wallpaper.jpg fill
     bindsym $super+Return exec $term
 
     # Kill (except current window is simplenote -> move to scratchpad)
-    bindsym $super+$alt+q exec swaymsg -t get_tree | jq -re '.. | select(type == "object") | select(.focused) .name == "Simplenote" ' && swaymsg "scratchpad show" || swaymsg kill
+    # bindsym $super+$alt+q exec swaymsg -t get_tree | jq -re '.. | select(type == "object") | select(.focused) .name == "Simplenote" ' && swaymsg "scratchpad show" || swaymsg kill
+    bindsym $super+$alt+q kill
 
     # Lock
     bindsym $super+$alt+s exec 'swaylock -f -c 001800'
@@ -199,8 +200,8 @@ exec swaymsg "exec sleep 2 && ~/Applications/activitywatch/aw-qt" &
 exec ~/.top_logger
 
 # autostart scratchpad
-exec 'bash -c "simplenote --in-process-gpu || /scratch/users/lgraz/Applications/Simplenote-linux-2.21.0-x86_64.AppImage --no-sandbox"'
-for_window [class="simplenote"] move scratchpad
+# exec 'bash -c "simplenote --in-process-gpu || /scratch/users/lgraz/Applications/Simplenote-linux-2.21.0-x86_64.AppImage --no-sandbox"'
+# for_window [class="simplenote"] move scratchpad
 bindsym $super+$move scratchpad show
 
 exec udiskie -s
