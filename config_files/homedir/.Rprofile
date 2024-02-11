@@ -1,9 +1,10 @@
+Rprofile_environment <- local({
+
 ## CRAN mirror
-local({
-  r <- getOption("repos")
-  r["CRAN"] <- "https://stat.ethz.ch/CRAN/"
-  options(repos = r)
-})
+r <- getOption("repos")
+r["CRAN"] <- "https://stat.ethz.ch/CRAN/"
+options(repos = r)
+
 
 # help page in terminal
 options(setWidthOnResize = TRUE)
@@ -139,3 +140,11 @@ if (interactive()) {
     invisible(e)
   }
 }
+
+
+# -------------------------   END OF FILE --------------------------------------------
+environment()  # Return the environment
+})
+# Attach the new environment to the search path
+attach(Rprofile_environment, warn.conflicts = FALSE)
+rm(Rprofile_environment)

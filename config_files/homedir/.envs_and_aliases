@@ -9,6 +9,8 @@ alias ranger="python ~/Applications/ranger/ranger.py"
 alias f="python ~/Applications/ranger/ranger.py"
 alias ls='/usr/bin/ls -Gh --color=auto --group-directories-first'
 alias simplenote="$HOME/Applications/Simplenote-linux-2.21.0-x86_64.AppImage --no-sandbox"
+alias spotify="source ~/Documents/IT/secrets/env-vars.sh && flatpak run com.spotify.Client/x86_64/stable  --username=$SPOTIFY_USERNAME --password=$SPOTIFY_PASSWORD"
+
 
 # Envs
 export PATH=~/bin:~/Git/R-4.3.1/bin:$PATH:~/.local/bin:~/.cargo/bin

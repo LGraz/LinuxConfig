@@ -253,16 +253,16 @@
     //     "when": "!panelFocus && !sideBarFocus"
     // },
     // // Panel
-    // {
-    //     "key": "alt+i",
-    //     "command": "workbench.action.nextPanelView",
-    //     "when": "panelFocus"
-    // },
-    // {
-    //     "key": "alt+u",
-    //     "command": "workbench.action.previousPanelView",
-    //     "when": "panelFocus"
-    // },
+    {
+        "key": "ctrl+pageDown",
+        "command": "workbench.action.nextPanelView",
+        "when": "panelFocus"
+    },
+    {
+        "key": "ctrl+pageUp",
+        "command": "workbench.action.previousPanelView",
+        "when": "panelFocus"
+    },
     // // Side Bar (left)
     // {
     //     "key": "alt+i",
@@ -617,7 +617,7 @@
     {
         "key": "alt+-",
         "command": "editor.action.insertSnippet",
-        "when": "editorTextFocus && (editorLangId == 'rmd' || editorLangId == 'quarto' || editorLangId == 'markdown')",
+        "when": "editorTextFocus && editorLangId == 'markdown'",
         "args": {
             "snippet": "- [ ] $1: $0"
         },
