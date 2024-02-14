@@ -266,12 +266,12 @@
     },
     // Side Bar (left)
     {
-        "key": "ctrl+pageDown",
+        "key": "ctrl+pageUp",
         "command": "workbench.action.nextSideBarView",
         "when": "sideBarFocus"
     },
     {
-        "key": "ctrl+pageUp",
+        "key": "ctrl+pageDown",
         "command": "workbench.action.previousSideBarView",
         "when": "sideBarFocus"
     },
