@@ -122,30 +122,19 @@
     {
         "key": "alt+l",
         "command": "workbench.action.focusRightGroup",
-        "when": "!panelFocus && !activeEditorGroupLast"
+        "when": "!panelFocus"
     },
-    // between sidebar and editgroup1
-    {
-        "key": "alt+l",
-        "command": "workbench.action.openEditorAtIndex1",
-        "when": "sideBarFocus"
-    },
-    {
-        "key": "alt+h",
-        "command": "workbench.action.focusSideBar",
-        "when": "activeEditorGroupIndex == '1'"
-    },
-    // between editorgroup and terminal
-    {
-        "key": "alt+l",
-        "command": "workbench.action.terminal.focus",
-        "when": "!sideBarFocus && activeEditorGroupLast && panelVisible"
-    },
-    {
-        "key": "alt+h",
-        "command": "workbench.action.focusLastEditorGroup",
-        "when": "panelFocus"
-    },
+    // // between sidebar and editgroup1
+    // {
+    //     "key": "alt+l",
+    //     "command": "workbench.action.openEditorAtIndex1",
+    //     "when": "sideBarFocus"
+    // },
+    // {
+    //     "key": "alt+h",
+    //     "command": "workbench.action.focusSideBar",
+    //     "when": "activeEditorGroupIndex == '1'"
+    // },
     //----------------------------------------------------
     // within SidePanel: (up/down=terminal_list; left/right=terminal_splits)
     //----------------------------------------------------
@@ -209,14 +198,26 @@
             "text": "${selectedText}\r"
         }
     },
+    // switch focus between editor and panel and sidebar
     {
-        "key": "alt+space",
-        "command": "workbench.action.focusPanel"
+        "key": "alt+b",
+        "command": "workbench.action.focusSideBar",
+        "when": "!sideBarFocus"
+    },
+    {
+        "key": "alt+b",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "sideBarFocus"
     },
     {
         "key": "alt+space",
         "command": "workbench.action.focusActiveEditorGroup",
-        "when": "panelFocus"
+        "when": "!editorFocus || panelFocus"
+    },
+    {
+        "key": "alt+space",
+        "command": "workbench.action.focusPanel",
+        "when": "editorFocus"
     },
     {
         "key": "alt+space",
@@ -263,17 +264,17 @@
         "command": "workbench.action.previousPanelView",
         "when": "panelFocus"
     },
-    // // Side Bar (left)
-    // {
-    //     "key": "alt+i",
-    //     "command": "workbench.action.nextSideBarView",
-    //     "when": "sideBarFocus"
-    // },
-    // {
-    //     "key": "alt+u",
-    //     "command": "workbench.action.previousSideBarView",
-    //     "when": "sideBarFocus"
-    // },
+    // Side Bar (left)
+    {
+        "key": "ctrl+pageDown",
+        "command": "workbench.action.nextSideBarView",
+        "when": "sideBarFocus"
+    },
+    {
+        "key": "ctrl+pageUp",
+        "command": "workbench.action.previousSideBarView",
+        "when": "sideBarFocus"
+    },
     /////////////////////////////////
     // Editing
     /////////////////////////////////
@@ -580,10 +581,6 @@
         "args": "eval_to_clipboard($$)" //r_eval_expr_to_clipboard
     },
     {
-        "key": "alt+b",
-        "command": "workbench.action.toggleSidebarVisibility"
-    },
-    {
         "key": "ctrl+k ctrl+b",
         "command": "markdown.extension.editing.toggleBold",
         "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
@@ -619,7 +616,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == 'markdown'",
         "args": {
-            "snippet": "- [ ] $1: $0"
+            "snippet": "- [ ] "
         },
         "label": "checkbox"
     },
