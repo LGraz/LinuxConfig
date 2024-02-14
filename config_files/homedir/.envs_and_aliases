@@ -13,7 +13,7 @@ alias spotify="source ~/Documents/IT/secrets/env-vars.sh && flatpak run com.spot
 
 
 # Envs
-export PATH=~/bin:~/Git/R-4.3.1/bin:$PATH:~/.local/bin:~/.cargo/bin
+export PATH=~/bin:~/Git/R-4.3.1/bin:$PATH:~/.local/bin:~/.cargo/bin:~/Applications/quarto/bin/
 export EDITOR=/usr/bin/micro
 
 
