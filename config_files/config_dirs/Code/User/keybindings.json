@@ -623,4 +623,24 @@
         },
         "label": "checkbox"
     },
+    // FOAM -------------------------------
+    {
+        "key": "ctrl+n",
+        "command": "foam-vscode.create-note"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "-workbench.action.files.newUntitledFile",
+        "when": "config.isFoam"
+    },
+    {
+        "key": "ctrl+shift+n",
+        "command": "-workbench.action.newWindow",
+        "when": "config.isFoam"
+    },
+    {
+        "key": "ctrl+shift+n",
+        "command": "foam-vscode.create-note-from-template",
+        "when": "config.isFoam"
+    },
 ]
