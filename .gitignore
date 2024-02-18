@@ -7,7 +7,9 @@
 **/config_dirs/obsidian/
 
 # CODE
-**/Code/
+**/Code/*
+!**/Code/User/
+**/Code/User/*
 !**/Code/User/keybindings.json
 !**/Code/User/settings.json
 
