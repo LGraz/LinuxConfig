@@ -356,5 +356,6 @@
     "workbench.startupEditor": "readme",
     "telemetry.telemetryLevel": "off",
     "security.promptForLocalFileProtocolHandling": false,
-    "latex-workshop.linting.chktex.enabled": true
+    "latex-workshop.linting.chktex.enabled": true,
+    "git.postCommitCommand": "sync",
 }

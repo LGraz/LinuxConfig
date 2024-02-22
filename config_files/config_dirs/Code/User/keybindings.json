@@ -620,7 +620,6 @@
         },
         "label": "checkbox"
     },
-    // FOAM -------------------------------
     {
         "key": "ctrl+n",
         "command": "foam-vscode.create-note",
