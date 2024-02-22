@@ -175,7 +175,8 @@
         "editor.wordWrap": "on"
     },
     "[markdown]": {
-        "editor.wordWrap": "on"
+        "editor.wordWrap": "on",
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[r]": {
         "editor.defaultFormatter": "REditorSupport.r",
@@ -328,7 +329,7 @@
     "github.copilot.enable": {
         "quarto": true,
         "markdown": false,
-        "*": false
+        "*": true
     },
     "ltex.additionalRules.enablePickyRules": true,
     "ltex.completionEnabled": true,

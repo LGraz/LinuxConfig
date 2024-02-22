@@ -623,7 +623,8 @@
     // FOAM -------------------------------
     {
         "key": "ctrl+n",
-        "command": "foam-vscode.create-note"
+        "command": "foam-vscode.create-note",
+        "when": "config.isFoam"
     },
     {
         "key": "ctrl+n",
@@ -638,6 +639,17 @@
     {
         "key": "ctrl+shift+n",
         "command": "foam-vscode.create-note-from-template",
+        "when": "config.isFoam"
+    },
+    {
+        "key": "ctrl+alt+backspace",
+        "command": "macros.FOAM_SETUP",
+        "when": "config.isFoam"
+    },
+    {
+        "key": "alt+backspace",
+        "command": "workbench.action.tasks.runTask",
+        "args": "OpenREADME",
         "when": "config.isFoam"
     },
 ]
