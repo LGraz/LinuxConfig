@@ -20,3 +20,4 @@ pdfarranger
 dunst
 zoxide
 gnome-boxes
+neofetch
