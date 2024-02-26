@@ -19,3 +19,5 @@ xdg-desktop-portal-gtk
 pdfarranger
 dunst
 zoxide
+gnome-boxes
+neofetch
