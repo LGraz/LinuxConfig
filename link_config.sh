@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# USE *stow" instad my custom script: https://www.youtube.com/watch?v=y6XCebnB9gs 
+
 # Backup and update config files
 
 CDIR="$HOME/LinuxConfig/config_files"
