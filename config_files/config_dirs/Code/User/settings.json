@@ -329,7 +329,12 @@
     "github.copilot.enable": {
         "quarto": true,
         "markdown": false,
-        "*": true
+        "*": false,
+        "json": true,
+        "jsonc": true,
+        "plaintext": false,
+        "r": true,
+        "shellscript": true
     },
     "ltex.additionalRules.enablePickyRules": true,
     "ltex.completionEnabled": true,
