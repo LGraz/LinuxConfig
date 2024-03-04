@@ -363,4 +363,5 @@
     "security.promptForLocalFileProtocolHandling": false,
     "latex-workshop.linting.chktex.enabled": true,
     "git.postCommitCommand": "sync",
+    "foam.dateSnippets.afterCompletion": "noop",
 }
