@@ -38,20 +38,6 @@ options(Ncpus = Ncores)
 options(mc.cores = Ncores)
 
 
-## INSTALL HELPERS
-installed <- function(pattern, which = c("Package", "Version"), ...) {
-  installed <- installed.packages(...)
-  ind <- grep(pattern, installed[, "Package"], ignore.case = TRUE)
-  installed[ind, which]
-}
-# only install if missing
-install.packages <- function(pkgs, ...) {
-  pkgs_not_installed <- pkgs[!(pkgs %in% installed.packages()[, "Package"])]
-  message(paste("NOW INSTALL: ", pkgs_not_installed))
-  utils::install.packages(pkgs_not_installed, ...)
-}
-
-
 ### VS-CODE MACROS -------------------------------------------
 # usage in combination with macros:
 r_obj_regex <- "((([[:alpha:]]|[.][._[:alpha:]])[._[:alnum:]]*)|[.])"
@@ -83,10 +69,25 @@ what_method_is_called <- function(selected) {
 
 if (interactive()) {
 
+
+
   # if not using rstudio:
   if (!(Sys.getenv("RSTUDIO") == "1")){
     options(prompt = "\001\033[0;35m\033[1m\002>\001\033[0m\002 ") # get pink prompt:
     options(prompt = "\001\033[0;35m\002>\001\033[0m\002 ") # get pink prompt:
+
+    ## INSTALL HELPERS
+    installed <- function(pattern, which = c("Package", "Version"), ...) {
+      installed <- installed.packages(...)
+      ind <- grep(pattern, installed[, "Package"], ignore.case = TRUE)
+      installed[ind, which]
+    }
+    # only install if missing
+    install.packages <- function(pkgs, ...) {
+      pkgs_not_installed <- pkgs[!(pkgs %in% installed.packages()[, "Package"])]
+      message(paste("NOW INSTALL: ", pkgs_not_installed))
+      utils::install.packages(pkgs_not_installed, ...)
+    }
 
     # colored output: --------------------------------------
     # remotes::install_github("https://github.com/jalvesaq/colorout")
@@ -117,27 +118,25 @@ if (interactive()) {
         cat(s, sep = "\n")
     }
 
-  }
-
-  
-  # LIBRARY COMMAND -------------------------------------
-  # trys to load, if fails, prompt to install -----------
-  library <- require <- function(package) {
-    package <- as.character(substitute(package))
-    # e <- base::require(package, quietly=TRUE)
-    e <- base::require(package, character.only = TRUE, quietly = TRUE)
-    if (!e) {
-      message(paste0(package, " not installed "))
-      r <- readline(prompt = "Install package? (Y/n): ")
-      if (grepl("^y$|^\\s*$", r, ignore.case = TRUE)) {
-        message(paste("Installing", package))
-        install.packages(package)
-        base::require(package, character.only = TRUE, quietly = TRUE)
-      } else {
-        message("Aborting installation.")
+    # LIBRARY COMMAND -------------------------------------
+    # trys to load, if fails, prompt to install -----------
+    library <- require <- function(package) {
+      package <- as.character(substitute(package))
+      # e <- base::require(package, quietly=TRUE)
+      e <- base::require(package, character.only = TRUE, quietly = TRUE)
+      if (!e) {
+        message(paste0(package, " not installed "))
+        r <- readline(prompt = "Install package? (Y/n): ")
+        if (grepl("^y$|^\\s*$", r, ignore.case = TRUE)) {
+          message(paste("Installing", package))
+          install.packages(package)
+          base::require(package, character.only = TRUE, quietly = TRUE)
+        } else {
+          message("Aborting installation.")
+        }
       }
+      invisible(e)
     }
-    invisible(e)
   }
 }
 
