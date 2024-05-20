@@ -21,3 +21,4 @@ dunst
 zoxide
 gnome-boxes
 neofetch
+img2pdf
