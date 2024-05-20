@@ -1,6 +1,6 @@
 # # Font controls window titles
-font pango:Iosevka Extended Bold 0
-titlebar_padding 3
+font pango:Iosevka Extended Bold 1
+titlebar_padding 2
 titlebar_border_thickness 2
 
 title_align center

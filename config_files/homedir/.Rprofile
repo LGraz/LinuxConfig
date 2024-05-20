@@ -83,15 +83,21 @@ if (interactive()) {
       installed[ind, which]
     }
     # only install if missing
-    install.packages <- function(pkgs, ...) {
+    install <- function(pkgs, ...) {
       pkgs_not_installed <- pkgs[!(pkgs %in% installed.packages()[, "Package"])]
-      message(paste("NOW INSTALL: ", pkgs_not_installed))
-      utils::install.packages(pkgs_not_installed, ...)
+      pkgs_installed <- pkgs[(pkgs %in% installed.packages()[, "Package"])]
+      if (length(pkgs_installed) > 0)
+        message(paste("Already Installed: ", paste(pkgs_installed,     collapse = "; ")))
+      if (length(pkgs_not_installed) > 0){
+        message(paste("NOW INSTALL: ",       paste(pkgs_not_installed, collapse = "; ")))
+        for (pkg in pkgs_not_installed)
+          try(utils::install.packages(pkg, ..., clean=TRUE))
+      }
     }
 
     # colored output: --------------------------------------
     # remotes::install_github("https://github.com/jalvesaq/colorout")
-    if (require(colorout, quietly = TRUE)) {
+    if (base::require(colorout, quietly = TRUE)) {
       setOutputColors(
         normal = 153, negnum = 153, zero = 189,
         number = 153, date = 153, string = 153,
@@ -120,10 +126,10 @@ if (interactive()) {
 
     # LIBRARY COMMAND -------------------------------------
     # trys to load, if fails, prompt to install -----------
-    library <- require <- function(package) {
+    library <- require <- function(package, character.only = TRUE, quietly = TRUE, ...) {
       package <- as.character(substitute(package))
       # e <- base::require(package, quietly=TRUE)
-      e <- base::require(package, character.only = TRUE, quietly = TRUE)
+      e <- base::require(package, character.only = TRUE, quietly = TRUE, ...)
       if (!e) {
         message(paste0(package, " not installed "))
         r <- readline(prompt = "Install package? (Y/n): ")
@@ -147,3 +153,11 @@ environment()  # Return the environment
 # Attach the new environment to the search path
 attach(Rprofile_environment, warn.conflicts = FALSE)
 rm(Rprofile_environment)
+
+# check if environment attached correctly
+if(interactive()){
+  if (!("Rprofile_environment" %in% search())){
+    warning("Rprofile missing")
+  }
+} 
+

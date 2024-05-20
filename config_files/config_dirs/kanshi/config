@@ -1,20 +1,20 @@
-profile ETH_G13{
+profile ETH_G13 {
 	output eDP-1 disable
 	output DP-2 enable transform 90 position 0,0
 	output DP-1 enable position 1440,0
 	exec swaymsg workspace 99, move workspace to DP-2
 }
 
-profile DELL{
+profile DELL {
 	output eDP-1 disable
 	output HDMI-A-1 enable
 }
 
-profile laptoponly{
+profile laptoponly {
 	output eDP-1 enable
 }
 
-profile ETH_G13_single{
-	output eDP-1 enable
+profile ETH_G13_single {
+	output eDP-1 disable
 	output DP-1 enable position 1440,0
 }

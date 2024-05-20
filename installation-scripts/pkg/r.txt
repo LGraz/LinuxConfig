@@ -1,3 +1,4 @@
+# install(read.table('/scratch/users/lgraz/LinuxConfig/installation-scripts/pkg/r.txt')[[1]])
 # non-stats packages
 BiocManager
 Rcpp
@@ -11,9 +12,7 @@ vscDebugger
 rmarkdown
 httpgd
 parallel
-Matrix
 # stats packages
-MASS
 car
 caret
 DEoptimR
@@ -21,18 +20,16 @@ earth
 ellipsis
 forcats
 glmnet
-lme4
-mgcv
+lmerTest
 multcomp
-pbkrtest
 randomForest
 readxl
 robustbase 
-tidyverse
-lattice
-mgcv
-nlme
-nnet
 lavaan
 semPlot
 renv
+emmeans
+georob
+tidyverse
+# install.packages("vscDebugger", repos = "https://manuelhentschel.r-universe.dev")
+

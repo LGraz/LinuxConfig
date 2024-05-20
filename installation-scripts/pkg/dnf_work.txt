@@ -1,24 +1,20 @@
+# autorandr
+# alacritty
+clipman
 npm
 blueman
 w3m-img
 atool
-alacritty
-swaybg
-swaylock
 wlroots
 xdg-desktop-portal-wlr
 sway
-sway-systemd
-swayidle
 wdisplays
 kanshi
-autorandr
 waybar
 xbacklight
 light
 xev
 wev
-clipman
 wl-clipboard
 wofi
 grimshot
@@ -27,3 +23,4 @@ micro
 wtype
 ydotool
 fontawesome5-fonts-all
+syncthing
