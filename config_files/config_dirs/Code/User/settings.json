@@ -324,12 +324,11 @@
     "r.plot.useHttpgd": true,
     "r.session.levelOfObjectDetail": "Detailed",
     "update.showReleaseNotes": false,
-    "diffEditor.hideUnchangedRegions.enabled": true,
     "r.lsp.diagnostics": false,
     "github.copilot.enable": {
         "quarto": true,
         "markdown": false,
-        "*": false,
+        "*": true,
         "json": true,
         "jsonc": true,
         "plaintext": false,
