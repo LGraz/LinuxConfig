@@ -363,5 +363,5 @@
     "latex-workshop.linting.chktex.enabled": true,
     "git.postCommitCommand": "sync",
     "foam.dateSnippets.afterCompletion": "noop",
-    "window.zoomLevel": 2,
+    "window.zoomLevel": 1,
 }
