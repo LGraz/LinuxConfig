@@ -22,3 +22,4 @@ zoxide
 gnome-boxes
 neofetch
 img2pdf
+discord

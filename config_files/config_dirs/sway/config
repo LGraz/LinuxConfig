@@ -92,9 +92,9 @@ input * {
 # bindsym ctrl+diaeresis exec xdotool key ctrl+Prior 
 # bindsym ctrl+udiaeresis exec xdotool key ctrl+Next 
 
-bindsym egrave exec wtype Ü
-bindsym eacute exec wtype Ö
-bindsym agrave exec wtype Ä
+# bindsym egrave exec wtype Ü
+# bindsym eacute exec wtype Ö
+# bindsym agrave exec wtype Ä
 
 bindsym $alt+u exec wtype -M ctrl -P Page_Up
 bindsym $alt+i exec wtype -M ctrl -P Page_Down
