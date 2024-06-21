@@ -16,3 +16,5 @@ install python-i3ipc
 
 
 remove xdg-desktop-portal-gnome
+
+install wlprop

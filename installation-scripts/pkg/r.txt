@@ -32,4 +32,5 @@ emmeans
 georob
 tidyverse
 # install.packages("vscDebugger", repos = "https://manuelhentschel.r-universe.dev")
-
+spotifyr
+tinyspotifyr
