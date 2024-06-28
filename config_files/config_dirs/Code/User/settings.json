@@ -365,4 +365,6 @@
     "foam.dateSnippets.afterCompletion": "noop",
     "window.zoomLevel": 1,
     "github.copilot.editor.enableAutoCompletions": true,
+    "pdf-preview.default.sidebar": false,
+    "github.copilot.editor.enableCodeActions": false
 }

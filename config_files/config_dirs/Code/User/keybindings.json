@@ -650,14 +650,26 @@
         "when": "config.isFoam"
     },
     {
-        "key": "ctrl+alt+backspace",
+        "key": "alt+backspace",
         "command": "macros.FOAM_SETUP",
         "when": "config.isFoam"
     },
     {
-        "key": "alt+backspace",
-        "command": "workbench.action.tasks.runTask",
-        "args": "OpenREADME",
-        "when": "config.isFoam"
+        "key": "shift+alt+d",
+        "command": "-editor.detectLanguage",
+        "when": "editorTextFocus && !notebookEditable"
     },
+    {
+        "key": "shift+alt+d",
+        "command": "-notebook.cell.detectLanguage",
+        "when": "notebookCellEditable && notebookEditable"
+    },
+    {
+        "key": "shift+alt+d",
+        "command": "foam-vscode.open-daily-note-for-date"
+    },
+    {
+        "key": "alt+h",
+        "command": "-foam-vscode.open-daily-note-for-date"
+    }
 ]

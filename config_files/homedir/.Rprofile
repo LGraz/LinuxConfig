@@ -137,6 +137,13 @@ if (interactive()) {
           message(paste("Installing", package))
           install.packages(package)
           base::require(package, character.only = TRUE, quietly = TRUE)
+          r <- readline(prompt = "Append to R-package-list? (Y/n): ")
+          if (grepl("^y$", r, ignore.case = TRUE)) {
+            try_obj <- try(write(package, file = "~/LinuxConfig/installation-scripts/pkg/r.txt", append = TRUE))
+            if(inherits(try_obj, "try-error"))
+              message("Could not append to R-package-list")
+              print(try_obj)
+          }
         } else {
           message("Aborting installation.")
         }

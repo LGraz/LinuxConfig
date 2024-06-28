@@ -34,3 +34,5 @@ tidyverse
 # install.packages("vscDebugger", repos = "https://manuelhentschel.r-universe.dev")
 spotifyr
 tinyspotifyr
+komaletter
+mcreplicate
