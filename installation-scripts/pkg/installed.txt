@@ -23,3 +23,5 @@ gnome-boxes
 neofetch
 img2pdf
 discord
+yazi
+kitty
