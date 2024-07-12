@@ -210,7 +210,6 @@ exec udiskie -s
 exec 'dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK'
 
 
-exec waybar
 # bar waybar # {
 #     position top
 #     font pangou:FontAwesome  12
