@@ -1,6 +1,5 @@
 # source: https://www.youtube.com/watch?v=ud7YxC33Z3w
-source ~/.env_vars
-source ~/.aliases
+source ~/.envs_and_aliases
 
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.

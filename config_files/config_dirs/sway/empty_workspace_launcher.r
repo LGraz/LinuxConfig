@@ -28,6 +28,7 @@ if (is_empty_workspace) {
     command <- args[2]
   }
   print(paste("Execute:", command))
-  system(command)
+  system(paste("bash -c \" source ~/.envs_and_aliases; ",command,"\""))
+  # system(command)
 }
 q()

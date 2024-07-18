@@ -1,28 +1,36 @@
-
-source ~/Documents/IT/secrets/env-vars.sh
-
 # ALIASES
 alias dnf="sudo /usr/bin/dnf"
-alias r=~/.local/bin/radian
 alias R="/usr/bin/R -q --no-save --no-restore-data"
 alias ranger="python ~/Applications/ranger/ranger.py"
 alias f="python ~/Applications/ranger/ranger.py"
 alias ls='/usr/bin/ls -Gh --color=auto --group-directories-first'
 alias simplenote="$HOME/Applications/Simplenote-linux-2.21.0-x86_64.AppImage --no-sandbox"
 alias spotify="source ~/Documents/IT/secrets/env-vars.sh && flatpak run com.spotify.Client/x86_64/stable  --username=$SPOTIFY_USERNAME --password=$SPOTIFY_PASSWORD"
-
-
-# Envs
-export VISUAL="code"
-export PATH=~/bin:~/Git/R-4.3.1/bin:$PATH:~/.local/bin:~/.cargo/bin:~/Applications/quarto/bin/
-export EDITOR=/usr/bin/micro
-
-
+alias ll="/usr/bin/ls -Glah --color=auto --group-directories-first"
+alias installed="pacman -Q | grep "
+alias uninstall="sudo pacman -Rns"
+alias remove="sudo pacman -Rns"
+alias thunderbird="GTK_THEME=Arc /bin/thunderbird"
 # alias spotify="flatpak run com.spotify.Client"
 # alias ferdium="flatpak run org.ferdium.Ferdium"
 # alias thunderbird="flatpak run org.mozilla.Thunderbird"
 
 alias textidote="java -jar ~/Applications/textidote.jar"
 
-# export R_LIBS="/scratch/users/lgraz/Git/R-4.3.1/library"
-# export R_HOME="/scratch/users/lgraz/Git/R-4.3.1"
+
+install() {
+    echo "installing: $1  -----------------------------------"
+    sudo pacman -S $1 --needed && { echo $1 >> "~/LinuxConfig/installation-scripts/pkg/installed.txt" 
+    } || yay -S $1 || yay $1
+}
+
+# update all perlmodules
+alias perlupdate='perl -MCPAN -e "upgrade /(.\*)/"'
+# get sorted list of programs and their ram usage
+ram="ps -e -o pid,vsz,comm= | sort -n -k 2"
+
+
+# Envs  ---> ~/.config/environment.d/myenvs.conf
+# export PS1="\[\033[38;5;11m\]\t\[$(tput sgr0)\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;11m\][\[$(tput sgr0)\]\w\[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;11m\]]\n\\$\[$(tput sgr0)\] "
+
+source ~/Documents/IT/secrets/env-vars.sh

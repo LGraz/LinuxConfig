@@ -36,3 +36,4 @@ spotifyr
 tinyspotifyr
 komaletter
 mcreplicate
+RSQLite

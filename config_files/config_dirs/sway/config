@@ -23,7 +23,8 @@ set $term terminator
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | wmenu | xargs swaymsg exec --
-exec "albert --platform xcb"
+exec bash -c "albert --platform xcb"
+
 bindsym $super+d exec albert toggle
 bindsym $super+$alt+d exec "dmenu_run -b -nf '#BBBBBB' -nb '#222222' -sb '#EF11FF' -sf '#000000' -fn 'monospace-16' -p 'run: '"
 
@@ -183,7 +184,7 @@ for_window [class="evince"] move to workspace number 98, layout tabbed
     bindsym XF86AudioPrev exec playerctl previous
     bindsym $super+F7     exec playerctl previous
 
-exec_always bash -c "pkill kanshi; sleep 2; exec kanshi" &
+exec_always bash -c "pkill kanshi; sleep 0.1; exec kanshi" &
 exec_always bash -c "pkill waybar; sleep 0.1; exec waybar" &
 exec_always ~/.config/sway/autotiling -w 1 2 3 4 5 6 7 8 9 10 11 12 13 20 21
 exec nm-applet --indicator
