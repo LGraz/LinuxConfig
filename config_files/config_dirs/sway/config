@@ -17,7 +17,7 @@ set $right l
 include window_management
 include theming
 
-set $term terminator
+set $term wezterm
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
