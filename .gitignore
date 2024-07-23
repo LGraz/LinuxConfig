@@ -18,3 +18,5 @@
 **/micro/backups
 **/micro/buffers
 config_files/config_dirs/QtProject.conf
+
+.stfolder
