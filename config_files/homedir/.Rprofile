@@ -68,9 +68,6 @@ what_method_is_called <- function(selected) {
 }
 
 if (interactive()) {
-
-
-
   # if not using rstudio:
   if (!(Sys.getenv("RSTUDIO") == "1")){
     options(prompt = "\001\033[0;35m\033[1m\002>\001\033[0m\002 ") # get pink prompt:
@@ -128,15 +125,16 @@ if (interactive()) {
     # trys to load, if fails, prompt to install -----------
     library <- require <- function(package, character.only = TRUE, quietly = TRUE, ...) {
       package <- as.character(substitute(package))
-      # e <- base::require(package, quietly=TRUE)
       e <- base::require(package, character.only = TRUE, quietly = TRUE, ...)
+      # if not installed, prompt to install
       if (!e) {
         message(paste0(package, " not installed "))
         r <- readline(prompt = "Install package? (Y/n): ")
         if (grepl("^y$|^\\s*$", r, ignore.case = TRUE)) {
           message(paste("Installing", package))
           install.packages(package)
-          base::require(package, character.only = TRUE, quietly = TRUE)
+          e <- base::require(package, character.only = TRUE, quietly = TRUE)
+          # append to R-package-list?
           r <- readline(prompt = "Append to R-package-list? (Y/n): ")
           if (grepl("^y$", r, ignore.case = TRUE)) {
             try_obj <- try(write(package, file = "~/LinuxConfig/installation-scripts/pkg/r.txt", append = TRUE))

@@ -106,7 +106,7 @@ input type:touchpad {
     natural_scroll enabled
 }
 
-bindsym $super+g exec terminator -e ranger
+bindsym $super+g exec "wezterm start yazi"
 
 bindsym XF86MonBrightnessDown exec light -T 0.6
 bindsym $super+F5             exec light -T 0.6

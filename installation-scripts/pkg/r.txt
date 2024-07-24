@@ -37,3 +37,4 @@ tinyspotifyr
 komaletter
 mcreplicate
 RSQLite
+perm
