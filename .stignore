@@ -1,0 +1,13 @@
+*.log
+*.db
+**/config_dirs/obsidian/
+
+**/Code/*
+!**/Code/User/
+**/Code/User/*
+!**/Code/User/keybindings.json
+!**/Code/User/settings.json
+**/__pycache__/
+**/micro/backups
+**/micro/buffers
+config_files/config_dirs/QtProject.conf
