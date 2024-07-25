@@ -30,6 +30,13 @@ config.skip_close_confirmation_for_processes_named = {
   'yazi'
 }
 
+config.window_padding = {
+  left = 0,
+  right = 0,
+  top = 1,
+  bottom = 1,
+}
+
 -- and finally, return the configuration to wezterm
 return config
 
