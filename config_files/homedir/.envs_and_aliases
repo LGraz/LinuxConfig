@@ -2,9 +2,8 @@
 alias dnf="sudo /usr/bin/dnf"
 alias R="/usr/bin/R -q --no-save --no-restore-data"
 # alias ranger="python ~/Applications/ranger/ranger.py"
-alias f="python ~/Applications/ranger/ranger.py"
+alias f=ranger
 alias ls='/usr/bin/ls -Gh --color=auto --group-directories-first'
-alias simplenote="$HOME/Applications/Simplenote-linux-2.21.0-x86_64.AppImage --no-sandbox"
 alias spotify="source ~/Documents/IT/secrets/env-vars.sh && flatpak run com.spotify.Client/x86_64/stable  --username=$SPOTIFY_USERNAME --password=$SPOTIFY_PASSWORD"
 alias ll="/usr/bin/ls -Glah --color=auto --group-directories-first"
 alias installed="pacman -Q | grep "
@@ -35,4 +34,15 @@ ram="ps -e -o pid,vsz,comm= | sort -n -k 2"
 EDITOR=/bin/micro
 VISUAL=/usr/bin/code
 
+# YAZI
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 source ~/Documents/IT/secrets/env-vars.sh
+

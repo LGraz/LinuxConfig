@@ -38,3 +38,5 @@ komaletter
 mcreplicate
 RSQLite
 perm
+glmmTMB
+equatiomatic
