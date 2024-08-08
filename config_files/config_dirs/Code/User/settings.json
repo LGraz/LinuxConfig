@@ -367,7 +367,5 @@
     "github.copilot.editor.enableAutoCompletions": true,
     "pdf-preview.default.sidebar": false,
     "github.copilot.editor.enableCodeActions": false,
-    "quarto.path": "/scratch/users/lgraz/.local/bin/quarto",
-    "explorer.openEditors.visible": 0,
-    "editor.fontLigatures": true,
+    "quarto.path": "/scratch/users/lgraz/.local/bin/quarto"
 }

@@ -1,7 +1,6 @@
 *.log
 *.db
-**/config_dirs/obsidian/
-
+**/config_dirs/obsidian
 **/Code/*
 !**/Code/User/
 **/Code/User/*
