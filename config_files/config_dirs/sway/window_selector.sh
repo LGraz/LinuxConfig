@@ -14,10 +14,10 @@ windows=$(echo "$windows" | sed -r '/[a-zA-Z]/!d' )
 height=$(echo "$windows" | wc -l)
 
 # # ------Select window with wofi:
-# selected=$(echo "$windows" | wofi -d -i --lines "$height" -p "Switch to:" | awk '{print $1}')
+selected=$(echo "$windows" | wofi -d -i --lines "$height" -p "Switch to:" | awk '{print $1}')
 
 # use dmenue instead:
-selected=$(echo "$windows" | dmenu -i -l "$height" -p "Switch to:" | awk '{print $1}')
+# selected=$(echo "$windows" | dmenu -i -l "$height" -p "Switch to:" | awk '{print $1}')
 
 # ------Tell sway to focus said window:
 swaymsg [con_id="$selected"] focus

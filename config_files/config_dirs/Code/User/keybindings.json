@@ -671,5 +671,9 @@
     {
         "key": "alt+h",
         "command": "-foam-vscode.open-daily-note-for-date"
+    },
+    {
+        "key": "ctrl+k ctrl+y",
+        "command": "markdown.extension.editing.toggleStrikethrough"
     }
 ]

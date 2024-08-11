@@ -109,7 +109,7 @@ bindsym $super+Shift+$up move workspace to output up
 			bindsym $super+n exec ~/.config/i3/new_workspace.py
 			bindsym $super+$move+n exec ~/.config/i3/new_workspace.py --move_focused
 		# windows
-            bindsym $super+tab exec ~/.config/sway/window_selector.sh
+            bindsym Mod1+tab exec ~/.config/sway/window_selector.sh
 
 	# Resize windows	
 		bindsym $super+Ctrl+Left resize shrink width 100px
