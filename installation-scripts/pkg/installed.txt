@@ -25,3 +25,5 @@ img2pdf
 discord
 yazi
 kitty
+
+perl-file-mimeinfo

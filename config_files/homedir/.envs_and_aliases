@@ -19,8 +19,7 @@ alias textidote="java -jar ~/Applications/textidote.jar"
 
 install() {
     echo "installing: $1  -----------------------------------"
-    sudo pacman -S $1 --needed && { echo $1 >> "~/LinuxConfig/installation-scripts/pkg/installed.txt" 
-    } || yay -S $1 || yay $1
+    sudo pacman -S $1 --needed && { echo $1 >> "~/LinuxConfig/installation-scripts/pkg/installed.txt"; } || yay -S $1 || yay $1
 }
 
 # update all perlmodules
@@ -49,16 +48,6 @@ source ~/Documents/IT/secrets/env-vars.sh
 
 
 mymime() {
-    if [ $# -ne 1 ]; then
-        echo "Usage: list_mime_apps <file>"
-        return 1
-    fi
-
-    if [ ! -f "$1" ]; then
-        echo "Error: File '$1' not found."
-        return 1
-    fi
-
     # Get the MIME type of the file
     mime_type=$(xdg-mime query filetype "$1")
     
@@ -76,11 +65,6 @@ mymime() {
 	echo "Default application: $app"
     echo "Associated applications:"
 
-    for cache_file in "${mime_cache_files[@]}"; do
-        if [ -f "$cache_file" ]; then
-            grep "^$mime_type=" "$cache_file" | cut -d= -f2 | tr ';' '\n'
-        fi
-    done | sort -u
 }
 
 # Example usage:

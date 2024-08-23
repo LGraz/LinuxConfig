@@ -3,3 +3,5 @@
 	name = LukasGraz
 [credential]
 	helper = cache
+[http]
+	postBuffer = 157286400
