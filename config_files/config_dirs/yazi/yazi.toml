@@ -28,11 +28,11 @@ ratio          = [ 1, 3, 4 ]
 # 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
 # ]
 open = [
-	{ run = 'xdg-open "$1"',                desc = "xdg-Open", for = "linux" },
+	{ run = 'xdg-open "$1"',                desc = "xdg-Open", for = "linux", orphan = true},
 	# { run = 'open "$@"',                    desc = "Open", for = "macos" },
 	# { run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
-	{ run = 'mimeopen -a "$1"', desc = "mimeopen (ask)"    , for = "linux", block = true}, # requires perl-file-mimeinfo
-	{ run = 'mimeopen -d "$1"', desc = "mimeopen (default)", for = "linux", block = true}, # requires perl-file-mimeinfo
+	{ run = 'mimeopen -a "$1"', desc = "mimeopen (ask)"    , for = "linux", block = true, orphan = true}, # requires perl-file-mimeinfo
+	{ run = 'mimeopen -d "$1"', desc = "mimeopen (default)", for = "linux", block = true, orphan = true}, # requires perl-file-mimeinfo
 ]
 topdf = [
     { run = 'libreoffice --headless --convert-to pdf --outdir "$(dirname "$1")" "$@"', desc = "Convert to PDF", for = "linux" },
