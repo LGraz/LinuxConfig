@@ -40,3 +40,4 @@ RSQLite
 perm
 glmmTMB
 equatiomatic
+vegan

@@ -1,19 +1,18 @@
-Rprofile_environment <- local({
-
+options(keep.source.pkgs = TRUE)
 ## CRAN mirror
 r <- getOption("repos")
 r["CRAN"] <- "https://stat.ethz.ch/CRAN/"
-options(repos = r)
+options(repos = r); rm(r)
+
 
 
 # help page in terminal
 options(setWidthOnResize = TRUE)
 options(help_type = "text")
-options(digits = 5)
 options(max.print = 200)
-options("formatR.args.newline" = TRUE)
-options("formatR.indent" = 2)
-options("vsc.rstudioapi" = TRUE)
+options(formatR.args.newline = TRUE)
+options(formatR.indent = 2)
+options(vsc.rstudioapi = TRUE)
 # options(warnPartialMatchArgs = TRUE)
 # options(warnPartialMatchAttr = TRUE)
 # options(warnPartialMatchDollar = TRUE)
@@ -29,49 +28,75 @@ options(languageserver.formatting_style = function(options) {
   style
 })
 
-## Ncores --- with 'parallel::detectCores' and checks if aviable
+## Ncpus / mc.cores
 Ncores <- as.integer(parallel::detectCores() - 2)
-if (!(Ncores %in% 1:256)) {
-  Ncores <- 1L
-}
-options(Ncpus = Ncores)
-options(mc.cores = Ncores)
+if (Ncores %in% 2:256) {
+  options(Ncpus = Ncores)
+  options(mc.cores = Ncores)
+}; rm(Ncores)
 
+if (interactive()){
+  options(digits = 5)
+  options(error = rlang::entrace)
 
-### VS-CODE MACROS -------------------------------------------
-# usage in combination with macros:
-r_obj_regex <- "((([[:alpha:]]|[.][._[:alpha:]])[._[:alnum:]]*)|[.])"
-
-findMethod <- function(generic, ...) {
-  ch <- deparse(substitute(generic))
-  f <- X <- function(x, ...) UseMethod("X")
-  for (m in methods(ch)) assign(sub(ch, "X", m, fixed = TRUE), "body<-"(f, value = m))
-  X(...)
-}
-
-what_method_is_called <- function(selected) {
-  # use like: findMethhod("plot", mynumbers)
-  findMethod <- function(generic, ...) {
-    f <- X <- function(x, ...) UseMethod("X")
-    for (m in methods(generic)) assign(sub(generic, "X", m, fixed = TRUE), "body<-"(f, value = m))
-    X(...)
-  }
-  gsub("\\s", "", selected) # remove whitespace
-  f_obj_name <- strsplit(selected, "\\(")[[1]]
-  full.name <- findMethod(f_obj_name[1], get(f_obj_name[2]))
-  cat(" ", paste0(rep("-", times = nchar(full.name)), collapse = ""), "\n ", full.name, "\n ", paste0(rep("-", times = nchar(full.name)), collapse = ""), "\n")
-  aa <- getAnywhere(full.name)
-  print(aa$where)
-  cat("\nwith args:\n")
-  print(args(aa$objs[[1]]))
-  help(full.name)
-}
-
-if (interactive()) {
-  # if not using rstudio:
-  if (!(Sys.getenv("RSTUDIO") == "1")){
+  if (Sys.getenv("RSTUDIO") == "" && Sys.getenv("POSITRON") == ""){
     options(prompt = "\001\033[0;35m\033[1m\002>\001\033[0m\002 ") # get pink prompt:
     options(prompt = "\001\033[0;35m\002>\001\033[0m\002 ") # get pink prompt:
+  }
+}
+
+Rprofile_objs <- local({
+# INTERACTIVE --------------------------------------------------
+if (interactive()) {
+
+  ### VS-CODE MACROS -------------------------------------------
+  # usage in combination with macros:
+  r_obj_regex <- "((([[:alpha:]]|[.][._[:alpha:]])[._[:alnum:]]*)|[.])"
+
+  findMethod <- function(generic, ...) {
+    ch <- deparse(substitute(generic))
+    f <- X <- function(x, ...) UseMethod("X")
+    for (m in methods(ch)) assign(sub(ch, "X", m, fixed = TRUE), "body<-"(f, value = m))
+    X(...)
+  }
+
+  what_method_is_called <- function(selected) {
+    # use like: findMethhod("plot", mynumbers)
+    findMethod <- function(generic, ...) {
+      f <- X <- function(x, ...) UseMethod("X")
+      for (m in methods(generic)) assign(sub(generic, "X", m, fixed = TRUE), "body<-"(f, value = m))
+      X(...)
+    }
+    gsub("\\s", "", selected) # remove whitespace
+    f_obj_name <- strsplit(selected, "\\(")[[1]]
+    full.name <- findMethod(f_obj_name[1], get(f_obj_name[2]))
+    cat(" ", paste0(rep("-", times = nchar(full.name)), collapse = ""), "\n ", full.name, "\n ", paste0(rep("-", times = nchar(full.name)), collapse = ""), "\n")
+    aa <- getAnywhere(full.name)
+    print(aa$where)
+    cat("\nwith args:\n")
+    print(args(aa$objs[[1]]))
+    help(full.name)
+  }
+
+  # evaluate and copy to clipboard
+  eval_to_clipboard <- function(..., prefix="#> ", print_to_console=TRUE) {
+    s <- capture.output(...)
+    prefixed_s <- paste(prefix, s, sep = "", collapse = "\n")
+    
+    if(.Platform$OS.type == "windows")
+      writeClipboard(prefixed_s)
+    else
+      # use the system() function to put the prefixed_s string into the clipboard using xclip (escaping all quotes)
+      system(paste("echo '", gsub("'", "", prefixed_s), "' | xclip -selection clipboard", sep = ""))
+
+    cat("------------  Copied to clipboard:  ------------------\n\n")
+    if(print_to_console) 
+      cat(s, sep = "\n")
+  }
+
+
+  # NO RSTUDIO / POSITRON --------------------------------------:
+  if (interactive() && Sys.getenv("RSTUDIO") == "" && Sys.getenv("POSITRON") == ""){
 
     ## INSTALL HELPERS
     installed <- function(pattern, which = c("Package", "Version"), ...) {
@@ -103,22 +128,6 @@ if (interactive()) {
         warn = 160, error = c(1, 16, 196),
         verbose = FALSE, zero.limit = 1e-7
       )
-    }
-
-    # evaluate and copy to clipboard
-    eval_to_clipboard <- function(..., prefix="#> ", print_to_console=TRUE) {
-      s <- capture.output(...)
-      prefixed_s <- paste(prefix, s, sep = "", collapse = "\n")
-      
-      if(.Platform$OS.type == "windows")
-        writeClipboard(prefixed_s)
-      else
-        # use the system() function to put the prefixed_s string into the clipboard using xclip (escaping all quotes)
-        system(paste("echo '", gsub("'", "", prefixed_s), "' | xclip -selection clipboard", sep = ""))
-
-      cat("------------  Copied to clipboard:  ------------------\n\n")
-      if(print_to_console) 
-        cat(s, sep = "\n")
     }
 
     # LIBRARY COMMAND -------------------------------------
@@ -156,13 +165,11 @@ if (interactive()) {
 environment()  # Return the environment
 })
 # Attach the new environment to the search path
-attach(Rprofile_environment, warn.conflicts = FALSE)
-rm(Rprofile_environment)
+attach(Rprofile_objs, warn.conflicts = FALSE)
+rm(Rprofile_objs)
 
 # check if environment attached correctly
-if(interactive()){
-  if (!("Rprofile_environment" %in% search())){
-    warning("Rprofile missing")
-  }
-} 
+if (interactive() && !("Rprofile_objs" %in% search())){
+  warning("Rprofile missing")
+}
 
