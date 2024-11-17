@@ -104,6 +104,7 @@ bindsym $alt+i exec wtype -M ctrl -P Page_Down
 input type:touchpad {
     tap enabled
     natural_scroll enabled
+    dwt enabled
 }
 
 bindsym $super+g exec "wezterm start -- yazi"
@@ -194,9 +195,9 @@ exec wl-paste -t text --watch clipman store --no-persist
 exec mkdir -p $HOME/Pictures/Screenshots &
 exec dunst &
 
-exec swaymsg "workspace 99; exec firefox"
+# exec swaymsg "workspace 99; exec firefox"
 # exec swaymsg "workspace 11; exec thunderbird"
-exec swaymsg "workspace 12; exec ferdium"
+# exec swaymsg "workspace 12; exec ferdium"
 # exec swaymsg "workspace 12; exec flatpak run im.riot.Riot"
 
 exec swaymsg "exec sleep 2 && ~/Applications/activitywatch/aw-qt" &

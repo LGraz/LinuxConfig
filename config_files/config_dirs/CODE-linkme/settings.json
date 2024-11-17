@@ -354,7 +354,8 @@
         "operatorname"
     ],
     "r.libPaths": [
-        "/scratch/users/lgraz/R/vscode-R/renv/library/R-4.3/x86_64-pc-linux-gnu"
+        "/scratch/users/lgraz/R/vscode-R/renv/library/R-4.3/x86_64-pc-linux-gnu",
+        "/scratch/users/lgraz/R/vscode-R/renv/library/linux-arch-rolling/R-4.4/x86_64-pc-linux-gnu"
     ],
     "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${profileName}${separator}VSCODE",
     "workbench.startupEditor": "readme",

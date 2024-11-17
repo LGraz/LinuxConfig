@@ -20,3 +20,5 @@
 config_files/config_dirs/QtProject.conf
 
 .stfolder
+
+Templates/quarto-manuscript-template/_manuscript/*

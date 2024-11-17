@@ -46,26 +46,3 @@ function yy() {
 source ~/Documents/IT/secrets/env-vars.sh
 
 
-
-mymime() {
-    # Get the MIME type of the file
-    mime_type=$(xdg-mime query filetype "$1")
-    
-    if [ -z "$mime_type" ]; then
-        echo "Error: Could not determine the MIME type of the file."
-        return 1
-    fi
-
-    # Find all applications associated with the MIME type
-    mime_cache_files=("/usr/share/applications/mimeinfo.cache" "$HOME/.local/share/applications/mimeinfo.cache")
-
-    echo "File: $1"
-    echo "MIME type: $mime_type"
-	app=$(xdg-mime query default $mime_type)
-	echo "Default application: $app"
-    echo "Associated applications:"
-
-}
-
-# Example usage:
-# list_mime_apps example.txt

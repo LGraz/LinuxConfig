@@ -18,26 +18,36 @@ options(vsc.rstudioapi = TRUE)
 # options(warnPartialMatchDollar = TRUE)
 
 # syler
-options(languageserver.formatting_style = function(options) {
-  style <- styler::tidyverse_style(
-    strict = FALSE,
-    indent_by = 2,
-    scope = "tokens" # I(c("line_breaks", "tokens", "spaces", "indentation"))
-  )
-  # style$space$set_space_between_eq_sub_and_comma <- NULL
-  style
-})
+if ("styler" %in% .packages(all.available=TRUE)){
+options(languageserver.formatting_style = 
+  function(options) {
+    style <- styler::tidyverse_style(
+      strict = FALSE,
+      indent_by = 2,
+      scope = "tokens" # I(c("line_breaks", "tokens", "spaces", "indentation"))
+    )
+    # style$space$set_space_between_eq_sub_and_comma <- NULL
+    style
+  })
+}
 
 ## Ncpus / mc.cores
-Ncores <- as.integer(parallel::detectCores() - 2)
-if (Ncores %in% 2:256) {
-  options(Ncpus = Ncores)
-  options(mc.cores = Ncores)
-}; rm(Ncores)
+if ("parallel" %in% .packages(all.available=TRUE)){
+  Ncores <- as.integer(parallel::detectCores() - 2)
+  if (Ncores %in% 2:256) {
+    options(Ncpus = Ncores)
+    options(mc.cores = Ncores)
+  }; rm(Ncores)
+}
 
 if (interactive()){
   options(digits = 5)
-  options(error = rlang::entrace)
+  if ("rlang" %in% .packages(all.available=TRUE))
+ 
+  options(error = function() {
+    rlang::entrace()            # Capture the traceback
+    print(rlang::last_trace())   # Display the captured traceback immediately
+  })
 
   if (Sys.getenv("RSTUDIO") == "" && Sys.getenv("POSITRON") == ""){
     options(prompt = "\001\033[0;35m\033[1m\002>\001\033[0m\002 ") # get pink prompt:

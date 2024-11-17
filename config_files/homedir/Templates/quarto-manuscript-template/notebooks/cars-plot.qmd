@@ -1,0 +1,24 @@
+---
+title: Cars Plot
+author: Lukas Graz
+date: 2024-10-16
+---
+
+```{r cars-plot, fig.cap="A scatter plot of the cars data set."}
+library(qreport)
+library(ggplot2)
+```
+
+
+```{r}
+#| echo: false
+plot(cars)
+```
+
+```{r, results='asis'}
+# qreport::maketabs(
+#   list(
+#     ggplot(cars, aes(x = speed, y = dist)) + geom_point(),
+#     ggplot(cars, aes(x = speed, y = dist)) + geom_jitter()
+# ))
+```

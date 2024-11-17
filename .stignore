@@ -11,3 +11,7 @@
 **/micro/backups
 **/micro/buffers
 config_files/config_dirs/QtProject.conf
+
+
+Templates/quarto-manuscript-template/_manuscript
+

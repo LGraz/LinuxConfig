@@ -14,11 +14,6 @@ on   = [ "<C-s>" ]
 run  = 'shell "$SHELL" --block --confirm'
 desc = "Open shell here"
 
-[[input.prepend_keymap]]
-on   = [ "<Esc>" ]
-run  = "close"
-desc = "Cancel input"
-
 [[manager.prepend_keymap]]
 on   = "<C-s>"
 run  = 'shell "$SHELL" --block --confirm'
@@ -30,3 +25,16 @@ on   = "<Esc>"
 run  = "close"
 desc = "Cancel input"
 
+[[manager.prepend_keymap]]
+on = [ "<C-n>" ]
+# run = '''
+# 	shell 'dragon-drop -x -i -T "$@"' --confirm
+# '''
+run = '''
+    shell 'ripdrag "$@" -xA 2>/dev/null &' --confirm
+'''
+
+[[manager.prepend_keymap]]
+on   = [ "c", "a" ]
+run  = "plugin compress"
+desc = "Archive selected files"

@@ -471,16 +471,6 @@
         "command": "editor.toggleFold"
     },
     {
-        "key": "ctrl+shift+k",
-        "command": "r.knitRmdToPdf",
-        "when": "editorTextFocus && editorLangId == 'rmd'"
-    },
-    {
-        "key": "ctrl+shift+k",
-        "command": "-r.knitRmd",
-        "when": "editorTextFocus && editorLangId == 'rmd'"
-    },
-    {
         "key": "ctrl+7",
         "command": "-workbench.action.focusSeventhEditorGroup"
     },
@@ -675,5 +665,49 @@
     {
         "key": "ctrl+k ctrl+y",
         "command": "markdown.extension.editing.toggleStrikethrough"
+    },
+    {
+        "key": "ctrl+pageup",
+        "command": "-quarto.goToPreviousCell",
+        "when": "editorTextFocus && editorLangId == 'quarto'"
+    },
+    {
+        "key": "ctrl+shift+v",
+        "command": "quarto.previewScript",
+        "when": "quartoRenderScriptActive"
+    },
+    {
+        "key": "ctrl+shift+k",
+        "command": "-quarto.previewScript",
+        "when": "quartoRenderScriptActive"
+    },
+    {
+        "key": "ctrl+shift+k",
+        "command": "-quarto.preview",
+        "when": "!quartoRenderScriptActive"
+    },
+    {
+        "key": "alt+delete",
+        "command": "-notebook.cell.clearOutputs",
+        "when": "notebookCellEditable && notebookCellHasOutputs && notebookEditable && notebookEditorFocused && !inputFocus"
+    },
+    {
+        "key": "alt+delete",
+        "command": "editor.action.deleteLines",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+k",
+        "command": "-editor.action.deleteLines",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+k",
+        "command": "quarto.renderDocument",
+        "when": "editorTextFocus && editorLangId == 'quarto'"
+    },
+    {
+        "key": "ctrl+shift+alt+k",
+        "command": "quarto.renderProject"
     }
 ]

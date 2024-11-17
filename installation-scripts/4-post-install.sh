@@ -1,3 +1,27 @@
+# LOCALE
+# in /etc/locale.gen
+sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
+sed -i 's/^#de_CH.UTF-8 UTF-8/de_CH.UTF-8 UTF-8/' /etc/locale.gen
+
+# in /etc/locale.conf  (enlish language & messages, german everything else)
+LANG=en_US.utf8
+LC_CTYPE=de_CH.UTF-8
+LC_NUMERIC=de_CH.UTF-8
+LC_TIME=de_CH.UTF-8
+LC_COLLATE=de_CH.UTF-8
+LC_MONETARY=de_CH.UTF-8
+LC_MESSAGES=en_US.UTF-8
+LC_PAPER=de_CH.UTF-8
+LC_NAME=de_CH.UTF-8
+LC_ADDRESS=de_CH.UTF-8
+LC_TELEPHONE=de_CH.UTF-8
+LC_MEASUREMENT=de_CH.UTF-8
+LC_IDENTIFICATION=de_CH.UTF-8
+
+locale-gen
+
+
+
 # sudoers changes
     sudo sed -i -e '$aDefaults env_keep += PYTHONPATH' /etc/sudoers
     sudo sed -i -e '$aDefaults editor=/usr/bin/micro' /etc/sudoers
