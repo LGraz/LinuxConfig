@@ -44,3 +44,4 @@ vegan
 DescTools
 DescTools
 qreport
+coin

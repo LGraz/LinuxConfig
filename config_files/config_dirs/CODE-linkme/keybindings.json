@@ -709,5 +709,10 @@
     {
         "key": "ctrl+shift+alt+k",
         "command": "quarto.renderProject"
-    }
+    },
+    {
+        "key": "ctrl+shift+k",
+        "command": "r.knitRmd",
+        "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
 ]

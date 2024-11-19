@@ -1,0 +1,5 @@
+# This directory is a Syncthing folder marker.
+# Do not delete.
+
+folderID: LinuxConfig
+created: 2024-07-23T14:00:49+02:00

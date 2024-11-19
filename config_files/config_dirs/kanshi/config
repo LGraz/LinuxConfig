@@ -7,7 +7,7 @@ profile ETH_G13 {
 
 profile DELL {
 	output eDP-1 disable
-	output HDMI-A-1 enable
+	output HDMI-A-1 enable scale 1.35
 }
 
 profile laptoponly {
