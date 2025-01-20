@@ -25,6 +25,8 @@ set $term wezterm
 # set $menu dmenu_path | wmenu | xargs swaymsg exec --
 exec bash -c "albert --platform xcb"
 
+bindsym $super+s exec ~/paste_next_line.sh
+
 bindsym $super+d exec albert toggle
 bindsym $super+$alt+d exec "dmenu_run -b -nf '#BBBBBB' -nb '#222222' -sb '#EF11FF' -sf '#000000' -fn 'monospace-16' -p 'run: '"
 
@@ -134,20 +136,12 @@ for_window [app_id="albert"] floating enable
 for_window [title="(^Foam-Private$)"] move workspace number 20
 for_window [title="(^Foam-Work$)"] move workspace number 21
 for_window [title="(VSCODE$)"] move to workspace number 0, layout tabbed
-for_window [title="(R Graphics)"] floating enable move absolute position 0 ppt 70 ppt; resize set height 32 ppt ; resize set width 40 ppt
 
-for_window [class="Spotify"] move to workspace number 13
+for_window [app_id="spotify"] move to workspace number 13
 
-for_window [class="rambox"] move to workspace number 12
-for_window [class="element"] move to workspace number 12
-for_window [class="riot"] move to workspace number 12
-
-for_window [class="Mail"] move to workspace number 11
-for_window [class="thunderbird"] move to workspace number 11
-for_window [class="evolution"] move to workspace number 11
-
-for_window [class="okular"] move to workspace number 98, layout tabbed
-for_window [class="evince"] move to workspace number 98, layout tabbed
+for_window [app_id="Mail"] move to workspace number 11
+for_window [app_id="thunderbird"] move to workspace number 11
+for_window [app_id="evolution"] move to workspace number 11
 
 # disable chrome shortcuts
 # for_window [app_id="^chrome-.*"] shortcuts_inhibitor disable

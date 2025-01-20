@@ -16,5 +16,10 @@ profile laptoponly {
 
 profile ETH_G13_single {
 	output eDP-1 disable
-	output DP-1 enable position 1440,0
+	output DP-1 enable position 1440,0 scale 1.35
+}
+
+profile DELL2 {
+    output eDP-1 disable
+    output "Dell Inc. DELL U3223QE F2H2H34" scale 1.35
 }

@@ -37,9 +37,8 @@ bindsym $super+7 exec ~/.config/sway/empty_workspace_launcher.r 7  ~/.config/i3/
 bindsym $super+8 exec ~/.config/sway/empty_workspace_launcher.r 8  ~/.config/i3/super_menu.sh &
 bindsym $super+9 exec ~/.config/sway/empty_workspace_launcher.r 9  ~/.config/i3/super_menu.sh &
 bindsym $super+f exec ~/.config/sway/empty_workspace_launcher.r 99  firefox &
-bindsym $super+o exec ~/.config/sway/empty_workspace_launcher.r 98  okular &
 bindsym $super+t exec ~/.config/sway/empty_workspace_launcher.r 11  thunderbird &
-bindsym $super+p exec ~/.config/sway/empty_workspace_launcher.r 12  ferdium &
+bindsym $super+p exec ~/.config/sway/empty_workspace_launcher.r 12  ~/.config/i3/super_menu.sh &
 bindsym $super+m exec ~/.config/sway/empty_workspace_launcher.r 13  spotify & 
 bindsym $super+comma exec ~/.config/sway/empty_workspace_launcher.r 20  "code ~/Documents/Foam-Private" &
 bindsym $super+period exec ~/.config/sway/empty_workspace_launcher.r 21  "code ~/Work/Foam-Work" &

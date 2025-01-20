@@ -138,6 +138,7 @@
     //----------------------------------------------------
     // within SidePanel: (up/down=terminal_list; left/right=terminal_splits)
     //----------------------------------------------------
+    // focus terminal-splits
     {
         "key": "alt+j",
         "command": "workbench.action.terminal.focusNextPane",
@@ -148,11 +149,12 @@
         "command": "workbench.action.terminal.focusPreviousPane",
         "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
     },
-    // {
-    //     "key": "alt+h",
-    //     "command": "workbench.action.terminal.focusPrevious",
-    //     "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
-    // },
+    // focus terminal-tabs
+    {
+        "key": "alt+h",
+        "command": "workbench.action.terminal.focusPrevious",
+        "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+    },
     {
         "key": "alt+l",
         "command": "workbench.action.terminal.focusNext",
@@ -714,5 +716,10 @@
         "key": "ctrl+shift+k",
         "command": "r.knitRmd",
         "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+        "key": "ctrl+pagedown",
+        "command": "-quarto.goToNextCell",
+        "when": "editorTextFocus && editorLangId == 'quarto'"
     },
 ]
