@@ -88,17 +88,6 @@
 
 
 
-# setup jekyll website
-    # install ruby
-    sudo pacman -S --noconfirm --needed ruby
-    # install jekyll
-    gem install jekyll bundler jekyll-paginate jekyll-sitemap jekyll-gist jekyll-feed jemoji jekyll-include-cache jekyll-algolia minimal-mistakes-jekyll github-pages tzinfo-data wdm --user-install
-    # install theme
-    git clone
-
-    # https://github.com/mmistakes/mm-github-pages-starter
-    # --> setup github if not already done
-
 # firewall
     sudo pacman -S --noconfirm --needed ufw
     sudo systemctl enable ufw --now

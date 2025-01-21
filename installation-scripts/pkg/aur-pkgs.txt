@@ -25,7 +25,6 @@ nerd-fonts-complete
 code-marketplace
 code-features-insiders
 albert
-ferdium-bin
 wev
 wlprop
-
+texlive-full
