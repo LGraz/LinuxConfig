@@ -105,8 +105,8 @@ bindsym $super+Shift+$up move workspace to output up
 			bindsym $super+u workspace prev
 			bindsym $super+$move+u move workspace prev; workspace prev
         # new
-			bindsym $super+n exec ~/.config/i3/new_workspace.py
-			bindsym $super+$move+n exec ~/.config/i3/new_workspace.py --move_focused
+			bindsym $super+n exec ~/LinuxConfig/config_files/config_dirs/i3/new_workspace.py
+			bindsym $super+$move+n exec ~/LinuxConfig/config_files/config_dirs/i3/new_workspace.py --move_focused
 		# windows
             bindsym Mod1+tab exec ~/.config/sway/window_selector.sh
 

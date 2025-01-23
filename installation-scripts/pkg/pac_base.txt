@@ -38,3 +38,13 @@ jdk-openjdk
 atool
 podman
 wezterm
+texlive
+sway
+swaybg
+okular
+ufw
+wiki-tui
+xdg-desktop-portal-wlr
+pdfarranger
+img2pdf
+perl-file-mimeinfo

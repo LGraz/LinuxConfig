@@ -5,7 +5,6 @@ epson-inkjet-printer-escpr
 ##  my packages
 ###################
 mathpix-snipping-tool
-spotify
 # superproductivity-bin
 # teamviewer
 # timeshift
@@ -22,9 +21,10 @@ zoom
 nerd-fonts-complete
 #for_pyton_notebooks_in_code
 # visual-studio-code-bin
-code-marketplace
-code-features-insiders
+# code-marketplace
+# code-features-insiders
 albert
 wev
 wlprop
-texlive-full
+grimshot-bin-sway
+clipman

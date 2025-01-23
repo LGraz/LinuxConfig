@@ -19,7 +19,7 @@ alias textidote="java -jar ~/Applications/textidote.jar"
 
 install() {
     echo "installing: $1  -----------------------------------"
-    sudo pacman -S $1 --needed && { echo $1 >> "~/LinuxConfig/installation-scripts/pkg/installed.txt"; } || yay -S $1 || yay $1
+    sudo pacman -S $1 --needed && { echo $1 >> "$HOME/LinuxConfig/installation-scripts/pkg/installed.txt"; } || yay $1
 }
 
 # update all perlmodules
@@ -32,6 +32,7 @@ ram="ps -e -o pid,vsz,comm= | sort -n -k 2"
 # export PS1="\[\033[38;5;11m\]\t\[$(tput sgr0)\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;11m\][\[$(tput sgr0)\]\w\[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;11m\]]\n\\$\[$(tput sgr0)\] "
 EDITOR=/bin/micro
 VISUAL=/usr/bin/code
+export PATH="$HOME/.local/bin:$PATH"
 
 # YAZI
 function yy() {

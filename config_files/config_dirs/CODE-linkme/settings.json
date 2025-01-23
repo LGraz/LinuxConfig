@@ -370,4 +370,5 @@
     "quarto.path": "/scratch/users/lgraz/.local/bin/quarto",
     "explorer.openEditors.visible": 0,
     "editor.fontLigatures": true,
+    "security.workspace.trust.untrustedFiles": "open",
 }

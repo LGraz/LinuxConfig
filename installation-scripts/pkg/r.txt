@@ -17,6 +17,7 @@ car
 caret
 DEoptimR
 earth
+simr
 ellipsis
 forcats
 glmnet
@@ -41,7 +42,6 @@ perm
 glmmTMB
 equatiomatic
 vegan
-DescTools
 DescTools
 qreport
 coin
