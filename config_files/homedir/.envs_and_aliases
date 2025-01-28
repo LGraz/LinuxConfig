@@ -19,7 +19,7 @@ alias textidote="java -jar ~/Applications/textidote.jar"
 
 install() {
     echo "installing: $1  -----------------------------------"
-    sudo pacman -S $1 --needed && { echo $1 >> "$HOME/LinuxConfig/installation-scripts/pkg/installed.txt"; } || yay $1
+    sudo pacman -S $1 --needed && { echo $1 >> "$HOME/LinuxConfig/installation-scripts/pkg/installed.txt"; } || yay $1 && { echo $1 >> "$HOME/LinuxConfig/installation-scripts/pkg/aur-pkgs.txt"; }
 }
 
 # update all perlmodules

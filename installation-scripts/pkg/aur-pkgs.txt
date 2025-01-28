@@ -28,3 +28,5 @@ wev
 wlprop
 grimshot-bin-sway
 clipman
+ripdrag
+pandoc-bin

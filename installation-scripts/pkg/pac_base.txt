@@ -41,6 +41,8 @@ wezterm
 texlive
 sway
 swaybg
+swaylock
+swayidle
 okular
 ufw
 wiki-tui
