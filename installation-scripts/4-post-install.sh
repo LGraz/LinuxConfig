@@ -94,16 +94,12 @@ locale-gen
     sudo pacman -S zsh zsh-completions thefuck fzf
     chsh -s /bin/zsh
     # packages
-        # autosuggestions
-        git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-            # add to zshrc: "source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
-
         # powerlevel 10
-        git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+        # git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
             # echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
         
         # syntax highlighting
-        sudo pacman -S zsh-syntax-highlighting
+        # sudo pacman -S zsh-syntax-highlighting
         # add to *end* of zshrc: "source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 
 
 

@@ -28,7 +28,7 @@ progress
 udiskie
 obsidian
 obs-studio
-# texlive # consider AUR alternative: texlive-full
+# texlive
 yazi
 owncloud-client
 w3m
@@ -38,7 +38,6 @@ jdk-openjdk
 atool
 podman
 wezterm
-texlive
 sway
 swaybg
 swaylock
@@ -50,3 +49,32 @@ xdg-desktop-portal-wlr
 pdfarranger
 img2pdf
 perl-file-mimeinfo
+mpv
+qt5-tools
+kitty
+cups
+avahi
+zoxide
+7zip
+qt5-tools
+packagekit-qt6
+cmake
+wtype
+speech-dispatcher
+cups-browsed
+cups-filters
+cups-browsed
+cups-pdf
+podman
+podman-compose
+docker
+docker-compose
+kwalletmanager
+dolphin
+timeshift
+timeshift
+xorg-xhost
+ark
+nautilus
+gparted
+gnome-disk-utility

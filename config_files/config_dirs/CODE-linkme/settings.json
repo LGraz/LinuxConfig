@@ -353,11 +353,6 @@
     "languageToolLinter.languageTool.ignoredWordsGlobal": [
         "operatorname"
     ],
-    "r.libPaths": [
-        "/scratch/users/lgraz/R/vscode-R/renv/library/R-4.3/x86_64-pc-linux-gnu",
-        "/scratch/users/lgraz/R/vscode-R/renv/library/linux-arch-rolling/R-4.4/x86_64-pc-linux-gnu"
-    ],
-    "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${profileName}${separator}VSCODE",
     "workbench.startupEditor": "readme",
     "telemetry.telemetryLevel": "off",
     "security.promptForLocalFileProtocolHandling": false,
@@ -367,8 +362,9 @@
     "window.zoomLevel": 1,
     "github.copilot.editor.enableAutoCompletions": true,
     "pdf-preview.default.sidebar": false,
-    "quarto.path": "/scratch/users/lgraz/.local/bin/quarto",
     "explorer.openEditors.visible": 0,
     "editor.fontLigatures": true,
     "security.workspace.trust.untrustedFiles": "open",
+    "window.customTitleBarVisibility": "never",
+    "window.titleBarStyle": "native"
 }

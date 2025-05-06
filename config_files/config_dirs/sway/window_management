@@ -39,7 +39,7 @@ bindsym $super+9 exec ~/.config/sway/empty_workspace_launcher.r 9  ~/.config/i3/
 bindsym $super+f exec ~/.config/sway/empty_workspace_launcher.r 99  firefox &
 bindsym $super+t exec ~/.config/sway/empty_workspace_launcher.r 11  thunderbird &
 bindsym $super+p exec ~/.config/sway/empty_workspace_launcher.r 12  ~/.config/i3/super_menu.sh &
-bindsym $super+m exec ~/.config/sway/empty_workspace_launcher.r 13  spotify & 
+bindsym $super+s exec ~/.config/sway/empty_workspace_launcher.r 13  spotify & 
 bindsym $super+comma exec ~/.config/sway/empty_workspace_launcher.r 20  "code ~/Documents/Foam-Private" &
 bindsym $super+period exec ~/.config/sway/empty_workspace_launcher.r 21  "code ~/Work/Foam-Work" &
 # move focused container to workspace
@@ -57,7 +57,7 @@ bindsym $super+$move+f move container to workspace number 99; workspace 99
 bindsym $super+$move+o move container to workspace number 98; workspace 98
 bindsym $super+$move+t move container to workspace number 11; workspace 11
 bindsym $super+$move+p move container to workspace number 12; workspace 12
-bindsym $super+$move+m move container to workspace number 13; workspace 13
+bindsym $super+$move+s move container to workspace number 13; workspace 13
 bindsym $super+$move+comma move container to workspace number 20; workspace 20
 bindsym $super+$move+period move container to workspace number 21; workspace 21
 
@@ -135,7 +135,7 @@ bindsym $super+Shift+$up move workspace to output up
 		bindsym $super+Ctrl+e layout toggle split
 		bindsym $super+Ctrl+Shift+v splith
 		bindsym $super+Ctrl+v splitv
-		bindsym $super+Ctrl+F11 fullscreen
+		bindsym $super+m fullscreen
 		# bindsym $F11 fullscreen
 
 # #

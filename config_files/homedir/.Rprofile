@@ -97,7 +97,7 @@ if (interactive()) {
       writeClipboard(prefixed_s)
     else
       # use the system() function to put the prefixed_s string into the clipboard using xclip (escaping all quotes)
-      system(paste("echo '", gsub("'", "", prefixed_s), "' | xclip -selection clipboard", sep = ""))
+      system(paste("echo '", gsub("'", "", prefixed_s), "' | wl-copy", sep = ""))
 
     cat("------------  Copied to clipboard:  ------------------\n\n")
     if(print_to_console) 

@@ -21,3 +21,8 @@ Status:children_add(function()
 		ui.Span(" "),
 	}
 end, 500, Status.RIGHT)
+
+-- zoxide 
+require("zoxide"):setup {
+	update_db = true,
+}

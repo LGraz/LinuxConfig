@@ -1,4 +1,4 @@
-# install(read.table('/scratch/users/lgraz/LinuxConfig/installation-scripts/pkg/r.txt')[[1]])
+# install(read.table('~/LinuxConfig/installation-scripts/pkg/r.txt')[[1]])
 # non-stats packages
 BiocManager
 Rcpp
@@ -46,3 +46,5 @@ DescTools
 qreport
 coin
 robustlmm
+xgboost
+ranger

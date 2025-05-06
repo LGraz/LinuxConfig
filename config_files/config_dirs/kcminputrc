@@ -1,0 +1,9 @@
+[Keyboard]
+RepeatDelay=300
+RepeatRate=45
+
+[Libinput][1739][52619][SYNA8004:00 06CB:CD8B Mouse]
+NaturalScroll=false
+
+[Libinput][1739][52619][SYNA8004:00 06CB:CD8B Touchpad]
+NaturalScroll=true

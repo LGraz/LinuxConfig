@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Foam-Private
+Comment=Open VSCode in Documents/Foam-Private
+Exec=/usr/bin/code ~/Documents/Foam-Private
+Terminal=false
+Type=Application
+Categories=Development;IDE;
+StartupWMClass=FoamPrivate

@@ -1,4 +1,4 @@
 com.spotify.Client
 com.bambulab.BambuStudio
 net.ankiweb.Anki
-tv.plex.PlexDesktop
+org.freecad.FreeCAD

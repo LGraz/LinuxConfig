@@ -1,12 +1,16 @@
+# export LD_PRELOAD=""
+
 # ALIASES
+#alias docker=podman
 alias dnf="sudo /usr/bin/dnf"
 alias R="/usr/bin/R -q --no-save --no-restore-data"
 # alias ranger="python ~/Applications/ranger/ranger.py"
 alias f=ranger
 alias ls='/usr/bin/ls -Gh --color=auto --group-directories-first'
-alias spotify="source ~/Documents/IT/secrets/env-vars.sh && flatpak run com.spotify.Client/x86_64/stable  --username=$SPOTIFY_USERNAME --password=$SPOTIFY_PASSWORD"
+# alias spotify="source ~/Documents/IT/secrets/env-vars.sh && flatpak run com.spotify.Client/x86_64/stable  --username=$SPOTIFY_USERNAME --password=$SPOTIFY_PASSWORD"
+alias spotify="flatpak run com.spotify.Client"
 alias ll="/usr/bin/ls -Glah --color=auto --group-directories-first"
-alias installed="pacman -Q | grep "
+installed() { pacman -Q | grep $1 2>/dev/null; flatpak list | grep $1 2>/dev/null; }
 alias uninstall="sudo pacman -Rns"
 alias remove="sudo pacman -Rns"
 alias thunderbird="GTK_THEME=Arc /bin/thunderbird"
@@ -16,10 +20,13 @@ alias thunderbird="GTK_THEME=Arc /bin/thunderbird"
 
 alias textidote="java -jar ~/Applications/textidote.jar"
 
+alias ssh-acer="ssh lukas@192.168.1.157"
+alias ssh-dirichlet="ssh lukas@192.168.1.218"
+
 
 install() {
     echo "installing: $1  -----------------------------------"
-    sudo pacman -S $1 --needed && { echo $1 >> "$HOME/LinuxConfig/installation-scripts/pkg/installed.txt"; } || yay $1 && { echo $1 >> "$HOME/LinuxConfig/installation-scripts/pkg/aur-pkgs.txt"; }
+    sudo pacman -S $1 --needed && { echo $1 >> "$HOME/LinuxConfig/installation-scripts/pkg/pac_base.txt"; } || yay $1 && { echo $1 >> "$HOME/LinuxConfig/installation-scripts/pkg/aur-pkgs.txt"; }
 }
 
 # update all perlmodules
@@ -44,6 +51,6 @@ function yy() {
 	rm -f -- "$tmp"
 }
 
-source ~/Documents/IT/secrets/env-vars.sh
+# source ~/Documents/IT/secrets/env-vars.sh
 
 

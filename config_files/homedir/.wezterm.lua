@@ -26,7 +26,7 @@ config.skip_close_confirmation_for_processes_named = {
   'cmd.exe',
   'pwsh.exe',
   'powershell.exe',
-  -- 'yazi'
+  'yazi',
   'btop',
 }
 
@@ -36,6 +36,8 @@ config.window_padding = {
   top = 1,
   bottom = 1,
 }
+
+config.default_prog = { 'yazi' }
 
 -- and finally, return the configuration to wezterm
 return config

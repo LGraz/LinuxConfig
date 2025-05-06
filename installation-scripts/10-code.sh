@@ -10,3 +10,5 @@ code --install-extension james-yu.latex-workshop
 code --install-extension mechatroner.rainbow-csv
 code --install-extension geddski.macros
 code --install-extension GitHub.copilot
+code --install-extension foam.foam-vscode
+

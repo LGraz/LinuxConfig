@@ -25,8 +25,6 @@ set $term kitty
 # set $menu dmenu_path | wmenu | xargs swaymsg exec --
 exec bash -c "albert --platform xcb"
 
-bindsym $super+s exec ~/paste_next_line.sh
-
 bindsym $super+d exec albert toggle
 bindsym $super+$alt+d exec "dmenu_run -b -nf '#BBBBBB' -nb '#222222' -sb '#EF11FF' -sf '#000000' -fn 'monospace-16' -p 'run: '"
 
@@ -40,10 +38,10 @@ output * bg ~/LinuxConfig/config_files/homedir/.wallpaper.jpg fill
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
-exec swayidle -w \
-         timeout 900 'swaylock -f -c 001800' \
-         timeout 1800 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'playerctl pause'
+# exec swayidle -w \
+#          timeout 900 'swaylock -f -c 001800' \
+#          timeout 1800 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+#          before-sleep 'playerctl pause'
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -78,7 +76,7 @@ bindsym $super+Delete mode $mode_system
     bindsym $super+$alt+q kill
 
     # Lock
-    bindsym $super+$alt+s exec 'swaylock -f -c 001800'
+    bindsym $super+Escape exec 'swaylock -f -c 001800'
 
     # Drag floating windows by holding down $super and left mouse button.
     # Resize them with right mouse button + $super.
@@ -91,7 +89,7 @@ bindsym $super+Delete mode $mode_system
     bindsym $super+$alt+r reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $super+ctrl+s exec swaymsg exit
+    bindsym $super+$alt+Escape exec swaymsg exit
 
 
     # xkb_layout "ch(de_nodeadkeys)"
@@ -180,6 +178,9 @@ for_window [app_id="evolution"] move to workspace number 11
     # bindsym $mod+ctrl+Print exec grimshot --notify save area
 
 # Audio:
+    # Mute Speaker on startup
+    exec pactl set-sink-mute "$(pactl list sinks short | grep 'Speaker.*sink' | awk '{print $2}')" 1
+
     bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
     bindsym $super+F10    exec pactl set-sink-mute @DEFAULT_SINK@ toggle
     bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -196,7 +197,7 @@ for_window [app_id="evolution"] move to workspace number 11
     bindsym XF86AudioPrev exec playerctl previous
     bindsym $super+F7     exec playerctl previous
 
-exec_always bash -c "pkill kanshi; sleep 0.1; exec kanshi" &
+exec_always bash -c "killall kanshi; sleep 0.1; exec kanshi" &
 exec_always bash -c "pkill waybar; sleep 0.1; exec waybar" &
 exec_always ~/.config/sway/autotiling -w 1 2 3 4 5 6 7 8 9 10 11 12 13 20 21
 exec nm-applet --indicator

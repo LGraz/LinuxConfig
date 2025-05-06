@@ -1,5 +1,1 @@
-foot
-kitty
-handbrake-cli
-7zip
-pandoc
+wl-clipboard

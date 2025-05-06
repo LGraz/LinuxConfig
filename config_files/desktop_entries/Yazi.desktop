@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Yazi
+Comment=yazi is the best tui-file-explorer
+Exec=/usr/bin/wezterm start --class Yazi yazi
+Icon=system-file-manager
+Terminal=false
+Type=Application
+Categories=Development;IDE;Utility;FileManager;
+StartupWMClass=Yazi

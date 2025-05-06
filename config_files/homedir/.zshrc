@@ -74,8 +74,9 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 
+set -k # ignore comments in zsh (thing beginning with "#")
+
 # Shell integrations
 eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-
-set -k # ignore comments in zsh (thing beginning with "#")

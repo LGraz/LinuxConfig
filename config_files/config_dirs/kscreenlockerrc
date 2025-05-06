@@ -1,0 +1,3 @@
+[Daemon]
+LockGrace=300
+Timeout=30

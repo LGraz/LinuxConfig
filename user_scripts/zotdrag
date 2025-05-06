@@ -1,0 +1,31 @@
+#!/usr/bin/env zsh 
+# Somehow the array `pathlist` didn't work in bash, only in zsh
+
+zotero_summary_json_file=$(mktemp)
+
+curl -s http://127.0.0.1:23119/better-bibtex/cayw\?format\=json > "$zotero_summary_json_file"
+
+if [ ! -s "$zotero_summary_json_file" ] ; then
+    echo "No article selected, exiting"
+    exit
+fi
+
+cat $zotero_summary_json_file
+
+pathlist=("")
+cat "$zotero_summary_json_file" | jq -c '.[]' | while read -r item_json; do
+  echo $citekey
+  citekey=$(echo $item_json | jq --raw-output '.citationKey')
+  library=$(echo $item_json | jq '.item.libraryID')
+  attachmentinfo=$(curl http://localhost:23119/better-bibtex/json-rpc -X POST \
+    -H "Content-Type: application/json" -H "Accept: application/json" \
+    --data-binary "{\"jsonrpc\": \"2.0\", \"method\": \"item.attachments\", \"params\": [\"$citekey\", \"$library\"] }")
+  echo $attachmentinfo
+  echo "$attachmentinfo" | jq -c '.result.[]' | while read -r result_json; do
+    attachmentpath=$(echo $result_json | jq --raw-output '.path')
+    echo $attachmentpath
+    pathlist=("${pathlist[@]}" "$attachmentpath")
+  done
+done
+
+ripdrag -xA ${pathlist[@]}

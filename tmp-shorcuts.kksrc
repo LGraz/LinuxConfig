@@ -1,0 +1,242 @@
+[Custom Commands][net.local.code-3.desktop]
+Exec=code ~/Work/Foam-Work/
+Name=launch-foam-work
+
+[Custom Commands][net.local.code-4.desktop]
+Exec=code ~/Documents/Foam-Private
+Name=launch-foam-private
+
+[Custom Commands][net.local.pgDOWN.desktop]
+Exec=wtype -M ctrl -P Page_Down
+Name=pgDOWN
+
+[Custom Commands][net.local.wtype-2.desktop]
+Exec=wtype -M ctrl -P Page_Up
+Name=pgUP
+
+[Custom Commands][net.local.ww-10.desktop]
+Exec=ww -fa Foam-Private -c
+Name=ww-Foam-Private
+
+[Custom Commands][net.local.ww-11.desktop]
+Exec=ww -fa Foam-Work -c
+Name=ww-Foam-Work
+
+[Custom Commands][net.local.ww-12.desktop]
+Exec=ww -f Spotify -c "flatpak run com.spotify.Client" -t
+Name=ww-spotify
+
+[Custom Commands][net.local.ww-3.desktop]
+Exec=ww -f kitty.terminal -c 'kitty --class kitty.terminal' -t
+Name=ww-terminal
+
+[Custom Commands][net.local.ww-4.desktop]
+Exec=ww -f code
+Name=ww-code
+
+[Custom Commands][net.local.ww-5.desktop]
+Exec=ww -f kitty.yazi -c 'kitty --class kitty.yazi yazi' -t
+Name=ww-yazi
+
+[Custom Commands][net.local.ww-6.desktop]
+Exec=ww -f firefox -c firefox -t
+Name=ww-firefox
+
+[Custom Commands][net.local.ww-7.desktop]
+Exec=ww -f thunderbird -c thunderbird
+Name=ww-thunderbird
+
+[kwin][Global Shortcuts]
+Activate Window Demanding Attention=Meta+A; Meta+Ctrl+A
+Cycle Overview=
+Cycle Overview Opposite=
+Decrease Opacity=
+Edit Tiles=
+Expose=Ctrl+F9
+ExposeAll=Ctrl+F10; Launch (C)
+ExposeClass=Ctrl+F7
+ExposeClassCurrentDesktop=
+Grid View=
+Increase Opacity=
+Kill Window=Meta+Ctrl+Esc; Meta+Alt+Q
+Move Tablet to Next Output=
+MoveMouseToCenter=Meta+F6
+MoveMouseToFocus=Meta+F5
+MoveZoomDown=
+MoveZoomLeft=
+MoveZoomRight=
+MoveZoomUp=
+Overview=Meta+W
+Setup Window Shortcut=
+Show Desktop=
+Switch One Desktop Down=Meta+Ctrl+Down
+Switch One Desktop Up=Meta+Ctrl+Up
+Switch One Desktop to the Left=Meta+Ctrl+Left
+Switch One Desktop to the Right=Meta+Ctrl+Right
+Switch Window Down=Meta+Alt+Down
+Switch Window Left=Meta+Alt+Left
+Switch Window Right=Meta+Alt+Right
+Switch Window Up=Meta+Alt+Up
+Switch to Desktop 1=Ctrl+F1
+Switch to Desktop 10=
+Switch to Desktop 11=
+Switch to Desktop 12=
+Switch to Desktop 13=
+Switch to Desktop 14=
+Switch to Desktop 15=
+Switch to Desktop 16=
+Switch to Desktop 17=
+Switch to Desktop 18=
+Switch to Desktop 19=
+Switch to Desktop 2=Ctrl+F2
+Switch to Desktop 20=
+Switch to Desktop 3=Ctrl+F3
+Switch to Desktop 4=Ctrl+F4
+Switch to Desktop 5=
+Switch to Desktop 6=
+Switch to Desktop 7=
+Switch to Desktop 8=
+Switch to Desktop 9=
+Switch to Next Desktop=
+Switch to Next Screen=
+Switch to Previous Desktop=
+Switch to Previous Screen=
+Switch to Screen 0=
+Switch to Screen 1=
+Switch to Screen 2=
+Switch to Screen 3=
+Switch to Screen 4=
+Switch to Screen 5=
+Switch to Screen 6=
+Switch to Screen 7=
+Switch to Screen Above=
+Switch to Screen Below=
+Switch to Screen to the Left=
+Switch to Screen to the Right=
+Toggle Night Color=
+Toggle Window Raise/Lower=
+Walk Through Windows=Alt+Tab
+Walk Through Windows (Reverse)=Alt+Shift+Tab
+Walk Through Windows Alternative=Meta+B
+Walk Through Windows Alternative (Reverse)=
+Walk Through Windows of Current Application=Alt+`
+Walk Through Windows of Current Application (Reverse)=Alt+~
+Walk Through Windows of Current Application Alternative=
+Walk Through Windows of Current Application Alternative (Reverse)=
+Window Above Other Windows=
+Window Below Other Windows=
+Window Close=Alt+F4; Meta+Q
+Window Custom Quick Tile Bottom=
+Window Custom Quick Tile Left=
+Window Custom Quick Tile Right=
+Window Custom Quick Tile Top=
+Window Fullscreen=
+Window Grow Horizontal=
+Window Grow Vertical=
+Window Lower=
+Window Maximize=Meta+M
+Window Maximize Horizontal=
+Window Maximize Vertical=Meta+Alt+M
+Window Minimize=
+Window Move=
+Window Move Center=
+Window No Border=
+Window On All Desktops=
+Window One Desktop Down=Meta+Ctrl+Shift+Down
+Window One Desktop Up=Meta+Ctrl+Shift+Up
+Window One Desktop to the Left=Meta+Ctrl+Shift+Left
+Window One Desktop to the Right=Meta+Ctrl+Shift+Right
+Window One Screen Down=
+Window One Screen Up=
+Window One Screen to the Left=
+Window One Screen to the Right=
+Window Operations Menu=Alt+F3
+Window Pack Down=
+Window Pack Left=
+Window Pack Right=
+Window Pack Up=
+Window Quick Tile Bottom=Meta+Down
+Window Quick Tile Bottom Left=
+Window Quick Tile Bottom Right=
+Window Quick Tile Left=Meta+Left
+Window Quick Tile Right=Meta+Right
+Window Quick Tile Top=Meta+Up
+Window Quick Tile Top Left=
+Window Quick Tile Top Right=
+Window Raise=
+Window Resize=
+Window Shade=
+Window Shrink Horizontal=
+Window Shrink Vertical=
+Window to Desktop 1=
+Window to Desktop 10=
+Window to Desktop 11=
+Window to Desktop 12=
+Window to Desktop 13=
+Window to Desktop 14=
+Window to Desktop 15=
+Window to Desktop 16=
+Window to Desktop 17=
+Window to Desktop 18=
+Window to Desktop 19=
+Window to Desktop 2=
+Window to Desktop 20=
+Window to Desktop 3=
+Window to Desktop 4=
+Window to Desktop 5=
+Window to Desktop 6=
+Window to Desktop 7=
+Window to Desktop 8=
+Window to Desktop 9=
+Window to Next Desktop=
+Window to Next Screen=Meta+Shift+Right
+Window to Previous Desktop=
+Window to Previous Screen=Meta+Shift+Left
+Window to Screen 0=
+Window to Screen 1=
+Window to Screen 2=
+Window to Screen 3=
+Window to Screen 4=
+Window to Screen 5=
+Window to Screen 6=
+Window to Screen 7=
+disableInputCapture=Meta+Shift+Esc
+view_actual_size=Meta+0
+view_zoom_in=Meta++; Meta+=
+view_zoom_out=Meta+-
+
+[net.local.code-3.desktop][Global Shortcuts]
+_launch=Meta+Alt+Ö
+
+[net.local.code-4.desktop][Global Shortcuts]
+_launch=Meta+Alt+,
+
+[net.local.pgDOWN.desktop][Global Shortcuts]
+_launch=Alt+I
+
+[net.local.wtype-2.desktop][Global Shortcuts]
+_launch=Alt+U
+
+[net.local.ww-10.desktop][Global Shortcuts]
+_launch=Meta+,
+
+[net.local.ww-11.desktop][Global Shortcuts]
+_launch=Meta+Ö
+
+[net.local.ww-12.desktop][Global Shortcuts]
+_launch=Meta+S
+
+[net.local.ww-3.desktop][Global Shortcuts]
+_launch=Meta+Return
+
+[net.local.ww-4.desktop][Global Shortcuts]
+_launch=Meta+E
+
+[net.local.ww-5.desktop][Global Shortcuts]
+_launch=Meta+G
+
+[net.local.ww-6.desktop][Global Shortcuts]
+_launch=Meta+F
+
+[net.local.ww-7.desktop][Global Shortcuts]
+_launch=Meta+T

@@ -1,0 +1,10 @@
+[067ff9d8-4639-481a-bba1-a6f941924445]
+Description=No-Titlebar
+noborder=true
+noborderrule=3
+wmclass=.*
+wmclassmatch=3
+
+[General]
+count=1
+rules=067ff9d8-4639-481a-bba1-a6f941924445

@@ -10,4 +10,4 @@ format:
     number-sections: true
     colorlinks: true
 ---
-" | xclip -selection clipboard
+" | wl-copy

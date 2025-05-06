@@ -23,10 +23,34 @@ nerd-fonts-complete
 # visual-studio-code-bin
 # code-marketplace
 # code-features-insiders
-albert
 wev
-wlprop
 grimshot-bin-sway
 clipman
 ripdrag
 pandoc-bin
+# qtorrent
+wl-clipboard
+zoxide
+7zip
+kdotool
+qt5-tools
+packagekit-qt6
+cmake
+wlprop
+wtype
+speech-dispatcher
+cups-pdf
+hplib
+podman
+podman-compose
+docker
+docker-compose
+kwalletmanager
+dolphin
+timeshift
+timeshift
+xorg-xhost
+ark
+nautilus
+gparted
+gnome-disk-utility
