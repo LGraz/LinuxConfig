@@ -1,4 +1,4 @@
-epson-inkjet-printer-escpr
+# epson-inkjet-printer-escpr
 ## --END OF MINIMAL INSTALL--
 # snapper-gui-git
 ###################
@@ -17,40 +17,11 @@ zoom
 # dmenu-recent-aliases-git
 ## to supress GTK3 decoration (resotres borders for nautilus in i3)
 # gtk3-nocsd-git
-# fonts
-nerd-fonts-complete
+# font
 #for_pyton_notebooks_in_code
 # visual-studio-code-bin
 # code-marketplace
 # code-features-insiders
-wev
-grimshot-bin-sway
-clipman
 ripdrag
-pandoc-bin
 # qtorrent
-wl-clipboard
-zoxide
-7zip
-kdotool
-qt5-tools
-packagekit-qt6
-cmake
-wlprop
-wtype
-speech-dispatcher
-cups-pdf
-hplib
-podman
-podman-compose
-docker
-docker-compose
-kwalletmanager
-dolphin
-timeshift
-timeshift
-xorg-xhost
-ark
-nautilus
-gparted
-gnome-disk-utility
+# --------------

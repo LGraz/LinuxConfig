@@ -12,45 +12,44 @@ gcc-fortran
 ##########################################
 ###   MY PACKAGES
 ##########################################
-android-file-transfer
+# android-file-transfer
 #### FONTS --------
 # ttf-dejavu
 # ttf-liberation
 # terminus-font
 ## --END OF MINIMAL INSTALL--
 # scanning - OCR - GUI
-tesseract
-tesseract-data-deu
-tesseract-data-deu_frak
-tesseract-data-eng
-gscan2pdf
+# tesseract
+# tesseract-data-deu
+# tesseract-data-deu_frak
+# tesseract-data-eng
+# gscan2pdf
 progress
-udiskie
-obsidian
-obs-studio
+# udiskie
+# obsidian
+# obs-studio
 # texlive
 yazi
-owncloud-client
-w3m
-terminator
+# owncloud-client
+# w3m
+# terminator
 # nerd-fonts
 jdk-openjdk
-atool
-podman
+# atool
+# podman
 wezterm
-sway
-swaybg
-swaylock
-swayidle
+# sway
+# swaybg
+# swaylock
+# swayidle
 okular
-ufw
-wiki-tui
-xdg-desktop-portal-wlr
+# ufw
+# wiki-tui
+# xdg-desktop-portal-wlr
 pdfarranger
-img2pdf
+# img2pdf
 perl-file-mimeinfo
-mpv
-qt5-tools
+# mpv
 kitty
 cups
 avahi
@@ -78,3 +77,11 @@ ark
 nautilus
 gparted
 gnome-disk-utility
+rustup
+zsh
+nerd-fonts
+syncthing
+libreoffice-still
+texlive
+biber
+

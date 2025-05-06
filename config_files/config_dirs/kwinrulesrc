@@ -1,5 +1,6 @@
 [067ff9d8-4639-481a-bba1-a6f941924445]
 Description=No-Titlebar
+Enabled=false
 noborder=true
 noborderrule=3
 wmclass=.*
