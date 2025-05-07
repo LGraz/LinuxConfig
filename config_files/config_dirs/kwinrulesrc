@@ -1,11 +1,15 @@
-[067ff9d8-4639-481a-bba1-a6f941924445]
-Description=No-Titlebar
-Enabled=false
-noborder=true
-noborderrule=3
-wmclass=.*
-wmclassmatch=3
+[975d7e1b-1521-4ec3-9f01-4f8c736e3368]
+Description=Firefox
+shortcut=Meta+F
+shortcutrule=3
+wmclass=firefox
+wmclasscomplete=true
+wmclassmatch=1
 
 [General]
-count=1
-rules=067ff9d8-4639-481a-bba1-a6f941924445
+count=2
+rules=975d7e1b-1521-4ec3-9f01-4f8c736e3368,fecc9325-417d-4f5a-bf71-1e3ebc566ecd
+
+[fecc9325-417d-4f5a-bf71-1e3ebc566ecd]
+Description=New window settings
+wmclassmatch=1

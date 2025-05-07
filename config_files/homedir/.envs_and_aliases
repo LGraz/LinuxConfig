@@ -37,9 +37,8 @@ ram="ps -e -o pid,vsz,comm= | sort -n -k 2"
 
 # Envs  ---> ~/.config/environment.d/myenvs.conf
 # export PS1="\[\033[38;5;11m\]\t\[$(tput sgr0)\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;11m\][\[$(tput sgr0)\]\w\[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;11m\]]\n\\$\[$(tput sgr0)\] "
-EDITOR=/bin/micro
-VISUAL=/usr/bin/code
-export PATH="$HOME/.local/bin:$PATH"
+# export EDITOR=/bin/micro
+# export VISUAL=/usr/bin/code
 
 # YAZI
 function yy() {

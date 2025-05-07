@@ -25,3 +25,7 @@ zoom
 ripdrag
 # qtorrent
 # --------------
+svn
+wl-copy
+--version
+wl-clipboard

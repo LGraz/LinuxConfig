@@ -85,3 +85,6 @@ libreoffice-still
 texlive
 biber
 
+svn
+--version
+wl-clipboard
