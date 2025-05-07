@@ -1,4 +1,4 @@
-# export LD_PRELOAD=""
+source ~/LinuxConfig/config_files/config_dirs/plasma-workspace/env/kde_env.sh
 
 # ALIASES
 #alias docker=podman

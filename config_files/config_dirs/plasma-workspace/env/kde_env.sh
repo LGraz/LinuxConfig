@@ -5,3 +5,4 @@ export EDITOR=/usr/bin/micro
 export VISUAL=/usr/bin/code
 export KDE_ENV=TRUE
 export SHELL=/bin/zsh
+export R_LIBS="$HOME/.local/lib/R"

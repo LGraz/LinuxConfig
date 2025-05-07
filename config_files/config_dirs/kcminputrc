@@ -7,3 +7,6 @@ NaturalScroll=false
 
 [Libinput][1739][52619][SYNA8004:00 06CB:CD8B Touchpad]
 NaturalScroll=true
+
+[Libinput][1739][52947][0X53 0X59 0X4E 0X50 06CB:CED3 Touchpad]
+NaturalScroll=true
