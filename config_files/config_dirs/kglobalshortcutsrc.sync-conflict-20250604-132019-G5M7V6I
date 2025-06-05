@@ -239,7 +239,7 @@ activate task manager entry 4=Meta+G\tMeta+4,Meta+4,Activate Task Manager Entry 
 activate task manager entry 5=Meta+Z\tMeta+5,Meta+5,Activate Task Manager Entry 5
 activate task manager entry 6=Meta+6\tMeta+T,Meta+6,Activate Task Manager Entry 6
 activate task manager entry 7=Meta+7\tMeta+S,Meta+7,Activate Task Manager Entry 7
-activate task manager entry 8=Meta+8,Meta+8,Activate Task Manager Entry 8
+activate task manager entry 8=Meta+Y\tMeta+8,Meta+8,Activate Task Manager Entry 8
 activate task manager entry 9=Meta+9,Meta+9,Activate Task Manager Entry 9
 clear-history=Meta+Alt+V,,Clear Clipboard History
 clipboard_action=Meta+Ctrl+X,Meta+Ctrl+X,Automatic Action Popup Menu
@@ -286,7 +286,7 @@ _launch=Meta+Space\tAlt+F2\tSearch
 ShowOSD=Meta+P\tDisplay\tMeta+O
 
 [superproductivity]
-Ctrl+Shift+X=none,Ctrl+Shift+X,Electron shortcut Ctrl+Shift+X
+Command+Y=none,Meta+Y,Electron shortcut Command+Y
 _k_friendly_name=superproductivity
 
 [token_chromium_E96F1F7FEA319C9EA245F4F600C44590]

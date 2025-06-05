@@ -29,3 +29,15 @@ svn
 wl-copy
 --version
 wl-clipboard
+superproductivity-bin
+open-cad
+libwebkit2gtk
+pulse-secure
+canon-cque
+kwalletmanager
+pandoc-bin
+quarto-cli-bin
+pam_mount
+system-config-printer
+superproductivity-bin
+owncloud-client

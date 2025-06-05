@@ -3,7 +3,7 @@ source ~/LinuxConfig/config_files/config_dirs/plasma-workspace/env/kde_env.sh
 # ALIASES
 #alias docker=podman
 alias dnf="sudo /usr/bin/dnf"
-alias R="/usr/bin/R -q --no-save --no-restore-data"
+alias R="R -q --no-save --no-restore-data"
 # alias ranger="python ~/Applications/ranger/ranger.py"
 alias f=ranger
 alias ls='/usr/bin/ls -Gh --color=auto --group-directories-first'
@@ -22,7 +22,7 @@ alias textidote="java -jar ~/Applications/textidote.jar"
 
 alias ssh-acer="ssh lukas@192.168.1.157"
 alias ssh-dirichlet="ssh lukas@192.168.1.218"
-
+alias plasma="/usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland"
 
 install() {
     echo "installing: $1  -----------------------------------"

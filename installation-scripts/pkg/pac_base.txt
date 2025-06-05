@@ -88,3 +88,6 @@ biber
 svn
 --version
 wl-clipboard
+gimp
+system-config-printer
+owncloud-client

@@ -105,8 +105,6 @@ if (interactive()) {
   }
 
 
-  # NO RSTUDIO / POSITRON --------------------------------------:
-  if (interactive() && Sys.getenv("RSTUDIO") == "" && Sys.getenv("POSITRON") == ""){
 
     ## INSTALL HELPERS
     installed <- function(pattern, which = c("Package", "Version"), ...) {
@@ -167,6 +165,9 @@ if (interactive()) {
       }
       invisible(e)
     }
+  # NO RSTUDIO / POSITRON --------------------------------------:
+  if (interactive() && Sys.getenv("RSTUDIO") == "" && Sys.getenv("POSITRON") == ""){
+
   }
 }
 

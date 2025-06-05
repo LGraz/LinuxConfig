@@ -335,7 +335,6 @@
         "r": true,
         "shellscript": true
     },
-    "ltex.additionalRules.enablePickyRules": true,
     "ltex.completionEnabled": true,
     "extends": "~/Documents/IT/secrets/vsc-config.json",
     "languageToolLinter.serviceType": "public",
@@ -366,5 +365,17 @@
     "editor.fontLigatures": true,
     "security.workspace.trust.untrustedFiles": "open",
     "window.customTitleBarVisibility": "never",
-    "window.titleBarStyle": "native"
+    "window.titleBarStyle": "native",
+    "markdown.math.enabled": true,
+    "markdown.math.macros": {
+        "\\sett": "\\left\\lbrace #1 \\mid #2 \\right\\rbrace",
+        "\\ordvRrrrrrrr": "\\mathbb{N}"
+    },
+    "workbench.colorTheme": "Default Positron Dark",
+    "r.libPaths": [
+        "$HOME/.local/lib/R"
+    ],
+    "positron.r.quietMode": true,
+    "positron.r.defaultRepositories": "none",
+    "ltex.additionalRules.motherTongue": "de-DE"
 }

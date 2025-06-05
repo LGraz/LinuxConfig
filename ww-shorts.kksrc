@@ -1,0 +1,27 @@
+[Custom Commands][net.local.code-3.desktop]
+Exec=code ~/Work/Foam-Work/
+Name=launch-foam-work
+
+[Custom Commands][net.local.code-4.desktop]
+Exec=code ~/Documents/Foam-Private
+Name=launch-foam-private
+
+[Custom Commands][net.local.ww-10.desktop]
+Exec=ww -fa Foam-Private -c
+Name=ww-Foam-Private
+
+[Custom Commands][net.local.ww-11.desktop]
+Exec=ww -fa Foam-Work -c
+Name=ww-Foam-Work
+
+[net.local.code-3.desktop][Global Shortcuts]
+_launch=Meta+Alt+Ö
+
+[net.local.code-4.desktop][Global Shortcuts]
+_launch=Meta+Alt+,
+
+[net.local.ww-10.desktop][Global Shortcuts]
+_launch=Meta+,
+
+[net.local.ww-11.desktop][Global Shortcuts]
+_launch=Meta+Ö

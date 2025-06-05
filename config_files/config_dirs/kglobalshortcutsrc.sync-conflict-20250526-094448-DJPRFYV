@@ -236,9 +236,9 @@ activate task manager entry 10=none,,Activate Task Manager Entry 10
 activate task manager entry 2=Meta+2\tMeta+Return,Meta+2,Activate Task Manager Entry 2
 activate task manager entry 3=Meta+E\tMeta+3,Meta+3,Activate Task Manager Entry 3
 activate task manager entry 4=Meta+G\tMeta+4,Meta+4,Activate Task Manager Entry 4
-activate task manager entry 5=Meta+Z\tMeta+5,Meta+5,Activate Task Manager Entry 5
+activate task manager entry 5=Meta+5\tMeta+S,Meta+5,Activate Task Manager Entry 5
 activate task manager entry 6=Meta+6\tMeta+T,Meta+6,Activate Task Manager Entry 6
-activate task manager entry 7=Meta+7\tMeta+S,Meta+7,Activate Task Manager Entry 7
+activate task manager entry 7=Meta+7,Meta+7,Activate Task Manager Entry 7
 activate task manager entry 8=Meta+8,Meta+8,Activate Task Manager Entry 8
 activate task manager entry 9=Meta+9,Meta+9,Activate Task Manager Entry 9
 clear-history=Meta+Alt+V,,Clear Clipboard History
@@ -258,11 +258,8 @@ switch to next activity=none,,Switch to Next Activity
 switch to previous activity=none,,Switch to Previous Activity
 toggle do not disturb=none,,Toggle do not disturb
 
-[services][net.local.code-2.desktop]
-_launch=Meta+Alt+,
-
 [services][net.local.code.desktop]
-_launch=Meta+Alt+Ö
+_launch=Meta+Alt+,
 
 [services][net.local.pgDOWN.desktop]
 _launch=Alt+I
@@ -270,10 +267,10 @@ _launch=Alt+I
 [services][net.local.wtype-2.desktop]
 _launch=Alt+U
 
-[services][net.local.ww-2.desktop]
+[services][net.local.ww-4.desktop]
 _launch=Meta+,
 
-[services][net.local.ww.desktop]
+[services][net.local.ww-5.desktop]
 _launch=Meta+Ö
 
 [services][org.kde.dolphin.desktop]

@@ -112,10 +112,10 @@ Toggle Night Color=none,none,Suspend/Resume Night Light
 Toggle Window Raise/Lower=none,,Toggle Window Raise/Lower
 Walk Through Windows=Alt+Tab\tMeta+B,Alt+Tab,Walk Through Windows
 Walk Through Windows (Reverse)=Alt+Shift+Tab,Alt+Shift+Tab,Walk Through Windows (Reverse)
-Walk Through Windows Alternative=none,,Walk Through Windows Alternative
-Walk Through Windows Alternative (Reverse)=none,,Walk Through Windows Alternative (Reverse)
-Walk Through Windows of Current Application=Meta+^\tAlt+`,Alt+`,Walk Through Windows of Current Application
-Walk Through Windows of Current Application (Reverse)=Alt+~\tMeta+Alt+^,Alt+~,Walk Through Windows of Current Application (Reverse)
+Walk Through Windows Alternative=Meta+I,,Walk Through Windows Alternative
+Walk Through Windows Alternative (Reverse)=Meta+U,,Walk Through Windows Alternative (Reverse)
+Walk Through Windows of Current Application=Meta+^,Alt+`,Walk Through Windows of Current Application
+Walk Through Windows of Current Application (Reverse)=Alt+~,Alt+~,Walk Through Windows of Current Application (Reverse)
 Walk Through Windows of Current Application Alternative=none,,Walk Through Windows of Current Application Alternative
 Walk Through Windows of Current Application Alternative (Reverse)=none,,Walk Through Windows of Current Application Alternative (Reverse)
 Window Above Other Windows=none,,Keep Window Above Others
@@ -286,7 +286,7 @@ _launch=Meta+Space\tAlt+F2\tSearch
 ShowOSD=Meta+P\tDisplay\tMeta+O
 
 [superproductivity]
-Ctrl+Shift+X=none,Ctrl+Shift+X,Electron shortcut Ctrl+Shift+X
+Command+Y=none,Meta+Y,Electron shortcut Command+Y
 _k_friendly_name=superproductivity
 
 [token_chromium_E96F1F7FEA319C9EA245F4F600C44590]

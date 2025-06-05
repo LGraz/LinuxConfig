@@ -1,5 +1,17 @@
-[plugin]
-deps = [{ use = "KKV9/compress", rev = "60b24af" }]
+[[plugin.deps]]
+use = "KKV9/compress"
+rev = "60b24af"
+hash = ""
+
+[[plugin.deps]]
+use = "Ev357/compress"
+rev = "addea98"
+hash = "eb56f28f5d44e121276523007a7e8f83"
+
+[[plugin.deps]]
+use = "ndtoan96/ouch"
+rev = "2496cd9"
+hash = "5b9dea47776a30946cfbf83232d18fb1"
 
 [flavor]
 deps = []

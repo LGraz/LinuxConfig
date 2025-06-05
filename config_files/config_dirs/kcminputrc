@@ -9,4 +9,5 @@ NaturalScroll=false
 NaturalScroll=true
 
 [Libinput][1739][52947][0X53 0X59 0X4E 0X50 06CB:CED3 Touchpad]
+Enabled=true
 NaturalScroll=true
