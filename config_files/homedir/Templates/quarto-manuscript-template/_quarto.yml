@@ -10,23 +10,34 @@ manuscript:
   code-links:
     - text: CarsPlot Code
       icon: file-code
-      href: notebooks/cars-plot.qmd
+      href: presentation/index.html
+      # href: notebooks/cars-plot.qmd
+
   resources:
     - data/cars.csv
+    # - presentation/index.html
 
 format:
   html:
     comments:
       hypothesis: true
     other-links:
+      - text: CarsPlot Code
+        icon: file-code
+        href: presentation/index.html
       - text: NASA Open Data
         href: https://data.nasa.gov/
+    include-in-header:
+      - text: "<style>.quarto-notebook .cell-container .cell-decorator { display: none; }</style>"
   # docx: default
   # jats: default
   # pdf: default
 
 # execute:
 #   freeze: true
+#   warning: false
+#   message: false
+#   error: false
 
 
 

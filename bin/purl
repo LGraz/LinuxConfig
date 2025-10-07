@@ -1,0 +1,122 @@
+#!/bin/bash
+
+# http://stackoverflow.com/questions/402377/
+# using-getopts-in-bash-shell-script-to-get-long-and-short-command-line-options
+
+OPTIONS=$@
+OPTNUM=$#
+
+_usage() {
+    cat <<EOF
+purl $OPTIONS
+$*
+    Usage:    purl <[options]> file
+
+      file
+        Is a filename with extension *.Qmd, *.Rmd or *.Rnw.
+
+    Options:
+
+      -h  --help          Show this message
+      -n  --noheaders     Remove chunk headers
+      -o  --output=...    Set an output filename or sulfix
+
+    Example:
+
+      purl
+
+EOF
+}
+
+if [ $# = 0 ]
+then
+    _usage
+    exit 1
+fi
+
+TEMP=`getopt -o hno: --long help,noheaders,output: -n 'purl' -- "$@"`
+
+if [ $? != 0 ]
+then
+    echo "Terminating." >&2
+    exit 1
+fi
+
+eval set -- "$TEMP"
+
+NOHEADER=false
+OUTPUT=
+while true; do
+    case "$1" in
+        -h | --help )
+            _usage
+            break
+            ;;
+        -n | --noheaders )
+            NOHEADER=true
+            shift
+            ;;
+        -o | --output )
+            OUTPUT="$2"
+            shift 2
+            ;;
+        -- )
+            shift
+            break
+            ;;
+        * )
+            _usage
+            break
+            ;;
+    esac
+done
+
+FILELIST=$@
+
+SULFIX=
+if [ $# -gt 1 ]
+then
+    echo "Number of files is greater than one so $OUTPUT will be used as sulfix."
+    SULFIX=$OUTPUT
+fi
+
+for INPUT in $FILELIST;
+do
+    if [ ! -f "$INPUT" ]
+    then
+        echo "$INPUT doesn't exists."
+        continue
+    fi
+
+    if [ -z "$OUTPUT" ]
+    then
+        OUTPUT="${INPUT%.*}.R"
+    else
+        OUTPUT="${INPUT%.*}$SULFIX.R"
+    fi
+
+    case "$INPUT" in
+        *.Qmd | *.qmd | *.Rmd | *.rmd | *.Rnw | *.rnw )
+            echo
+            echo "Running knitr::purl(\"$INPUT\", output=\"$OUTPUT\")."
+            echo
+            Rscript -e "require(knitr); purl(\"$INPUT\", output=\"$OUTPUT\")"
+            ;;
+        *)
+            echo "The file $INPUT has a non supported file extension."
+            exit 1
+            ;;
+    esac
+
+    if [[ "$NOHEADER" == "true" ]]
+    then
+        echo
+        echo "Removing chunk headers in the $OUTPUT file."
+        echo
+        grep -Ev '## ----' $OUTPUT > .aux
+        cat -s .aux > $OUTPUT
+        rm .aux
+    fi
+    echo
+    echo
+done

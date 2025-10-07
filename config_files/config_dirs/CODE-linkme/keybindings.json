@@ -558,7 +558,7 @@
         "key": "alt+m",
         "command": "r.runCommandWithSelectionOrWord",
         "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave' || editorLangId == 'quarto'",
-        "args": "if (grepl(paste0('^\\\\s*', r_obj_regex, '\\\\s*\\\\(\\\\s*', r_obj_regex), '$$')) what_method_is_called('$$') else if(is.function(get('$$'))) methods('$$') else methods(class=class(get('$$')))" 
+        "args": "if (grepl(paste0('^\\\\s*', r_obj_regex, '\\\\s*\\\\(\\\\s*', r_obj_regex), '$$')) what_method_is_called('$$') else if(is.function(get('$$'))) methods('$$') else class_methods(class=class(get('$$')))" 
     },
     {//r_view
         "key": "alt+v",
@@ -571,6 +571,12 @@
         "command": "r.runCommandWithSelectionOrWord",
         "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave' || editorLangId == 'quarto'",
         "args": "eval_to_clipboard($$)" //r_eval_expr_to_clipboard
+    },
+    {//deparse1_to_clipboard
+        "key": "alt+shift+o",
+        "command": "r.runCommandWithSelectionOrWord",
+        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave' || editorLangId == 'quarto'",
+        "args": "eval_to_clipboard(cat(deparse1($$, backtick = TRUE)), prefix=\"\")" //r_eval_expr_to_clipboard
     },
     {
         "key": "ctrl+k ctrl+b",
@@ -644,7 +650,7 @@
     {
         "key": "alt+backspace",
         "command": "macros.FOAM_SETUP",
-        "when": "config.isFoam"
+        "when": "config.isFoam || config.isTODO"
     },
     {
         "key": "shift+alt+d",
@@ -721,5 +727,13 @@
         "key": "ctrl+pagedown",
         "command": "-quarto.goToNextCell",
         "when": "editorTextFocus && editorLangId == 'quarto'"
+    },
+    {
+        "key": "ctrl+alt+z",
+        "command": "extension.openInZotero"
+    },
+    {
+        "key": "ctrl+shift+z",
+        "command": "-extension.openInZotero"
     },
 ]

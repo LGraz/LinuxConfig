@@ -14,7 +14,7 @@ config.color_scheme = 'Tomorrow Night Bright (Gogh)'
 
 config.hide_tab_bar_if_only_one_tab = true
 config.font_size = 16.0
-
+config.window_background_opacity = 0.9
 
 config.skip_close_confirmation_for_processes_named = {
   'bash',
@@ -36,6 +36,9 @@ config.window_padding = {
   top = 1,
   bottom = 1,
 }
+
+config.initial_cols = 120
+config.initial_rows = 40
 
 config.default_prog = { 'yazi' }
 

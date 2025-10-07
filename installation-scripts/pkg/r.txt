@@ -1,20 +1,21 @@
 # install(read.table('~/LinuxConfig/installation-scripts/pkg/r.txt')[[1]])
 # non-stats packages
+devtools
+tidyverse
+mlr3verse
 BiocManager
 Rcpp
-devtools
 jsonlite
 knitr
 languageserver
 rstudioapi
 R6
-vscDebugger
 rmarkdown
 httpgd
 parallel
 # stats packages
 car
-caret
+# caret
 DEoptimR
 earth
 simr
@@ -27,11 +28,10 @@ randomForest
 readxl
 robustbase 
 lavaan
-semPlot
+# semPlot
 renv
 emmeans
-georob
-tidyverse
+# georob
 # install.packages("vscDebugger", repos = "https://manuelhentschel.r-universe.dev")
 spotifyr
 tinyspotifyr
@@ -63,6 +63,51 @@ coin
 TH.data
 numDeriv
 KONPsurv
-rim
+# rim
 sandwich
 corrplot
+kableExtra
+missForest
+gamm4
+ggpairs
+asbio
+ggtext
+ggpmisc
+latex2exp
+GGally
+mlt.docreg
+tramvs
+tramicp
+tramnet
+chron
+ciTools
+Hmsc
+season
+HSAUR3
+eha
+AER
+ordinal
+ordinalCont
+# tram suggests:
+SparseGrid
+merDeriv
+coxme
+asht
+gamlss
+randomForestSRC
+geepack
+frailtyEM
+frailtypack
+gamlss.cens
+mpr
+timereg
+Stat2Data
+gamlss.data
+Stat2Data
+# end tram suggest
+pacman
+tmb
+pkgnet
+recipes
+mice
+misty

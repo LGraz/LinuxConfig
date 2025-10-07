@@ -70,6 +70,22 @@ if (interactive()) {
     X(...)
   }
 
+  # function that for each class of obj, finds all methods and nicely prints them
+  class_methods <- function(class){
+    ret <- list()
+    if(!is.character(class)) {
+      class <- class(class)
+    }
+    for (cl in class) {
+      ret[[cl]] <- NULL
+      m <- methods(class = cl)
+      if (length(m) > 0) {
+        ret[[cl]] <- attr(m, "info")$generic
+    }}
+    ret
+    }
+
+
   what_method_is_called <- function(selected) {
     # use like: findMethhod("plot", mynumbers)
     findMethod <- function(generic, ...) {

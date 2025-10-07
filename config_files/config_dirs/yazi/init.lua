@@ -26,3 +26,5 @@ end, 500, Status.RIGHT)
 require("zoxide"):setup {
 	update_db = true,
 }
+
+require("sshfs"):setup()

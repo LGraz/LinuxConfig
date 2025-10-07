@@ -1,3 +1,25 @@
+# Toggle panes
+[[mgr.prepend_keymap]]
+on   = "B"
+run  = "plugin toggle-pane min-parent"
+desc = "Minimize/Toggle parent pane"
+[[mgr.prepend_keymap]]
+on   = "V"
+run  = "plugin toggle-pane max-preview"
+desc = "Maximize or restore the preview pane"
+
+
+# Zoom image
+[[mgr.prepend_keymap]]
+on   = "+"
+run  = "plugin zoom 1"
+desc = "Zoom in hovered file"
+[[mgr.prepend_keymap]]
+on   = "-"
+run  = "plugin zoom -1"
+desc = "Zoom out hovered file"
+
+
 [[mgr.prepend_keymap]]
 on = "q"
 run = "close"
@@ -66,6 +88,13 @@ desc = "Open with Firefox (detached)"
 on = [ "E" ]
 run = "shell 'code \"$@\"' --silent --orphan"
 desc = "Open with VS Code (detached)"
+
+# SSH
+[[mgr.prepend_keymap]]
+on = ["M","s"]
+run = "plugin sshfs -- menu"
+desc = "Open SSHFS options"
+
 
 ######################################
 ## GO TO

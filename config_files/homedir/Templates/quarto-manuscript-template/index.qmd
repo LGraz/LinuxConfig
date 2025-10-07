@@ -19,7 +19,7 @@ bibliography: writing/references.bib
 keywords:
   - KI
   - AI
-abstract: > 
+abstract: |
   Bla Bla
   Bla ...
 ---
@@ -28,8 +28,6 @@ abstract: >
 This is a simple placeholder for the manuscript's main document [@knuth84].
 
 {{< include writing/05-preface.qmd >}}
-
-{{< include writing/10-abstract.qmd >}}
 
 {{< include writing/15-intro.qmd >}}
 
