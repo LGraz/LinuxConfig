@@ -12,6 +12,9 @@
     ssh -T git@github.com # confirm with yes
 
 
+# npm directory:
+npm config set prefix ~/.npm-global
+
 # PIP / Python-modules
     pip3 install radian
 

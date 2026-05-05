@@ -15,3 +15,8 @@ Templates/quarto-manuscript-template/_manuscript/*
 
 **/.stfolder/
 **/.stversions/
+
+**sync-conflict**
+
+password
+sd_password

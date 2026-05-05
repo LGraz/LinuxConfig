@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# Configuration
+REPO="/media/lukas/BackupLG/restic-repo"
+PASS_FILE="/home/lukas/.config/restic/sd_password"
+MOUNT_POINT="$HOME/mnt/restic"
+
+# Ensure mount point exists
+mkdir -p "$MOUNT_POINT"
+
+# Check if already mounted
+if mountpoint -q "$MOUNT_POINT"; then
+    echo "Repository already mounted at $MOUNT_POINT"
+    yazi "$MOUNT_POINT/snapshots/latest"
+    exit 0
+fi
+
+echo "Mounting Restic Repository..."
+
+# export variables for restic
+export RESTIC_REPOSITORY="$REPO"
+export RESTIC_PASSWORD_FILE="$PASS_FILE"
+
+# Start restic mount in the background
+# We silence stdout to keep yazi clean, but keep stderr for errors
+restic mount "$MOUNT_POINT" > /dev/null &
+RESTIC_PID=$!
+
+# Trap: Ensure we unmount and kill the background process when script exits
+cleanup() {
+    echo "Unmounting..."
+    # fusermount -u is safer for user mounts than umount
+    fusermount -u "$MOUNT_POINT" 2>/dev/null || umount "$MOUNT_POINT"
+    
+    # Ensure background process is dead
+    if ps -p $RESTIC_PID > /dev/null; then
+        kill $RESTIC_PID
+    fi
+}
+trap cleanup EXIT INT TERM
+
+# Wait for the mount to become available
+MAX_RETRIES=50
+COUNT=0
+while ! mountpoint -q "$MOUNT_POINT"; do
+    sleep 0.1
+    COUNT=$((COUNT+1))
+    if [ "$COUNT" -ge "$MAX_RETRIES" ]; then
+        echo "Error: Mount timed out."
+        exit 1
+    fi
+    # Check if restic died (e.g. wrong password or lock)
+    if ! ps -p $RESTIC_PID > /dev/null; then
+        echo "Error: Restic process died unexpectedly."
+        exit 1
+    fi
+done
+
+# Open Yazi in the 'latest' snapshot directory
+# The structure is usually /snapshots/latest/home/lukas/...
+echo "Mount ready. Opening Yazi..."
+yazi "$MOUNT_POINT/snapshots/latest/home/lukas"
+
+# When you quit Yazi, the script continues to the trap (cleanup) and unmounts.

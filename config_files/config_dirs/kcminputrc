@@ -2,8 +2,13 @@
 RepeatDelay=300
 RepeatRate=45
 
+[Libinput][1133][49298][Logitech G203 LIGHTSYNC Gaming Mouse]
+PointerAcceleration=0.200
+
 [Libinput][1739][52619][SYNA8004:00 06CB:CD8B Mouse]
 NaturalScroll=false
+PointerAcceleration=0.000
+PointerAccelerationProfile=2
 
 [Libinput][1739][52619][SYNA8004:00 06CB:CD8B Touchpad]
 NaturalScroll=true

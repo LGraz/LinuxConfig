@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Super Productivity
+Exec="/opt/Super Productivity/superproductivity" --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations %U
+Terminal=false
+Type=Application
+Icon=superproductivity
+StartupWMClass=Super Productivity
+Comment=ToDo list and Time Tracking
+Categories=Office;ProjectManagement;

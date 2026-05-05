@@ -20,6 +20,8 @@ alias thunderbird="GTK_THEME=Arc /bin/thunderbird"
 
 alias textidote="java -jar ~/Applications/textidote.jar"
 
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+
 alias ssh-acer="ssh lukas@192.168.1.157"
 alias ssh-dirichlet="ssh lukas@192.168.1.218"
 alias plasma="/usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland"

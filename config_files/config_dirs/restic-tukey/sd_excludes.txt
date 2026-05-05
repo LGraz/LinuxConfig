@@ -1,0 +1,21 @@
+# --- Deep Excludes ---
+# These match anywhere in the tree (e.g., inside ~/Work/Project/)
+node_modules/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.vagrant/
+.docker/
+.R/
+*cache*/
+
+# --- Visible Top-Level Dirs ---
+# Heavy media/downloads usually excluded from essential backups
+Videos/
+Downloads/
+
+# --- Hidden Top-Level Dirs ---
+# Excludes all directories starting with . in /home/lukas/
+# Examples: .config/, .local/, .cache/, .ssh/, .gnupg/
+# Note: This preserves dot-files like ~/.Rprofile or ~/.bashrc
+/home/lukas/.*/

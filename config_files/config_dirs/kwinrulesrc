@@ -1,0 +1,17 @@
+[4f4d550f-2463-4d06-84fb-73401b0fabe6]
+Description=Unikllable Terminal
+closeablerule=2
+wmclass=kitty kitty
+wmclasscomplete=true
+wmclassmatch=1
+
+[General]
+count=2
+rules=4f4d550f-2463-4d06-84fb-73401b0fabe6,e5e41196-1813-4d58-b63a-54449803a628
+
+[e5e41196-1813-4d58-b63a-54449803a628]
+Description=unkillable yazi
+closeablerule=2
+wmclass=wezterm-gui org.wezfurlong.wezterm
+wmclasscomplete=true
+wmclassmatch=1

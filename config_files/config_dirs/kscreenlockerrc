@@ -1,3 +1,7 @@
 [Daemon]
 LockGrace=300
 Timeout=30
+
+[Greeter][Wallpaper][org.kde.image][General]
+Image=file:///usr/share/wallpapers/EndeavourOS/
+PreviewImage=file:///usr/share/wallpapers/EndeavourOS/

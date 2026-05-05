@@ -142,29 +142,29 @@
     {
         "key": "alt+j",
         "command": "workbench.action.terminal.focusNextPane",
-        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+        "when": "panelFocus && terminalFocus && terminalHasBeenCreated || panelFocus && terminalFocus && terminalProcessSupported"
     },
     {
         "key": "alt+k",
         "command": "workbench.action.terminal.focusPreviousPane",
-        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+        "when": "panelFocus && terminalFocus && terminalHasBeenCreated || panelFocus && terminalFocus && terminalProcessSupported"
     },
     // focus terminal-tabs
     {
         "key": "alt+h",
         "command": "workbench.action.terminal.focusPrevious",
-        "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+        "when": "panelFocus && terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || panelFocus && terminalFocus && terminalProcessSupported && !terminalEditorFocus"
     },
     {
         "key": "alt+l",
         "command": "workbench.action.terminal.focusNext",
-        "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+        "when": "panelFocus && terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || panelFocus && terminalFocus && terminalProcessSupported && !terminalEditorFocus"
     },
     // resize Panel
     {
         "key": "ctrl+shift+right",
         "command": "-workbench.action.terminal.resizePaneRight",
-        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+        "when": "panelFocus && terminalFocus && terminalHasBeenCreated || panelFocus && terminalFocus && terminalProcessSupported"
     },
     {
         "key": "ctrl+alt+l",
@@ -218,8 +218,18 @@
     },
     {
         "key": "alt+space",
-        "command": "workbench.action.focusPanel",
+        "command": "workbench.action.focusFirstEditorGroup",
+        "when": ""
+    },
+    {
+        "key": "alt+space",
+        "command": "workbench.action.terminal.focus",
         "when": "editorFocus"
+    },
+    {
+        "key": "alt+space",
+        "command": "workbench.debug.action.toggleRepl",
+        "when": "editorFocus && inDebugMode"
     },
     {
         "key": "alt+space",
@@ -236,6 +246,18 @@
         "key": "shift+alt+enter",
         "command": "workbench.action.terminal.new"
     },
+    // Move terminal editor/panel
+    {
+        "key": "shift+alt+space",
+        "command": "workbench.action.terminal.moveToEditor",
+        "when": "terminalFocus"
+    },
+    // {
+    //     "key": "shift+alt+l",
+    //     "command": "workbench.action.terminal.moveToTerminalPanel",
+    //     "when": "terminalEditorFocus && terminalFocus && editorfocus"
+    // },
+
     // toggle fullscreen
     {
         "key": "alt+f11",
@@ -465,14 +487,6 @@
         "command": "-workbench.action.navigateForward"
     },
     {
-        "key": "ctrl+i",
-        "command": "cursorRedo"
-    },
-    {
-        "key": "alt+e",
-        "command": "editor.toggleFold"
-    },
-    {
         "key": "ctrl+7",
         "command": "-workbench.action.focusSeventhEditorGroup"
     },
@@ -480,22 +494,6 @@
         "key": "ctrl+7",
         "command": "editor.action.commentLine",
         "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "alt+p",
-        "command": "editor.gotoParentFold"
-    },
-    {
-        "key": "alt+n",
-        "command": "editor.gotoNextFold"
-    },
-    {
-        "key": "shift+alt+n",
-        "command": "editor.gotoPreviousFold"
-    },
-    {
-        "key": "alt+[Minus]",
-        "command": "r.helpPanel.openForSelection"
     },
     {
         "key": "alt+left",
@@ -736,4 +734,9 @@
         "key": "ctrl+shift+z",
         "command": "-extension.openInZotero"
     },
+    {
+        "key": "alt+h",
+        "command": "-editor.action.accessibilityHelpOpenHelpLink",
+        "when": "accessibilityHelpIsShown"
+    }
 ]

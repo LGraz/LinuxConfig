@@ -1,113 +1,106 @@
-# install(read.table('~/LinuxConfig/installation-scripts/pkg/r.txt')[[1]])
-# non-stats packages
-devtools
-tidyverse
-mlr3verse
+# pak::pkg_install(read.table('~/LinuxConfig/installation-scripts/pkg/r.txt', comment.char = "#")[[1]], upgrade = FALSE)
+# 
+### General & Development ------------------------------------
 BiocManager
-Rcpp
+devtools
+httpgd
 jsonlite
 knitr
 languageserver
-rstudioapi
+pacman
+pak
 R6
-rmarkdown
-httpgd
-parallel
-# stats packages
-car
-# caret
-DEoptimR
-earth
-simr
-ellipsis
-forcats
-glmnet
-lmerTest
-multcomp
-randomForest
+Rcpp
 readxl
-robustbase 
-lavaan
-# semPlot
 renv
-emmeans
-# georob
-# install.packages("vscDebugger", repos = "https://manuelhentschel.r-universe.dev")
-spotifyr
-tinyspotifyr
-komaletter
+rmarkdown
+rstudioapi
+tidyverse
+
+### Numerical Packages ---------------------------------------
+DEoptimR
 mcreplicate
-RSQLite
-perm
-glmmTMB
-equatiomatic
-vegan
-DescTools
-qreport
-coin
-robustlmm
-xgboost
-ranger
-# TH-packages
-trtf
-ATR
-memisc
-colorspace
-grid
-rgl
-cotram
-gsl
-tramME
-icenReg
-coin
-TH.data
 numDeriv
-KONPsurv
-# rim
-sandwich
-corrplot
-kableExtra
-missForest
-gamm4
-ggpairs
-asbio
-ggtext
-ggpmisc
-latex2exp
-GGally
-mlt.docreg
-tramvs
-tramicp
-tramnet
-chron
-ciTools
-Hmsc
-season
-HSAUR3
-eha
-AER
-ordinal
-ordinalCont
-# tram suggests:
 SparseGrid
-merDeriv
-coxme
+
+### Stats -- PhD (Survival, TRAM, specific models) -----------
 asht
-gamlss
-randomForestSRC
-geepack
+coin
+cotram
+coxme
 frailtyEM
 frailtypack
+gamlss
 gamlss.cens
-mpr
-timereg
-Stat2Data
 gamlss.data
+geepack
+Hmsc
+icenReg
+merDeriv
+mlt.docreg
+mpr
+randomForestSRC
 Stat2Data
-# end tram suggest
-pacman
-tmb
-pkgnet
-recipes
+TH.data
+timereg
+tram
+tramicp
+tramME
+tramnet
+tramvs
+
+### Stats -- General (Modeling, Mixed Models, Imputation) ----
+car
+DescTools
+earth
+emmeans
+glmmTMB
+glmnet
+lavaan
+lmerTest
 mice
+missForest
 misty
+mlr3verse
+multcomp
+randomForest
+ranger
+recipes
+robustbase 
+robustlmm
+sandwich
+simr
+vegan
+xgboost
+
+### Plotting, Tables & Reporting -----------------------------
+colorspace
+corrplot
+equatiomatic
+ggpmisc
+ggtext
+GGally
+kableExtra
+komaletter
+latex2exp
+tableone
+
+### GitHub / External ----------------------------------------
+jalvesaq/colorout
+manuelhentschel/vscDebugger
+
+### MISC -----------------------------------------------------
+ATR
+chron
+ciTools
+gamm4
+KONPsurv
+memisc
+ordinal
+ordinalCont
+pkgnet
+trtf
+
+### Not needed? / Legacy? ------------------------------------
+
+### NEW                   ------------------------------------

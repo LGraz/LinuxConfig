@@ -1,0 +1,33 @@
+#!/usr/bin/env Rscript
+
+# spin instead of stitch for more rich control, but this only produces tex
+
+args <- commandArgs(trailingOnly = TRUE)
+input_fpath <- args[1]
+if (length(args) == 0) {
+  stop("Usage: Rscript script.R <input_file.R>")
+}
+if (!file.exists(input_fpath)) {
+  stop("File not found: ", input_fpath)
+}
+
+base_name <- basename(input_fpath)
+path_without_ext <- gsub("\\.R$", "", input_fpath, ignore.case = TRUE)
+knitr::stitch(input_fpath)
+
+# Define tex and log files to remove
+tex_file <- gsub("\\.R$", ".tex", base_name, ignore.case = TRUE)
+log_file <- gsub("\\.R$", ".log", base_name, ignore.case = TRUE)
+pdf_file <- gsub("\\.R$", ".pdf", base_name, ignore.case = TRUE)
+
+# Remove auxiliary files
+if (file.exists(tex_file)) {
+  file.remove(tex_file)
+  cat("Removed:", tex_file, "\n")
+}
+if (file.exists(log_file)) {
+  file.remove(log_file)
+  cat("Removed:", log_file, "\n")
+}
+
+file.rename(pdf_file, paste0(dirname(input_fpath), "/", pdf_file))

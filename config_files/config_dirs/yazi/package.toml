@@ -1,22 +1,22 @@
 [[plugin.deps]]
 use = "ndtoan96/ouch"
-rev = "bb941c4"
-hash = "956b02fe8213e7b92e21a941b9abe764"
-
-[[plugin.deps]]
-use = "yazi-rs/plugins:zoom"
-rev = "d7588f6"
-hash = "4a47a9cd4d8b3a963cb4cc593664b77e"
+rev = "406ce6c"
+hash = "f5afc904d5106ee368c8aa2ded43bd74"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "d7588f6"
-hash = "d6f60c24d8c0cf57a855bf46115b2502"
+rev = "1962818"
+hash = "4c0260feb50ea2437380690ffc241da7"
 
 [[plugin.deps]]
 use = "uhs-robert/sshfs"
-rev = "0d6e699"
-hash = "458a404b1b9d6e72ee27812629782a0b"
+rev = "4070c8e"
+hash = "a4cd81fe60c350c3f0fde9957f4a4bb9"
+
+[[plugin.deps]]
+use = "aresler/path-from-root"
+rev = "3daa62f"
+hash = "f3375d21ceb5f49d2d50ad199262006a"
 
 [flavor]
 deps = []

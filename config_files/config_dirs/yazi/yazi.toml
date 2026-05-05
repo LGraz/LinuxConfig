@@ -34,6 +34,9 @@ open = [
 	{ run = 'mimeopen -a "$1"', desc = "mimeopen (ask)"    , for = "linux", block = true, orphan = true}, # requires perl-file-mimeinfo
 	{ run = 'mimeopen -d "$1"', desc = "mimeopen (default)", for = "linux", block = true, orphan = true}, # requires perl-file-mimeinfo
 ]
+r_to_pdf = [
+    { run = '''Rscript -e "knitr::stitch('$1')" && rm -f "${1%.*}.tex" "${1%.*}.log"''', desc = "Stitch PDF from R", for = "linux" },
+]
 topdf = [
     { run = 'libreoffice --headless --convert-to pdf --outdir "$(dirname "$1")" "$@"', desc = "Convert to PDF", for = "linux" },
 ]
@@ -64,6 +67,8 @@ prepend_rules = [
 	{ mime = "image/*", use = [ "open", "reveal" ] },
 	# Folder
 	{ name = "*/", use = [ "open", "reveal" ] },
+	# R
+	{ name = "*.R", use = [ "r_to_pdf" ] },
 ]
     ## DEFAULTS
 	# # Media

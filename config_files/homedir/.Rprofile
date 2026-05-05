@@ -1,9 +1,19 @@
-options(keep.source.pkgs = TRUE)
+options(keep.source.pkgs = TRUE); Sys.setenv(R_KEEP_PKG_SOURCE = "yes") # also in .Renviron
 ## CRAN mirror
 r <- getOption("repos")
 r["CRAN"] <- "https://stat.ethz.ch/CRAN/"
 options(repos = r); rm(r)
+options(save = "no")
 
+## Ncpus / mc.cores
+if ("parallel" %in% .packages(all.available=TRUE)){
+  Ncores <- as.integer(parallel::detectCores() - 2)
+  if (Ncores %in% 2:256) {
+    options(Ncpus = Ncores)
+    options(mc.cores = Ncores)
+    # Sys.setenv(OPENBLAS_NUM_THREADS = Ncores) # for openblas
+  }; rm(Ncores)
+}
 
 
 # help page in terminal
@@ -31,34 +41,28 @@ options(languageserver.formatting_style =
   })
 }
 
-## Ncpus / mc.cores
-if ("parallel" %in% .packages(all.available=TRUE)){
-  Ncores <- as.integer(parallel::detectCores() - 2)
-  if (Ncores %in% 2:256) {
-    options(Ncpus = Ncores)
-    options(mc.cores = Ncores)
-  }; rm(Ncores)
-}
-
 if (interactive()){
   options(digits = 5)
   if ("rlang" %in% .packages(all.available=TRUE))
  
-  options(error = function() {
-    rlang::entrace()            # Capture the traceback
-    print(rlang::last_trace())   # Display the captured traceback immediately
-  })
+  rlang::global_entrace()
+  options(rlang_backtrace_on_warning_report = "branch")
+  options(rlang_backtrace_on_warning = "branch")
+  options(rlang_backtrace_on_error_report = "branch")
+  options(rlang_backtrace_on_error = "branch")
 
   if (Sys.getenv("RSTUDIO") == "" && Sys.getenv("POSITRON") == ""){
     options(prompt = "\001\033[0;35m\033[1m\002>\001\033[0m\002 ") # get pink prompt:
     options(prompt = "\001\033[0;35m\002>\001\033[0m\002 ") # get pink prompt:
   }
+
+  .Last <- function()
+    if(interactive()) try(savehistory("~/.Rhistory"))
 }
 
-Rprofile_objs <- local({
+if (interactive() && Sys.info()["nodename"] %in% c("tukey", "salem", "dirichlet") ) {
+Rprofile_objs_interactive <- local({
 # INTERACTIVE --------------------------------------------------
-if (interactive()) {
-
   ### VS-CODE MACROS -------------------------------------------
   # usage in combination with macros:
   r_obj_regex <- "((([[:alpha:]]|[.][._[:alpha:]])[._[:alnum:]]*)|[.])"
@@ -121,26 +125,6 @@ if (interactive()) {
   }
 
 
-
-    ## INSTALL HELPERS
-    installed <- function(pattern, which = c("Package", "Version"), ...) {
-      installed <- installed.packages(...)
-      ind <- grep(pattern, installed[, "Package"], ignore.case = TRUE)
-      installed[ind, which]
-    }
-    # only install if missing
-    install <- function(pkgs, ...) {
-      pkgs_not_installed <- pkgs[!(pkgs %in% installed.packages()[, "Package"])]
-      pkgs_installed <- pkgs[(pkgs %in% installed.packages()[, "Package"])]
-      if (length(pkgs_installed) > 0)
-        message(paste("Already Installed: ", paste(pkgs_installed,     collapse = "; ")))
-      if (length(pkgs_not_installed) > 0){
-        message(paste("NOW INSTALL: ",       paste(pkgs_not_installed, collapse = "; ")))
-        for (pkg in pkgs_not_installed)
-          try(utils::install.packages(pkg, ..., clean=TRUE))
-      }
-    }
-
     # colored output: --------------------------------------
     # remotes::install_github("https://github.com/jalvesaq/colorout")
     if (base::require(colorout, quietly = TRUE)) {
@@ -154,49 +138,72 @@ if (interactive()) {
       )
     }
 
-    # LIBRARY COMMAND -------------------------------------
-    # trys to load, if fails, prompt to install -----------
-    library <- require <- function(package, character.only = TRUE, quietly = TRUE, ...) {
-      package <- as.character(substitute(package))
-      e <- base::require(package, character.only = TRUE, quietly = TRUE, ...)
-      # if not installed, prompt to install
-      if (!e) {
-        message(paste0(package, " not installed "))
-        r <- readline(prompt = "Install package? (Y/n): ")
-        if (grepl("^y$|^\\s*$", r, ignore.case = TRUE)) {
-          message(paste("Installing", package))
-          install.packages(package)
-          e <- base::require(package, character.only = TRUE, quietly = TRUE)
-          # append to R-package-list?
-          r <- readline(prompt = "Append to R-package-list? (Y/n): ")
-          if (grepl("^y$", r, ignore.case = TRUE)) {
-            try_obj <- try(write(package, file = "~/LinuxConfig/installation-scripts/pkg/r.txt", append = TRUE))
-            if(inherits(try_obj, "try-error"))
-              message("Could not append to R-package-list")
-              print(try_obj)
+    # OVERRIDE library / require -----------------------------------------
+    # Attempts to load a package; prompts to install via 'pak' if missing
+    library <- require <- function(package, character.only = FALSE, quietly = TRUE, ...) {
+      if (!character.only) {
+        package <- as.character(substitute(package))
+      }
+      
+      # Attempt to load normally
+      loaded <- suppressWarnings(base::require(package, character.only = TRUE, quietly = TRUE, ...))
+      
+      # If missing, and we are in an interactive session (not a background job)
+      if (!loaded && interactive()) {
+        message(sprintf("\nPackage '%s' is not installed.", package))
+        ans_install <- readline(prompt = "Install package with pak? [Y/n]: ")
+        
+        # Accept 'y', 'Y', or empty string (Enter key) as Yes
+        if (trimws(tolower(ans_install)) %in% c("y", "")) {
+          
+          # Bootstrap pak if it's somehow missing
+          if (!base::requireNamespace("pak", quietly = TRUE)) {
+            utils::install.packages("pak", repos = "https://cloud.r-project.org/")
+          }
+          
+          # Install the package
+          message(sprintf("Installing %s...", package))
+          pak::pkg_install(package)
+          
+          # Try loading it again
+          loaded <- base::require(package, character.only = TRUE, quietly = TRUE)
+          
+          # If successful, prompt to append
+          if (loaded) {
+            ans_append <- readline(prompt = "Append to R-package-list? [Y/n]: ")
+            
+            if (trimws(tolower(ans_append)) %in% c("y", "")) {
+              list_path <- "~/LinuxConfig/installation-scripts/pkg/r.txt"
+              
+              # Safely append using tryCatch
+              tryCatch({
+                write(package, file = list_path, append = TRUE)
+                message(sprintf("Successfully appended '%s' to %s", package, list_path))
+              }, error = function(e) {
+                warning(sprintf("Could not append to list. Does the directory exist?\nError: %s", e$message))
+              })
+            }
           }
         } else {
           message("Aborting installation.")
         }
       }
-      invisible(e)
+      
+      # Return whether the package is successfully loaded
+      invisible(loaded)
     }
   # NO RSTUDIO / POSITRON --------------------------------------:
   if (interactive() && Sys.getenv("RSTUDIO") == "" && Sys.getenv("POSITRON") == ""){
 
   }
-}
 
 
 # -------------------------   END OF FILE --------------------------------------------
 environment()  # Return the environment
 })
 # Attach the new environment to the search path
-attach(Rprofile_objs, warn.conflicts = FALSE)
-rm(Rprofile_objs)
-
-# check if environment attached correctly
-if (interactive() && !("Rprofile_objs" %in% search())){
-  warning("Rprofile missing")
+attach(Rprofile_objs_interactive, warn.conflicts = FALSE)
+rm(Rprofile_objs_interactive)
 }
+
 

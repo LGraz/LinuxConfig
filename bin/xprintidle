@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# 1. Daemon Check
+# Ensure swayidle is running.
+if ! pgrep -u "$USER" -x "swayidle" > /dev/null; then
+    nohup swayidle -w \
+        timeout 1 'touch /tmp/wayland_idle_mark' \
+        resume 'rm -f /tmp/wayland_idle_mark' \
+        > /dev/null 2>&1 &
+fi
+
+# 2. Time Calculation
+# Try to get the stat first. Redirect stderr to /dev/null to suppress "No such file".
+# If stat fails (file doesn't exist), the if-condition is false.
+if MARK=$(stat -c %Y /tmp/wayland_idle_mark 2>/dev/null); then
+    NOW=$(date +%s)
+    IDLE_SEC=$((NOW - MARK + 1))
+    echo $((IDLE_SEC * 1000))
+else
+    # Stat failed, meaning file does not exist (active)
+    echo 0
+fi
