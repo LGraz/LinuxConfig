@@ -20,3 +20,5 @@ Templates/quarto-manuscript-template/_manuscript/*
 
 password
 sd_password
+.sync_journal.db-shm
+.sync_journal.db-wal

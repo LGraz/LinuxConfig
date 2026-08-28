@@ -10,6 +10,10 @@ code --install-extension eamodio.gitlens
 code --install-extension christian-kohler.path-intellisense
 code --install-extension james-yu.latex-workshop
 code --install-extension foam.foam-vscode
+
+code --install-extension quarto.quarto
+code --install-extension yzhang.markdown-all-in-one
+
 # positron as well
 positron --install-extension mechatroner.rainbow-csv
 positron --install-extension geddski.macros

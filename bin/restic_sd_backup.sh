@@ -1,49 +1,78 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
-# Configuration
-REPO="/media/lukas/BackupLG/restic-repo"
+# ---- single-instance guard --------------------------------------------------
+# Prevents overlapping runs (a long prune + a 30-min timer = stacked runs,
+# which is how abandoned exclusive locks happen in the first place).
+exec 9>"${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/restic_sd_backup.lock"
+if ! flock -n 9; then
+    echo "Previous run still in progress, skipping."
+    exit 0
+fi
+
+# ---- configuration ----------------------------------------------------------
+MOUNT="/media/lukas/BackupLG"
+REPO="$MOUNT/restic-repo"
 PASS_FILE="/home/lukas/.config/restic/sd_password"
 EXCLUDES="/home/lukas/.config/restic/sd_excludes.txt"
+PRUNE_STAMP="/home/lukas/.cache/restic_sd_last_prune"
+PRUNE_INTERVAL=$((24 * 3600))   # run forget --prune at most once a day
 
-# 1. Check if SD card is actually mounted/accessible
-if ! mountpoint -q /media/lukas/BackupLG; then
-    echo "SD Card not mounted. Attempting to access to trigger automount..."
-    # Accessing the dir triggers systemd automount
-    ls /media/lukas/BackupLG > /dev/null 2>&1
+fail() {
+    notify-send "Restic: Backup Failed" "$1" 2>/dev/null || true
+    echo "ERROR: $1" >&2
+    exit 1
+}
+
+# ---- 1. make sure the SD card is there --------------------------------------
+if ! mountpoint -q "$MOUNT"; then
+    echo "SD card not mounted, triggering automount..."
+    ls "$MOUNT" >/dev/null 2>&1 || true
     sleep 2
 fi
+mountpoint -q "$MOUNT" || fail "SD card not mounted ($MOUNT)."
+[ -d "$REPO" ]         || fail "Repository not found at $REPO."
+[ -r "$PASS_FILE" ]    || fail "Password file not readable ($PASS_FILE)."
+[ -r "$EXCLUDES" ]     || fail "Exclude file not readable ($EXCLUDES)."
 
-if ! [ -d "$REPO" ]; then
-    notify-send "Restic: Backup Failed" "Repository not found on SD card."
-    exit 1
-fi
-
-# 2. Export Restic Variables
+# ---- 2. environment ---------------------------------------------------------
 export RESTIC_REPOSITORY="$REPO"
 export RESTIC_PASSWORD_FILE="$PASS_FILE"
 
-# 3. Run Backup
-# --one-file-system prevents crossing into other mounts (like /proc if you were running as root, or other partitions)
-# notify-send "Restic" "Starting Backup..."
+# ---- 3. clear locks left behind by killed runs ------------------------------
+# Only removes locks restic considers stale; a live run's lock is untouched.
+restic unlock || fail "Could not clear stale locks. Run 'restic list locks' manually."
 
-if restic backup /home/lukas \
+# ---- 4. backup --------------------------------------------------------------
+restic backup /home/lukas \
     --exclude-file="$EXCLUDES" \
     --one-file-system \
-    --tag "sd-card-backup"; then
-    
-	# 4. Prune old snapshots
-    # --keep-within 1d: Keeps ALL snapshots from the last 24h (preserves your 30-min intervals)
-    # --keep-daily 10:  Keeps the last snapshot of the day for the last 10 days
-    restic forget --prune \
-        --keep-within 1d \
-        --keep-daily 10 \
-        --keep-weekly 4 \
-        --keep-monthly 6 \
-        --keep-yearly 1
-        
-    # notify-send "Restic" "Backup Successful"
+    --exclude-caches \
+    --tag "sd-card-backup" \
+    || fail "Backup run failed."
+
+# ---- 5. retention -----------------------------------------------------------
+# forget (cheap, metadata only) every run; prune (expensive, exclusive lock)
+# at most once every PRUNE_INTERVAL seconds.
+now=$(date +%s)
+last=0
+[ -f "$PRUNE_STAMP" ] && last=$(cat "$PRUNE_STAMP" 2>/dev/null || echo 0)
+
+KEEP=(--keep-within 1d --keep-daily 10 --keep-weekly 4 --keep-monthly 6 --keep-yearly 1)
+
+if [ $((now - last)) -ge "$PRUNE_INTERVAL" ]; then
+    echo "Running forget with prune..."
+    if restic forget --prune "${KEEP[@]}"; then
+        mkdir -p "$(dirname "$PRUNE_STAMP")"
+        echo "$now" > "$PRUNE_STAMP"
+    else
+        notify-send "Restic" "Backup OK, but prune failed." 2>/dev/null || true
+        exit 1
+    fi
 else
-    notify-send "Restic" "Backup Failed during execution"
-    exit 1
+    echo "Running forget without prune (last prune $(( (now - last) / 3600 ))h ago)..."
+    restic forget "${KEEP[@]}" \
+        || notify-send "Restic" "Backup OK, but forget failed." 2>/dev/null || true
 fi
+
+exit 0

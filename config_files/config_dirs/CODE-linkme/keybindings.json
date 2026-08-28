@@ -738,5 +738,24 @@
         "key": "alt+h",
         "command": "-editor.action.accessibilityHelpOpenHelpLink",
         "when": "accessibilityHelpIsShown"
+    },
+    {
+        "key": "alt+[Minus]",
+        "command": "r.helpPanel.openForSelection"
+    },
+    {
+        "key": "ctrl+alt+b",
+        "command": "-latex-workshop.build",
+        "when": "!config.latex-workshop.bind.altKeymap.enabled && !virtualWorkspace && editorLangId =~ /^build$|^latex$|^latex-class$|^latex-package$|^context$|^latex-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/"
+    },
+    {
+        "key": "shift+alt+b",
+        "command": "r.runFromBeginningToLine",
+        "when": "editorTextFocus && editorLangId == 'r'"
+    },
+    {
+        "key": "ctrl+alt+b",
+        "command": "-r.runFromBeginningToLine",
+        "when": "editorTextFocus && editorLangId == 'r'"
     }
 ]

@@ -56,7 +56,7 @@ copy_content_to_clipboard = [
 [open]
 prepend_rules = [
     # Documents pptx?|od[dfgpst]|docx?|sxc|xlsx?|xlt|xlw|gnm|gnumeric
-    { name = "*.{odt,ods,odp,doc,docx,xls,xlsx,ppt,pptx,rtf}", use = [ "open", "topdf", "reveal" ] },
+    # { name = "*.{odt,ods,odp,doc,docx,xls,xlsx,ppt,pptx,rtf}", use = [ "open", "topdf", "reveal" ] },
     # Video
 	{ mime = "video/*", use = [ "play", "open", "reveal", "reduce_videos" ] },
     # html in Browser
@@ -66,9 +66,9 @@ prepend_rules = [
 	# Image
 	{ mime = "image/*", use = [ "open", "reveal" ] },
 	# Folder
-	{ name = "*/", use = [ "open", "reveal" ] },
+	# { name = "*/", use = [ "open", "reveal" ] },
 	# R
-	{ name = "*.R", use = [ "r_to_pdf" ] },
+	# { name = "*.R", use = [ "r_to_pdf" ] },
 ]
     ## DEFAULTS
 	# # Media

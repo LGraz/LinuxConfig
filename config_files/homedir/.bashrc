@@ -92,3 +92,7 @@ fda() {
   local dir
   dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
 }
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/lukas/.local/bin:$PATH"

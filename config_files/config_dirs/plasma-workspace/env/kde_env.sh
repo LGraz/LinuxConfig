@@ -6,3 +6,4 @@ export VISUAL=/usr/bin/code
 export KDE_ENV=TRUE
 export SHELL=/bin/zsh
 export OPENBLAS_NUM_THREADS=$(( $(nproc) - 3 < 1 ? 1 : $(nproc) - 3 ))
+export RENV_CONFIG_USER_PROFILE=TRUE

@@ -1,0 +1,53 @@
+// === OS-generated junk files ===
+(?d).DS_Store
+(?d)Thumbs.db
+(?d)ehthumbs.db
+(?d)(?i)desktop.ini
+
+// === Shell / editor local state ===
+(?d).bash_history
+(?d).zsh_history
+(?d)micro/backups
+(?d)micro/buffers
+
+// === Sync-client internals ===
+.stversions
+(?d).owncloudsync.log*
+(?d).sync_journal.db*
+
+// === Trash / backups ===
+(?d).git_bak
+(?d).trash
+(?d).dtrash
+
+// === Obsidian: per-device state (never sync) ===
+(?d).obsidian/workspace
+(?d).obsidian/workspace.json
+(?d).obsidian/workspace-mobile.json
+(?d).obsidian/app.json
+
+// === R / RStudio local state ===
+(?d).Rproj.user
+(?d).Rhistory
+(?d).Rapp.history
+(?d).RData
+(?d).RDataTmp
+(?d).Ruserdata
+
+// === R / Quarto build artifacts & caches ===
+(?d).quarto
+(?d)_freeze
+(?d)_site
+(?d)site_libs
+(?d)cache
+(?d)*_cache
+(?d)**/renv/library
+(?d)**/renv/local
+(?d)**/renv/staging
+
+// === Python artifacts ===
+(?d)__pycache__
+(?d).venv
+(?d)venv
+(?d).ipynb_checkpoints
+(?d).pytest_cache

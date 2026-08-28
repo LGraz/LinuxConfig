@@ -87,7 +87,7 @@ tableone
 
 ### GitHub / External ----------------------------------------
 jalvesaq/colorout
-manuelhentschel/vscDebugger
+# manuelhentschel/vscDebugger
 
 ### MISC -----------------------------------------------------
 ATR
@@ -104,3 +104,13 @@ trtf
 ### Not needed? / Legacy? ------------------------------------
 
 ### NEW                   ------------------------------------
+reshape2
+OpenMx
+futureverse
+beepr
+psych
+bibtex
+bibtex
+proftools
+psych
+umx

@@ -58,6 +58,14 @@
         "editor.wordWrap": "on",
         "editor.renderWhitespace": "all"
     },
+    "workbench.colorCustomizations": {
+        "scrollbarSlider.background": "#8a8a8aaa",
+        "scrollbarSlider.hoverBackground": "#a0a0a0cc",
+        "scrollbarSlider.activeBackground": "#c0c0c0ee",
+        "editorCursor.foreground": "#ff00ff",
+        "terminalCursor.foreground": "#ff00ff",
+        "diffEditor.border": "#7a7a7a80", // vertical rule between the two sides
+    },
     // "workbench.colorCustomizations": {
     //     "editor.foreground": "#dddddd",
     //     // highlight tab
@@ -150,7 +158,6 @@
     "gitlens.statusBar.enabled": false,
     "gitlens.views.branches.branches.layout": "list",
     "workbench.panel.defaultLocation": "right",
-    "editor.minimap.enabled": false,
     // "workbench.iconTheme": "sweet-vscode-icons",
     "editor.cursorStyle": "block",
     "editor.cursorBlinking": "solid",
@@ -158,9 +165,9 @@
     "terminal.integrated.scrollback": 2000,
     "git.enableSmartCommit": true, // bar with directory
     // "debug.console.fontFamily": "Cascadia Code Light",
-    "debug.console.fontSize": 16,
+    "debug.console.fontSize": 18,
     "debug.console.lineHeight": 22,
-    "markdown.preview.fontSize": 16,
+    "markdown.preview.fontSize": 18,
     "r.session.viewers.viewColumn": {
         "viewer": "Two",
         "view": "Two"
@@ -186,7 +193,6 @@
         "editor.tabSize": 2,
     },
     "[r]": {
-        "editor.defaultFormatter": "Posit.air-vscode",
         "editor.tabSize": 2,
         "editor.formatOnPaste": false,
         "editor.wordSeparators": "`~!@#%$^&*()-=+[{]}\\|;:'\",<>/?"
@@ -333,7 +339,6 @@
         "--no-restore",
         "--quiet"
     ],
-    "r.helpPanel.cacheIndexFiles": "Global",
     "r.lsp.debug": true,
     "r.lsp.use_stdio": true,
     "r.removeLeadingComments": true,
@@ -350,7 +355,6 @@
     "r.lsp.diagnostics": false,
     "github.copilot.enable": {
         "*": true,
-        "plaintext": false,
         "markdown": true,
         "scminput": false,
         "quarto": true,
@@ -381,13 +385,11 @@
     "security.promptForLocalFileProtocolHandling": false,
     "git.postCommitCommand": "sync",
     "foam.dateSnippets.afterCompletion": "noop",
-    "window.zoomLevel": 1,
     "github.copilot.editor.enableAutoCompletions": true,
     "pdf-preview.default.sidebar": false,
     "explorer.openEditors.visible": 0,
     "editor.fontLigatures": true,
     "security.workspace.trust.untrustedFiles": "open",
-    "window.customTitleBarVisibility": "never",
     "window.titleBarStyle": "native",
     "markdown.math.enabled": true,
     "markdown.math.macros": {
@@ -927,14 +929,31 @@
         "-n3",
         "-45"
     ],
-    "editor.rulers": [
-        80
-    ],
     "diffEditor.maxComputationTime": 0,
     "github.copilot.nextEditSuggestions.enabled": true,
     "r.plot.useHttpgd": true,
     "search.useParentIgnoreFiles": true,
     "editor.detectIndentation": false,
-    "chat.viewSessions.orientation": "stacked",
     "workbench.editor.useModal": "off",
+    "todo-tree.ripgrep.ripgrep": "/usr/bin/rg",
+    "r.helpPanel.cacheIndexFiles": "Global",
+    "chat.viewSessions.orientation": "stacked",
+    "claudeCode.preferredLocation": "panel",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.renderSideBySide": true,
+    "workbench.activityBar.location": "top",
+    "editor.lineNumbers": "off",
+    "editor.glyphMargin": false,
+    "editor.minimap.enabled": false,
+    "chat.fontSize": 18,
+    // "editor.hideCursorInOverviewRuler": false,
+    // "editor.stickyScroll.enabled": true, // pins enclosing function/class at the top
+    // "breadcrumbs.enabled": true // symbol path, one thin row per group
+    // always draw it, don't fade
+    "editor.scrollbar.vertical": "visible",
+    // "editor.scrollbar.verticalScrollbarSize": 8, // raise to 16-18 if you want a fatter grab target
+    "editor.overviewRulerBorder": false, // a line separating it from the text
+    "editor.scrollBeyondLast": false,
+    "window.customTitleBarVisibility": "never", // slider size then honestly reflects file length
+
 }
