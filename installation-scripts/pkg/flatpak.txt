@@ -1,7 +1,9 @@
 com.spotify.Client
 com.bambulab.BambuStudio
+io.mango3d.LycheeSlicer
 net.ankiweb.Anki
 org.freecad.FreeCAD
 com.super_productivity.SuperProductivity
 us.zoom.Zoom
 org.zotero.Zotero
+com.nvidia.geforcenow

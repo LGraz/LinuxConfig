@@ -4,7 +4,8 @@ Agents may edit this file to help future sessions, but keep it short and plain: 
 Machines (check `hostname`; all reachable via tailscale, ssh with the shared key in ~/Work/.ssh):
 - salem: my private laptop, ThinkPad X1 Yoga Gen 4, details in `machines/salem.md`
 - tukey: my work laptop, also EndeavourOS + KDE
-- dirichlet: my girlfriend Robin's computer
+- dirichlet: my girlfriend's computer
+- acer: Acer Swift 3 SF315-52 laptop, details in `machines/acer.md`
 
 Syncthing setup:  
 - ~/Work is synced between salem and tukey

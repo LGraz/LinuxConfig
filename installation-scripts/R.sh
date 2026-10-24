@@ -15,10 +15,11 @@ fatal() { echo -e "${RED}[FATAL]${NC} $1"; exit 1; }
 # --- Phase 1: Pre-flight & Discovery ---
 
 # Determine the R version
-if [ $# -eq 1 ]; then
-    R_VERSION="$1"
-    info "Using specified R version: $R_VERSION"
+if [ $# -ne 1 ]; then
+    fatal "Usage: $0 <R version>, e.g. $0 4.6.0"
 fi
+R_VERSION="$1"
+info "Using specified R version: $R_VERSION"
 
 R_MAJOR_VERSION=$(echo "$R_VERSION" | cut -d. -f1)
 R_MINOR_VERSION=$(echo "$R_VERSION" | cut -d. -f1,2)

@@ -79,7 +79,7 @@ EOF
 fi
 
 function get_kwin_version() {
-    kwinSupportInfo="$(qdbus org.kde.KWin /KWin supportInformation)" || exit 1
+    kwinSupportInfo="$(qdbus6 org.kde.KWin /KWin supportInformation)" || exit 1
     kwinVersion="$(awk '/KWin version:/ {print $3}' <<< "$kwinSupportInfo")" || exit 1
     echo "$kwinVersion"
 }
@@ -98,20 +98,20 @@ if [[ -n "$INFO_ACTIVE" ]]; then
     jsFile="$(mktemp)" || exit 1   # It is the file where the javascript code is going to be saved
     echo "print(\"$jsFile\",workspace.activeWindow.internalId);" > "$jsFile" || exit 1
     
-    scriptId="$(qdbus org.kde.KWin /Scripting loadScript "$jsFile")" || exit 1
+    scriptId="$(qdbus6 org.kde.KWin /Scripting loadScript "$jsFile")" || exit 1
     timestamp="$(date +"%Y-%m-%d %H:%M:%S")" || exit 1
     # Starts the script
-    qdbus org.kde.KWin /Scripting/Script"$scriptId" run || exit 1
+    qdbus6 org.kde.KWin /Scripting/Script"$scriptId" run || exit 1
     
     # Uses some arguments that are also seen on https://github.com/jinliu/kdotool/blob/master/src/main.rs
     outputJournalctl="$(journalctl --since "$timestamp" --user --user-unit=plasma-kwin_wayland.service --user-unit=plasma-kwin_x11.service --output=cat -g "js: $jsFile")" || exit 1
     # Uses `awk` separately in order to avoid masking a return value, as Shellcheck recommends
     windowId="$(awk '{print $3}' <<< "$outputJournalctl")" || exit 1
     # Stops the script
-    qdbus org.kde.KWin /Scripting/Script"$scriptId" stop || exit 1
+    qdbus6 org.kde.KWin /Scripting/Script"$scriptId" stop || exit 1
     
     # Shows the information about that window
-    qdbus org.kde.KWin /KWin org.kde.KWin.getWindowInfo "$windowId" || exit 1
+    qdbus6 org.kde.KWin /KWin org.kde.KWin.getWindowInfo "$windowId" || exit 1
     
     exit 0
 fi

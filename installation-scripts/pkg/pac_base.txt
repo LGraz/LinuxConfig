@@ -1,136 +1,95 @@
-micro # better than nano
-network-manager-applet
-iw
-blueman
-cronie
-htop
-btop
-python-pip
-rclone
-ncdu # disk usage
-gcc-fortran
-##########################################
-###   MY PACKAGES
-##########################################
-# android-file-transfer
-#### FONTS --------
-# ttf-dejavu
-# ttf-liberation
-# terminus-font
-## --END OF MINIMAL INSTALL--
-# scanning - OCR - GUI
-# tesseract
-# tesseract-data-deu
-# tesseract-data-deu_frak
-# tesseract-data-eng
-# gscan2pdf
-progress
-# udiskie
-# obsidian
-# obs-studio
-# texlive
-yazi
-# owncloud-client
-# w3m
-# terminator
-# nerd-fonts
-jdk-openjdk
-# atool
-# podman
-wezterm
-# sway
-# swaybg
-# swaylock
-# swayidle
-okular
-# ufw
-# wiki-tui
-# xdg-desktop-portal-wlr
-pdfarranger
-# img2pdf
-perl-file-mimeinfo
-# mpv
-kitty
-cups
-avahi
+# Packages on top of a fresh EndeavourOS KDE install (official repos).
+# One package per line, everything after # is ignored. AUR packages: aur-pkgs.txt
+# Rebuilt 2026-10-24 from what salem and tukey actually have installed.
+
+## Shell & terminal
+zsh
+zsh-completions
+fzf                     # fzf-tab in .zshrc
 zoxide
+wezterm                 # terminal for yazi
+kitty                   # $TERMINAL
+yazi
+ouch                    # archives in yazi
+micro                   # $EDITOR
+btop
+htop
+ncdu
+progress
+tree
+jq                      # used by user_scripts/zotdrag
 7zip
-qt5-tools
-packagekit-qt6
-cmake
-wtype
-speech-dispatcher
-cups-browsed
-cups-filters
-cups-browsed
-cups-pdf
+zip
+
+## Sync, backup, network
+cronie
+syncthing
+restic
+rclone
+sshfs
+tailscale
+
+## Containers
 podman
-podman-compose
-docker
-docker-compose
+podman-compose          # paperless
+
+## Documents, writing, scanning
+libreoffice-still
+hyphen-de
+hyphen-en
+thunderbird
+obsidian
+calibre
+pdfarranger
+img2pdf
+gscan2pdf
+sane-airscan            # network scanners
+tesseract
+tesseract-data-eng
+tesseract-data-deu
+texlive                 # group: all texlive-* packages
+texlive-langgerman
+biber
+typst
+perl-yaml-tiny          # latexindent
+perl-file-homedir       # latexindent
+perl-file-mimeinfo      # mimeopen
+
+## Development
+npm
+python-pipx
+cmake                   # R packages
+gcc-fortran             # R packages
+gsl                     # R packages
+tk                      # R tcltk
+clang
+valgrind
+julia
+
+## Media & graphics
+gimp
+kolourpaint
+pinta
+digikam
+obs-studio
+kwave
+handbrake-cli
+intel-media-driver      # hardware video decoding on Intel GPUs
+
+## 3D
+sweethome3d
+
+## Other apps
+chromium
+discord
+ktorrent
 kwalletmanager
-dolphin
-timeshift
-timeshift
-xorg-xhost
-ark
-nautilus
 gparted
 gnome-disk-utility
-rustup
-zsh
-nerd-fonts
-syncthing
-libreoffice-still
-texlive
-biber
+android-file-transfer
 
-svn
---version
+## Desktop helpers
 wl-clipboard
-gimp
-system-config-printer
-owncloud-client
-nextcloud-client
-restic
-zip
-zip
-quazip-qt5
-tk
-gsl
-wev
-discord
-ouch
-kwave
-onnxruntime
-resvg
-yazi
-ydotool
-helix
-sshfs
-md-to-pdf
-evince
-npm
-qt6-tools
-restic
-speech-dispatcher
-wlprop
-hyphen-en
-hyphen-de
-podman
-svn
-typst
-sshfs
-perl-yaml-tiny
-perl-file-homedir
-tex-fmt
-vlc-plugin-ffmpeg
-kolourpaint
-ghostty
-firewalld
+wtype                   # KDE shortcut Alt+U
 plasma-firewall
-zip
-texlive-publishers
-jq
-system-config-printer
-podman-compose
+ipp-usb                 # USB printers

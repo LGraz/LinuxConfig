@@ -13,15 +13,18 @@ for package in $AUR_PAC; do
     yay -S --needed $package
 done
 
+# FLATPAK
+flatpak install flathub $(cat ~/LinuxConfig/installation-scripts/pkg/flatpak.txt)
+
 echo -ne "
 -------------------------------------------------------------------------
                     Enabling Essential Services
 -------------------------------------------------------------------------
 "
+# EndeavourOS already enables NetworkManager, firewalld and fstrim
 sudo systemctl enable cups.socket
-systemctl enable bluetooth
-systemctl enable sshd
-systemctl enable dhcpcd
-systemctl enable NetworkManager
-systemctl enable cronie.service
-systemctl enable NetworkManager.service
+sudo systemctl enable bluetooth
+sudo systemctl enable sshd
+sudo systemctl enable cronie
+sudo systemctl enable tailscaled
+sudo systemctl enable syncthing@$USER

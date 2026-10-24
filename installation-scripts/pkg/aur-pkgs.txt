@@ -1,81 +1,26 @@
-# epson-inkjet-printer-escpr
-## --END OF MINIMAL INSTALL--
-# snapper-gui-git
-###################
-##  my packages
-###################
-mathpix-snipping-tool
-# superproductivity-bin
-# teamviewer
-# timeshift
-zotero-bin
-zoom
-## theming ------
-# candy-icons-git
-# sweet-folders-icons-git
-## for dmenu with shell-aliases
-# dmenu-recent-aliases-git
-## to supress GTK3 decoration (resotres borders for nautilus in i3)
-# gtk3-nocsd-git
-# font
-#for_pyton_notebooks_in_code
-# visual-studio-code-bin
-# code-marketplace
-# code-features-insiders
-ripdrag
-# qtorrent
-# --------------
-svn
-wl-copy
---version
-wl-clipboard
-superproductivity-bin
-open-cad
-libwebkit2gtk
-pulse-secure
-canon-cque
-kwalletmanager
-pandoc-bin
+# AUR packages (install with yay). Same format as pac_base.txt.
+
+## Development & writing
+visual-studio-code-bin
+positron-ide-devel-bin
+arf-bin                 # R console
 quarto-cli-bin
-pam_mount
-system-config-printer
-superproductivity-bin
-owncloud-client
-pix2text
-nextcloud-client
-owncloud
-brave-bin
-python-pdfCropMargins
-restic
-zip
-zip
-python-imghdr
-mathpix
-quazip-qt5
-pipx
-tk
-gsl
-wev
-discord
-nanazip
-ouch
-kwave
-lycheeslicer
-stl-thumb
-stl-thumb
-fstl
-qtorrent
-onnxruntime
-resvg
-yazi
-ydotool
-helix
+pandoc-bin
+tex-fmt-bin
+fresh-editor-bin
+nuweb
+obsidian-export
 ocrmypdf
-sshfs
-firewalld
-plasma-firewall
-zip
-texlive-publishers
-jq
-system-config-printer
-podman-compose
+
+## Desktop
+ripdrag-git             # drag and drop from the terminal (zotdrag)
+kdotool-git
+maliit-keyboard         # on-screen keyboard for tablet mode
+
+## 3D printing
+fstl
+stl-thumb-kde
+
+## Printer drivers
+epson-inkjet-printer-escpr
+canon-cque
