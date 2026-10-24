@@ -1,4 +1,9 @@
-You find yourself on a ArchLinux system (installed via EndeavourOS) using KDE.
+You find yourself on a ArchLinux system (installed via EndeavourOS) using KDE Plasma (Wayland).
+Agents may edit this file to help future sessions, but keep it short and plain: I maintain it by hand.
+
+Machines (check `hostname`):
+- salem: ThinkPad X1 Yoga Gen 4, details in `machines/salem.md`
+- other machines in tailscale: dirichlet, tukey
 
 Syncthing setup:  
 - ~/Work is synced between this computer, my other computer
