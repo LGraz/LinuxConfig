@@ -1,17 +1,17 @@
 [[plugin.deps]]
 use = "ndtoan96/ouch"
-rev = "406ce6c"
-hash = "f5afc904d5106ee368c8aa2ded43bd74"
+rev = "cfe4f50"
+hash = "eff5702573b6cfba61e4ac8b1969629a"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "1962818"
-hash = "4c0260feb50ea2437380690ffc241da7"
+rev = "4dc7f1b"
+hash = "5b2fbef7d1513ce38ff72623a071a5e"
 
 [[plugin.deps]]
 use = "uhs-robert/sshfs"
-rev = "4070c8e"
-hash = "a4cd81fe60c350c3f0fde9957f4a4bb9"
+rev = "a8b8903"
+hash = "8c1b36103121a66b37308afaf7124575"
 
 [[plugin.deps]]
 use = "aresler/path-from-root"

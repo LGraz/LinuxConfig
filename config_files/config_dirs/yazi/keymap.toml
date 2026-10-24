@@ -21,13 +21,8 @@ desc = "Close the current tab, or quit if it is last tab"
 #''', "yank" ]
 
 [[mgr.prepend_keymap]]
-on   = [ "<C-s>" ]
-run  = 'shell "$SHELL" --block --confirm'
-desc = "Open shell here"
-
-[[mgr.prepend_keymap]]
 on   = "<C-s>"
-run  = 'shell "$SHELL" --block --confirm'
+run  = 'shell "$SHELL" --block'
 desc = "Open shell here"
 
 
@@ -41,9 +36,8 @@ on = [ "<C-n>" ]
 # run = '''
 # 	shell 'dragon-drop -x -i -T "$@"' --confirm
 # '''
-run = '''
-    shell 'ripdrag "$@" -xA 2>/dev/null &' --confirm
-'''
+run = "shell 'ripdrag %s -xA 2>/dev/null &' --orphan"
+desc = "Drag and drop via ripdrag"
 
 
 [[mgr.prepend_keymap]]
@@ -56,7 +50,7 @@ desc = "Compress with ouch"
 on  = "<C-e>"
 run = '''
 	shell '
-		paths=$(for p in "$@"; do echo "$p"; done | paste -s -d,)
+		paths=$(for p in %s; do echo "$p"; done | paste -s -d,)
 		quoted="'\'$paths\''"
 		thunderbird -compose "attachment=$quoted"
 	'
@@ -65,13 +59,13 @@ run = '''
 # Open current selection with Firefox (detached)
 [[mgr.prepend_keymap]]
 on = [ "F" ]
-run = "shell 'firefox \"$@\"' --silent --orphan"
+run = "shell 'firefox %s' --orphan"
 desc = "Open with Firefox (detached)"
 
 # Open current selection with VS Code (detached)
 [[mgr.prepend_keymap]]
 on = [ "E" ]
-run = "shell 'code \"$@\"' --silent --orphan"
+run = "shell 'code %s' --orphan"
 desc = "Open with VS Code (detached)"
 
 # SSH
@@ -121,7 +115,7 @@ run = "cd ~/Work/Projects"
 desc = "Go Projects"
 [[mgr.prepend_keymap]]
 on = ["g", "p", "p"]
-run = "cd ~/Documents/paperless/export"
+run = "cd ~/Documents/Paperless"
 desc = "Go paperless"
 [[mgr.prepend_keymap]]
 on = ["g", "v"]

@@ -354,13 +354,14 @@
     "update.showReleaseNotes": false,
     "r.lsp.diagnostics": false,
     "github.copilot.enable": {
-        "*": true,
-        "markdown": true,
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
         "scminput": false,
-        "quarto": true,
+        "quarto": false,
         "json": true,
         "jsonc": true,
-        "r": true,
+        "r": false,
         "shellscript": true
     },
     "ltex.completionEnabled": true,
@@ -383,7 +384,7 @@
     "workbench.startupEditor": "readme",
     "telemetry.telemetryLevel": "off",
     "security.promptForLocalFileProtocolHandling": false,
-    "git.postCommitCommand": "sync",
+    //"git.postCommitCommand": "",
     "foam.dateSnippets.afterCompletion": "noop",
     "github.copilot.editor.enableAutoCompletions": true,
     "pdf-preview.default.sidebar": false,
@@ -404,6 +405,8 @@
     "positron.r.defaultRepositories": "none",
     "ltex.additionalRules.motherTongue": "de-DE",
     "markdown.extension.katex.macros": {
+        "\\pa": "\\operatorname{pa}",
+        "\\ch": "\\operatorname{ch}",
         "\\R": "\\mathbb{R}",
         "\\sam": "{\\Omega}",
         "\\ps": "{(\\sam, \\sA, \\Prob)}",
@@ -942,7 +945,6 @@
     "diffEditor.ignoreTrimWhitespace": false,
     "diffEditor.renderSideBySide": true,
     "workbench.activityBar.location": "top",
-    "editor.lineNumbers": "off",
     "editor.glyphMargin": false,
     "editor.minimap.enabled": false,
     "chat.fontSize": 18,
@@ -954,6 +956,8 @@
     // "editor.scrollbar.verticalScrollbarSize": 8, // raise to 16-18 if you want a fatter grab target
     "editor.overviewRulerBorder": false, // a line separating it from the text
     "editor.scrollBeyondLast": false,
-    "window.customTitleBarVisibility": "never", // slider size then honestly reflects file length
+    "window.customTitleBarVisibility": "never",
+    "claudeCode.hideOnboarding": true,
+    "editor.lineNumbers": "off", // slider size then honestly reflects file length
 
 }

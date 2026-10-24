@@ -56,23 +56,9 @@ npm config set prefix ~/.npm-global
 # polybox setup -> sudo pacman -S owncloud-client --needed
     # set server as: https://polybox.ethz.ch
 
-# paperless
-    sudo systemctl enable docker.service --now
-    # download install_script
-    curl -L https://raw.githubusercontent.com/paperless-ngx/paperless-ngx/main/install-paperless-ngx.sh > ~/install_paperless
-
-    # add option to edit docker-compose.yml befor pulling:
-    sed -i '/${DOCKER_COMPOSE_CMD} pull/i /usr/bin/bash' ~/install_paperless
-    # execute script
-    ## !!! edit postgres version to 13: !!!
-    ## !!! check directory paths !!!
-    bash -c "$(cat ~/install_paperless)"
-    # clean up
-    rm ~/install_paperless
-
-    # run soming like:
-    # mv lukas_paperless_export ~/paperless-ngx/export
-    # docker compose exec -T webserver document_importer ../export/lukas_paperless_export
+# paperless (lives in ~/Documents/.paperless, see AGEND.md)
+    # rootless podman + podman-compose come from pac_base.txt, no daemon/sudo needed
+    ~/Documents/.paperless/paperless.sh up
 
 
 

@@ -552,6 +552,12 @@
         "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave' || editorLangId == 'quarto'",
         "args": "summary($$)"
     },
+    { //debugonce
+        "key": "alt+d",
+        "command": "r.runCommandWithSelectionOrWord",
+        "when": "editorLangId == 'r' || editorLangId == 'rmd' || editorLangId == 'rsweave' || editorLangId == 'quarto'",
+        "args": "debugonce($$)"
+    },
     {//r_get_methods
         "key": "alt+m",
         "command": "r.runCommandWithSelectionOrWord",

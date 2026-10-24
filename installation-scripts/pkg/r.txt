@@ -114,3 +114,6 @@ bibtex
 proftools
 psych
 umx
+vcd
+latticeExtra
+rms

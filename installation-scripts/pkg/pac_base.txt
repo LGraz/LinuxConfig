@@ -132,3 +132,5 @@ plasma-firewall
 zip
 texlive-publishers
 jq
+system-config-printer
+podman-compose

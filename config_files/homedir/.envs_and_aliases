@@ -1,6 +1,7 @@
 source ~/LinuxConfig/config_files/config_dirs/plasma-workspace/env/kde_env.sh
 
 # ALIASES
+alias chromiumuzh='ssh -f -N -D 1080 -C doksum && chromium --user-data-dir="$(mktemp -d)" --proxy-server="socks5://127.0.0.1:1080" &'
 #alias docker=podman
 alias dnf="sudo /usr/bin/dnf"
 alias R="R -q --no-save --no-restore-data"
@@ -54,4 +55,4 @@ function yy() {
 
 # source ~/Documents/IT/secrets/env-vars.sh
 
-
+# hallo robin

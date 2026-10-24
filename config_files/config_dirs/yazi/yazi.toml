@@ -28,35 +28,35 @@ ratio          = [ 3, 8, 7 ]
 # 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
 # ]
 open = [
-	{ run = 'xdg-open "$1"',                desc = "xdg-Open", for = "linux", orphan = true},
+	{ run = 'xdg-open %s1',                 desc = "xdg-Open", for = "linux", orphan = true},
 	# { run = 'open "$@"',                    desc = "Open", for = "macos" },
 	# { run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
-	{ run = 'mimeopen -a "$1"', desc = "mimeopen (ask)"    , for = "linux", block = true, orphan = true}, # requires perl-file-mimeinfo
-	{ run = 'mimeopen -d "$1"', desc = "mimeopen (default)", for = "linux", block = true, orphan = true}, # requires perl-file-mimeinfo
+	{ run = 'mimeopen -a %s1', desc = "mimeopen (ask)"    , for = "linux", block = true}, # requires perl-file-mimeinfo
+	{ run = 'mimeopen -d %s1', desc = "mimeopen (default)", for = "linux", block = true}, # requires perl-file-mimeinfo
 ]
 r_to_pdf = [
-    { run = '''Rscript -e "knitr::stitch('$1')" && rm -f "${1%.*}.tex" "${1%.*}.log"''', desc = "Stitch PDF from R", for = "linux" },
+    { run = '''f=%s1; Rscript -e "knitr::stitch('$f')" && rm -f "${f%.*}.tex" "${f%.*}.log"''', desc = "Stitch PDF from R", for = "linux" },
 ]
 topdf = [
-    { run = 'libreoffice --headless --convert-to pdf --outdir "$(dirname "$1")" "$@"', desc = "Convert to PDF", for = "linux" },
+    { run = 'libreoffice --headless --convert-to pdf --outdir %d1 %s', desc = "Convert to PDF", for = "linux" },
 ]
 reduce_videos = [
-    { run = 'for file in "$@"; do HandBrakeCLI -i "$file" -o "${file%.*}_REDUCE.mp4" --preset "Very Fast 480p30"   ; done; ', desc = "REDUCE videos", for = "unix" },
-    { run = 'for file in "$@"; do HandBrakeCLI -i "$file" -o "${file%.*}_Reduce.mp4" --preset "Fast 720p30"        ; done; ', desc = "Reduce videos", for = "unix" },
-    { run = 'for file in "$@"; do HandBrakeCLI -i "$file" -o "${file%.*}_reduce.mp4" --preset "HQ 1080p30 Surround"; done; ', desc = "reduce videos", for = "unix" },
+    { run = 'for file in %s; do HandBrakeCLI -i "$file" -o "${file%.*}_REDUCE.mp4" --preset "Very Fast 480p30"   ; done; ', desc = "REDUCE videos", for = "unix" },
+    { run = 'for file in %s; do HandBrakeCLI -i "$file" -o "${file%.*}_Reduce.mp4" --preset "Fast 720p30"        ; done; ', desc = "Reduce videos", for = "unix" },
+    { run = 'for file in %s; do HandBrakeCLI -i "$file" -o "${file%.*}_reduce.mp4" --preset "HQ 1080p30 Surround"; done; ', desc = "reduce videos", for = "unix" },
 ]
 browser = [
-    { run = '${BROWSER:-firefox} "$@"', desc = "Browser", for = "linux", orphan = true },
+    { run = '${BROWSER:-firefox} %s', desc = "Browser", for = "linux", orphan = true },
 ]
 copy_content_to_clipboard = [
-    { run = 'wl-copy < "$1"', desc = "Copy to clipboard", for = "linux" },
+    { run = 'wl-copy < %s1', desc = "Copy to clipboard", for = "linux" },
 ]
 
 
 [open]
 prepend_rules = [
     # Documents pptx?|od[dfgpst]|docx?|sxc|xlsx?|xlt|xlw|gnm|gnumeric
-    # { name = "*.{odt,ods,odp,doc,docx,xls,xlsx,ppt,pptx,rtf}", use = [ "open", "topdf", "reveal" ] },
+    # { url = "*.{odt,ods,odp,doc,docx,xls,xlsx,ppt,pptx,rtf}", use = [ "open", "topdf", "reveal" ] },
     # Video
 	{ mime = "video/*", use = [ "play", "open", "reveal", "reduce_videos" ] },
     # html in Browser
@@ -66,9 +66,9 @@ prepend_rules = [
 	# Image
 	{ mime = "image/*", use = [ "open", "reveal" ] },
 	# Folder
-	# { name = "*/", use = [ "open", "reveal" ] },
+	# { url = "*/", use = [ "open", "reveal" ] },
 	# R
-	# { name = "*.R", use = [ "r_to_pdf" ] },
+	# { url = "*.R", use = [ "r_to_pdf" ] },
 ]
     ## DEFAULTS
 	# # Media
@@ -80,9 +80,9 @@ prepend_rules = [
 	# { mime = "application/{json,x-ndjson}", use = [ "edit", "reveal" ] },
 	# { mime = "*/javascript", use = [ "edit", "reveal" ] },
 	# # Empty file
-	# { mime = "inode/x-empty", use = [ "edit", "reveal" ] },
+	# { mime = "inode/empty", use = [ "edit", "reveal" ] },
 	# # Fallback
-	# { name = "*", use = [ "open", "reveal" ] },
+	# { url = "*", use = [ "open", "reveal" ] },
 
 
 [plugin]
