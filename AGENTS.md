@@ -1,24 +1,26 @@
 You find yourself on a ArchLinux system (installed via EndeavourOS) using KDE Plasma (Wayland).
 Agents may edit this file to help future sessions, but keep it short and plain: I maintain it by hand.
 
-Machines (check `hostname`):
-- salem: ThinkPad X1 Yoga Gen 4, details in `machines/salem.md`
-- other machines in tailscale: dirichlet, tukey
+Machines (check `hostname`; all reachable via tailscale, ssh with the shared key in ~/Work/.ssh):
+- salem: my private laptop, ThinkPad X1 Yoga Gen 4, details in `machines/salem.md`
+- tukey: my work laptop, also EndeavourOS + KDE
+- dirichlet: my girlfriend Robin's computer
 
 Syncthing setup:  
-- ~/Work is synced between this computer, my other computer
-- ~/LinuxConfig is synced between this computer, my other computer
-- ~/Documents is synced between this compuer, my other computer, my phone
-- ~/Pictures is synced between this computer, my other computer, partially my phone (using a .stignore there)
+- ~/Work is synced between salem and tukey
+- ~/LinuxConfig is synced between salem and tukey
+- ~/Documents is synced between salem, tukey, my phone
+- ~/Pictures is synced between salem, tukey, partially my phone (using a .stignore there)
 
 Packages:  
 - use flatpak for user apps or whenever advisable
 - use pacman for systempackages
 
 Backup:
-- using restic on this and my other computer (TODO)
+- tukey: restic-sd-backup.timer backs up ~ to its built-in SD card (`bin/restic_sd_backup.sh`, excludes in `config_files/config_dirs/restic-tukey/`); this covers the synced folders above
+- salem: no backup yet (TODO)
 
-Docment management:
+Document management:
 - paperless-ngx in rootless podman (podman-compose, no sudo), only started when needed, on one machine at a time (DB is synced via Syncthing)
 - no login (auto-login as lukas), only reachable on http://127.0.0.1:8000
 - `~/Documents/.paperless/`: compose.yaml (setup + paperless version pinned), paperless.sh (reference podman commands), SQLite DB, archive/thumbnails

@@ -26,8 +26,5 @@ for file in "$CDIR/homedir"/*; do
     [ -e "$CDIR/homedir/$file_name" ] && ln -rs "$CDIR/homedir/$file_name" "$HOME/$file_name"
 done
 
-# Update crontabs
-crontab "$HOME/.cronjobs"
-
 
 # ln -s $CDIR/config_dirs/Code\ -\ OSS $HOME/.config
