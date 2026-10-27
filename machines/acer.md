@@ -1,11 +1,16 @@
 # acer — Acer Swift 3 SF315-52 (model no. N17P6)
 
-Hostname `acer`. 15.6" clamshell from 2018 (Intel 8th gen, Kaby Lake Refresh), aluminium chassis.
+Hostname **`dirichlet`** (it came with the disk, see "Current system"; the machine itself is still
+"the acer"). 15.6" clamshell from 2018 (Intel 8th gen, Kaby Lake Refresh), aluminium chassis.
 N17P6 is the regulatory model number shared by SF315-52 (Intel graphics only) and SF315-52G (+ NVIDIA MX150).
 
 This page was written from research while the laptop was offline: Acer/retailer spec sheets plus
 19 real Linux probes of SF315-52 units (linuxhw DMI + dmesg dumps, see links). Where configs differ, all
 variants are listed. Run the checklist at the bottom once the machine is online and replace them with the actual values.
+
+**Since 2026-10-25/26 this machine runs a 1 TB NVMe SSD moved over from another laptop, carrying
+Robin's Aurora install and the hostname `dirichlet` — see "Current system" below. Everything above
+that section is still research, not measurement.**
 
 ## Hardware
 - Mainboard: Acer "Erdinger_KL" (DMI board name), board code ER5EA
@@ -22,6 +27,8 @@ variants are listed. Run the checklist at the bottom once the machine is online 
   - shipped configs seen: SK hynix HFS256G39TND-N210A (M.2 SATA 256 GB), Kingston NVMe [2646:5008],
     Toshiba MQ04ABF100 1 TB HDD in the bay, some with Intel Optane Memory 16 GB [8086:2522] + HDD (Intel RST, see Linux notes)
   - SSD-only configs may lack the 2.5" cable/caddy
+  - **now fitted: INTEL SSDPEKKF010T8L 1 TB M.2 2280 NVMe** (see "Current system"), so the M.2 slot is
+    wired for PCIe and SATA must be in AHCI mode
 - Display: 15.6" 1920x1080 IPS, matte, 60 Hz, non-touch, eDP 30-pin (FHD TN and UHD panels exist as spare parts); reviews: rather dim
 - WiFi: Intel Dual Band Wireless-AC 7265 rev D [8086:095a], 2x2 802.11ac (max 867 Mbit/s), M.2 2230 card, iwlwifi/iwlmvm,
   firmware `iwlwifi-7265D-29.ucode`; on root port 00:1c.0 (PCIe 2.5 GT/s x1)
@@ -102,18 +109,104 @@ Links:
 - BIOS flashing thread: https://winraid.level1techs.com/t/request-bios-extract-and-flash-by-efi-shell-acer-sf315-52/35960
 - Acer support (drivers, BIOS, manual by serial number): https://www.acer.com/support
 
+## Current system: Robin's Aurora install (moved here 2026-10-25/26)
+
+The 1 TB NVMe SSD, and with it the whole operating system, came out of another laptop that was
+scrapped because of faulty RAM on its mainboard. Nothing of that fault is on this machine; what the
+disk brings along is listed here.
+
+- **Hostname `dirichlet`** and the same **Tailscale identity** (node `100.123.35.98`) — both live on
+  the disk, so this Acer answers to that name. Rename both (`hostnamectl`, Tailscale admin console)
+  if it should show up as `acer`.
+- **Aurora** (Universal Blue image, Fedora 44 Atomic, KDE Plasma / KWin 6.7.5 Wayland), kernel
+  7.2.7-200.fc44 when it was moved, ostree-based and **immutable**: packages via
+  `rpm-ostree install` (needs a reboot, or `--apply-live`), kernel args via `rpm-ostree kargs`,
+  user apps as Flatpaks.
+- Root: **btrfs, UUID `c153da0c-0274-4cf3-a01f-6c9ca5e10795`, `rootflags=subvol=root`** —
+  **no LUKS, the disk is unencrypted** (unlike salem). Relevant if the laptop leaves the house.
+- Kernel cmdline: `rhgb quiet root=UUID=… vconsole.keymap=ch rootflags=subvol=root rw`, plus the
+  leftover `efi_pstore` arg below.
+- Account: **`robin`** (`sudo` asks for Robin's password). Robin's migrated files are under
+  `~/Altes-System`.
+- Apps: Flatpaks — Brave 1.98.60 (default browser), Firefox 158.0.1,
+  `org.freedesktop.Platform.VAAPI.Intel`. Layered via rpm-ostree: `stress-ng`, `waypipe`.
+  Zoom is **not** installed; Zoom runs in a Brave tab. The Brave PWA
+  `hnpfjngllnobngcgfapefoaidbinmjnm` is WhatsApp Web.
+- `sysstat` collects every 10 min into `/var/log/sa`.
+- Known-benign Aurora quirks: a ZFS kernel taint and a failing `systemd-remount-fs.service`.
+
+### The drive (SMART, 2026-10-24)
+- INTEL **SSDPEKKF010T8L**, 1.02 TB, serial `PHHP937006AG1P0D`, firmware L12P, NVMe 1.3, 512 B LBA
+- Health **PASSED**, 1 % used, spare 100 %, **0 media/data-integrity errors**, 0 error-log entries,
+  extended self-test passed at 622 h
+- 1496 power-on hours, 1406 power cycles, 20.1 TB written / 109 TB read
+- 183 unsafe shutdowns, all from forced power-offs in its previous machine — not a drive defect
+
+### Leftovers to clean up
+```bash
+# kernel arg that was only there to capture kernel panics
+sudo rpm-ostree kargs --delete=efi_pstore.pstore_disable=0
+# crash records from the old machine, safe to delete
+sudo rm -rf /var/lib/systemd/pstore/*
+```
+- Re-enable hardware video decode, which was switched off for testing: Brave `brave://flags` →
+  "Hardware-accelerated video decode" = Enabled (Default), Firefox `about:config` →
+  `media.hardware-video-decoding.enabled` = true. Same UHD 620 and the same VAAPI Flatpak extension
+  here, so iHD should give H.264/VP8/VP9/HEVC decode; verify with `vainfo` and with the decoder list
+  under "Video Acceleration Information" in `brave://gpu` (not the "Video Decode" feature line).
+- Battery charge thresholds were stored in the old machine's firmware and are **gone**; this Acer has
+  no equivalent.
+- Fingerprint enrollments stayed in the old machine's sensor. Enroll again on the EgisTec sensor
+  (`fprintd`, KDE Settings → Users) if wanted.
+
+### Data integrity
+The disk spent its whole life (1496 h) in a machine whose RAM was faulty (memtest86+ reported errors
+there). Anything written there may have been corrupted **before** btrfs computed its checksum, in
+which case btrfs cannot detect it. Worth doing once:
+```bash
+sudo btrfs scrub start -B /     # catches post-checksum corruption only
+```
+plus a spot-check of important files against a known-good backup. A clean reinstall is the only way
+to be sure the system files are sound.
+
+### Consequences of the hardware change
+Fedora Atomic images are generic, so the disk boots here, but the install was tuned for a different
+laptop:
+- UEFI boot entries stayed in the old machine's NVRAM, so this Acer boots via the
+  `\EFI\BOOT\BOOTX64.EFI` fallback; Fedora's shim recreates its own entry on the next update.
+  Acer quirk: enabling Secure Boot needs a supervisor password first (see Firmware above).
+- WiFi is Intel 7265D here (`iwlwifi-7265D-29.ucode`), a different firmware blob — comes with the
+  standard `linux-firmware`, nothing to do.
+- Audio is Realtek ALC256 on plain `snd_hda_intel`. The old sound fix in
+  `installation-scripts/acer.sh` still matches this hardware; `/etc/modprobe.d/` is writable on
+  ostree, so it can go there — but check first whether sound simply works.
+- The AER spam on the WiFi root port (see Linux notes) is silenced with
+  `sudo rpm-ostree kargs --append=pci=noaer`.
+- This Acer has real S3 sleep; the install came from a machine that used s2idle.
+- **RAM is socketed here.** If this machine ever shows random segfaults in unrelated programs, hard
+  lockups or display corruption, run memtest86+ and swap the modules — here that is a cheap fix.
+
 ## System setup
-TODO once online.
+See "Current system" above: Aurora / Fedora 44 Atomic, ostree, btrfs, unencrypted, hostname
+`dirichlet`, account `robin`.
 
 ## To check when it's online
+Still open (the commands are the same under Aurora; the account on that install is **`robin`**, and
+`sudo` asks for Robin's password):
 - `sudo dmidecode -t system -t bios -t memory`: exact SKU (SF315-52-xxxx), BIOS version, RAM modules and free slot
-- `lspci -nn`, `lsusb`: which variant (MX150? NVMe or SATA? SATA in AHCI mode?)
-- `lsblk -o NAME,MODEL,SIZE,TRAN`: drives
+- `lspci -nn`, `lsusb`: which variant (MX150? SATA in AHCI mode?)
+- `lsblk -o NAME,MODEL,SIZE,TRAN`: drives (the 2.5" bay — is anything still in it?)
 - `cat /proc/cpuinfo | grep -m1 'model name'`
 - `upower -i $(upower -e | grep BAT)`: battery health (design vs full capacity, cycles)
 - `sudo libinput list-devices | grep -A1 Touchpad`: Synaptics or ELAN
 - `journalctl -k -b | grep -c AER`: AER spam present?
 
-Old setup fixes (sound, keyboard model, sleep disabled): `installation-scripts/acer.sh`
+Old setup fixes (sound, keyboard model, sleep disabled): `installation-scripts/acer.sh` — written for
+the old Arch install on this machine; the sound part is hardware-specific and still relevant, the
+`localectl set-x11-keymap ch acer_laptop` part is not needed on a Wayland/KDE system that already has
+`vconsole.keymap=ch`.
 
 ## Health log
+- 2026-10-25/26: fitted with the 1 TB Intel NVMe carrying Robin's Aurora install, hostname now
+  `dirichlet`. Drive SMART clean as of 2026-10-24: 1 % used, 1496 h, 0 media errors. The Acer's own
+  RAM, battery and fans have not been measured yet — run the checklist above.
