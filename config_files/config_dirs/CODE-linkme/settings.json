@@ -252,14 +252,14 @@
     "terminal.integrated.commandsToSkipShell": [
         // Ensure the toggle sidebar visibility keybinding skips the shell
         "workbench.action.toggleSidebarVisibility",
-        "workbench.action.focusAboveGroup",
-        "workbench.action.focusBelowGroup",
-        "workbench.action.focusLeftGroup",
-        "workbench.action.focusRightGroup",
-        "workbench.action.moveEditorToAboveGroup",
-        "workbench.action.moveEditorToBelowGroup",
-        "workbench.action.moveEditorToLeftGroup",
-        "workbench.action.moveEditorToRightGroup"
+            "workbench.action.focusAboveGroup",
+            "workbench.action.focusBelowGroup",
+            "workbench.action.focusLeftGroup",
+            "workbench.action.focusRightGroup",
+            "workbench.action.moveEditorToAboveGroup",
+            "workbench.action.moveEditorToBelowGroup",
+            "workbench.action.moveEditorToLeftGroup",
+            "workbench.action.moveEditorToRightGroup"
     ],
     "git.openRepositoryInParentFolders": "always",
     "application.shellEnvironmentResolutionTimeout": 1,
@@ -956,8 +956,8 @@
     // "editor.scrollbar.verticalScrollbarSize": 8, // raise to 16-18 if you want a fatter grab target
     "editor.overviewRulerBorder": false, // a line separating it from the text
     "editor.scrollBeyondLast": false,
+    "window.customTitleBarVisibility": "never",
     "claudeCode.hideOnboarding": true,
-    "editor.lineNumbers": "off",
-    "window.commandCenter": false,
-    "window.customTitleBarVisibility": "never", // slider size then honestly reflects file length
+    "editor.lineNumbers": "off", // slider size then honestly reflects file length
+
 }
