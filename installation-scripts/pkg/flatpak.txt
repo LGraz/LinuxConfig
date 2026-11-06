@@ -1,9 +1,32 @@
+# Flathub apps (4-post-install.sh). Same format as pac_base.txt.
+
+## Documents & writing
+org.libreoffice.LibreOffice     # bundles its own hyphenation/dictionaries
+org.mozilla.thunderbird         # release channel (org.mozilla.Thunderbird is EOL and redirects to ESR)
+md.obsidian.Obsidian
+com.calibre_ebook.calibre
+com.github.jeromerobert.pdfarranger
+org.zotero.Zotero
+com.super_productivity.SuperProductivity
+net.ankiweb.Anki
+
+## Media & graphics
+# org.gimp.GIMP
+# com.github.PintaProject.Pinta
+org.kde.kolourpaint
+org.kde.digikam
+# com.obsproject.Studio           # OBS's own recommended build
+org.kde.kwave
 com.spotify.Client
+
+## 3D
+com.sweethome3d.Sweethome3d
+org.freecad.FreeCAD
 com.bambulab.BambuStudio
 io.mango3d.LycheeSlicer
-net.ankiweb.Anki
-org.freecad.FreeCAD
-com.super_productivity.SuperProductivity
+
+## Communication & other
+com.discordapp.Discord
 us.zoom.Zoom
-org.zotero.Zotero
-com.nvidia.geforcenow
+org.kde.ktorrent
+

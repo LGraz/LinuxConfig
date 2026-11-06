@@ -8,7 +8,7 @@ jsonlite
 knitr
 languageserver
 pacman
-pak
+# pak  (bootstrapped by R.sh; pak cannot install itself)
 R6
 Rcpp
 readxl
@@ -40,7 +40,7 @@ merDeriv
 mlt.docreg
 mpr
 randomForestSRC
-Stat2Data
+# Stat2Data  (removed from CRAN 2026-10-12)
 TH.data
 timereg
 tram
@@ -61,7 +61,6 @@ lmerTest
 mice
 missForest
 misty
-mlr3verse
 multcomp
 randomForest
 ranger
@@ -110,10 +109,7 @@ futureverse
 beepr
 psych
 bibtex
-bibtex
 proftools
-psych
-umx
 vcd
 latticeExtra
 rms

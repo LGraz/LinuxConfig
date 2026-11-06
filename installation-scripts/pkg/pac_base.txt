@@ -1,13 +1,18 @@
 # Packages on top of a fresh EndeavourOS KDE install (official repos).
 # One package per line, everything after # is ignored. AUR packages: aur-pkgs.txt
 # Rebuilt 2026-10-24 from what salem and tukey actually have installed.
+# 2026-11-06 (haken): GUI apps moved to flatpak.txt; dropped intel-media-driver (EndeavourOS installs it).
 
 ## Shell & terminal
 zsh
 zsh-completions
-fzf                     # fzf-tab in .zshrc
+zsh-autosuggestions
+zsh-syntax-highlighting
+starship                # prompt for zsh (and bash)
+fzf                     # Ctrl+R/Ctrl+T/Alt+C in .zshrc
 zoxide
 wezterm                 # terminal for yazi
+ttf-nerd-fonts-symbols-mono  # icon glyphs for wezterm/yazi (Arch wezterm has no bundled fonts)
 kitty                   # $TERMINAL
 yazi
 ouch                    # archives in yazi
@@ -30,17 +35,11 @@ sshfs
 tailscale
 
 ## Containers
+flatpak                 # not preinstalled on EndeavourOS KDE
 podman
 podman-compose          # paperless
 
 ## Documents, writing, scanning
-libreoffice-still
-hyphen-de
-hyphen-en
-thunderbird
-obsidian
-calibre
-pdfarranger
 img2pdf
 gscan2pdf
 sane-airscan            # network scanners
@@ -67,26 +66,11 @@ valgrind
 julia
 
 ## Media & graphics
-gimp
-kolourpaint
-pinta
-digikam
-obs-studio
-kwave
 handbrake-cli
-intel-media-driver      # hardware video decoding on Intel GPUs
-
-## 3D
-sweethome3d
 
 ## Other apps
 chromium
-discord
-ktorrent
 kwalletmanager
-gparted
-gnome-disk-utility
-android-file-transfer
 
 ## Desktop helpers
 wl-clipboard

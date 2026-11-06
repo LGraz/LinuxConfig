@@ -1,9 +1,7 @@
 # AUR packages (install with yay). Same format as pac_base.txt.
 
 ## Development & writing
-visual-studio-code-bin
 positron-ide-devel-bin
-arf-bin                 # R console
 quarto-cli-bin
 pandoc-bin
 tex-fmt-bin
@@ -11,11 +9,11 @@ fresh-editor-bin
 nuweb
 obsidian-export
 ocrmypdf
+antigravity-cli         # agy (Google Antigravity CLI)
 
 ## Desktop
 ripdrag-git             # drag and drop from the terminal (zotdrag)
 kdotool-git
-maliit-keyboard         # on-screen keyboard for tablet mode
 
 ## 3D printing
 fstl

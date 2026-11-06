@@ -23,5 +23,28 @@ EOF
 # remove bell-beep
     echo 'blacklist pcspkr' | sudo tee /etc/modprobe.d/nobeep.conf
 
-# ZSH as login shell (plugins are installed by zinit on first start, see .zshrc)
+# ZSH as login shell (prompt and plugins come from pacman, see pac_base.txt and .zshrc)
     chsh -s /bin/zsh
+
+# PACKAGES (lists in pkg/, one package per line, everything after # is ignored)
+    pkglist() { grep -vE '^\s*#|^\s*$' ~/LinuxConfig/installation-scripts/pkg/$1 | sed 's/#.*//' | tr '\n' ' '; }
+    # pacman (official repos); also installs flatpak, which the next steps need
+    sudo pacman -Syu --needed $(pkglist pac_base.txt)
+    # AUR
+    yay -S --needed $(pkglist aur-pkgs.txt)
+    # Flathub
+    flatpak install -y flathub $(pkglist flatpak.txt)
+
+# SERVICES (EndeavourOS already enables NetworkManager, firewalld and fstrim)
+    sudo systemctl enable cups.socket
+    sudo systemctl enable bluetooth
+    sudo systemctl enable sshd
+    # sudo systemctl enable cronie
+    sudo systemctl enable tailscaled
+    sudo systemctl enable syncthing@$USER
+
+# R: built from source into ~/.local/R/<version>, symlinked to ~/.local/bin (needs gcc-fortran etc. from pac_base.txt)
+    R_VERSION=4.6.0   # latest on https://cran.r-project.org/src/base/R-4/
+    bash ~/LinuxConfig/installation-scripts/R.sh $R_VERSION
+    # R packages (R.sh already bootstrapped pak)
+    ~/.local/R/$R_VERSION/bin/Rscript -e 'pak::pkg_install(unique(read.table("~/LinuxConfig/installation-scripts/pkg/r.txt", comment.char = "#")[[1]]), upgrade = FALSE)'

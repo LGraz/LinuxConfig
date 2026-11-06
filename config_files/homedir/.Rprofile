@@ -64,7 +64,7 @@ if (interactive()) {
 }
 
 if (
-  interactive() && Sys.info()["nodename"] %in% c("tukey", "salem", "dirichlet")
+  interactive() && Sys.info()["nodename"] %in% c("tukey", "salem", "haken", "dirichlet")
 ) {
   Rprofile_objs_interactive <- local({
     # INTERACTIVE --------------------------------------------------

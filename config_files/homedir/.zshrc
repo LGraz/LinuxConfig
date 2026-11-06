@@ -1,39 +1,10 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# Prompt: starship (pacman, config ~/.config/starship.toml if wanted, defaults otherwise)
+# Plugins: pacman packages zsh-completions, zsh-autosuggestions, zsh-syntax-highlighting (no plugin manager)
 
-# Set the directory we want to store zinit and plugins
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-
-# Download Zinit, if it's not there yet
-if [ ! -d "$ZINIT_HOME" ]; then
-   mkdir -p "$(dirname $ZINIT_HOME)"
-   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-fi
-
-# Source/Load zinit
-source "${ZINIT_HOME}/zinit.zsh"
 source ~/LinuxConfig/config_files/homedir/.envs_and_aliases
 
-# Add in Powerlevel10k
-zinit ice depth=1; zinit light romkatv/powerlevel10k
-
-# Add in zsh plugins
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
-zinit light Aloxaf/fzf-tab
-
-# Load completions
+# Load completions (zsh-completions installs into /usr/share/zsh/site-functions)
 autoload -Uz compinit && compinit
-
-zinit cdreplay -q
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Keybindings
 bindkey -e   # emacs-mode
@@ -68,9 +39,7 @@ setopt hist_find_no_dups
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+zstyle ':completion:*' menu select
 
 
 set -k # ignore comments in zsh (thing beginning with "#")
@@ -79,6 +48,12 @@ set -k # ignore comments in zsh (thing beginning with "#")
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+(( $+commands[starship] )) && eval "$(starship init zsh)"
+
+# Plugins (syntax highlighting has to be sourced last; skipped if the package is missing)
+for p in zsh-autosuggestions zsh-syntax-highlighting; do
+    [[ -r /usr/share/zsh/plugins/$p/$p.zsh ]] && source /usr/share/zsh/plugins/$p/$p.zsh
+done
 
 
 # Added by Antigravity CLI installer

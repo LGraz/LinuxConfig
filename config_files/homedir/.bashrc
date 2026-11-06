@@ -96,3 +96,6 @@ fda() {
 
 # Added by Antigravity CLI installer
 export PATH="/home/lukas/.local/bin:$PATH"
+
+# Prompt: starship (same as zsh)
+command -v starship >/dev/null && eval "$(starship init bash)"
